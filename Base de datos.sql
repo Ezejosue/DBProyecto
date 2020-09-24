@@ -7,16 +7,16 @@ use master
 use Control_Ligas
 
 --TABLA FECHA FIFA
-create table FechaFifa
+create table Fechas
 (
-	IdFechaFifa varchar(20) not null,
-	FechaFifaInicio date not null,
-	FechaFifaFinal date not null,
+	IdFecha varchar(20) not null,
+	Fecha date not null,
+	DescripcionFecha VARCHAR(MAX)
 	--LLAVE PRIMARIA
 	constraint pk_IdFechaFifa primary key (IdFechaFifa)
 );
 
---TABLA PAÍS
+--TABLA PAï¿½S
 create table Pais
 (
 	IdPais varchar(20) not null,
@@ -40,12 +40,13 @@ create table Estadio
 	IdEstadio varchar(20) not null,
 	NombreEstadio varchar(100) not null unique,
 	CapacidadEstadio int not null,
+	DireccionEstado varchar(MAX)
 	--LLAVE PRIMARIA
 	constraint pk_IdEstadio primary key (IdEstadio)
 );
 
 
---TABLA DÍA FAVORITO
+--TABLA Dï¿½A FAVORITO
 create table DiaFavorito
 (
 	IdDiaFavorito varchar(20) not null,
@@ -55,7 +56,7 @@ create table DiaFavorito
 );
 
 
---TABLA DIVISIÓN
+--TABLA DIVISIï¿½N
 create table Division
 (
 	IdDivision varchar(20) not null,
@@ -99,7 +100,7 @@ create table Equipo
 	constraint fk_Equipo_Liga foreign key (IdLiga) references Liga (IdLiga),
 );
 
---TABLA CAMPAÑA
+--TABLA CAMPAï¿½A
 create table Campania
 (
 	IdCampania varchar(20) not null,
@@ -133,6 +134,9 @@ create table Patrocinador
 (
 	IdPatrocinador varchar(20) not null,
 	NombrePatrocinador varchar(100) not null unique,
+	TelefonoPatrocinador varchar(20) unique,
+	CorreoPatrocinador varchar(20) check(CorreoPatrocinador like '%[a-z, 0-9]%@[a-z]'),
+	Logo IMAGE,
 	--LLAVE PRIMARIA
 	constraint pk_IdPatrocinador primary key (IdPatrocinador)
 );
@@ -142,27 +146,41 @@ create table Detalle_Equipo_Patrocinador
 (
 	IdEquipo varchar(20) not null,
 	IdPatrocinador varchar(20) not null,
+	Estado int check(estado=1 or estado=0) default 1,
+	FechaInicio DATE,
+	FechaFin DATE CHECK(FechaFin>FechaInicio)
 	--Llaves secundaria
 	constraint fk_Detalle_Equipo_Patrocinador_IdEquipo foreign key (IdEquipo) references Equipo (IdEquipo),
 	constraint fk_Detalle_Equipo_Patrocinador_IdPatrocinador foreign key (IdPatrocinador) references Patrocinador (IdPatrocinador)
 );
 
---TABLA DUEÑO
-create table Dueño
+--TABLA DUEï¿½O
+create table Dueï¿½o
 (
-	IdDueño varchar(20) not null,
-	NombreDueño varchar(100) not null unique,
-	DireccionDueño varchar(200) not null,
-	TelefonoDueño varchar(20) not null unique,
+	IdDueï¿½o varchar(20) not null,
+	NombreDueï¿½o varchar(100) not null unique,
+	DireccionDueï¿½o varchar(200) not null,
+	TelefonoDueï¿½o varchar(20) not null unique,
 	IdEquipo varchar(20) not null,
 	--LLAVE PRIMARIA
-	constraint pk_IdDueño primary key (IdDueño),
-	--LLAVE SECUNDARIA
-	constraint fk_Dueño_Equipo foreign key (IdEquipo) references Equipo (IdEquipo)
+	constraint pk_IdDueï¿½o primary key (IdDueï¿½o)
+
 );
 
---TABLA EQUIPACIÓN
-create table Equipación
+--TABLA DetalleDUEï¿½O
+create table DetalleDueï¿½o
+(
+	IdDueï¿½o varchar(20) not null,
+	IdEquipo varchar(20) not null,
+	--LLAVE SECUNDARIA
+	constraint fk_Detalle_DueÃ±o foreign key (IdDueï¿½o) references Dueï¿½o (IdDueï¿½o),
+	constraint fk_DueÃ±o_Equipo foreign key (IdEquipo) references Equipo (IdEquipo)
+);
+
+
+
+--TABLA EQUIPACIï¿½N
+create table Equipaciï¿½n
 (
 	IdEquipacion varchar(20) not null,
 	DescripcionEquipacion varchar(200) not null,
@@ -219,10 +237,10 @@ create table Goleador
 create table Detalle_Descenso
 (
 	IdEquipo varchar(20) not null,
-	IdCampaña varchar(20) not null,
+	IdCampaï¿½a varchar(20) not null,
 	--LLAVE SECUNDARIA
 	constraint fk_Detalle_Descenso_IdEquipo foreign key (IdEquipo) references Equipo (IdEquipo),
-	constraint fk_Detalle_Descenso_IdCampania foreign key (IdCampaña) references Campania (IdCampania)
+	constraint fk_Detalle_Descenso_IdCampania foreign key (IdCampaï¿½a) references Campania (IdCampania)
 );
 
 --TABLA JORNADA
@@ -250,6 +268,22 @@ create table Partido
 	constraint fk_Partido_EquipoVisitante foreign key (EquipoVisitante) references Equipo (IdEquipo),
 	constraint fk_Partido_EquipoPerdedor foreign key (EquipoLocal) references Equipo (IdEquipo),
 	constraint fk_Partido_Jornada foreign key (IdJornada) references Jornada (IdJornada)
+);
+
+--TABLA GOLES
+create table Goles
+(
+	idGol int not null,
+	IdPartido varchar(20) not null,
+	IdJugador varchar(20) not null,
+
+	--LLAVE PRIMARIA
+	constraint pk_IdGol primary key(idGol),
+	
+	--LLAVE SECUNDARIA
+	constraint fk_idpartido foreign key(IdPartido) references Partido(IdPartido),
+	constraint fk_Goleador_Jugador foreign key (IdJugador) references Jugador (IdJugador),
+
 );
 
 --TABLA RESULTADO
@@ -305,7 +339,7 @@ create table Tarjeta
 );
 
 
---TABLA POSICIÓN
+--TABLA POSICIï¿½N
 create table Posicion
 (
 	IdPosicion varchar(20) not null,
