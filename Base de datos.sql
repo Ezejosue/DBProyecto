@@ -6,14 +6,14 @@ use master
 --CREANDO TABLAS
 use Control_Ligas
 
---TABLA FECHA FIFA
-create table Fechas
+--TABLA FechaNoPermitida
+create table FechaNoPermitida
 (
-	IdFecha varchar(20) not null,
-	Fecha date not null,
+	IdFechaNoPermitida varchar(20) not null,
+	FechaNoPermitida date not null,
 	DescripcionFecha VARCHAR(MAX)
 	--LLAVE PRIMARIA
-	constraint pk_IdFechaFifa primary key (IdFechaFifa)
+	constraint pk_FechaNoPermitida primary key (IdFechaNoPermitida)
 );
 
 --TABLA PA�S
@@ -155,32 +155,32 @@ create table Detalle_Equipo_Patrocinador
 );
 
 --TABLA DUE�O
-create table Due�o
+create table Duenio
 (
-	IdDue�o varchar(20) not null,
-	NombreDue�o varchar(100) not null unique,
-	DireccionDue�o varchar(200) not null,
-	TelefonoDue�o varchar(20) not null unique,
+	IdDuenio varchar(20) not null,
+	NombreDuenio varchar(100) not null unique,
+	DireccionDuenio varchar(200) not null,
+	TelefonoDuenio varchar(20) not null unique,
 	IdEquipo varchar(20) not null,
 	--LLAVE PRIMARIA
-	constraint pk_IdDue�o primary key (IdDue�o)
+	constraint pk_IdDuenio primary key (IdDuenio)
 
 );
 
 --TABLA DetalleDUE�O
-create table DetalleDue�o
+create table DetalleDuenio
 (
-	IdDue�o varchar(20) not null,
+	IdDuenio varchar(20) not null,
 	IdEquipo varchar(20) not null,
 	--LLAVE SECUNDARIA
-	constraint fk_Detalle_Dueño foreign key (IdDue�o) references Due�o (IdDue�o),
+	constraint fk_Detalle_Dueño foreign key (IdDuenio) references Duenio (IdDuenio),
 	constraint fk_Dueño_Equipo foreign key (IdEquipo) references Equipo (IdEquipo)
 );
 
 
 
 --TABLA EQUIPACI�N
-create table Equipaci�n
+create table Equipacion
 (
 	IdEquipacion varchar(20) not null,
 	DescripcionEquipacion varchar(200) not null,
@@ -237,10 +237,10 @@ create table Goleador
 create table Detalle_Descenso
 (
 	IdEquipo varchar(20) not null,
-	IdCampa�a varchar(20) not null,
+	IdCampania varchar(20) not null,
 	--LLAVE SECUNDARIA
 	constraint fk_Detalle_Descenso_IdEquipo foreign key (IdEquipo) references Equipo (IdEquipo),
-	constraint fk_Detalle_Descenso_IdCampania foreign key (IdCampa�a) references Campania (IdCampania)
+	constraint fk_Detalle_Descenso_IdCampania foreign key (IdCampania) references Campania (IdCampania)
 );
 
 --TABLA JORNADA
