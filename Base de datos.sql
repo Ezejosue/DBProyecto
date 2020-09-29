@@ -12,8 +12,8 @@ create table FechaNoPermitida
 	IdFechaNoPermitida varchar(20) not null,
 	FechaNoPermitida date not null,
 	DescripcionFecha VARCHAR(MAX)
-	--LLAVE PRIMARIA
-	constraint pk_FechaNoPermitida primary key (IdFechaNoPermitida)
+		--LLAVE PRIMARIA
+		constraint pk_FechaNoPermitida primary key (IdFechaNoPermitida)
 );
 
 --TABLA PA�S
@@ -41,8 +41,8 @@ create table Estadio
 	NombreEstadio varchar(100) not null unique,
 	CapacidadEstadio int not null,
 	DireccionEstado varchar(MAX)
-	--LLAVE PRIMARIA
-	constraint pk_IdEstadio primary key (IdEstadio)
+		--LLAVE PRIMARIA
+		constraint pk_IdEstadio primary key (IdEstadio)
 );
 
 
@@ -104,7 +104,7 @@ create table Equipo
 create table Campania
 (
 	IdCampania varchar(20) not null,
-	NombreCampania varchar(100) not null unique,	
+	NombreCampania varchar(100) not null unique,
 	EquipoGanador varchar(20) not null,
 	IdLiga varchar(20) not null,
 	--LLAVE PRIMARIA
@@ -149,8 +149,8 @@ create table Detalle_Equipo_Patrocinador
 	Estado int check(estado=1 or estado=0) default 1,
 	FechaInicio DATE,
 	FechaFin DATE CHECK(FechaFin>FechaInicio)
-	--Llaves secundaria
-	constraint fk_Detalle_Equipo_Patrocinador_IdEquipo foreign key (IdEquipo) references Equipo (IdEquipo),
+		--Llaves secundaria
+		constraint fk_Detalle_Equipo_Patrocinador_IdEquipo foreign key (IdEquipo) references Equipo (IdEquipo),
 	constraint fk_Detalle_Equipo_Patrocinador_IdPatrocinador foreign key (IdPatrocinador) references Patrocinador (IdPatrocinador)
 );
 
@@ -183,7 +183,10 @@ create table DetalleDuenio
 create table Equipacion
 (
 	IdEquipacion varchar(20) not null,
-	DescripcionEquipacion varchar(200) not null,
+	DescripcionCamisa varchar(200) not null,
+	DescripcionBotines varchar(200) not null,
+	DescripcionShort varchar(200) not null,
+	DescripcionMedias varchar(200) not null,
 	IdEquipo varchar(20) not null,
 	--LLAVE PRIMARIA
 	constraint pk_IdEquipacion primary key (IdEquipacion),
@@ -279,7 +282,7 @@ create table Goles
 
 	--LLAVE PRIMARIA
 	constraint pk_IdGol primary key(idGol),
-	
+
 	--LLAVE SECUNDARIA
 	constraint fk_idpartido foreign key(IdPartido) references Partido(IdPartido),
 	constraint fk_Goleador_Jugador foreign key (IdJugador) references Jugador (IdJugador),
@@ -353,7 +356,7 @@ create table Posicion
 	DiferenciaGoles int not null,
 	JuegoLimpio int not null,
 	IdEquipo varchar(20) not null,
-	IdCampania varchar(20) not null,	
+	IdCampania varchar(20) not null,
 	--LLAVE PRIMARIA
 	constraint pk_IdPosicion primary key (IdPosicion),
 	--LLAVE SECUNDARIA
