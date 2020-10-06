@@ -246,15 +246,6 @@ create table Detalle_Descenso
 	constraint fk_Detalle_Descenso_IdCampania foreign key (IdCampania) references Campania (IdCampania)
 );
 
---TABLA JORNADA
-create table Jornada
-(
-	IdJornada varchar(20) not null,
-	FechaInicioJornada date not null,
-	FechaFinalJornada date not null,
-	--LLAVE PRIMARIA
-	constraint pk_IdJornada primary key (IdJornada)
-);
 
 --TABLA PARTIDO
 create table Partido
@@ -264,13 +255,11 @@ create table Partido
 	EquipoLocal varchar(20) not null,
 	FechaPartido date not null,
 	HoraPartido time not null,
-	IdJornada varchar(20) not null,
 	--LLAVE PRIMARIA
 	constraint pk_IdPartido primary key (IdPartido),
 	--LLAVE SECUNDARIA
 	constraint fk_Partido_EquipoVisitante foreign key (EquipoVisitante) references Equipo (IdEquipo),
 	constraint fk_Partido_EquipoPerdedor foreign key (EquipoLocal) references Equipo (IdEquipo),
-	constraint fk_Partido_Jornada foreign key (IdJornada) references Jornada (IdJornada)
 );
 
 --TABLA GOLES
@@ -289,32 +278,17 @@ create table Goles
 
 );
 
---TABLA RESULTADO
-create table Resultado
-(
-	IdResultado varchar(20) not null,
-	IdPartido varchar(20) not null,
-	EquipoGanador varchar(20) not null,
-	EquipoPerdedor varchar(20) not null,
-	--LLAVE PRIMARIA
-	constraint pk_IdResultado primary key (IdResultado),
-	--LLAVE SECUNDARIA
-	constraint fk_Resultado_Partido foreign key (IdPartido) references Partido (IdPartido),
-	constraint fk_Resultado_EquipoGanador foreign key (EquipoGanador) references Equipo (IdEquipo),
-	constraint fk_Resultado_EquipoPerdedor foreign key (EquipoPerdedor) references Equipo (IdEquipo)
-);
+
 
 --TABLA GOL
 create table Gol
 (
 	IdGol varchar(20) not null,
 	IdJugador varchar(20) not null,
-	IdResultado varchar(20) not null,
 	--LLAVE PRIMARIA
 	constraint pk_IdGol primary key (IdGol),
 	--LLAVE SECUNDARIA
 	constraint fk_Gol_Jugador foreign key (IdJugador) references Jugador (IdJugador),
-	constraint fk_Gol_Resultado foreign key (IdResultado) references Resultado (IdResultado),
 );
 
 --TABLA TIPO TARJETA
@@ -332,13 +306,11 @@ create table Tarjeta
 	IdTarjeta varchar(20) not null,
 	IdTipoTajerta varchar(20) not null,
 	IdJugador varchar(20) not null,
-	IdResultado varchar(20) not null,
 	--LLAVE PRIMARIA
 	constraint pk_IdTarjeta primary key (IdTarjeta),
 	--LLAVE SECUNDARIA
 	constraint fk_Tarjeta_TipoTarjeta foreign key (IdTipoTajerta) references TipoTarjeta (IdTipoTajerta),
 	constraint fk_Tarjeta_Jugador foreign key (IdJugador) references Jugador (IdJugador),
-	constraint fk_Tarjeta_Resultado foreign key (IdResultado) references Resultado (IdResultado),
 );
 
 
