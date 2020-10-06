@@ -210,6 +210,20 @@ create table Jugador
 	constraint fk_Jugador_Pais foreign key (IdPais) references Pais (IdPais)
 );
 
+-- TABLA PLANTILLA
+create table Plantilla
+(
+	IdPlantilla varchar(4) not null,
+	IdEquipo varchar(20) not null,
+	IdJugador varchar(20) not null,
+	RolJugador varchar(20) not null check(RolJugador='Titular' or RolJugador='Reserva')
+
+	constraint pk_IdPlantilla primary key (IdPlantilla),
+	constraint fk_IdEquipo foreign key (IdEquipo) references Equipo(IdEquipo),
+
+);
+
+
 
 --TABLA CONTRATO
 create table Contrato
@@ -253,6 +267,8 @@ create table Partido
 	IdPartido varchar(20) not null,
 	EquipoVisitante varchar(20) not null,
 	EquipoLocal varchar(20) not null,
+	PlantillaLocal varchar(4) not null,
+	PlantillaVisitante varchar(4) not null,
 	FechaPartido date not null,
 	HoraPartido time not null,
 	--LLAVE PRIMARIA
@@ -260,6 +276,8 @@ create table Partido
 	--LLAVE SECUNDARIA
 	constraint fk_Partido_EquipoVisitante foreign key (EquipoVisitante) references Equipo (IdEquipo),
 	constraint fk_Partido_EquipoPerdedor foreign key (EquipoLocal) references Equipo (IdEquipo),
+	constraint fk_Equipo_Plantilla foreign key (PlantillaLocal) references Plantilla (IdPlantilla),
+	constraint fk_Equipo_Plantilla foreign key (PlantillaVisitante) references Plantilla (IdPlantilla),
 );
 
 --TABLA GOLES
@@ -279,17 +297,6 @@ create table Goles
 );
 
 
-
---TABLA GOL
-create table Gol
-(
-	IdGol varchar(20) not null,
-	IdJugador varchar(20) not null,
-	--LLAVE PRIMARIA
-	constraint pk_IdGol primary key (IdGol),
-	--LLAVE SECUNDARIA
-	constraint fk_Gol_Jugador foreign key (IdJugador) references Jugador (IdJugador),
-);
 
 --TABLA TIPO TARJETA
 create table TipoTarjeta
