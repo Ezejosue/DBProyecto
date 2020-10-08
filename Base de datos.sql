@@ -2,6 +2,8 @@
 use master
 create database Control_Ligas
 go
+
+
 use Control_Ligas
 --CREANDO TABLAS
 --TABLA FechaNoPermitida
@@ -13,6 +15,7 @@ create table FechaNoPermitida
 	--LLAVE PRIMARIA
 	constraint pk_FechaNoPermitida primary key (IdFechaNoPermitida)
 );
+
 
 --TABLA PAIS
 create table Pais
@@ -344,3 +347,169 @@ create table Tabla_De_Posicion
 	constraint fk_Posicion_Equipo foreign key (IdEquipo) references Equipo (IdEquipo),
 	constraint fk_Posicion_Campania foreign key (IdCampania) references Campania (IdCampania)
 );
+
+--Fecha no permitida
+create procedure sp_insertarFechaNoPermitida
+	@IdFechaNoPermitida varchar(20),
+	@FechaNoPermitida date,
+	@DescripcionFecha varchar(max)
+as
+if(select count(*) from FechaNoPermitida where IdFechaNoPermitida=@IdFechaNoPermitida)=0
+insert into FechaNoPermitida values (@IdFechaNoPermitida,@FechaNoPermitida,@DescripcionFecha)
+else
+print'Error ya existe'
+
+EXEC sp_insertarFechaNoPermitida 'FE01', '08/10/2020', 'Chido';
+SELECT * FROM FechaNoPermitida;
+
+--Estadio
+create procedure sp_insertarestadio
+	@IdEstadio varchar(20),
+	@NombreEstadio varchar(100),
+	@CapacidadEstadio int,
+	@DireccionEstado varchar(max),
+	@nombreRepresentante varchar(200),
+	@telefonoRepresentante varchar(10),
+	@correoRepresentante varchar(50)
+as 
+if(select count(*) from Estadio where IdEstadio=@IdEstadio)=0
+insert into Estadio values (@IdEstadio, @NombreEstadio, @CapacidadEstadio, @DireccionEstado,
+ @nombreRepresentante, @telefonoRepresentante, @correoRepresentante)
+ else
+ print'¡Error!, este estadio ya existe'
+
+
+ exec sp_insertarestadio 'ES001','Periquera',100,'wadwadawdawdwad','Jesus','7777-7777','aezeq@mail.com';
+
+ --Division
+create procedure sp_insertardivison
+@IdDivision varchar(20),
+@NombreDivision varchar(100)
+as
+if(select count(*) from Division where IdDivision=@IdDivision)=0
+insert into Division values(@IdDivision, @NombreDivision)
+else
+print'¡Error!, esta division ya existe'
+
+exec sp_insertardivison 'BBVA','LA LIGA';
+
+--Equipo
+create procedure sp_insertarequipo
+@IdEquipo varchar(20),
+@NombreEquipo varchar(100),
+@NombreOficinasEquipo varchar(100),
+@HoraFavoritaEquipo time,
+@IdDiaFavorito varchar(20),
+@IdEstadio varchar(20),
+@IdPais varchar(20),
+@IdLiga varchar(20)
+as
+if(select count(*) from Equipo where IdEquipo=@IdEquipo)=0
+insert into Equipo values(@IdEquipo, @NombreEquipo, @NombreOficinasEquipo, @HoraFavoritaEquipo, @IdDiaFavorito, @IdEstadio, @IdPais, @IdLiga)
+else
+print'¡Error!, este equipo ya existe'
+
+--Empleado
+create procedure sp_insertar_empleado
+@IdEmpleado varchar(20),
+@NombreEmpleado varchar(100),
+@FechaNacimientoEmpleado date,
+@IdTipoEmpleado varchar(20),
+@IdEquipo varchar(20),
+@correo varchar(50),
+@sexo varchar(20),
+@numIdentificacion varchar(50),
+@IdPais varchar(20)
+as
+if(select count(*) from Empleado where IdEmpleado=@IdEmpleado)=0
+insert into Empleado values(@IdEmpleado, @NombreEmpleado, @FechaNacimientoEmpleado, @IdTipoEmpleado, @IdEquipo, @correo, @sexo, @numIdentificacion, @IdPais)
+else
+print'¡Error!, este empleado ya existe'
+
+--DetalleEquipoPatrocinador
+create procedure sp_Detalle_Equipo_Patrocinador
+@IdEquipo varchar(20), 
+@IdPatrocinador varchar(20),
+@Estado int,
+@FechaInicio DATE,
+@FechaFin DATE 
+as
+if(select count(*) from Detalle_Equipo_Patrocinador where IdEquipo=@IdEquipo) = 0
+insert into Detalle_Equipo_Patrocinador values(@IdEquipo, @IdPatrocinador, @Estado, @FechaInicio, @FechaFin)
+else
+print'¡Error!, este detalle patrocinio ya existe'
+
+--DetalleDueño
+create procedure sp_insertarDetalleDuenio
+@IdDuenio varchar(20),
+@IdEquipo varchar(20)
+as
+if(select count(*) from DetalleDuenio where IdDuenio=@IdDuenio) = 0
+insert into DetalleDuenio values(@IdDuenio, @IdEquipo)
+else
+print'¡Error!, este detalle dueño ya existe'
+
+--Jugador
+create procedure sp_insertarjugador
+@IdJugador varchar(20),
+@NombreJugador varchar(100),
+@AlturaJugador varchar(20), 
+@PesoJugador varchar(20),
+@FechaNacimientoJugador date,
+@posicion varchar(100),
+@IdPais varchar(20)
+as
+if(select count(*) from Jugador where IdJugador=@IdJugador) = 0
+insert into Jugador values(@IdJugador, @NombreJugador, @AlturaJugador, @PesoJugador, @FechaNacimientoJugador, @posicion, @IdPais)
+else
+print'¡Error!, este jugador ya existe'
+
+--Goleador
+create procedure sp_insertargoleador
+@IdJugador varchar(20),
+@IdCampania varchar(20)
+as
+if(select count(*) from Goleador where IdJugador=@IdJugador) = 0
+insert into Goleador values(@IdJugador, @IdCampania)
+else
+print'¡Error!, este goleador ya existe'
+
+--Partido
+create procedure sp_insertarpartido
+@IdPartido varchar(20),
+@EquipoVisitante varchar(20),
+@EquipoLocal varchar(20),
+@FechaPartido date,
+@HoraPartido time,
+@EquipoGanador varchar(20),
+@EquipoPerdedor varchar(20), 
+@GolesGanador int,
+@GolesPerdedor int
+as
+if(select count(*) from Partido where IdPartido=@IdPartido) = 0
+insert into Partido values(@IdPartido, @EquipoVisitante, @EquipoLocal, @FechaPartido, @HoraPartido, @EquipoGanador, @EquipoPerdedor, @GolesGanador, @GolesPerdedor)
+else
+print'¡Error!, este partido ya existe'
+
+--Goles
+create procedure sp_insertargoles
+@idGol int,	
+@IdPartido varchar(20),
+@IdJugador varchar(20)
+as
+if(select count(*) from Goles where idGol=@idGol) = 0
+insert into Goles values(@idGol, @IdPartido, @IdJugador)
+else
+print'¡Error!, este registro goles ya existe'
+
+--Tarjeta
+create procedure sp_insertartarjetas
+@IdTarjeta varchar(20),
+@IdTipoTajerta varchar(20),
+@IdJugador varchar(20),
+@IdPartido varchar(20)
+as
+if(select count(*) from Tarjeta where IdTarjeta=@IdTarjeta) = 0
+insert into Tarjeta values(@IdTarjeta, @IdTipoTajerta, @IdJugador, @IdPartido)
+else
+print'¡Error!, este regristro tarjea ya existe'
