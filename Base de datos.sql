@@ -2,21 +2,19 @@
 use master
 create database Control_Ligas
 go
-use master
---CREANDO TABLAS
 use Control_Ligas
-
+--CREANDO TABLAS
 --TABLA FechaNoPermitida
 create table FechaNoPermitida
 (
 	IdFechaNoPermitida varchar(20) not null,
 	FechaNoPermitida date not null,
 	DescripcionFecha VARCHAR(MAX)
-		--LLAVE PRIMARIA
-		constraint pk_FechaNoPermitida primary key (IdFechaNoPermitida)
+	--LLAVE PRIMARIA
+	constraint pk_FechaNoPermitida primary key (IdFechaNoPermitida)
 );
 
---TABLA PA�S
+--TABLA PAIS
 create table Pais
 (
 	IdPais varchar(20) not null,
@@ -40,13 +38,16 @@ create table Estadio
 	IdEstadio varchar(20) not null,
 	NombreEstadio varchar(100) not null unique,
 	CapacidadEstadio int not null,
-	DireccionEstado varchar(MAX)
-		--LLAVE PRIMARIA
-		constraint pk_IdEstadio primary key (IdEstadio)
+	DireccionEstado varchar(MAX),
+	nombreRepresentante varchar(200) not null,
+	telefonoRepresentante varchar(10) not null,
+	correoRepresentante varchar(50) not null,
+	--LLAVE PRIMARIA
+	constraint pk_IdEstadio primary key (IdEstadio)
 );
 
 
---TABLA D�A FAVORITO
+--TABLA DIA FAVORITO
 create table DiaFavorito
 (
 	IdDiaFavorito varchar(20) not null,
@@ -56,7 +57,7 @@ create table DiaFavorito
 );
 
 
---TABLA DIVISI�N
+--TABLA DIVISIÓN
 create table Division
 (
 	IdDivision varchar(20) not null,
@@ -100,7 +101,7 @@ create table Equipo
 	constraint fk_Equipo_Liga foreign key (IdLiga) references Liga (IdLiga),
 );
 
---TABLA CAMPA�A
+--TABLA CAMPAÑA
 create table Campania
 (
 	IdCampania varchar(20) not null,
@@ -110,7 +111,8 @@ create table Campania
 	--LLAVE PRIMARIA
 	constraint pk_IdCampania primary key (IdCampania),
 	--LLAVE SECUNDARIA
-	constraint fk_Campania_EquipoGanador foreign key (EquipoGanador) references Equipo (IdEquipo),
+	--Pendiente de eliminar
+	--constraint fk_Campania_EquipoGanador foreign key (EquipoGanador) references Equipo (IdEquipo),
 	constraint fk_Campania_Liga foreign key (IdLiga) references Liga (IdLiga)
 );
 
@@ -122,11 +124,16 @@ create table Empleado
 	FechaNacimientoEmpleado date not null,
 	IdTipoEmpleado varchar(20) not null,
 	IdEquipo varchar(20) not null,
+	correo varchar(50) not null,
+	sexo varchar(20) not null,
+	numIdentificacion varchar(50) not null,
+	IdPais varchar(20) not null,
 	--LLAVE PRIMARIA
 	constraint pk_IdEmpleado primary key (IdEmpleado),
 	--LLAVE SECUNDARIA
 	constraint fk_Empleado_TipoEmpleado foreign key (IdTipoEmpleado) references TipoEmpleado (IdTipoEmpleado),
-	constraint fk_Empleado_Equipo foreign key (IdEquipo) references Equipo (IdEquipo)
+	constraint fk_Empleado_Equipo foreign key (IdEquipo) references Equipo (IdEquipo),
+	constraint fk_Empleado_pais foreign key (IdPais) references pais (IdPais),
 );
 
 --TABLA PATROCINADOR
@@ -148,13 +155,13 @@ create table Detalle_Equipo_Patrocinador
 	IdPatrocinador varchar(20) not null,
 	Estado int check(estado=1 or estado=0) default 1,
 	FechaInicio DATE,
-	FechaFin DATE CHECK(FechaFin>FechaInicio)
-		--Llaves secundaria
-		constraint fk_Detalle_Equipo_Patrocinador_IdEquipo foreign key (IdEquipo) references Equipo (IdEquipo),
+	FechaFin DATE,
+	--Llaves secundaria
+	constraint fk_Detalle_Equipo_Patrocinador_IdEquipo foreign key (IdEquipo) references Equipo (IdEquipo),
 	constraint fk_Detalle_Equipo_Patrocinador_IdPatrocinador foreign key (IdPatrocinador) references Patrocinador (IdPatrocinador)
 );
 
---TABLA DUE�O
+--TABLA DUEÑO
 create table Duenio
 (
 	IdDuenio varchar(20) not null,
@@ -164,10 +171,9 @@ create table Duenio
 	IdEquipo varchar(20) not null,
 	--LLAVE PRIMARIA
 	constraint pk_IdDuenio primary key (IdDuenio)
-
 );
 
---TABLA DetalleDUE�O
+--TABLA DetalleDUEÑO
 create table DetalleDuenio
 (
 	IdDuenio varchar(20) not null,
@@ -177,9 +183,7 @@ create table DetalleDuenio
 	constraint fk_Dueño_Equipo foreign key (IdEquipo) references Equipo (IdEquipo)
 );
 
-
-
---TABLA EQUIPACI�N
+--TABLA EQUIPACIÓN
 create table Equipacion
 (
 	IdEquipacion varchar(20) not null,
@@ -194,7 +198,6 @@ create table Equipacion
 	constraint fk_Equipacio_Equipo foreign key (IdEquipo) references Equipo (IdEquipo)
 );
 
-
 --TABLA JUGADOR
 create table Jugador
 (
@@ -203,6 +206,7 @@ create table Jugador
 	AlturaJugador varchar(20) not null,
 	PesoJugador varchar(20) not null,
 	FechaNacimientoJugador date not null,
+	posicion varchar(100),
 	IdPais varchar(20) not null,
 	--LLAVE PRIMARIA
 	constraint pk_IdJugador primary key (IdJugador),
@@ -210,23 +214,8 @@ create table Jugador
 	constraint fk_Jugador_Pais foreign key (IdPais) references Pais (IdPais)
 );
 
--- TABLA PLANTILLA
-create table Plantilla
-(
-	IdPlantilla varchar(4) not null,
-	IdEquipo varchar(20) not null,
-	IdJugador varchar(20) not null,
-	RolJugador varchar(20) not null check(RolJugador='Titular' or RolJugador='Reserva')
-
-	constraint pk_IdPlantilla primary key (IdPlantilla),
-	constraint fk_IdEquipo foreign key (IdEquipo) references Equipo(IdEquipo),
-
-);
-
-
-
---TABLA CONTRATO
-create table Contrato
+--TABLA Detalle_Equipo_Jugador
+create table Detalle_Equipo_Jugador
 (
 	IdContrato varchar(20) not null,
 	FechaInicioContrato date not null,
@@ -267,17 +256,33 @@ create table Partido
 	IdPartido varchar(20) not null,
 	EquipoVisitante varchar(20) not null,
 	EquipoLocal varchar(20) not null,
-	PlantillaLocal varchar(4) not null,
-	PlantillaVisitante varchar(4) not null,
 	FechaPartido date not null,
 	HoraPartido time not null,
+	EquipoGanador varchar(20) not null,
+	EquipoPerdedor varchar(20) not null,
+	GolesGanador int not null,
+	GolesPerdedor int not null,
 	--LLAVE PRIMARIA
 	constraint pk_IdPartido primary key (IdPartido),
 	--LLAVE SECUNDARIA
-	constraint fk_Partido_EquipoVisitante foreign key (EquipoVisitante) references Equipo (IdEquipo),
-	constraint fk_Partido_EquipoPerdedor foreign key (EquipoLocal) references Equipo (IdEquipo),
-	constraint fk_Equipo_Plantilla foreign key (PlantillaLocal) references Plantilla (IdPlantilla),
-	constraint fk_Equipo_Plantilla foreign key (PlantillaVisitante) references Plantilla (IdPlantilla),
+	--Pendiente de eliminar
+	--constraint fk_Partido_EquipoVisitante foreign key (EquipoVisitante) references Equipo (IdEquipo),
+	--constraint fk_Partido_EquipoPerdedor foreign key (EquipoLocal) references Equipo (IdEquipo),
+);
+
+-- TABLA PLANTILLA
+create table Plantilla
+(
+	IdPlantilla varchar(4) not null,
+	IdEquipo varchar(20) not null,
+	IdJugador varchar(20) not null,
+	RolJugador varchar(20) not null check(RolJugador='Titular' or RolJugador='Suplente'),
+	IdPartido varchar(20) not null,
+	--LLAVE PRIMARIA
+	constraint pk_IdPlantilla primary key (IdPlantilla),
+	--LLAVE SECUNDARIA
+	constraint fk_plantilla_equipo foreign key (IdEquipo) references Equipo(IdEquipo),
+	constraint fk_plantilla_partido foreign key (IdPartido) references partido (IdPartido)
 );
 
 --TABLA GOLES
@@ -286,16 +291,12 @@ create table Goles
 	idGol int not null,
 	IdPartido varchar(20) not null,
 	IdJugador varchar(20) not null,
-
 	--LLAVE PRIMARIA
 	constraint pk_IdGol primary key(idGol),
-
 	--LLAVE SECUNDARIA
 	constraint fk_idpartido foreign key(IdPartido) references Partido(IdPartido),
-	constraint fk_Goleador_Jugador foreign key (IdJugador) references Jugador (IdJugador),
-
+	constraint fk_Goles_Jugador foreign key (IdJugador) references Jugador (IdJugador)
 );
-
 
 
 --TABLA TIPO TARJETA
@@ -313,16 +314,17 @@ create table Tarjeta
 	IdTarjeta varchar(20) not null,
 	IdTipoTajerta varchar(20) not null,
 	IdJugador varchar(20) not null,
+	IdPartido varchar(20) not null,
 	--LLAVE PRIMARIA
 	constraint pk_IdTarjeta primary key (IdTarjeta),
 	--LLAVE SECUNDARIA
 	constraint fk_Tarjeta_TipoTarjeta foreign key (IdTipoTajerta) references TipoTarjeta (IdTipoTajerta),
 	constraint fk_Tarjeta_Jugador foreign key (IdJugador) references Jugador (IdJugador),
+	constraint fk_Tarjeta_partido foreign key (IdPartido) references partido (IdPartido)
 );
 
-
 --TABLA POSICI�N
-create table Posicion
+create table Tabla_De_Posicion
 (
 	IdPosicion varchar(20) not null,
 	GolesFavor int not null,
@@ -342,4 +344,3 @@ create table Posicion
 	constraint fk_Posicion_Equipo foreign key (IdEquipo) references Equipo (IdEquipo),
 	constraint fk_Posicion_Campania foreign key (IdCampania) references Campania (IdCampania)
 );
-
