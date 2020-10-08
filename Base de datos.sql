@@ -513,3 +513,219 @@ if(select count(*) from Tarjeta where IdTarjeta=@IdTarjeta) = 0
 insert into Tarjeta values(@IdTarjeta, @IdTipoTajerta, @IdJugador, @IdPartido)
 else
 print'¡Error!, este regristro tarjea ya existe'
+
+--PROCEDIMIENTO TABLA PAIS
+create procedure sp_Insertar_Pais
+@IdPais varchar(20), 
+@NombrePais varchar(100)
+as 
+if(select Count(*) from Pais
+		where IdPais=@IdPais)=0
+		insert into Pais(IdPais, NombrePais)
+		values (@IdPais, @NombrePais)
+else
+print '¡Error!, este país ya existe'
+--Consulta de prueba
+select * from Pais;
+
+--PROCEDIMIENTO TABLA TIPO EMPLEADO
+create procedure sp_Insertar_TipoEmpleado
+@IdTipoEmpleado varchar(20),
+@NombreTipoEmpleado varchar(100)
+as
+if(select Count(*) from TipoEmpleado
+		where IdTipoEmpleado=@IdTipoEmpleado)=0
+		insert into TipoEmpleado(IdTipoEmpleado, NombreTipoEmpleado)
+		values (@IdTipoEmpleado, @NombreTipoEmpleado)
+else
+print '¡Error!, este tipo de empleado ya existe'
+--Consulta de prueba
+select * from TipoEmpleado
+
+--PROCEDIMIENTO TABLA DIA FAVORITO
+create procedure sp_Insertar_DiaFavorito
+@IdDiaFavorito varchar(20),
+@NombreDia varchar(50)
+as
+if(select Count(*) from DiaFavorito
+		where IdDiaFavorito=@IdDiaFavorito)=0
+		insert into DiaFavorito(IdDiaFavorito, NombreDia)
+		values(@IdDiaFavorito, @NombreDia)
+else
+print '¡Error!, este día ya existe'
+--Consulta de prueba
+select * from DiaFavorito
+
+--PROCEDIMIENTO TABLA LIGA
+create procedure sp_Insertar_Liga
+@IdLiga varchar(20),
+@NombreLiga varchar(100),
+@FechaInicioLiga date,
+@FechaFinalLiga date,
+@IdPais varchar(20),
+@IdDivision varchar(20)
+as
+if(select Count(*) from Liga
+		where IdLiga=@IdLiga)=0
+		insert into Liga(IdLiga,NombreLiga,FechaInicioLiga,FechaFinalLiga,IdPais,IdDivision)
+		values (@IdLiga, @NombreLiga, @FechaInicioLiga, @FechaFinalLiga, @IdPais, @IdDivision)
+else
+print '¡Error!, esta liga ya existe en los registros'
+--Consulta de prueba
+select * from Liga
+
+--PROCEDIMIENTO TABLA CAMPAÑA
+create procedure sp_Insertar_Campania
+@IdCampania varchar(20),
+@NombreCampania varchar(100),
+@EquipoGanador varchar(20),
+@IdLiga varchar(20)
+as
+if(select Count(*) from Campania
+		where IdCampania=@IdCampania or NombreCampania=@NombreCampania or 
+		EquipoGanador=@EquipoGanador or IdLiga=@IdLiga)=0
+		insert into Campania(IdCampania, NombreCampania, EquipoGanador, IdLiga)
+		values (@IdCampania, @NombreCampania, @EquipoGanador, @IdLiga)
+else
+print '¡Error!, esta campaña ya es existente en los registros'
+--Consulta de prueba
+select * from Campania 
+
+--PROCEDIMIENTO TABLA PATROCINADOR
+create procedure sp_Insertar_Patrocinador
+@IdPatrocinador varchar(20),
+@NombrePatrocinador varchar(100),
+@TelefonoPatrocinador varchar(20),
+@CorreoPatrocinador varchar(20),
+@Logo IMAGE
+as
+if(select count(*) from Patrocinador
+		where IdPatrocinador=@IdPatrocinador)=0
+		insert into Patrocinador
+		values(@IdPatrocinador,@NombrePatrocinador, @TelefonoPatrocinador, @CorreoPatrocinador, @Logo)
+else
+print '¡Error!, esta patrocinador ya está en los registros'
+--Consulta de prueba
+select * from Patrocinador
+
+--PROCEDIMIENTO TABLA DUEÑO
+create procedure sp_Insertar_Duenio
+@IdDuenio varchar(20),
+@NombreDuenio varchar(100), 
+@DireccionDuenio varchar(200), 
+@TelefonoDuenio varchar(20),
+@IdEquipo varchar(20)
+as
+if(select count(*) from Duenio
+		where IdDuenio=@IdDuenio)=0
+		insert into Duenio
+		values(@IdDuenio,@NombreDuenio, @DireccionDuenio, @TelefonoDuenio, @IdEquipo)
+else
+print '¡Error!, esta dueño ya está en los registros'
+--Consulta de prueba
+select * from Duenio
+
+--PROCEDIMIENTO TABLA EQUIPACIÓN
+create procedure sp_Insertar_Equipacion
+@IdEquipacion varchar(20),
+@DescripcionCamisa varchar(200),
+@DescripcionBotines varchar(200), 
+@DescripcionShort varchar(200),
+@DescripcionMedias varchar(200),
+@IdEquipo varchar(20)
+as
+if(select count(*) from Equipacion
+		where IdEquipacion=@IdEquipacion)=0
+		insert into Equipacion
+		values (@IdEquipacion, @DescripcionCamisa, @DescripcionBotines, 
+		@DescripcionShort, @DescripcionMedias, @IdEquipo)
+else
+print '¡Error!, este ya es existente'
+--Consulta de prueba
+select * from Equipacion
+
+--PROCEDIMIENTO TABLA DETALLE EQUIPO JUGADOR
+create procedure sp_Insertar_DetalleEquipoJugador
+@IdContrato varchar(20),
+@FechaInicioContrato date, 
+@FechaFinalContrato date, 
+@IdEquipo varchar(20),
+@IdJugador varchar(20)
+as
+if(select count(*) from Detalle_Equipo_Jugador
+		where IdContrato=@IdContrato)=0
+		insert into Detalle_Equipo_Jugador
+		values(@IdContrato,@FechaInicioContrato,@FechaFinalContrato, @IdEquipo, @IdJugador)
+else
+print '¡Error!, este registro ya es existente'
+--Consulta de prueba
+select * from Detalle_Equipo_Jugador
+
+--PROCEDIMIENTO TABLA DETALLE DESCENSO
+create procedure sp_Insertar_DetalleDescenso
+@IdEquipo varchar(20),
+@IdCampania varchar(20)
+as
+insert into Detalle_Descenso
+values (@IdEquipo, @IdCampania)
+--Consulta de prueba
+select * from Detalle_Descenso
+
+
+--PROCEDIMIENTO TABLA PLANTILLA
+create procedure sp_Insertar_Plantilla
+@IdPlantilla varchar(4),
+@IdEquipo varchar(20),
+@IdJugador varchar(20),
+@RolJugador varchar(20),
+@IdPartido varchar(20)
+as
+if(select count (*) from Plantilla
+		where IdPlantilla=@IdPlantilla)=0
+		insert into Plantilla
+		values (@IdPlantilla,@IdEquipo,@IdJugador, @RolJugador,@IdPartido)
+else
+print '¡Error!, este registro de plantilla ya es existente'
+--Consulta de prueba
+select * from Plantilla
+
+--PROCEDIMIENTO TIPO TARJETA
+create procedure sp_Insertar_TipoTarjeta
+@IdTipoTajerta varchar(20),
+@NombreTipoTarjeta varchar(20)
+as
+if(select count(*) from TipoTarjeta
+		where IdTipoTajerta=@IdTipoTajerta)=0
+		insert into TipoTarjeta
+		values (@IdTipoTajerta,@NombreTipoTarjeta)
+else
+print '¡Error!, este registro de tipo de tarjeta ya es existente'
+--Consulta de prueba
+select * from TipoTarjeta
+
+--PROCEDIMIENTO TABLA POSICION
+create procedure sp_Insertar_Posicion
+@IdPosicion varchar(20),
+@GolesFavor int, 
+@GolesContra int,
+@PartidosGanados int,
+@PartidosPerdidos int,
+@PartidosEmpatados int,
+@PartidosJugados int,
+@Puntaje int,
+@DiferenciaGoles int,
+@JuegoLimpio int,
+@IdEquipo varchar(20),
+@IdCampania varchar(20)
+as
+if(select count(*) from Tabla_De_Posicion
+		where IdPosicion=@IdPosicion)=0
+		insert into Tabla_De_Posicion
+		values(@IdPosicion,@GolesFavor ,@GolesContra,@PartidosGanados,@PartidosPerdidos,
+		@PartidosEmpatados,@PartidosJugados,@Puntaje,@DiferenciaGoles,@JuegoLimpio,@IdEquipo,@IdCampania)
+else
+print '¡Error!, este registro  ya es existente'
+--Consulta de prueba
+select * from Tabla_De_Posicion
+
+
