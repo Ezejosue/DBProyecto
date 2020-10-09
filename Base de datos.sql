@@ -2,23 +2,22 @@
 use master
 create database Control_Ligas
 go
-
 use Control_Ligas
+--drop database Control_Ligas
 --CREANDO TABLAS
 --TABLA FechaNoPermitida
 create table FechaNoPermitida
 (
-	IdFechaNoPermitida varchar(20) not null,
+	IdFechaNoPermitida varchar(20),
 	usuarioisert varchar(50),
 	usuarioupdate varchar(50),
 	fechainsert date,
 	fechaupdate date,
-	FechaNoPermitida date not null,
+	FechaNoPermitida date,
 	DescripcionFecha VARCHAR(MAX)
 	--LLAVE PRIMARIA
 	constraint pk_FechaNoPermitida primary key (IdFechaNoPermitida)
 );
-
 
 --TABLA PAIS
 create table Pais
