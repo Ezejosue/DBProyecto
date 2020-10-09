@@ -460,14 +460,19 @@ create procedure sp_insertarFechaNoPermitida
 	@FechaNoPermitida date,
 	@DescripcionFecha varchar(max)
 as
-if(select count(*) from FechaNoPermitida where IdFechaNoPermitida=@IdFechaNoPermitida)=0
-insert into FechaNoPermitida(IdFechaNoPermitida,FechaNoPermitida,DescripcionFecha)
-values (@IdFechaNoPermitida,@FechaNoPermitida,@DescripcionFecha)
-else
-print'Error ya existe'
-
-EXEC sp_insertarFechaNoPermitida 'FE01', '08/10/2020', 'Chido';
-SELECT * FROM FechaNoPermitida;
+begin try
+begin tran
+	if(select count(*) from FechaNoPermitida where IdFechaNoPermitida=@IdFechaNoPermitida)=0
+	insert into FechaNoPermitida(IdFechaNoPermitida,FechaNoPermitida,DescripcionFecha)
+	values (@IdFechaNoPermitida,@FechaNoPermitida,@DescripcionFecha)
+	else
+	print'Error ya existe'
+commit
+end try
+begin catch
+rollback
+print error_message()
+end catch;
 GO
 
 --Estadio
@@ -480,16 +485,21 @@ create procedure sp_insertarestadio
 	@telefonoRepresentante varchar(10),
 	@correoRepresentante varchar(50)
 as 
-if(select count(*) from Estadio where IdEstadio=@IdEstadio)=0
-insert into Estadio(IdEstadio, NombreEstadio, CapacidadEstadio, DireccionEstado,
- nombreRepresentante, telefonoRepresentante, correoRepresentante)
- values (@IdEstadio, @NombreEstadio, @CapacidadEstadio, @DireccionEstado,
- @nombreRepresentante, @telefonoRepresentante, @correoRepresentante)
- else
- print'¡Error!, este estadio ya existe'
-
-
- exec sp_insertarestadio 'ES001','Periquera',100,'wadwadawdawdwad','Jesus','7777-7777','aezeq@mail.com';
+begin try
+begin tran
+	if(select count(*) from Estadio where IdEstadio=@IdEstadio)=0
+	insert into Estadio(IdEstadio, NombreEstadio, CapacidadEstadio, DireccionEstado,
+	nombreRepresentante, telefonoRepresentante, correoRepresentante)
+	values (@IdEstadio, @NombreEstadio, @CapacidadEstadio, @DireccionEstado,
+	@nombreRepresentante, @telefonoRepresentante, @correoRepresentante)
+	else
+	print'¡Error!, este estadio ya existe'
+commit
+end try
+begin catch
+rollback
+print error_message()
+end catch;
 GO
 
  --Division
@@ -497,13 +507,19 @@ create procedure sp_insertardivison
 @IdDivision varchar(20),
 @NombreDivision varchar(100)
 as
-if(select count(*) from Division where IdDivision=@IdDivision)=0
-insert into Division(IdDivision, NombreDivision)
-values(@IdDivision, @NombreDivision)
-else
-print'¡Error!, esta division ya existe'
-
-exec sp_insertardivison 'BBVA','LA LIGA';
+begin try
+begin tran
+	if(select count(*) from Division where IdDivision=@IdDivision)=0
+	insert into Division(IdDivision, NombreDivision)
+	values(@IdDivision, @NombreDivision)
+	else
+	print'¡Error!, esta division ya existe'
+commit
+end try
+begin catch
+rollback
+print error_message()
+end catch;
 GO
 
 --Equipo
@@ -517,11 +533,19 @@ create procedure sp_insertarequipo
 @IdPais varchar(20),
 @IdLiga varchar(20)
 as
-if(select count(*) from Equipo where IdEquipo=@IdEquipo)=0
-insert into Equipo(IdEquipo, NombreEquipo, NombreOficinasEquipo, HoraFavoritaEquipo, IdDiaFavorito, IdEstadio, IdPais, IdLiga)
-values(@IdEquipo, @NombreEquipo, @NombreOficinasEquipo, @HoraFavoritaEquipo, @IdDiaFavorito, @IdEstadio, @IdPais, @IdLiga)
-else
-print'¡Error!, este equipo ya existe'
+begin try
+begin tran
+	if(select count(*) from Equipo where IdEquipo=@IdEquipo)=0
+	insert into Equipo(IdEquipo, NombreEquipo, NombreOficinasEquipo, HoraFavoritaEquipo, IdDiaFavorito, IdEstadio, IdPais, IdLiga)
+	values(@IdEquipo, @NombreEquipo, @NombreOficinasEquipo, @HoraFavoritaEquipo, @IdDiaFavorito, @IdEstadio, @IdPais, @IdLiga)
+	else
+	print'¡Error!, este equipo ya existe'
+commit
+end try
+begin catch
+rollback
+print error_message()
+end catch;
 GO
 
 --Empleado
@@ -536,11 +560,19 @@ create procedure sp_insertar_empleado
 @numIdentificacion varchar(50),
 @IdPais varchar(20)
 as
-if(select count(*) from Empleado where IdEmpleado=@IdEmpleado)=0
-insert into Empleado(IdEmpleado, NombreEmpleado, FechaNacimientoEmpleado, IdTipoEmpleado, IdEquipo, correo, sexo, numIdentificacion, IdPais)
-values(@IdEmpleado, @NombreEmpleado, @FechaNacimientoEmpleado, @IdTipoEmpleado, @IdEquipo, @correo, @sexo, @numIdentificacion, @IdPais)
-else
-print'¡Error!, este empleado ya existe'
+begin try
+begin tran
+	if(select count(*) from Empleado where IdEmpleado=@IdEmpleado)=0
+	insert into Empleado(IdEmpleado, NombreEmpleado, FechaNacimientoEmpleado, IdTipoEmpleado, IdEquipo, correo, sexo, numIdentificacion, IdPais)
+	values(@IdEmpleado, @NombreEmpleado, @FechaNacimientoEmpleado, @IdTipoEmpleado, @IdEquipo, @correo, @sexo, @numIdentificacion, @IdPais)
+	else
+	print'¡Error!, este empleado ya existe'
+commit
+end try
+begin catch
+rollback
+print error_message()
+end catch;
 GO
 
 --DetalleEquipoPatrocinador
@@ -551,23 +583,40 @@ create procedure sp_Detalle_Equipo_Patrocinador
 @FechaInicio DATE,
 @FechaFin DATE 
 as
-if(select count(*) from Detalle_Equipo_Patrocinador where IdEquipo=@IdEquipo) = 0
-insert into Detalle_Equipo_Patrocinador(IdEquipo, IdPatrocinador, Estado, FechaInicio, FechaFin)
-values(@IdEquipo, @IdPatrocinador, @Estado, @FechaInicio, @FechaFin)
-else
-print'¡Error!, este detalle patrocinio ya existe'
+begin try
+begin tran
+	if(select count(*) from Detalle_Equipo_Patrocinador where IdEquipo=@IdEquipo) = 0
+	insert into Detalle_Equipo_Patrocinador(IdEquipo, IdPatrocinador, Estado, FechaInicio, FechaFin)
+	values(@IdEquipo, @IdPatrocinador, @Estado, @FechaInicio, @FechaFin)
+	else
+	print'¡Error!, este detalle patrocinio ya existe'
+commit
+end try
+begin catch
+rollback
+print error_message()
+end catch;
 GO
+
 
 --DetalleDueño
 create procedure sp_insertarDetalleDuenio
 @IdDuenio varchar(20),
 @IdEquipo varchar(20)
 as
-if(select count(*) from DetalleDuenio where IdDuenio=@IdDuenio) = 0
-insert into DetalleDuenio(IdDuenio, IdEquipo)
-values(@IdDuenio, @IdEquipo)
-else
-print'¡Error!, este detalle dueño ya existe'
+begin try
+begin tran
+	if(select count(*) from DetalleDuenio where IdDuenio=@IdDuenio) = 0
+	insert into DetalleDuenio(IdDuenio, IdEquipo)
+	values(@IdDuenio, @IdEquipo)
+	else
+	print'¡Error!, este detalle dueño ya existe'
+commit
+end try
+begin catch
+rollback
+print error_message()
+end catch;
 GO
 
 --Jugador
@@ -580,11 +629,19 @@ create procedure sp_insertarjugador
 @posicion varchar(100),
 @IdPais varchar(20)
 as
-if(select count(*) from Jugador where IdJugador=@IdJugador) = 0
-insert into Jugador(IdJugador,NombreJugador, AlturaJugador, PesoJugador, FechaNacimientoJugador, posicion, IdPais)
-values(@IdJugador, @NombreJugador, @AlturaJugador, @PesoJugador, @FechaNacimientoJugador, @posicion, @IdPais)
-else
-print'¡Error!, este jugador ya existe'
+begin try
+begin tran
+	if(select count(*) from Jugador where IdJugador=@IdJugador) = 0
+	insert into Jugador(IdJugador,NombreJugador, AlturaJugador, PesoJugador, FechaNacimientoJugador, posicion, IdPais)
+	values(@IdJugador, @NombreJugador, @AlturaJugador, @PesoJugador, @FechaNacimientoJugador, @posicion, @IdPais)
+	else
+	print'¡Error!, este jugador ya existe'
+commit
+end try
+begin catch
+rollback
+print error_message()
+end catch;
 GO
 
 --Goleador
@@ -592,11 +649,19 @@ create procedure sp_insertargoleador
 @IdJugador varchar(20),
 @IdCampania varchar(20)
 as
-if(select count(*) from Goleador where IdJugador=@IdJugador) = 0
-insert into Goleador(IdJugador, IdCampania)
-values(@IdJugador, @IdCampania)
-else
-print'¡Error!, este goleador ya existe'
+begin try
+begin tran
+	if(select count(*) from Goleador where IdJugador=@IdJugador) = 0
+	insert into Goleador(IdJugador, IdCampania)
+	values(@IdJugador, @IdCampania)
+	else
+	print'¡Error!, este goleador ya existe'
+commit
+end try
+begin catch
+rollback
+print error_message()
+end catch;
 GO
 
 --Partido
@@ -611,12 +676,21 @@ create procedure sp_insertarpartido
 @GolesGanador int,
 @GolesPerdedor int
 as
-if(select count(*) from Partido where IdPartido=@IdPartido) = 0
-insert into Partido(IdPartido, EquipoVisitante, EquipoLocal, FechaPartido, HoraPartido, EquipoGanador, EquipoPerdedor, GolesGanador, GolesPerdedor)
-values(@IdPartido, @EquipoVisitante, @EquipoLocal, @FechaPartido, @HoraPartido, @EquipoGanador, @EquipoPerdedor, @GolesGanador, @GolesPerdedor)
-else
-print'¡Error!, este partido ya existe'
+begin try
+begin tran
+	if(select count(*) from Partido where IdPartido=@IdPartido) = 0
+	insert into Partido(IdPartido, EquipoVisitante, EquipoLocal, FechaPartido, HoraPartido, EquipoGanador, EquipoPerdedor, GolesGanador, GolesPerdedor)
+	values(@IdPartido, @EquipoVisitante, @EquipoLocal, @FechaPartido, @HoraPartido, @EquipoGanador, @EquipoPerdedor, @GolesGanador, @GolesPerdedor)
+	else
+	print'¡Error!, este partido ya existe'
+commit
+end try
+begin catch
+rollback
+print error_message()
+end catch;
 GO
+
 
 --Goles
 create procedure sp_insertargoles
@@ -624,11 +698,19 @@ create procedure sp_insertargoles
 @IdPartido varchar(20),
 @IdJugador varchar(20)
 as
-if(select count(*) from Goles where idGol=@idGol) = 0
-insert into Goles(idGol, IdPartido, IdJugador)
-values(@idGol, @IdPartido, @IdJugador)
-else
-print'¡Error!, este registro goles ya existe'
+begin try
+begin tran
+	if(select count(*) from Goles where idGol=@idGol) = 0
+	insert into Goles(idGol, IdPartido, IdJugador)
+	values(@idGol, @IdPartido, @IdJugador)
+	else
+	print'¡Error!, este registro goles ya existe'
+commit
+end try
+begin catch
+rollback
+print error_message()
+end catch;
 GO
 
 --Tarjeta
@@ -638,11 +720,19 @@ create procedure sp_insertartarjetas
 @IdJugador varchar(20),
 @IdPartido varchar(20)
 as
-if(select count(*) from Tarjeta where IdTarjeta=@IdTarjeta) = 0
-insert into Tarjeta(IdTarjeta, IdTipoTajerta, IdJugador, IdPartido)
-values(@IdTarjeta, @IdTipoTajerta, @IdJugador, @IdPartido)
-else
-print'¡Error!, este regristro tarjea ya existe'
+begin try
+begin tran
+	if(select count(*) from Tarjeta where IdTarjeta=@IdTarjeta) = 0
+	insert into Tarjeta(IdTarjeta, IdTipoTajerta, IdJugador, IdPartido)
+	values(@IdTarjeta, @IdTipoTajerta, @IdJugador, @IdPartido)
+	else
+	print'¡Error!, este regristro tarjea ya existe'
+commit
+end try
+begin catch
+rollback
+print error_message()
+end catch;
 GO
 
 --PROCEDIMIENTO TABLA PAIS
@@ -650,14 +740,20 @@ create procedure sp_Insertar_Pais
 @IdPais varchar(20), 
 @NombrePais varchar(100)
 as 
-if(select Count(*) from Pais
-		where IdPais=@IdPais)=0
-		insert into Pais(IdPais, NombrePais)
-		values (@IdPais, @NombrePais)
-else
-print '¡Error!, este país ya existe'
---Consulta de prueba
-select * from Pais;
+begin try
+begin tran
+	if(select Count(*) from Pais
+			where IdPais=@IdPais)=0
+			insert into Pais(IdPais, NombrePais)
+			values (@IdPais, @NombrePais)
+	else
+	print '¡Error!, este país ya existe'
+commit
+end try
+begin catch
+rollback
+print error_message()
+end catch;
 GO
 
 --PROCEDIMIENTO TABLA TIPO EMPLEADO
@@ -665,14 +761,20 @@ create procedure sp_Insertar_TipoEmpleado
 @IdTipoEmpleado varchar(20),
 @NombreTipoEmpleado varchar(100)
 as
-if(select Count(*) from TipoEmpleado
-		where IdTipoEmpleado=@IdTipoEmpleado)=0
-		insert into TipoEmpleado(IdTipoEmpleado, NombreTipoEmpleado)
-		values (@IdTipoEmpleado, @NombreTipoEmpleado)
-else
-print '¡Error!, este tipo de empleado ya existe'
---Consulta de prueba
-select * from TipoEmpleado
+begin try
+begin tran
+	if(select Count(*) from TipoEmpleado
+			where IdTipoEmpleado=@IdTipoEmpleado)=0
+			insert into TipoEmpleado(IdTipoEmpleado, NombreTipoEmpleado)
+			values (@IdTipoEmpleado, @NombreTipoEmpleado)
+	else
+	print '¡Error!, este tipo de empleado ya existe'
+commit
+end try
+begin catch
+rollback
+print error_message()
+end catch;
 GO
 
 --PROCEDIMIENTO TABLA DIA FAVORITO
@@ -680,14 +782,20 @@ create procedure sp_Insertar_DiaFavorito
 @IdDiaFavorito varchar(20),
 @NombreDia varchar(50)
 as
-if(select Count(*) from DiaFavorito
-		where IdDiaFavorito=@IdDiaFavorito)=0
-		insert into DiaFavorito(IdDiaFavorito, NombreDia)
-		values(@IdDiaFavorito, @NombreDia)
-else
-print '¡Error!, este día ya existe'
---Consulta de prueba
-select * from DiaFavorito
+begin try
+begin tran
+	if(select Count(*) from DiaFavorito
+			where IdDiaFavorito=@IdDiaFavorito)=0
+			insert into DiaFavorito(IdDiaFavorito, NombreDia)
+			values(@IdDiaFavorito, @NombreDia)
+	else
+	print '¡Error!, este día ya existe'
+commit
+end try
+begin catch
+rollback
+print error_message()
+end catch;
 GO
 
 --PROCEDIMIENTO TABLA LIGA
@@ -699,14 +807,20 @@ create procedure sp_Insertar_Liga
 @IdPais varchar(20),
 @IdDivision varchar(20)
 as
-if(select Count(*) from Liga
-		where IdLiga=@IdLiga)=0
-		insert into Liga(IdLiga,NombreLiga,FechaInicioLiga,FechaFinalLiga,IdPais,IdDivision)
-		values (@IdLiga, @NombreLiga, @FechaInicioLiga, @FechaFinalLiga, @IdPais, @IdDivision)
-else
-print '¡Error!, esta liga ya existe en los registros'
---Consulta de prueba
-select * from Liga
+begin try
+begin tran
+	if(select Count(*) from Liga
+			where IdLiga=@IdLiga)=0
+			insert into Liga(IdLiga,NombreLiga,FechaInicioLiga,FechaFinalLiga,IdPais,IdDivision)
+			values (@IdLiga, @NombreLiga, @FechaInicioLiga, @FechaFinalLiga, @IdPais, @IdDivision)
+	else
+	print '¡Error!, esta liga ya existe en los registros'
+commit
+end try
+begin catch
+rollback
+print error_message()
+end catch;
 GO
 
 --PROCEDIMIENTO TABLA CAMPAÑA
@@ -716,15 +830,21 @@ create procedure sp_Insertar_Campania
 @EquipoGanador varchar(20),
 @IdLiga varchar(20)
 as
-if(select Count(*) from Campania
-		where IdCampania=@IdCampania or NombreCampania=@NombreCampania or 
-		EquipoGanador=@EquipoGanador or IdLiga=@IdLiga)=0
-		insert into Campania(IdCampania, NombreCampania, EquipoGanador, IdLiga)
-		values (@IdCampania, @NombreCampania, @EquipoGanador, @IdLiga)
-else
-print '¡Error!, esta campaña ya es existente en los registros'
---Consulta de prueba
-select * from Campania 
+begin try
+begin tran
+	if(select Count(*) from Campania
+			where IdCampania=@IdCampania or NombreCampania=@NombreCampania or 
+			EquipoGanador=@EquipoGanador or IdLiga=@IdLiga)=0
+			insert into Campania(IdCampania, NombreCampania, EquipoGanador, IdLiga)
+			values (@IdCampania, @NombreCampania, @EquipoGanador, @IdLiga)
+	else
+	print '¡Error!, esta campaña ya es existente en los registros'
+commit
+end try
+begin catch
+rollback
+print error_message()
+end catch;
 GO
 
 --PROCEDIMIENTO TABLA PATROCINADOR
@@ -735,14 +855,20 @@ create procedure sp_Insertar_Patrocinador
 @CorreoPatrocinador varchar(20),
 @Logo IMAGE
 as
-if(select count(*) from Patrocinador
-		where IdPatrocinador=@IdPatrocinador)=0
-		insert into Patrocinador(IdPatrocinador,NombrePatrocinador, TelefonoPatrocinador, CorreoPatrocinador, Logo)
-		values(@IdPatrocinador,@NombrePatrocinador, @TelefonoPatrocinador, @CorreoPatrocinador, @Logo)
-else
-print '¡Error!, esta patrocinador ya está en los registros'
---Consulta de prueba
-select * from Patrocinador
+begin try
+begin tran
+	if(select count(*) from Patrocinador
+			where IdPatrocinador=@IdPatrocinador)=0
+			insert into Patrocinador(IdPatrocinador,NombrePatrocinador, TelefonoPatrocinador, CorreoPatrocinador, Logo)
+			values(@IdPatrocinador,@NombrePatrocinador, @TelefonoPatrocinador, @CorreoPatrocinador, @Logo)
+	else
+	print '¡Error!, esta patrocinador ya está en los registros'
+commit
+end try
+begin catch
+rollback
+print error_message()
+end catch;
 GO
 
 --PROCEDIMIENTO TABLA DUEÑO
@@ -753,14 +879,20 @@ create procedure sp_Insertar_Duenio
 @TelefonoDuenio varchar(20),
 @IdEquipo varchar(20)
 as
-if(select count(*) from Duenio
-		where IdDuenio=@IdDuenio)=0
-		insert into Duenio(IdDuenio,NombreDuenio, DireccionDuenio, TelefonoDuenio, IdEquipo)
-		values(@IdDuenio,@NombreDuenio, @DireccionDuenio, @TelefonoDuenio, @IdEquipo)
-else
-print '¡Error!, esta dueño ya está en los registros'
---Consulta de prueba
-select * from Duenio
+begin try
+begin tran
+	if(select count(*) from Duenio
+			where IdDuenio=@IdDuenio)=0
+			insert into Duenio(IdDuenio,NombreDuenio, DireccionDuenio, TelefonoDuenio, IdEquipo)
+			values(@IdDuenio,@NombreDuenio, @DireccionDuenio, @TelefonoDuenio, @IdEquipo)
+	else
+	print '¡Error!, esta dueño ya está en los registros'
+commit
+end try
+begin catch
+rollback
+print error_message()
+end catch;
 GO
 
 --PROCEDIMIENTO TABLA EQUIPACIÓN
@@ -772,16 +904,22 @@ create procedure sp_Insertar_Equipacion
 @DescripcionMedias varchar(200),
 @IdEquipo varchar(20)
 as
-if(select count(*) from Equipacion
-		where IdEquipacion=@IdEquipacion)=0
-		insert into Equipacion(IdEquipacion, DescripcionCamisa, DescripcionBotines, 
-		DescripcionShort, DescripcionMedias, IdEquipo)
-		values (@IdEquipacion, @DescripcionCamisa, @DescripcionBotines, 
-		@DescripcionShort, @DescripcionMedias, @IdEquipo)
-else
-print '¡Error!, este ya es existente'
---Consulta de prueba
-select * from Equipacion
+begin try
+begin tran
+	if(select count(*) from Equipacion
+			where IdEquipacion=@IdEquipacion)=0
+			insert into Equipacion(IdEquipacion, DescripcionCamisa, DescripcionBotines, 
+			DescripcionShort, DescripcionMedias, IdEquipo)
+			values (@IdEquipacion, @DescripcionCamisa, @DescripcionBotines, 
+			@DescripcionShort, @DescripcionMedias, @IdEquipo)
+	else
+	print '¡Error!, este ya es existente'
+commit
+end try
+begin catch
+rollback
+print error_message()
+end catch;
 GO
 
 --PROCEDIMIENTO TABLA DETALLE EQUIPO JUGADOR
@@ -792,14 +930,20 @@ create procedure sp_Insertar_DetalleEquipoJugador
 @IdEquipo varchar(20),
 @IdJugador varchar(20)
 as
-if(select count(*) from Detalle_Equipo_Jugador
-		where IdContrato=@IdContrato)=0
-		insert into Detalle_Equipo_Jugador(IdContrato,FechaInicioContrato,FechaFinalContrato, IdEquipo, IdJugador)
-		values(@IdContrato,@FechaInicioContrato,@FechaFinalContrato, @IdEquipo, @IdJugador)
-else
-print '¡Error!, este registro ya es existente'
---Consulta de prueba
-select * from Detalle_Equipo_Jugador
+begin try
+begin tran
+	if(select count(*) from Detalle_Equipo_Jugador
+			where IdContrato=@IdContrato)=0
+			insert into Detalle_Equipo_Jugador(IdContrato,FechaInicioContrato,FechaFinalContrato, IdEquipo, IdJugador)
+			values(@IdContrato,@FechaInicioContrato,@FechaFinalContrato, @IdEquipo, @IdJugador)
+	else
+	print '¡Error!, este registro ya es existente'
+commit
+end try
+begin catch
+rollback
+print error_message()
+end catch;
 GO
 
 --PROCEDIMIENTO TABLA DETALLE DESCENSO
@@ -807,10 +951,16 @@ create procedure sp_Insertar_DetalleDescenso
 @IdEquipo varchar(20),
 @IdCampania varchar(20)
 as
-insert into Detalle_Descenso(IdEquipo, IdCampania)
-values (@IdEquipo, @IdCampania)
---Consulta de prueba
-select * from Detalle_Descenso
+begin try
+begin tran
+	insert into Detalle_Descenso(IdEquipo, IdCampania)
+	values (@IdEquipo, @IdCampania)
+commit
+end try
+begin catch
+rollback
+print error_message()
+end catch;
 GO
 
 
@@ -822,29 +972,42 @@ create procedure sp_Insertar_Plantilla
 @RolJugador varchar(20),
 @IdPartido varchar(20)
 as
-if(select count (*) from Plantilla
-		where IdPlantilla=@IdPlantilla)=0
-		insert into Plantilla(IdPlantilla,IdEquipo,IdJugador, RolJugador,IdPartido)
-		values (@IdPlantilla,@IdEquipo,@IdJugador, @RolJugador,@IdPartido)
-else
-print '¡Error!, este registro de plantilla ya es existente'
---Consulta de prueba
-select * from Plantilla
+begin try
+begin tran
+	if(select count (*) from Plantilla
+			where IdPlantilla=@IdPlantilla)=0
+			insert into Plantilla(IdPlantilla,IdEquipo,IdJugador, RolJugador,IdPartido)
+			values (@IdPlantilla,@IdEquipo,@IdJugador, @RolJugador,@IdPartido)
+	else
+	print '¡Error!, este registro de plantilla ya es existente'
+commit
+end try
+begin catch
+rollback
+print error_message()
+end catch;
 GO
+
 
 --PROCEDIMIENTO TIPO TARJETA
 create procedure sp_Insertar_TipoTarjeta
 @IdTipoTajerta varchar(20),
 @NombreTipoTarjeta varchar(20)
 as
-if(select count(*) from TipoTarjeta
-		where IdTipoTajerta=@IdTipoTajerta)=0
-		insert into TipoTarjeta(IdTipoTajerta,NombreTipoTarjeta)
-		values (@IdTipoTajerta,@NombreTipoTarjeta)
-else
-print '¡Error!, este registro de tipo de tarjeta ya es existente'
---Consulta de prueba
-select * from TipoTarjeta
+begin try
+begin tran
+	if(select count(*) from TipoTarjeta
+			where IdTipoTajerta=@IdTipoTajerta)=0
+			insert into TipoTarjeta(IdTipoTajerta,NombreTipoTarjeta)
+			values (@IdTipoTajerta,@NombreTipoTarjeta)
+	else
+	print '¡Error!, este registro de tipo de tarjeta ya es existente'
+commit
+end try
+begin catch
+rollback
+print error_message()
+end catch;
 GO
 
 --PROCEDIMIENTO TABLA POSICION
@@ -862,16 +1025,22 @@ create procedure sp_Insertar_Posicion
 @IdEquipo varchar(20),
 @IdCampania varchar(20)
 as
-if(select count(*) from Tabla_De_Posicion
-		where IdPosicion=@IdPosicion)=0
-		insert into Tabla_De_Posicion(IdPosicion,GolesFavor ,GolesContra,PartidosGanados,PartidosPerdidos,
-		PartidosEmpatados,PartidosJugados,Puntaje,DiferenciaGoles,JuegoLimpio,IdEquipo,IdCampania)
-		values(@IdPosicion,@GolesFavor ,@GolesContra,@PartidosGanados,@PartidosPerdidos,
-		@PartidosEmpatados,@PartidosJugados,@Puntaje,@DiferenciaGoles,@JuegoLimpio,@IdEquipo,@IdCampania)
-else
-print '¡Error!, este registro  ya es existente'
---Consulta de prueba
-select * from Tabla_De_Posicion
+begin try
+begin tran
+	if(select count(*) from Tabla_De_Posicion
+			where IdPosicion=@IdPosicion)=0
+			insert into Tabla_De_Posicion(IdPosicion,GolesFavor ,GolesContra,PartidosGanados,PartidosPerdidos,
+			PartidosEmpatados,PartidosJugados,Puntaje,DiferenciaGoles,JuegoLimpio,IdEquipo,IdCampania)
+			values(@IdPosicion,@GolesFavor ,@GolesContra,@PartidosGanados,@PartidosPerdidos,
+			@PartidosEmpatados,@PartidosJugados,@Puntaje,@DiferenciaGoles,@JuegoLimpio,@IdEquipo,@IdCampania)
+	else
+	print '¡Error!, este registro  ya es existente'
+commit
+end try
+begin catch
+rollback
+print error_message()
+end catch;
 GO
 
 
