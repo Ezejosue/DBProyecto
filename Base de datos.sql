@@ -1047,308 +1047,481 @@ GO
 --*******************************TRIGGERS**************************
 
 --TRIGGER TABLA FechaNoPermitida
-CREATE TRIGGER trg_fecha_no_permitidao_insert
+CREATE TRIGGER trg_fecha_no_permitida
 ON FechaNoPermitida
-AFTER INSERT
+AFTER INSERT, UPDATE
 AS
-BEGIN  
+	IF EXISTS (SELECT * FROM inserted) and  EXISTS (SELECT * FROM deleted)
+	BEGIN
+	UPDATE FechaNoPermitida 
+	SET usuarioupdate = (SELECT CURRENT_USER), fechaupdate = getdate()
+	WHERE IdFechaNoPermitida = (SELECT i.IdFechaNoPermitida FROM inserted i);
+	END
+	ELSE IF EXISTS(SELECT * FROM inserted)
+	BEGIN
 	UPDATE FechaNoPermitida 
 	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
 	WHERE IdFechaNoPermitida = (SELECT i.IdFechaNoPermitida FROM inserted i);
-END
+	END
 GO
 
 --TRIGGER TABLA PAIS
-CREATE TRIGGER trg_paiso_insert
+CREATE TRIGGER trg_pais
 ON Pais
-AFTER INSERT
+AFTER INSERT, UPDATE
 AS
-BEGIN  
+IF EXISTS (SELECT * FROM inserted) and  EXISTS (SELECT * FROM deleted)
+	BEGIN
+	UPDATE Pais 
+	SET usuarioupdate = (SELECT CURRENT_USER), fechaupdate = getdate()
+	WHERE idPais = (SELECT i.idPais FROM inserted i);
+	END
+	ELSE IF EXISTS(SELECT * FROM inserted)
+	BEGIN
 	UPDATE Pais 
 	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
 	WHERE idPais = (SELECT i.idPais FROM inserted i);
-END
+	END
 GO
 
 
 --TRIGGER TABLA TipoEmpleado
-CREATE TRIGGER trg_tipo_empleadoo_insert
+CREATE TRIGGER trg_tipo_empleadoo
 ON TipoEmpleado
-AFTER INSERT
+AFTER INSERT, UPDATE
 AS
-BEGIN  
+IF EXISTS (SELECT * FROM inserted) and  EXISTS (SELECT * FROM deleted)
+	BEGIN
+	UPDATE TipoEmpleado 
+	SET usuarioupdate = (SELECT CURRENT_USER), fechaupdate = getdate()
+	WHERE IdTipoEmpleado = (SELECT i.IdTipoEmpleado FROM inserted i);
+	END
+	ELSE IF EXISTS(SELECT * FROM inserted)
+	BEGIN
 	UPDATE TipoEmpleado 
 	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
 	WHERE IdTipoEmpleado = (SELECT i.IdTipoEmpleado FROM inserted i);
-END
+	END
 GO
 
 --TRIGGER TABLA ESTADIO
-CREATE TRIGGER trg_estadioo_insert
+CREATE TRIGGER trg_estadioo
 ON estadio
-AFTER INSERT
+AFTER INSERT, UPDATE
 AS
-BEGIN  
+IF EXISTS (SELECT * FROM inserted) and  EXISTS (SELECT * FROM deleted)
+	BEGIN
+	UPDATE estadio 
+	SET usuarioupdate = (SELECT CURRENT_USER), fechaupdate = getdate()
+	WHERE IdEstadio = (SELECT i.IdEstadio FROM inserted i);
+	END
+	ELSE IF EXISTS(SELECT * FROM inserted)
+	BEGIN
 	UPDATE estadio 
 	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
 	WHERE IdEstadio = (SELECT i.IdEstadio FROM inserted i);
-END
+	END
 GO
 
 --TRIGGER TABLA DiaFavorito
-CREATE TRIGGER trg_dia_favorito_insert
+CREATE TRIGGER trg_dia_favorito
 ON DiaFavorito
-AFTER INSERT
+AFTER INSERT, UPDATE
 AS
-BEGIN  
+IF EXISTS (SELECT * FROM inserted) and  EXISTS (SELECT * FROM deleted)
+	BEGIN
+	UPDATE DiaFavorito 
+	SET usuarioupdate = (SELECT CURRENT_USER), fechaupdate = getdate()
+	WHERE IdDiaFavorito = (SELECT i.IdDiaFavorito FROM inserted i);
+	END
+	ELSE IF EXISTS(SELECT * FROM inserted)
+	BEGIN
 	UPDATE DiaFavorito 
 	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
 	WHERE IdDiaFavorito = (SELECT i.IdDiaFavorito FROM inserted i);
-END
+	END
 GO
 
 --TRIGGER TABLA DIVISIÓN
-CREATE TRIGGER trg_division_insert
+CREATE TRIGGER trg_division
 ON division
-AFTER INSERT
+AFTER INSERT, UPDATE
 AS
-BEGIN  
+IF EXISTS (SELECT * FROM inserted) and  EXISTS (SELECT * FROM deleted)
+	BEGIN
+	UPDATE Division 
+	SET usuarioupdate = (SELECT CURRENT_USER), fechaupdate = getdate()
+	WHERE IdDivision = (SELECT i.IdDivision FROM inserted i);
+	END
+	ELSE IF EXISTS(SELECT * FROM inserted)
+	BEGIN
 	UPDATE Division 
 	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
 	WHERE IdDivision = (SELECT i.IdDivision FROM inserted i);
-END
+	END
 GO
 
 --TRIGGER TABLA LIGA
-CREATE TRIGGER trg_liga_insert
+CREATE TRIGGER trg_liga
 ON Liga
-AFTER INSERT
+AFTER INSERT, UPDATE
 AS
-BEGIN  
+IF EXISTS (SELECT * FROM inserted) and  EXISTS (SELECT * FROM deleted)
+	BEGIN
+	UPDATE Liga 
+	SET usuarioupdate = (SELECT CURRENT_USER), fechaupdate = getdate()
+	WHERE IdLiga = (SELECT i.IdLiga FROM inserted i);
+	END
+	ELSE IF EXISTS(SELECT * FROM inserted)
+	BEGIN
 	UPDATE Liga 
 	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
 	WHERE IdLiga = (SELECT i.IdLiga FROM inserted i);
-END
+	END
 GO
 
 --TRIGGER TABLA EQUIPO
-CREATE TRIGGER trg_equipo_insert
+CREATE TRIGGER trg_equipo
 ON Equipo
-AFTER INSERT
+AFTER INSERT, UPDATE
 AS
-BEGIN  
+IF EXISTS (SELECT * FROM inserted) and  EXISTS (SELECT * FROM deleted)
+	BEGIN
+	UPDATE Equipo 
+	SET usuarioupdate = (SELECT CURRENT_USER), fechaupdate = getdate()
+	WHERE IdEquipo = (SELECT i.IdEquipo FROM inserted i);
+	END
+	ELSE IF EXISTS(SELECT * FROM inserted)
+	BEGIN
 	UPDATE Equipo 
 	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
 	WHERE IdEquipo = (SELECT i.IdEquipo FROM inserted i);
-END
+	END
 GO
 
 --TRIGGER TABLA CAMPANIA
-CREATE TRIGGER trg_campania_insert
+CREATE TRIGGER trg_campania
 ON Campania
-AFTER INSERT
+AFTER INSERT, UPDATE
 AS
-BEGIN  
+IF EXISTS (SELECT * FROM inserted) and  EXISTS (SELECT * FROM deleted)
+	BEGIN
+	UPDATE Campania 
+	SET usuarioupdate = (SELECT CURRENT_USER), fechaupdate = getdate()
+	WHERE IdCampania = (SELECT i.IdCampania FROM inserted i);
+	END
+	ELSE IF EXISTS(SELECT * FROM inserted)
+	BEGIN
 	UPDATE Campania 
 	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
 	WHERE IdCampania = (SELECT i.IdCampania FROM inserted i);
-END
+	END
 GO
 
 --TRIGGER TABLA EMPLEADO
-CREATE TRIGGER trg_empleado_insert
+CREATE TRIGGER trg_empleado
 ON Empleado
-AFTER INSERT
+AFTER INSERT, UPDATE
 AS
-BEGIN  
+IF EXISTS (SELECT * FROM inserted) and  EXISTS (SELECT * FROM deleted)
+	BEGIN
+	UPDATE Empleado 
+	SET usuarioupdate = (SELECT CURRENT_USER), fechaupdate = getdate()
+	WHERE IdEmpleado = (SELECT i.IdEmpleado FROM inserted i);
+	END
+	ELSE IF EXISTS(SELECT * FROM inserted)
+	BEGIN
 	UPDATE Empleado 
 	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
 	WHERE IdEmpleado = (SELECT i.IdEmpleado FROM inserted i);
-END
+	END
 GO
 
 
 --TRIGGER TABLA PATROCINADOR
-CREATE TRIGGER trg_patrocinador_insert
+CREATE TRIGGER trg_patrocinador
 ON Patrocinador
-AFTER INSERT
+AFTER INSERT, UPDATE
 AS
-BEGIN  
+IF EXISTS (SELECT * FROM inserted) and  EXISTS (SELECT * FROM deleted)
+	BEGIN
+	UPDATE Patrocinador 
+	SET usuarioupdate = (SELECT CURRENT_USER), fechaupdate = getdate()
+	WHERE IdPatrocinador = (SELECT i.IdPatrocinador FROM inserted i);
+	END
+	ELSE IF EXISTS(SELECT * FROM inserted)
+	BEGIN
 	UPDATE Patrocinador 
 	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
 	WHERE IdPatrocinador = (SELECT i.IdPatrocinador FROM inserted i);
-END
+	END
 GO
 
 --TRIGGER TABLA Detalle_Equipo_Patrocinador
-CREATE TRIGGER trg_Detalle_Equipo_Patrocinador_insert
+CREATE TRIGGER trg_Detalle_Equipo_Patrocinador
 ON Detalle_Equipo_Patrocinador
-AFTER INSERT
+AFTER INSERT, UPDATE
 AS
-BEGIN  
+IF EXISTS (SELECT * FROM inserted) and  EXISTS (SELECT * FROM deleted)
+	BEGIN
+	UPDATE Detalle_Equipo_Patrocinador 
+	SET usuarioupdate = (SELECT CURRENT_USER), fechaupdate = getdate()
+	WHERE IdPatrocinador = (SELECT i.IdPatrocinador FROM inserted i) and IdEquipo = (SELECT i.IdEquipo FROM inserted i);
+	END
+	ELSE IF EXISTS(SELECT * FROM inserted)
+	BEGIN
 	UPDATE Detalle_Equipo_Patrocinador 
 	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
 	WHERE IdPatrocinador = (SELECT i.IdPatrocinador FROM inserted i) and IdEquipo = (SELECT i.IdEquipo FROM inserted i);
-END
+	END
 GO
 
 --TRIGGER TABLA Duenio
-CREATE TRIGGER trg_duenio_insert
+CREATE TRIGGER trg_duenio
 ON Duenio
-AFTER INSERT
+AFTER INSERT, UPDATE
 AS
-BEGIN  
+IF EXISTS (SELECT * FROM inserted) and  EXISTS (SELECT * FROM deleted)
+	BEGIN
+	UPDATE Duenio 
+	SET usuarioupdate = (SELECT CURRENT_USER), fechaupdate = getdate()
+	WHERE IdDuenio = (SELECT i.IdDuenio FROM inserted i);
+	END
+	ELSE IF EXISTS(SELECT * FROM inserted)
+	BEGIN
 	UPDATE Duenio 
 	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
 	WHERE IdDuenio = (SELECT i.IdDuenio FROM inserted i);
-END
+	END
 GO
 
 --TRIGGER TABLA DetalleDUEÑO
-CREATE TRIGGER trg_DetalleDuenio_insert
+CREATE TRIGGER trg_DetalleDuenio
 ON DetalleDuenio
-AFTER INSERT
+AFTER INSERT, UPDATE
 AS
-BEGIN  
+IF EXISTS (SELECT * FROM inserted) and  EXISTS (SELECT * FROM deleted)
+	BEGIN
+	UPDATE DetalleDuenio 
+	SET usuarioupdate = (SELECT CURRENT_USER), fechaupdate = getdate()
+	WHERE IdDuenio = (SELECT i.IdDuenio FROM inserted i) and IdEquipo = (SELECT i.IdEquipo FROM inserted i);
+	END
+	ELSE IF EXISTS(SELECT * FROM inserted)
+	BEGIN
 	UPDATE DetalleDuenio 
 	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
 	WHERE IdDuenio = (SELECT i.IdDuenio FROM inserted i) and IdEquipo = (SELECT i.IdEquipo FROM inserted i);
-END
+	END
 GO
 
 --TRIGGER TABLA EQUIPACIÓN
-CREATE TRIGGER trg_equipacion_insert
+CREATE TRIGGER trg_equipacion
 ON Equipacion
-AFTER INSERT
+AFTER INSERT, UPDATE
 AS
-BEGIN  
+IF EXISTS (SELECT * FROM inserted) and  EXISTS (SELECT * FROM deleted)
+	BEGIN
+	UPDATE Equipacion 
+	SET usuarioupdate = (SELECT CURRENT_USER), fechaupdate = getdate()
+	WHERE IdEquipacion = (SELECT i.IdEquipacion FROM inserted i);
+	END
+	ELSE IF EXISTS(SELECT * FROM inserted)
+	BEGIN
 	UPDATE Equipacion 
 	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
 	WHERE IdEquipacion = (SELECT i.IdEquipacion FROM inserted i);
-END
+	END
 GO
 
 --TRIGGER TABLA JUGADOR
-CREATE TRIGGER trg_jugador_insert
+CREATE TRIGGER trg_jugador
 ON Jugador
-AFTER INSERT
+AFTER INSERT, UPDATE
 AS
-BEGIN  
+IF EXISTS (SELECT * FROM inserted) and  EXISTS (SELECT * FROM deleted)
+	BEGIN
+	UPDATE Jugador 
+	SET usuarioupdate = (SELECT CURRENT_USER), fechaupdate = getdate()
+	WHERE IdJugador = (SELECT i.IdJugador FROM inserted i);
+	END
+	ELSE IF EXISTS(SELECT * FROM inserted)
+	BEGIN
 	UPDATE Jugador 
 	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
 	WHERE IdJugador = (SELECT i.IdJugador FROM inserted i);
-END
+	END
 GO
 
 --TRIGGER TABLA Detalle_Equipo_Jugador
-CREATE TRIGGER trg_Detalle_Equipo_Jugador_insert
+CREATE TRIGGER trg_Detalle_Equipo_Jugador
 ON Detalle_Equipo_Jugador
-AFTER INSERT
+AFTER INSERT, UPDATE
 AS
-BEGIN  
+IF EXISTS (SELECT * FROM inserted) and  EXISTS (SELECT * FROM deleted)
+	BEGIN
+	UPDATE Detalle_Equipo_Jugador 
+	SET usuarioupdate = (SELECT CURRENT_USER), fechaupdate = getdate()
+	WHERE IdContrato = (SELECT i.IdContrato FROM inserted i);
+	END
+	ELSE IF EXISTS(SELECT * FROM inserted)
+	BEGIN
 	UPDATE Detalle_Equipo_Jugador 
 	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
 	WHERE IdContrato = (SELECT i.IdContrato FROM inserted i);
-END
+	END
 GO
 
 --TRIGGER TABLA Goleador
-CREATE TRIGGER trg_goleador_insert
+CREATE TRIGGER trg_goleador
 ON Goleador
-AFTER INSERT
+AFTER INSERT, UPDATE
 AS
-BEGIN  
+IF EXISTS (SELECT * FROM inserted) and  EXISTS (SELECT * FROM deleted)
+	BEGIN
+	UPDATE Goleador 
+	SET usuarioupdate = (SELECT CURRENT_USER), fechaupdate = getdate()
+	WHERE IdJugador = (SELECT i.IdJugador FROM inserted i) and IdCampania = (SELECT i.IdCampania FROM inserted i);
+	END
+	ELSE IF EXISTS(SELECT * FROM inserted)
+	BEGIN
 	UPDATE Goleador 
 	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
 	WHERE IdJugador = (SELECT i.IdJugador FROM inserted i) and IdCampania = (SELECT i.IdCampania FROM inserted i);
-END
+	END
 GO
 
 --TRIGGER TABLA DETALLE_DESCENSO
-CREATE TRIGGER trg_Detalle_Descenso_insert
+CREATE TRIGGER trg_Detalle_Descenso
 ON Detalle_Descenso
-AFTER INSERT
+AFTER INSERT, UPDATE
 AS
-BEGIN  
+IF EXISTS (SELECT * FROM inserted) and  EXISTS (SELECT * FROM deleted)
+	BEGIN
+	UPDATE Detalle_Descenso 
+	SET usuarioupdate = (SELECT CURRENT_USER), fechaupdate = getdate()
+	WHERE IdEquipo = (SELECT i.IdEquipo FROM inserted i) and IdCampania = (SELECT i.IdCampania FROM inserted i);
+	END
+	ELSE IF EXISTS(SELECT * FROM inserted)
+	BEGIN
 	UPDATE Detalle_Descenso 
 	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
 	WHERE IdEquipo = (SELECT i.IdEquipo FROM inserted i) and IdCampania = (SELECT i.IdCampania FROM inserted i);
-END
+	END
 GO
 
 
 --TRIGGER TABLA Partido
-CREATE TRIGGER trg_partido_insert
+CREATE TRIGGER trg_partido
 ON Partido
-AFTER INSERT
+AFTER INSERT, UPDATE
 AS
-BEGIN  
+IF EXISTS (SELECT * FROM inserted) and  EXISTS (SELECT * FROM deleted)
+	BEGIN
+	UPDATE Partido 
+	SET usuarioupdate = (SELECT CURRENT_USER), fechaupdate = getdate()
+	WHERE IdPartido = (SELECT i.IdPartido FROM inserted i);
+	END
+	ELSE IF EXISTS(SELECT * FROM inserted)
+	BEGIN
 	UPDATE Partido 
 	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
 	WHERE IdPartido = (SELECT i.IdPartido FROM inserted i);
-END
+	END
 GO
 
 
 --TRIGGER TABLA PLANTILLA
-CREATE TRIGGER trg_plantilla_insert
+CREATE TRIGGER trg_plantilla
 ON Plantilla
-AFTER INSERT
+AFTER INSERT, UPDATE
 AS
-BEGIN  
+IF EXISTS (SELECT * FROM inserted) and  EXISTS (SELECT * FROM deleted)
+	BEGIN
+	UPDATE Plantilla 
+	SET usuarioupdate = (SELECT CURRENT_USER), fechaupdate = getdate()
+	WHERE IdPlantilla = (SELECT i.IdPlantilla FROM inserted i);
+	END
+	ELSE IF EXISTS(SELECT * FROM inserted)
+	BEGIN
 	UPDATE Plantilla 
 	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
 	WHERE IdPlantilla = (SELECT i.IdPlantilla FROM inserted i);
-END
+	END
 GO
 
 --TRIGGER TABLA GOLES
-CREATE TRIGGER trg_goles_insert
+CREATE TRIGGER trg_goles
 ON Goles
-AFTER INSERT
+AFTER INSERT, UPDATE
 AS
-BEGIN  
+IF EXISTS (SELECT * FROM inserted) and  EXISTS (SELECT * FROM deleted)
+	BEGIN
+	UPDATE Goles 
+	SET usuarioupdate = (SELECT CURRENT_USER), fechaupdate = getdate()
+	WHERE idGol = (SELECT i.idGol FROM inserted i);
+	END
+	ELSE IF EXISTS(SELECT * FROM inserted)
+	BEGIN
 	UPDATE Goles 
 	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
 	WHERE idGol = (SELECT i.idGol FROM inserted i);
-END
+	END
 GO
 
-
-
 --TRIGGER TABLA TIPO TARJETA
-CREATE TRIGGER trg_TipoTarjeta_insert
+CREATE TRIGGER trg_TipoTarjeta
 ON TipoTarjeta
-AFTER INSERT
+AFTER INSERT, UPDATE
 AS
-BEGIN  
+IF EXISTS (SELECT * FROM inserted) and  EXISTS (SELECT * FROM deleted)
+	BEGIN
+	UPDATE TipoTarjeta 
+	SET usuarioupdate = (SELECT CURRENT_USER), fechaupdate = getdate()
+	WHERE IdTipoTajerta = (SELECT i.IdTipoTajerta FROM inserted i);
+	END
+	ELSE IF EXISTS(SELECT * FROM inserted)
+	BEGIN
 	UPDATE TipoTarjeta 
 	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
 	WHERE IdTipoTajerta = (SELECT i.IdTipoTajerta FROM inserted i);
-END
+	END
 GO
 
 
 --TRIGGER TABLA Tarjeta
-CREATE TRIGGER trg_tarjeta_insert
+CREATE TRIGGER trg_tarjeta
 ON Tarjeta
-AFTER INSERT
+AFTER INSERT, UPDATE
 AS
-BEGIN  
+IF EXISTS (SELECT * FROM inserted) and  EXISTS (SELECT * FROM deleted)
+	BEGIN
+	UPDATE Tarjeta 
+	SET usuarioupdate = (SELECT CURRENT_USER), fechaupdate = getdate()
+	WHERE IdTarjeta = (SELECT i.IdTarjeta FROM inserted i);
+	END
+	ELSE IF EXISTS(SELECT * FROM inserted)
+	BEGIN
 	UPDATE Tarjeta 
 	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
 	WHERE IdTarjeta = (SELECT i.IdTarjeta FROM inserted i);
-END
+	END
 GO
 
 --TRIGGER TABLA Tabla_De_Posicion
-CREATE TRIGGER trg_Tabla_De_Posicion_insert
+CREATE TRIGGER trg_Tabla_De_Posicion
 ON Tabla_De_Posicion
-AFTER INSERT
+AFTER INSERT, UPDATE
 AS
-BEGIN  
+IF EXISTS (SELECT * FROM inserted) and  EXISTS (SELECT * FROM deleted)
+	BEGIN
+	UPDATE Tabla_De_Posicion 
+	SET usuarioupdate = (SELECT CURRENT_USER), fechaupdate = getdate()
+	WHERE IdPosicion = (SELECT i.IdPosicion FROM inserted i);
+	END
+	ELSE IF EXISTS(SELECT * FROM inserted)
+	BEGIN
 	UPDATE Tabla_De_Posicion 
 	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
 	WHERE IdPosicion = (SELECT i.IdPosicion FROM inserted i);
-END
+	END
 GO
