@@ -3,21 +3,23 @@ use master
 create database Control_Ligas
 go
 use Control_Ligas
---drop database Control_Ligas
+go
+
 --CREANDO TABLAS
 --TABLA FechaNoPermitida
 create table FechaNoPermitida
 (
-	IdFechaNoPermitida varchar(20),
+	IdFechaNoPermitida varchar(20) not null,
 	usuarioisert varchar(50),
 	usuarioupdate varchar(50),
 	fechainsert date,
 	fechaupdate date,
-	FechaNoPermitida date,
-	DescripcionFecha VARCHAR(MAX)
+	FechaNoPermitida date not null,
+	DescripcionFecha VARCHAR(MAX) not null,
 	--LLAVE PRIMARIA
 	constraint pk_FechaNoPermitida primary key (IdFechaNoPermitida)
 );
+GO
 
 --TABLA PAIS
 create table Pais
@@ -420,7 +422,7 @@ create table Tarjeta
 	constraint fk_Tarjeta_partido foreign key (IdPartido) references partido (IdPartido)
 );
 
---TABLA POSICI�N
+--TABLA Tabla_De_Posicion
 create table Tabla_De_Posicion
 (
 	IdPosicion varchar(20) not null,
@@ -446,6 +448,12 @@ create table Tabla_De_Posicion
 	constraint fk_Posicion_Campania foreign key (IdCampania) references Campania (IdCampania)
 );
 GO
+
+
+
+
+--*******************************PROCEDIMIENTOS ALMACENADOS**************************
+
 --Fecha no permitida
 create procedure sp_insertarFechaNoPermitida
 	@IdFechaNoPermitida varchar(20),
@@ -867,3 +875,311 @@ select * from Tabla_De_Posicion
 GO
 
 
+--*******************************TRIGGERS**************************
+
+--TRIGGER TABLA FechaNoPermitida
+CREATE TRIGGER trg_fecha_no_permitidao_insert
+ON FechaNoPermitida
+AFTER INSERT
+AS
+BEGIN  
+	UPDATE FechaNoPermitida 
+	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
+	WHERE IdFechaNoPermitida = (SELECT i.IdFechaNoPermitida FROM inserted i);
+END
+GO
+
+--TRIGGER TABLA PAIS
+CREATE TRIGGER trg_paiso_insert
+ON Pais
+AFTER INSERT
+AS
+BEGIN  
+	UPDATE Pais 
+	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
+	WHERE idPais = (SELECT i.idPais FROM inserted i);
+END
+GO
+
+
+--TRIGGER TABLA TipoEmpleado
+CREATE TRIGGER trg_tipo_empleadoo_insert
+ON TipoEmpleado
+AFTER INSERT
+AS
+BEGIN  
+	UPDATE TipoEmpleado 
+	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
+	WHERE IdTipoEmpleado = (SELECT i.IdTipoEmpleado FROM inserted i);
+END
+GO
+
+--TRIGGER TABLA ESTADIO
+CREATE TRIGGER trg_estadioo_insert
+ON estadio
+AFTER INSERT
+AS
+BEGIN  
+	UPDATE estadio 
+	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
+	WHERE IdEstadio = (SELECT i.IdEstadio FROM inserted i);
+END
+GO
+
+--TRIGGER TABLA DiaFavorito
+CREATE TRIGGER trg_dia_favorito_insert
+ON DiaFavorito
+AFTER INSERT
+AS
+BEGIN  
+	UPDATE DiaFavorito 
+	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
+	WHERE IdDiaFavorito = (SELECT i.IdDiaFavorito FROM inserted i);
+END
+GO
+
+--TRIGGER TABLA DIVISIÓN
+CREATE TRIGGER trg_division_insert
+ON division
+AFTER INSERT
+AS
+BEGIN  
+	UPDATE Division 
+	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
+	WHERE IdDivision = (SELECT i.IdDivision FROM inserted i);
+END
+GO
+
+--TRIGGER TABLA LIGA
+CREATE TRIGGER trg_liga_insert
+ON Liga
+AFTER INSERT
+AS
+BEGIN  
+	UPDATE Liga 
+	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
+	WHERE IdLiga = (SELECT i.IdLiga FROM inserted i);
+END
+GO
+
+--TRIGGER TABLA EQUIPO
+CREATE TRIGGER trg_equipo_insert
+ON Equipo
+AFTER INSERT
+AS
+BEGIN  
+	UPDATE Equipo 
+	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
+	WHERE IdEquipo = (SELECT i.IdEquipo FROM inserted i);
+END
+GO
+
+--TRIGGER TABLA CAMPANIA
+CREATE TRIGGER trg_campania_insert
+ON Campania
+AFTER INSERT
+AS
+BEGIN  
+	UPDATE Campania 
+	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
+	WHERE IdCampania = (SELECT i.IdCampania FROM inserted i);
+END
+GO
+
+--TRIGGER TABLA EMPLEADO
+CREATE TRIGGER trg_empleado_insert
+ON Empleado
+AFTER INSERT
+AS
+BEGIN  
+	UPDATE Empleado 
+	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
+	WHERE IdEmpleado = (SELECT i.IdEmpleado FROM inserted i);
+END
+GO
+
+
+--TRIGGER TABLA PATROCINADOR
+CREATE TRIGGER trg_patrocinador_insert
+ON Patrocinador
+AFTER INSERT
+AS
+BEGIN  
+	UPDATE Patrocinador 
+	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
+	WHERE IdPatrocinador = (SELECT i.IdPatrocinador FROM inserted i);
+END
+GO
+
+--TRIGGER TABLA Detalle_Equipo_Patrocinador
+CREATE TRIGGER trg_Detalle_Equipo_Patrocinador_insert
+ON Detalle_Equipo_Patrocinador
+AFTER INSERT
+AS
+BEGIN  
+	UPDATE Detalle_Equipo_Patrocinador 
+	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
+	WHERE IdPatrocinador = (SELECT i.IdPatrocinador FROM inserted i) and IdEquipo = (SELECT i.IdEquipo FROM inserted i);
+END
+GO
+
+--TRIGGER TABLA Duenio
+CREATE TRIGGER trg_duenio_insert
+ON Duenio
+AFTER INSERT
+AS
+BEGIN  
+	UPDATE Duenio 
+	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
+	WHERE IdDuenio = (SELECT i.IdDuenio FROM inserted i);
+END
+GO
+
+--TRIGGER TABLA DetalleDUEÑO
+CREATE TRIGGER trg_DetalleDuenio_insert
+ON DetalleDuenio
+AFTER INSERT
+AS
+BEGIN  
+	UPDATE DetalleDuenio 
+	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
+	WHERE IdDuenio = (SELECT i.IdDuenio FROM inserted i) and IdEquipo = (SELECT i.IdEquipo FROM inserted i);
+END
+GO
+
+--TRIGGER TABLA EQUIPACIÓN
+CREATE TRIGGER trg_equipacion_insert
+ON Equipacion
+AFTER INSERT
+AS
+BEGIN  
+	UPDATE Equipacion 
+	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
+	WHERE IdEquipacion = (SELECT i.IdEquipacion FROM inserted i);
+END
+GO
+
+--TRIGGER TABLA JUGADOR
+CREATE TRIGGER trg_jugador_insert
+ON Jugador
+AFTER INSERT
+AS
+BEGIN  
+	UPDATE Jugador 
+	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
+	WHERE IdJugador = (SELECT i.IdJugador FROM inserted i);
+END
+GO
+
+--TRIGGER TABLA Detalle_Equipo_Jugador
+CREATE TRIGGER trg_Detalle_Equipo_Jugador_insert
+ON Detalle_Equipo_Jugador
+AFTER INSERT
+AS
+BEGIN  
+	UPDATE Detalle_Equipo_Jugador 
+	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
+	WHERE IdContrato = (SELECT i.IdContrato FROM inserted i);
+END
+GO
+
+--TRIGGER TABLA Goleador
+CREATE TRIGGER trg_goleador_insert
+ON Goleador
+AFTER INSERT
+AS
+BEGIN  
+	UPDATE Goleador 
+	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
+	WHERE IdJugador = (SELECT i.IdJugador FROM inserted i) and IdCampania = (SELECT i.IdCampania FROM inserted i);
+END
+GO
+
+--TRIGGER TABLA DETALLE_DESCENSO
+CREATE TRIGGER trg_Detalle_Descenso_insert
+ON Detalle_Descenso
+AFTER INSERT
+AS
+BEGIN  
+	UPDATE Detalle_Descenso 
+	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
+	WHERE IdEquipo = (SELECT i.IdEquipo FROM inserted i) and IdCampania = (SELECT i.IdCampania FROM inserted i);
+END
+GO
+
+
+--TRIGGER TABLA Partido
+CREATE TRIGGER trg_partido_insert
+ON Partido
+AFTER INSERT
+AS
+BEGIN  
+	UPDATE Partido 
+	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
+	WHERE IdPartido = (SELECT i.IdPartido FROM inserted i);
+END
+GO
+
+
+--TRIGGER TABLA PLANTILLA
+CREATE TRIGGER trg_plantilla_insert
+ON Plantilla
+AFTER INSERT
+AS
+BEGIN  
+	UPDATE Plantilla 
+	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
+	WHERE IdPlantilla = (SELECT i.IdPlantilla FROM inserted i);
+END
+GO
+
+--TRIGGER TABLA GOLES
+CREATE TRIGGER trg_goles_insert
+ON Goles
+AFTER INSERT
+AS
+BEGIN  
+	UPDATE Goles 
+	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
+	WHERE idGol = (SELECT i.idGol FROM inserted i);
+END
+GO
+
+
+
+--TRIGGER TABLA TIPO TARJETA
+CREATE TRIGGER trg_TipoTarjeta_insert
+ON TipoTarjeta
+AFTER INSERT
+AS
+BEGIN  
+	UPDATE TipoTarjeta 
+	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
+	WHERE IdTipoTajerta = (SELECT i.IdTipoTajerta FROM inserted i);
+END
+GO
+
+
+--TRIGGER TABLA Tarjeta
+CREATE TRIGGER trg_tarjeta_insert
+ON Tarjeta
+AFTER INSERT
+AS
+BEGIN  
+	UPDATE Tarjeta 
+	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
+	WHERE IdTarjeta = (SELECT i.IdTarjeta FROM inserted i);
+END
+GO
+
+--TRIGGER TABLA Tabla_De_Posicion
+CREATE TRIGGER trg_Tabla_De_Posicion_insert
+ON Tabla_De_Posicion
+AFTER INSERT
+AS
+BEGIN  
+	UPDATE Tabla_De_Posicion 
+	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
+	WHERE IdPosicion = (SELECT i.IdPosicion FROM inserted i);
+END
+GO
