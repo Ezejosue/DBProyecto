@@ -3,13 +3,16 @@ use master
 create database Control_Ligas
 go
 
-
 use Control_Ligas
 --CREANDO TABLAS
 --TABLA FechaNoPermitida
 create table FechaNoPermitida
 (
 	IdFechaNoPermitida varchar(20) not null,
+	usuarioisert varchar(50),
+	usuarioupdate varchar(50),
+	fechainsert date,
+	fechaupdate date,
 	FechaNoPermitida date not null,
 	DescripcionFecha VARCHAR(MAX)
 	--LLAVE PRIMARIA
@@ -21,6 +24,10 @@ create table FechaNoPermitida
 create table Pais
 (
 	IdPais varchar(20) not null,
+	usuarioisert varchar(50),
+	usuarioupdate varchar(50),
+	fechainsert date,
+	fechaupdate date,
 	NombrePais varchar(100) not null unique,
 	--LLAVE PRIMARIA
 	constraint pk_IdPais primary key (IdPais)
@@ -30,6 +37,10 @@ create table Pais
 create table TipoEmpleado
 (
 	IdTipoEmpleado varchar(20) not null,
+	usuarioisert varchar(50),
+	usuarioupdate varchar(50),
+	fechainsert date,
+	fechaupdate date,
 	NombreTipoEmpleado varchar(100) not null unique,
 	--LLAVE PRIMARIA
 	constraint pk_IdTipoEmpleado primary key (IdTipoEmpleado)
@@ -39,6 +50,10 @@ create table TipoEmpleado
 create table Estadio
 (
 	IdEstadio varchar(20) not null,
+	usuarioisert varchar(50),
+	usuarioupdate varchar(50),
+	fechainsert date,
+	fechaupdate date,
 	NombreEstadio varchar(100) not null unique,
 	CapacidadEstadio int not null,
 	DireccionEstado varchar(MAX),
@@ -54,6 +69,10 @@ create table Estadio
 create table DiaFavorito
 (
 	IdDiaFavorito varchar(20) not null,
+	usuarioisert varchar(50),
+	usuarioupdate varchar(50),
+	fechainsert date,
+	fechaupdate date,
 	NombreDia varchar(50) not null unique,
 	--LLAVE PRIMARIA
 	constraint pk_IdDiaFavorito primary key (IdDiaFavorito)
@@ -64,6 +83,10 @@ create table DiaFavorito
 create table Division
 (
 	IdDivision varchar(20) not null,
+	usuarioisert varchar(50),
+	usuarioupdate varchar(50),
+	fechainsert date,
+	fechaupdate date,
 	NombreDivision varchar(100) not null unique,
 	--LLAVE PRIMARIA
 	constraint pk_IdDivision primary key (IdDivision)
@@ -73,6 +96,10 @@ create table Division
 create table Liga
 (
 	IdLiga varchar(20) not null,
+	usuarioisert varchar(50),
+	usuarioupdate varchar(50),
+	fechainsert date,
+	fechaupdate date,
 	NombreLiga varchar(100) not null unique,
 	FechaInicioLiga date not null,
 	FechaFinalLiga date not null,
@@ -88,6 +115,10 @@ create table Liga
 create table Equipo
 (
 	IdEquipo varchar(20) not null,
+	usuarioisert varchar(50),
+	usuarioupdate varchar(50),
+	fechainsert date,
+	fechaupdate date,
 	NombreEquipo varchar(100) not null unique,
 	NombreOficinasEquipo varchar (100) not null,
 	HoraFavoritaEquipo time not null,
@@ -108,6 +139,10 @@ create table Equipo
 create table Campania
 (
 	IdCampania varchar(20) not null,
+	usuarioisert varchar(50),
+	usuarioupdate varchar(50),
+	fechainsert date,
+	fechaupdate date,
 	NombreCampania varchar(100) not null unique,
 	EquipoGanador varchar(20) not null,
 	IdLiga varchar(20) not null,
@@ -123,6 +158,10 @@ create table Campania
 create table Empleado
 (
 	IdEmpleado varchar(20) not null,
+	usuarioisert varchar(50),
+	usuarioupdate varchar(50),
+	fechainsert date,
+	fechaupdate date,
 	NombreEmpleado varchar(100) not null unique,
 	FechaNacimientoEmpleado date not null,
 	IdTipoEmpleado varchar(20) not null,
@@ -143,6 +182,10 @@ create table Empleado
 create table Patrocinador
 (
 	IdPatrocinador varchar(20) not null,
+	usuarioisert varchar(50),
+	usuarioupdate varchar(50),
+	fechainsert date,
+	fechaupdate date,
 	NombrePatrocinador varchar(100) not null unique,
 	TelefonoPatrocinador varchar(20) unique,
 	CorreoPatrocinador varchar(20) check(CorreoPatrocinador like '%[a-z, 0-9]%@[a-z]'),
@@ -155,6 +198,10 @@ create table Patrocinador
 create table Detalle_Equipo_Patrocinador
 (
 	IdEquipo varchar(20) not null,
+	usuarioisert varchar(50),
+	usuarioupdate varchar(50),
+	fechainsert date,
+	fechaupdate date,
 	IdPatrocinador varchar(20) not null,
 	Estado int check(estado=1 or estado=0) default 1,
 	FechaInicio DATE,
@@ -168,6 +215,10 @@ create table Detalle_Equipo_Patrocinador
 create table Duenio
 (
 	IdDuenio varchar(20) not null,
+	usuarioisert varchar(50),
+	usuarioupdate varchar(50),
+	fechainsert date,
+	fechaupdate date,
 	NombreDuenio varchar(100) not null unique,
 	DireccionDuenio varchar(200) not null,
 	TelefonoDuenio varchar(20) not null unique,
@@ -181,6 +232,10 @@ create table DetalleDuenio
 (
 	IdDuenio varchar(20) not null,
 	IdEquipo varchar(20) not null,
+	usuarioisert varchar(50),
+	usuarioupdate varchar(50),
+	fechainsert date,
+	fechaupdate date,
 	--LLAVE SECUNDARIA
 	constraint fk_Detalle_Dueño foreign key (IdDuenio) references Duenio (IdDuenio),
 	constraint fk_Dueño_Equipo foreign key (IdEquipo) references Equipo (IdEquipo)
@@ -195,6 +250,10 @@ create table Equipacion
 	DescripcionShort varchar(200) not null,
 	DescripcionMedias varchar(200) not null,
 	IdEquipo varchar(20) not null,
+	usuarioisert varchar(50),
+	usuarioupdate varchar(50),
+	fechainsert date,
+	fechaupdate date,
 	--LLAVE PRIMARIA
 	constraint pk_IdEquipacion primary key (IdEquipacion),
 	--LLAVE SECUNDARIA
@@ -205,6 +264,10 @@ create table Equipacion
 create table Jugador
 (
 	IdJugador varchar(20) not null,
+	usuarioisert varchar(50),
+	usuarioupdate varchar(50),
+	fechainsert date,
+	fechaupdate date,
 	NombreJugador varchar(100) not null,
 	AlturaJugador varchar(20) not null,
 	PesoJugador varchar(20) not null,
@@ -221,6 +284,10 @@ create table Jugador
 create table Detalle_Equipo_Jugador
 (
 	IdContrato varchar(20) not null,
+	usuarioisert varchar(50),
+	usuarioupdate varchar(50),
+	fechainsert date,
+	fechaupdate date,
 	FechaInicioContrato date not null,
 	FechaFinalContrato date not null,
 	IdEquipo varchar(20) not null,
@@ -237,6 +304,10 @@ create table Goleador
 (
 	IdJugador varchar(20) not null,
 	IdCampania varchar(20) not null,
+	usuarioisert varchar(50),
+	usuarioupdate varchar(50),
+	fechainsert date,
+	fechaupdate date,
 	--LLAVE SECUNDARIA
 	constraint fk_Goleador_Jugador foreign key (IdJugador) references Jugador (IdJugador),
 	constraint fk_Goleador_Campania foreign key (IdCampania) references Campania (IdCampania),
@@ -247,6 +318,10 @@ create table Detalle_Descenso
 (
 	IdEquipo varchar(20) not null,
 	IdCampania varchar(20) not null,
+	usuarioisert varchar(50),
+	usuarioupdate varchar(50),
+	fechainsert date,
+	fechaupdate date,
 	--LLAVE SECUNDARIA
 	constraint fk_Detalle_Descenso_IdEquipo foreign key (IdEquipo) references Equipo (IdEquipo),
 	constraint fk_Detalle_Descenso_IdCampania foreign key (IdCampania) references Campania (IdCampania)
@@ -257,6 +332,10 @@ create table Detalle_Descenso
 create table Partido
 (
 	IdPartido varchar(20) not null,
+	usuarioisert varchar(50),
+	usuarioupdate varchar(50),
+	fechainsert date,
+	fechaupdate date,
 	EquipoVisitante varchar(20) not null,
 	EquipoLocal varchar(20) not null,
 	FechaPartido date not null,
@@ -281,6 +360,10 @@ create table Plantilla
 	IdJugador varchar(20) not null,
 	RolJugador varchar(20) not null check(RolJugador='Titular' or RolJugador='Suplente'),
 	IdPartido varchar(20) not null,
+	usuarioisert varchar(50),
+	usuarioupdate varchar(50),
+	fechainsert date,
+	fechaupdate date,
 	--LLAVE PRIMARIA
 	constraint pk_IdPlantilla primary key (IdPlantilla),
 	--LLAVE SECUNDARIA
@@ -294,6 +377,10 @@ create table Goles
 	idGol int not null,
 	IdPartido varchar(20) not null,
 	IdJugador varchar(20) not null,
+	usuarioisert varchar(50),
+	usuarioupdate varchar(50),
+	fechainsert date,
+	fechaupdate date,
 	--LLAVE PRIMARIA
 	constraint pk_IdGol primary key(idGol),
 	--LLAVE SECUNDARIA
@@ -306,6 +393,10 @@ create table Goles
 create table TipoTarjeta
 (
 	IdTipoTajerta varchar(20) not null,
+	usuarioisert varchar(50),
+	usuarioupdate varchar(50),
+	fechainsert date,
+	fechaupdate date,
 	NombreTipoTarjeta varchar(20) not null,
 	--LLAVE PRIMARIA
 	constraint pk_IdTipoTajerta primary key (IdTipoTajerta),
@@ -315,6 +406,10 @@ create table TipoTarjeta
 create table Tarjeta
 (
 	IdTarjeta varchar(20) not null,
+	usuarioisert varchar(50),
+	usuarioupdate varchar(50),
+	fechainsert date,
+	fechaupdate date,
 	IdTipoTajerta varchar(20) not null,
 	IdJugador varchar(20) not null,
 	IdPartido varchar(20) not null,
@@ -330,6 +425,10 @@ create table Tarjeta
 create table Tabla_De_Posicion
 (
 	IdPosicion varchar(20) not null,
+	usuarioisert varchar(50),
+	usuarioupdate varchar(50),
+	fechainsert date,
+	fechaupdate date,
 	GolesFavor int not null,
 	GolesContra int not null,
 	PartidosGanados int not null,
