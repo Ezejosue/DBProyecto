@@ -142,8 +142,8 @@ create table Liga
 	NombreLiga varchar(100) not null unique,
 	FechaInicioLiga date not null,
 	FechaFinalLiga date not null,
-	IdPais varchar(20) not null,
-	IdDivision varchar(20) not null,
+	IdPais varchar(5) not null,
+	IdDivision varchar(4) not null,
 	--LLAVE PRIMARIA
 	constraint pk_IdLiga primary key (IdLiga),
 	--LLAVE SECUNDARIA
@@ -159,7 +159,7 @@ create table Liga
 --TABLA EQUIPO
 create table Equipo
 (
-	IdEquipo varchar(20) not null,
+	IdEquipo varchar(4) not null,
 	usuarioisert varchar(50),
 	usuarioupdate varchar(50),
 	fechainsert date,
@@ -167,10 +167,10 @@ create table Equipo
 	NombreEquipo varchar(100) not null unique,
 	NombreOficinasEquipo varchar (100) not null,
 	HoraFavoritaEquipo time not null,
-	IdDiaFavorito varchar(20) not null,
-	IdEstadio varchar(20) not null,
-	IdPais varchar(20) not null,
-	IdLiga varchar(20) not null,
+	IdDiaFavorito varchar(5) not null,
+	IdEstadio varchar(4) not null,
+	IdPais varchar(5) not null,
+	IdLiga varchar(4) not null,
 	--LLAVE PRIMARIA
 	constraint pk_IdEquipo primary key (IdEquipo),
 	--LLAVE SECUNDARIA
@@ -196,7 +196,7 @@ create table Campania
 	fechaupdate date,
 	NombreCampania varchar(100) not null unique,
 	EquipoGanador varchar(20) not null,
-	IdLiga varchar(20) not null,
+	IdLiga varchar(4) not null,
 	--LLAVE PRIMARIA
 	constraint pk_IdCampania primary key (IdCampania),
 	--LLAVE SECUNDARIA
@@ -221,12 +221,12 @@ create table Empleado
 	fechaupdate date,
 	NombreEmpleado varchar(100) not null unique,
 	FechaNacimientoEmpleado date not null,
-	IdTipoEmpleado varchar(20) not null,
-	IdEquipo varchar(20) not null,
+	IdTipoEmpleado varchar(4) not null,
+	IdEquipo varchar(4) not null,
 	correo varchar(50) not null,
 	sexo varchar(20) not null,
 	numIdentificacion varchar(50) not null,
-	IdPais varchar(20) not null,
+	IdPais varchar(5) not null,
 	--LLAVE PRIMARIA
 	constraint pk_IdEmpleado primary key (IdEmpleado),
 	--LLAVE SECUNDARIA
@@ -262,7 +262,7 @@ create table Patrocinador
 --Tabla Detalle_Equipo_Patrocinador
 create table Detalle_Equipo_Patrocinador
 (
-	IdEquipo varchar(20) not null,
+	IdEquipo varchar(4) not null,
 	usuarioisert varchar(50),
 	usuarioupdate varchar(50),
 	fechainsert date,
@@ -287,7 +287,7 @@ create table Duenio
 	NombreDuenio varchar(100) not null unique,
 	DireccionDuenio varchar(200) not null,
 	TelefonoDuenio varchar(20) not null unique,
-	IdEquipo varchar(20) not null,
+	IdEquipo varchar(4) not null,
 	--LLAVE PRIMARIA
 	constraint pk_IdDuenio primary key (IdDuenio)
 );
@@ -296,7 +296,7 @@ create table Duenio
 create table DetalleDuenio
 (
 	IdDuenio varchar(20) not null,
-	IdEquipo varchar(20) not null,
+	IdEquipo varchar(4) not null,
 	usuarioisert varchar(50),
 	usuarioupdate varchar(50),
 	fechainsert date,
@@ -314,7 +314,7 @@ create table Equipacion
 	DescripcionBotines varchar(200) not null,
 	DescripcionShort varchar(200) not null,
 	DescripcionMedias varchar(200) not null,
-	IdEquipo varchar(20) not null,
+	IdEquipo varchar(4) not null,
 	usuarioisert varchar(50),
 	usuarioupdate varchar(50),
 	fechainsert date,
@@ -338,7 +338,7 @@ create table Jugador
 	PesoJugador varchar(20) not null,
 	FechaNacimientoJugador date not null,
 	posicion varchar(100),
-	IdPais varchar(20) not null,
+	IdPais varchar(5) not null,
 	--LLAVE PRIMARIA
 	constraint pk_IdJugador primary key (IdJugador),
 	--LLAVE SECUNDARIA
@@ -355,7 +355,7 @@ create table Detalle_Equipo_Jugador
 	fechaupdate date,
 	FechaInicioContrato date not null,
 	FechaFinalContrato date not null,
-	IdEquipo varchar(20) not null,
+	IdEquipo varchar(4) not null,
 	IdJugador varchar(20) not null,
 	--LLAVE PRIMARIA
 	constraint pk_IdContrato primary key (IdContrato),
@@ -368,7 +368,7 @@ create table Detalle_Equipo_Jugador
 create table Goleador
 (
 	IdJugador varchar(20) not null,
-	IdCampania varchar(20) not null,
+	IdCampania varchar(4) not null,
 	usuarioisert varchar(50),
 	usuarioupdate varchar(50),
 	fechainsert date,
@@ -381,8 +381,8 @@ create table Goleador
 --TABLA DETALLE_DESCENSO
 create table Detalle_Descenso
 (
-	IdEquipo varchar(20) not null,
-	IdCampania varchar(20) not null,
+	IdEquipo varchar(4) not null,
+	IdCampania varchar(4) not null,
 	usuarioisert varchar(50),
 	usuarioupdate varchar(50),
 	fechainsert date,
@@ -421,7 +421,7 @@ create table Partido
 create table Plantilla
 (
 	IdPlantilla varchar(4) not null,
-	IdEquipo varchar(20) not null,
+	IdEquipo varchar(4) not null,
 	IdJugador varchar(20) not null,
 	RolJugador varchar(20) not null check(RolJugador='Titular' or RolJugador='Suplente'),
 	IdPartido varchar(20) not null,
@@ -503,8 +503,8 @@ create table Tabla_De_Posicion
 	Puntaje int not null,
 	DiferenciaGoles int not null,
 	JuegoLimpio int not null,
-	IdEquipo varchar(20) not null,
-	IdCampania varchar(20) not null,
+	IdEquipo varchar(4) not null,
+	IdCampania varchar(4) not null,
 	--LLAVE PRIMARIA
 	constraint pk_IdPosicion primary key (IdPosicion),
 	--LLAVE SECUNDARIA
@@ -541,7 +541,7 @@ GO
 
 --Estadio
 create procedure sp_insertarestadio
-	@IdEstadio varchar(20),
+	@IdEstadio varchar(4),
 	@NombreEstadio varchar(100),
 	@CapacidadEstadio int,
 	@DireccionEstado varchar(max),
@@ -568,7 +568,7 @@ GO
 
  --Division
 create procedure sp_insertardivison
-@IdDivision varchar(20),
+@IdDivision varchar(4),
 @NombreDivision varchar(100)
 as
 begin try
@@ -588,14 +588,14 @@ GO
 
 --Equipo
 create procedure sp_insertarequipo
-@IdEquipo varchar(20),
+@IdEquipo varchar(4),
 @NombreEquipo varchar(100),
 @NombreOficinasEquipo varchar(100),
 @HoraFavoritaEquipo time,
-@IdDiaFavorito varchar(20),
-@IdEstadio varchar(20),
-@IdPais varchar(20),
-@IdLiga varchar(20)
+@IdDiaFavorito varchar(5),
+@IdEstadio varchar(4),
+@IdPais varchar(5),
+@IdLiga varchar(4)
 as
 begin try
 begin tran
@@ -614,15 +614,15 @@ GO
 
 --Empleado
 create procedure sp_insertar_empleado
-@IdEmpleado varchar(20),
+@IdEmpleado varchar(5),
 @NombreEmpleado varchar(100),
 @FechaNacimientoEmpleado date,
-@IdTipoEmpleado varchar(20),
-@IdEquipo varchar(20),
+@IdTipoEmpleado varchar(4),
+@IdEquipo varchar(4),
 @correo varchar(50),
 @sexo varchar(20),
 @numIdentificacion varchar(50),
-@IdPais varchar(20)
+@IdPais varchar(5)
 as
 begin try
 begin tran
@@ -641,7 +641,7 @@ GO
 
 --DetalleEquipoPatrocinador
 create procedure sp_Detalle_Equipo_Patrocinador
-@IdEquipo varchar(20), 
+@IdEquipo varchar(4), 
 @IdPatrocinador varchar(20),
 @Estado int,
 @FechaInicio DATE,
@@ -666,7 +666,7 @@ GO
 --DetalleDueño
 create procedure sp_insertarDetalleDuenio
 @IdDuenio varchar(20),
-@IdEquipo varchar(20)
+@IdEquipo varchar(4)
 as
 begin try
 begin tran
@@ -691,7 +691,7 @@ create procedure sp_insertarjugador
 @PesoJugador varchar(20),
 @FechaNacimientoJugador date,
 @posicion varchar(100),
-@IdPais varchar(20)
+@IdPais varchar(5)
 as
 begin try
 begin tran
@@ -711,7 +711,7 @@ GO
 --Goleador
 create procedure sp_insertargoleador
 @IdJugador varchar(20),
-@IdCampania varchar(20)
+@IdCampania varchar(4)
 as
 begin try
 begin tran
@@ -801,7 +801,7 @@ GO
 
 --PROCEDIMIENTO TABLA PAIS
 create procedure sp_Insertar_Pais
-@IdPais varchar(20), 
+@IdPais varchar(5), 
 @NombrePais varchar(100)
 as 
 begin try
@@ -822,7 +822,7 @@ GO
 
 --PROCEDIMIENTO TABLA TIPO EMPLEADO
 create procedure sp_Insertar_TipoEmpleado
-@IdTipoEmpleado varchar(20),
+@IdTipoEmpleado varchar(4),
 @NombreTipoEmpleado varchar(100)
 as
 begin try
@@ -843,7 +843,7 @@ GO
 
 --PROCEDIMIENTO TABLA DIA FAVORITO
 create procedure sp_Insertar_DiaFavorito
-@IdDiaFavorito varchar(20),
+@IdDiaFavorito varchar(5),
 @NombreDia varchar(50)
 as
 begin try
@@ -864,12 +864,12 @@ GO
 
 --PROCEDIMIENTO TABLA LIGA
 create procedure sp_Insertar_Liga
-@IdLiga varchar(20),
+@IdLiga varchar(4),
 @NombreLiga varchar(100),
 @FechaInicioLiga date,
 @FechaFinalLiga date,
-@IdPais varchar(20),
-@IdDivision varchar(20)
+@IdPais varchar(5),
+@IdDivision varchar(4)
 as
 begin try
 begin tran
@@ -889,10 +889,10 @@ GO
 
 --PROCEDIMIENTO TABLA CAMPAÑA
 create procedure sp_Insertar_Campania
-@IdCampania varchar(20),
+@IdCampania varchar(4),
 @NombreCampania varchar(100),
 @EquipoGanador varchar(20),
-@IdLiga varchar(20)
+@IdLiga varchar(4)
 as
 begin try
 begin tran
@@ -941,7 +941,7 @@ create procedure sp_Insertar_Duenio
 @NombreDuenio varchar(100), 
 @DireccionDuenio varchar(200), 
 @TelefonoDuenio varchar(20),
-@IdEquipo varchar(20)
+@IdEquipo varchar(4)
 as
 begin try
 begin tran
@@ -966,7 +966,7 @@ create procedure sp_Insertar_Equipacion
 @DescripcionBotines varchar(200), 
 @DescripcionShort varchar(200),
 @DescripcionMedias varchar(200),
-@IdEquipo varchar(20)
+@IdEquipo varchar(4)
 as
 begin try
 begin tran
@@ -991,7 +991,7 @@ create procedure sp_Insertar_DetalleEquipoJugador
 @IdContrato varchar(20),
 @FechaInicioContrato date, 
 @FechaFinalContrato date, 
-@IdEquipo varchar(20),
+@IdEquipo varchar(4),
 @IdJugador varchar(20)
 as
 begin try
@@ -1012,8 +1012,8 @@ GO
 
 --PROCEDIMIENTO TABLA DETALLE DESCENSO
 create procedure sp_Insertar_DetalleDescenso
-@IdEquipo varchar(20),
-@IdCampania varchar(20)
+@IdEquipo varchar(4),
+@IdCampania varchar(4)
 as
 begin try
 begin tran
@@ -1031,7 +1031,7 @@ GO
 --PROCEDIMIENTO TABLA PLANTILLA
 create procedure sp_Insertar_Plantilla
 @IdPlantilla varchar(4),
-@IdEquipo varchar(20),
+@IdEquipo varchar(4),
 @IdJugador varchar(20),
 @RolJugador varchar(20),
 @IdPartido varchar(20)
@@ -1086,8 +1086,8 @@ create procedure sp_Insertar_Posicion
 @Puntaje int,
 @DiferenciaGoles int,
 @JuegoLimpio int,
-@IdEquipo varchar(20),
-@IdCampania varchar(20)
+@IdEquipo varchar(4),
+@IdCampania varchar(4)
 as
 begin try
 begin tran
