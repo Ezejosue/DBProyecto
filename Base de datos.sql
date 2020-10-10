@@ -5,11 +5,14 @@ go
 use Control_Ligas
 go
 
+drop database Control_Ligas
+go
+
 --CREANDO TABLAS
 --TABLA FechaNoPermitida
 create table FechaNoPermitida
 (
-	IdFechaNoPermitida varchar(20) not null,
+	IdFechaNoPermitida varchar(5) not null,
 	usuarioisert varchar(50),
 	usuarioupdate varchar(50),
 	fechainsert date,
@@ -17,40 +20,53 @@ create table FechaNoPermitida
 	FechaNoPermitida date not null,
 	DescripcionFecha VARCHAR(MAX) not null,
 	--LLAVE PRIMARIA
-	constraint pk_FechaNoPermitida primary key (IdFechaNoPermitida)
+	constraint pk_FechaNoPermitida primary key (IdFechaNoPermitida),
+
+	--RESTRICCIONES
+	constraint u_FechaNoPermitida UNIQUE(FechaNoPermitida),
+	constraint ck_FechaNoPermitida check(FechaNoPermitida>=getdate()),
+	constraint ck_IdFechaNoPermitida check(IdFechaNoPermitida like '[F][E][0-9][0-9][0-9]')
 );
 GO
 
 --TABLA PAIS
 create table Pais
 (
-	IdPais varchar(20) not null,
+	IdPais varchar(5) not null,
 	usuarioisert varchar(50),
 	usuarioupdate varchar(50),
 	fechainsert date,
 	fechaupdate date,
 	NombrePais varchar(100) not null unique,
-	--LLAVE PRIMARIA
-	constraint pk_IdPais primary key (IdPais)
+	--LLAVE PRIMARIA 
+	constraint pk_IdPais primary key (IdPais),
+
+	--RESTRICCIONES
+	constraint ck_NombrePais check(NombrePais like '%[a-zA-Z]%'),
+	constraint ck_IdPais check(IdPais like '[a-z][a-z][0-9][0-9][0-9]')
 );
 
 --TABLA TIPO EMPLEADO
 create table TipoEmpleado
 (
-	IdTipoEmpleado varchar(20) not null,
+	IdTipoEmpleado varchar(4) not null,
 	usuarioisert varchar(50),
 	usuarioupdate varchar(50),
 	fechainsert date,
 	fechaupdate date,
 	NombreTipoEmpleado varchar(100) not null unique,
 	--LLAVE PRIMARIA
-	constraint pk_IdTipoEmpleado primary key (IdTipoEmpleado)
+	constraint pk_IdTipoEmpleado primary key (IdTipoEmpleado),
+
+	--RESTRICCIONES
+	constraint ck_IdTipoEmpleado check(IdTipoEmpleado like '[a-z][a-z][0-9][0-9]'),
+	constraint ck_NombreTipoEmpleado check(NombreTipoEmpleado like '%[a-zA-Z]%') 
 );
 
 --TABLA ESTADIO
 create table Estadio
 (
-	IdEstadio varchar(20) not null,
+	IdEstadio varchar(4) not null,
 	usuarioisert varchar(50),
 	usuarioupdate varchar(50),
 	fechainsert date,
@@ -62,41 +78,63 @@ create table Estadio
 	telefonoRepresentante varchar(10) not null,
 	correoRepresentante varchar(50) not null,
 	--LLAVE PRIMARIA
-	constraint pk_IdEstadio primary key (IdEstadio)
+	constraint pk_IdEstadio primary key (IdEstadio),
+
+	--RESTRICCIONES
+	constraint ck_IdEstadio check(IdEstadio like '[E][D][0-9][0-9]'),
+	constraint ck_NombreEstadio check(NombreEstadio like '%[a-zA-Z]%'),
+	constraint U_NombreEstadio unique(NombreEstadio),
+	constraint ck_CapacidadEstadio check(CapacidadEstadio > 0 AND CapacidadEstadio < 200000),
+	constraint ck_nombreRepresentante check(nombreRepresentante like '%[a-zA-Z]%'),
+	constraint U_telefonoRepresentante unique(telefonoRepresentante),
+	constraint U_correoRepresentante unique(correoRepresentante),
+	constraint ck_correoRepresentante check(correoRepresentante like '%_@_%_._%'),
+
 );
 
 
 --TABLA DIA FAVORITO
 create table DiaFavorito
 (
-	IdDiaFavorito varchar(20) not null,
+	IdDiaFavorito varchar(5) not null,
 	usuarioisert varchar(50),
 	usuarioupdate varchar(50),
 	fechainsert date,
 	fechaupdate date,
 	NombreDia varchar(50) not null unique,
 	--LLAVE PRIMARIA
-	constraint pk_IdDiaFavorito primary key (IdDiaFavorito)
+	constraint pk_IdDiaFavorito primary key (IdDiaFavorito),
+
+	--RESTRICCIONES
+	constraint ck_IdDiaFavorito check(IdDiaFavorito like '[D][A][F][0-9][0-9]'),
+	constraint ck_NombreDia check(NombreDia like '%[a-zA-Z]%')
+
+
 );
 
 
 --TABLA DIVISIÓN
 create table Division
 (
-	IdDivision varchar(20) not null,
+	IdDivision varchar(4) not null,
 	usuarioisert varchar(50),
 	usuarioupdate varchar(50),
 	fechainsert date,
 	fechaupdate date,
 	NombreDivision varchar(100) not null unique,
 	--LLAVE PRIMARIA
-	constraint pk_IdDivision primary key (IdDivision)
+	constraint pk_IdDivision primary key (IdDivision),
+
+	--RESTRICCIONES
+	constraint ck_IdDivision check(IdDivision like '[A-Z][A-Z][0-9][0-9]'),
+	constraint ck_NombreDivision check(NombreDivision like '%[a-zA-Z0-9]%')
+
 );
 
 --TABLA LIGA
 create table Liga
 (
-	IdLiga varchar(20) not null,
+	IdLiga varchar(4) not null,
 	usuarioisert varchar(50),
 	usuarioupdate varchar(50),
 	fechainsert date,
@@ -109,7 +147,13 @@ create table Liga
 	--LLAVE PRIMARIA
 	constraint pk_IdLiga primary key (IdLiga),
 	--LLAVE SECUNDARIA
-	constraint fk_Liga_Division foreign key (IdDivision) references Division (IdDivision)
+	constraint fk_Liga_Division foreign key (IdDivision) references Division (IdDivision),
+
+	--RESTRICCIONES
+	constraint ck_IdLiga check(IdLiga like '[A-Z][A-Z][0-9][0-9]'),
+	constraint ck_NombreLiga check(NombreLiga like '%[a-zA-Z0-9]%'),
+	constraint ck_fechasliga check(FechaFinalLiga>FechaInicioLiga)
+
 );
 
 --TABLA EQUIPO
@@ -134,12 +178,18 @@ create table Equipo
 	constraint fk_Equipo_Estadio foreign key (IdEstadio) references Estadio (IdEstadio),
 	constraint fk_Equipo_Pais foreign key (IdPais) references Pais (IdPais),
 	constraint fk_Equipo_Liga foreign key (IdLiga) references Liga (IdLiga),
+
+	--RESTRICCIONES
+	constraint ck_IdEquipo check(IdEquipo like '[A-Z][A-Z][0-9][0-9]'),
+	constraint ck_NombreEquipo check(NombreEquipo like '%[a-zA-Z0-9]%'),
+
+	
 );
 
 --TABLA CAMPAÑA
 create table Campania
 (
-	IdCampania varchar(20) not null,
+	IdCampania varchar(4) not null,
 	usuarioisert varchar(50),
 	usuarioupdate varchar(50),
 	fechainsert date,
@@ -152,13 +202,19 @@ create table Campania
 	--LLAVE SECUNDARIA
 	--Pendiente de eliminar
 	--constraint fk_Campania_EquipoGanador foreign key (EquipoGanador) references Equipo (IdEquipo),
-	constraint fk_Campania_Liga foreign key (IdLiga) references Liga (IdLiga)
+	constraint fk_Campania_Liga foreign key (IdLiga) references Liga (IdLiga),
+	
+	--RESTRICCIONES
+	constraint ck_IdCampania check(IdCampania like '[C][A][0-9][0-9]'),
+	constraint ck_NombreCampania check(NombreCampania like '%[a-zA-Z0-9]%'),
+	constraint ck_EquipoGanador check(EquipoGanador like '%[a-zA-Z0-9]%'),
+	
 );
 
 --TABLA EMPLEADO
 create table Empleado
 (
-	IdEmpleado varchar(20) not null,
+	IdEmpleado varchar(5) not null,
 	usuarioisert varchar(50),
 	usuarioupdate varchar(50),
 	fechainsert date,
@@ -177,6 +233,14 @@ create table Empleado
 	constraint fk_Empleado_TipoEmpleado foreign key (IdTipoEmpleado) references TipoEmpleado (IdTipoEmpleado),
 	constraint fk_Empleado_Equipo foreign key (IdEquipo) references Equipo (IdEquipo),
 	constraint fk_Empleado_pais foreign key (IdPais) references pais (IdPais),
+
+	--RESTRICCIONES
+	constraint ck_IdEmpleado check(IdEmpleado like '[E][M][P][0-9][0-9]'),
+	constraint ck_NombreEmpleado check(NombreEmpleado like '%[a-zA-Z]%'),
+	constraint ck_correoempleado check(correo like '%_@_%_._%'),
+	constraint U_correoempleado unique(correo),
+	constraint ck_generoempleado check(sexo='M' or sexo='F')
+
 );
 
 --TABLA PATROCINADOR
@@ -189,7 +253,7 @@ create table Patrocinador
 	fechaupdate date,
 	NombrePatrocinador varchar(100) not null unique,
 	TelefonoPatrocinador varchar(20) unique,
-	CorreoPatrocinador varchar(20) check(CorreoPatrocinador like '%[a-z, 0-9]%@[a-z]'),
+	CorreoPatrocinador varchar(20),
 	Logo IMAGE,
 	--LLAVE PRIMARIA
 	constraint pk_IdPatrocinador primary key (IdPatrocinador)
@@ -1525,3 +1589,5 @@ IF EXISTS (SELECT * FROM inserted) and  EXISTS (SELECT * FROM deleted)
 	WHERE IdPosicion = (SELECT i.IdPosicion FROM inserted i);
 	END
 GO
+
+--*******************************INSERT**************************
