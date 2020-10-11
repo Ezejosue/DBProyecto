@@ -246,7 +246,7 @@ create table Empleado
 --TABLA PATROCINADOR
 create table Patrocinador
 (
-	IdPatrocinador varchar(20) not null,
+	IdPatrocinador varchar(5) not null,
 	usuarioisert varchar(50),
 	usuarioupdate varchar(50),
 	fechainsert date,
@@ -256,7 +256,13 @@ create table Patrocinador
 	CorreoPatrocinador varchar(20),
 	Logo IMAGE,
 	--LLAVE PRIMARIA
-	constraint pk_IdPatrocinador primary key (IdPatrocinador)
+	constraint pk_IdPatrocinador primary key (IdPatrocinador),
+	
+	--RESTRICCIONES 
+	constraint ck_IdPatrocinador check(IdPatrocinador LIKE '[P][T][R][0-9][0-9]'),
+	constraint ck_NombrePatrocinador check(NombrePatrocinador like '%[a-zA-Z]%'),
+	constraint u_TelefonoPatrocinador unique(TelefonoPatrocinador),
+	constraint u_CorreoPatrocinador unique(CorreoPatrocinador)
 );
 
 --Tabla Detalle_Equipo_Patrocinador
