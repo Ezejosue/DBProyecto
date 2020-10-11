@@ -524,7 +524,7 @@ create table Tarjeta
 --TABLA Tabla_De_Posicion
 create table Tabla_De_Posicion
 (
-	IdPosicion varchar(20) not null,
+	IdPosicion varchar(5) not null,
 	usuarioisert varchar(50),
 	usuarioupdate varchar(50),
 	fechainsert date,
@@ -544,7 +544,10 @@ create table Tabla_De_Posicion
 	constraint pk_IdPosicion primary key (IdPosicion),
 	--LLAVE SECUNDARIA
 	constraint fk_Posicion_Equipo foreign key (IdEquipo) references Equipo (IdEquipo),
-	constraint fk_Posicion_Campania foreign key (IdCampania) references Campania (IdCampania)
+	constraint fk_Posicion_Campania foreign key (IdCampania) references Campania (IdCampania),
+
+	--RESTRICCIONES 
+	constraint ck_IdPosicion check(IdPosicion like '[P][O][S][0-9][0-9]')
 );
 GO
 
