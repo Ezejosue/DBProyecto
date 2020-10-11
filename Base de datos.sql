@@ -273,7 +273,7 @@ create table Detalle_Equipo_Patrocinador
 	usuarioupdate varchar(50),
 	fechainsert date,
 	fechaupdate date,
-	IdPatrocinador varchar(20) not null,
+	IdPatrocinador varchar(5) not null,
 	Estado int check(estado=1 or estado=0) default 1,
 	FechaInicio DATE,
 	FechaFin DATE,
@@ -309,7 +309,7 @@ create table Duenio
 --TABLA DetalleDUEÑO
 create table DetalleDuenio
 (
-	IdDuenio varchar(20) not null,
+	IdDuenio varchar(5) not null,
 	IdEquipo varchar(4) not null,
 	usuarioisert varchar(50),
 	usuarioupdate varchar(50),
@@ -370,7 +370,7 @@ create table Jugador
 --TABLA Detalle_Equipo_Jugador
 create table Detalle_Equipo_Jugador
 (
-	IdContrato varchar(20) not null,
+	IdContrato varchar(5) not null,
 	usuarioisert varchar(50),
 	usuarioupdate varchar(50),
 	fechainsert date,
@@ -378,7 +378,7 @@ create table Detalle_Equipo_Jugador
 	FechaInicioContrato date not null,
 	FechaFinalContrato date not null,
 	IdEquipo varchar(4) not null,
-	IdJugador varchar(20) not null,
+	IdJugador varchar(4) not null,
 	--LLAVE PRIMARIA
 	constraint pk_IdContrato primary key (IdContrato),
 	--LLAVE SECUNDARIA
@@ -389,7 +389,7 @@ create table Detalle_Equipo_Jugador
 --TABLA GOLEADOR
 create table Goleador
 (
-	IdJugador varchar(20) not null,
+	IdJugador varchar(4) not null,
 	IdCampania varchar(4) not null,
 	usuarioisert varchar(50),
 	usuarioupdate varchar(50),
@@ -447,9 +447,9 @@ create table Plantilla
 (
 	IdPlantilla varchar(4) not null,
 	IdEquipo varchar(4) not null,
-	IdJugador varchar(20) not null,
+	IdJugador varchar(4) not null,
 	RolJugador varchar(20) not null check(RolJugador='Titular' or RolJugador='Suplente'),
-	IdPartido varchar(20) not null,
+	IdPartido varchar(5) not null,
 	usuarioisert varchar(50),
 	usuarioupdate varchar(50),
 	fechainsert date,
@@ -459,15 +459,18 @@ create table Plantilla
 	--LLAVE SECUNDARIA
 	constraint fk_plantilla_equipo foreign key (IdEquipo) references Equipo(IdEquipo),
 	constraint fk_plantilla_jugador foreign key (IdJugador) references Jugar(IdJugador),
-	constraint fk_plantilla_partido foreign key (IdPartido) references partido (IdPartido)
+	constraint fk_plantilla_partido foreign key (IdPartido) references partido (IdPartido),
+
+	--RESTRICCIONES
+	constraint ck_IdPlantilla check(IdPlantilla like '[P][L][0-9][0-9]')
 );
 
 --TABLA GOLES
 create table Goles
 (
 	idGol int not null,
-	IdPartido varchar(20) not null,
-	IdJugador varchar(20) not null,
+	IdPartido varchar(5) not null,
+	IdJugador varchar(4) not null,
 	usuarioisert varchar(50),
 	usuarioupdate varchar(50),
 	fechainsert date,
@@ -483,7 +486,7 @@ create table Goles
 --TABLA TIPO TARJETA
 create table TipoTarjeta
 (
-	IdTipoTajerta varchar(20) not null,
+	IdTipoTajerta varchar(4) not null,
 	usuarioisert varchar(50),
 	usuarioupdate varchar(50),
 	fechainsert date,
@@ -491,6 +494,9 @@ create table TipoTarjeta
 	NombreTipoTarjeta varchar(20) not null,
 	--LLAVE PRIMARIA
 	constraint pk_IdTipoTajerta primary key (IdTipoTajerta),
+
+	--RESTRICCIONES
+	constraint ck_IdTipoTarjeta check(IdTipoTajerta like '[T][A][R][0-9]')
 );
 
 --TABLA TARJETA
