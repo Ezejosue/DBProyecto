@@ -496,7 +496,7 @@ create table TipoTarjeta
 	constraint pk_IdTipoTajerta primary key (IdTipoTajerta),
 
 	--RESTRICCIONES
-	constraint ck_IdTipoTarjeta check(IdTipoTajerta like '[T][A][R][0-9]')
+	constraint ck_IdTipoTarjeta check(IdTipoTajerta like '[T][P][T][0-9]')
 );
 
 --TABLA TARJETA
