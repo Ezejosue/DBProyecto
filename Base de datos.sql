@@ -397,7 +397,7 @@ create table Goleador
 	fechaupdate date,
 	--LLAVE SECUNDARIA
 	constraint fk_Goleador_Jugador foreign key (IdJugador) references Jugador (IdJugador),
-	constraint fk_Goleador_Campania foreign key (IdCampania) references Campania (IdCampania),
+	constraint fk_Goleador_Campania foreign key (IdCampania) references Campania (IdCampania)
 );
 
 --TABLA DETALLE_DESCENSO
@@ -418,7 +418,7 @@ create table Detalle_Descenso
 --TABLA PARTIDO
 create table Partido
 (
-	IdPartido varchar(20) not null,
+	IdPartido varchar(5) not null,
 	usuarioisert varchar(50),
 	usuarioupdate varchar(50),
 	fechainsert date,
@@ -437,6 +437,9 @@ create table Partido
 	--Pendiente de eliminar
 	--constraint fk_Partido_EquipoVisitante foreign key (EquipoVisitante) references Equipo (IdEquipo),
 	--constraint fk_Partido_EquipoPerdedor foreign key (EquipoLocal) references Equipo (IdEquipo),
+
+	--RESTRICCIONES
+	constraint ck_IdPartido check(IdPartido like '[P][A][R][0-9][0-9]')
 );
 
 -- TABLA PLANTILLA
