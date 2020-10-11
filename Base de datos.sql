@@ -279,7 +279,7 @@ create table Detalle_Equipo_Patrocinador
 	FechaFin DATE,
 	--Llaves secundaria
 	constraint fk_Detalle_Equipo_Patrocinador_IdEquipo foreign key (IdEquipo) references Equipo (IdEquipo),
-	constraint fk_Detalle_Equipo_Patrocinador_IdPatrocinador foreign key (IdPatrocinador) references Patrocinador (IdPatrocinador)
+	constraint fk_Detalle_Equipo_Patrocinador_IdPatrocinador foreign key (IdPatrocinador) references Patrocinador (IdPatrocinador),
 
 	--RESTRICCIONES 
 	constraint ck_FechasDetalleEquipoPatrocinador check(FechaFin>FechaInicio)
@@ -298,7 +298,7 @@ create table Duenio
 	TelefonoDuenio varchar(20) not null unique,
 	IdEquipo varchar(4) not null,
 	--LLAVE PRIMARIA
-	constraint pk_IdDuenio primary key (IdDuenio)
+	constraint pk_IdDuenio primary key (IdDuenio),
 
 	--RESTRICCIONES
 	constraint ck_IdDuenio check(IdDuenio like '[D][U][E][0-9][0-9]'),
@@ -323,7 +323,7 @@ create table DetalleDuenio
 --TABLA EQUIPACIÓN
 create table Equipacion
 (
-	IdEquipacion varchar(20) not null,
+	IdEquipacion varchar(6) not null,
 	DescripcionCamisa varchar(200) not null,
 	DescripcionBotines varchar(200) not null,
 	DescripcionShort varchar(200) not null,
@@ -336,13 +336,16 @@ create table Equipacion
 	--LLAVE PRIMARIA
 	constraint pk_IdEquipacion primary key (IdEquipacion),
 	--LLAVE SECUNDARIA
-	constraint fk_Equipacio_Equipo foreign key (IdEquipo) references Equipo (IdEquipo)
+	constraint fk_Equipacio_Equipo foreign key (IdEquipo) references Equipo (IdEquipo),
+
+	--RESTRICCIONES
+	constraint ck_IdEquipacion check(IdEquipacion like '[E][Q][U][I][0-9][0-9]')
 );
 
 --TABLA JUGADOR
 create table Jugador
 (
-	IdJugador varchar(20) not null,
+	IdJugador varchar(4) not null,
 	usuarioisert varchar(50),
 	usuarioupdate varchar(50),
 	fechainsert date,
@@ -356,7 +359,12 @@ create table Jugador
 	--LLAVE PRIMARIA
 	constraint pk_IdJugador primary key (IdJugador),
 	--LLAVE SECUNDARIA
-	constraint fk_Jugador_Pais foreign key (IdPais) references Pais (IdPais)
+	constraint fk_Jugador_Pais foreign key (IdPais) references Pais (IdPais),
+
+	--RESTRICCIONES
+	constraint ck_IdJugador check(IdJugador like '[J][G][0-9][0-9]'),
+	constraint ck_NombreJugador check(NombreJugador like '%[a-zA-Z]%'),
+	constraint ck_Posicion check(posicion like '%[a-zA-Z]]')
 );
 
 --TABLA Detalle_Equipo_Jugador
