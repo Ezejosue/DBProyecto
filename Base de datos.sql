@@ -288,7 +288,7 @@ create table Detalle_Equipo_Patrocinador
 --TABLA DUEÑO
 create table Duenio
 (
-	IdDuenio varchar(20) not null,
+	IdDuenio varchar(5) not null,
 	usuarioisert varchar(50),
 	usuarioupdate varchar(50),
 	fechainsert date,
@@ -299,6 +299,11 @@ create table Duenio
 	IdEquipo varchar(4) not null,
 	--LLAVE PRIMARIA
 	constraint pk_IdDuenio primary key (IdDuenio)
+
+	--RESTRICCIONES
+	constraint ck_IdDuenio check(IdDuenio like '[D][U][E][0-9][0-9]'),
+	constraint ck_NombreDuenio check(NombreDuenio like '%[a-zA-Z]%'),
+	constraint u_TelefonoDuenio unique(TelefonoDuenio)
 );
 
 --TABLA DetalleDUEÑO
