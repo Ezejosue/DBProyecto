@@ -502,20 +502,23 @@ create table TipoTarjeta
 --TABLA TARJETA
 create table Tarjeta
 (
-	IdTarjeta varchar(20) not null,
+	IdTarjeta varchar(4) not null,
 	usuarioisert varchar(50),
 	usuarioupdate varchar(50),
 	fechainsert date,
 	fechaupdate date,
-	IdTipoTajerta varchar(20) not null,
-	IdJugador varchar(20) not null,
-	IdPartido varchar(20) not null,
+	IdTipoTajerta varchar(4) not null,
+	IdJugador varchar(4) not null,
+	IdPartido varchar(5) not null,
 	--LLAVE PRIMARIA
 	constraint pk_IdTarjeta primary key (IdTarjeta),
 	--LLAVE SECUNDARIA
 	constraint fk_Tarjeta_TipoTarjeta foreign key (IdTipoTajerta) references TipoTarjeta (IdTipoTajerta),
 	constraint fk_Tarjeta_Jugador foreign key (IdJugador) references Jugador (IdJugador),
-	constraint fk_Tarjeta_partido foreign key (IdPartido) references partido (IdPartido)
+	constraint fk_Tarjeta_partido foreign key (IdPartido) references partido (IdPartido),
+
+	--RESTRICCIONES
+	constraint ck_IdTarjeta check(IdTarjeta like '[T][A][R][0-9]')
 );
 
 --TABLA Tabla_De_Posicion
