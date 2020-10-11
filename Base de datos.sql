@@ -433,6 +433,7 @@ create table Plantilla
 	constraint pk_IdPlantilla primary key (IdPlantilla),
 	--LLAVE SECUNDARIA
 	constraint fk_plantilla_equipo foreign key (IdEquipo) references Equipo(IdEquipo),
+	constraint fk_plantilla_jugador foreign key (IdJugador) references Jugar(IdJugador),
 	constraint fk_plantilla_partido foreign key (IdPartido) references partido (IdPartido)
 );
 
