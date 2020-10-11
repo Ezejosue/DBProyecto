@@ -259,7 +259,7 @@ create table Patrocinador
 	constraint pk_IdPatrocinador primary key (IdPatrocinador),
 	
 	--RESTRICCIONES 
-	constraint ck_IdPatrocinador check(IdPatrocinador LIKE '[P][T][R][0-9][0-9]'),
+	constraint ck_IdPatrocinador check(IdPatrocinador like '[P][T][R][0-9][0-9]'),
 	constraint ck_NombrePatrocinador check(NombrePatrocinador like '%[a-zA-Z]%'),
 	constraint u_TelefonoPatrocinador unique(TelefonoPatrocinador),
 	constraint u_CorreoPatrocinador unique(CorreoPatrocinador)
@@ -280,6 +280,9 @@ create table Detalle_Equipo_Patrocinador
 	--Llaves secundaria
 	constraint fk_Detalle_Equipo_Patrocinador_IdEquipo foreign key (IdEquipo) references Equipo (IdEquipo),
 	constraint fk_Detalle_Equipo_Patrocinador_IdPatrocinador foreign key (IdPatrocinador) references Patrocinador (IdPatrocinador)
+
+	--RESTRICCIONES 
+	constraint ck_FechasDetalleEquipoPatrocinador check(FechaFin>FechaInicio)
 );
 
 --TABLA DUEÑO
