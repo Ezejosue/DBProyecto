@@ -38,8 +38,9 @@ create table Pais
 	constraint pk_IdPais primary key (IdPais),
 	--RESTRICCIONES
 	constraint ck_NombrePais check(NombrePais like '%[a-zA-Z]%'),
-	constraint ck_IdPais check(IdPais like '[a-z][a-z][0-9][0-9][0-9]')
+	constraint ck_IdPais check(IdPais like '[A-Z][A-Z][A-Z]')
 );
+
 
 --TABLA TIPO EMPLEADO
 create table TipoEmpleado
@@ -53,7 +54,7 @@ create table TipoEmpleado
 	--LLAVE PRIMARIA
 	constraint pk_IdTipoEmpleado primary key (IdTipoEmpleado),
 	--RESTRICCIONES
-	constraint ck_IdTipoEmpleado check(IdTipoEmpleado like '[a-z][a-z][0-9][0-9]'),
+	constraint ck_IdTipoEmpleado check(IdTipoEmpleado like '[T][E][0-9][0-9]'),
 	constraint ck_NombreTipoEmpleado check(NombreTipoEmpleado like '%[a-zA-Z]%') 
 );
 
@@ -543,6 +544,50 @@ print error_message()
 end catch;
 GO
 
+--PROCEDIMIENTO TABLA PAIS
+create procedure sp_Insertar_Pais
+@IdPais varchar(5), 
+@NombrePais varchar(100)
+as 
+begin try
+begin tran
+	if(select Count(*) from Pais
+			where IdPais=@IdPais)=0
+			insert into Pais(IdPais, NombrePais)
+			values (@IdPais, @NombrePais)
+	else
+	print '¡Error!, este país ya existe'
+commit
+end try
+begin catch
+rollback
+print error_message()
+end catch;
+GO
+
+
+--PROCEDIMIENTO TABLA TIPO EMPLEADO
+create procedure sp_Insertar_TipoEmpleado
+@IdTipoEmpleado varchar(4),
+@NombreTipoEmpleado varchar(100)
+as
+begin try
+begin tran
+	if(select Count(*) from TipoEmpleado
+			where IdTipoEmpleado=@IdTipoEmpleado)=0
+			insert into TipoEmpleado(IdTipoEmpleado, NombreTipoEmpleado)
+			values (@IdTipoEmpleado, @NombreTipoEmpleado)
+	else
+	print '¡Error!, este tipo de empleado ya existe'
+commit
+end try
+begin catch
+rollback
+print error_message()
+end catch;
+GO
+
+
 --Estadio
 create procedure sp_insertarestadio
 	@IdEstadio varchar(4),
@@ -795,48 +840,6 @@ begin tran
 	values(@IdTarjeta, @IdTipoTajerta, @IdJugador, @IdPartido)
 	else
 	print'¡Error!, este regristro tarjea ya existe'
-commit
-end try
-begin catch
-rollback
-print error_message()
-end catch;
-GO
-
---PROCEDIMIENTO TABLA PAIS
-create procedure sp_Insertar_Pais
-@IdPais varchar(5), 
-@NombrePais varchar(100)
-as 
-begin try
-begin tran
-	if(select Count(*) from Pais
-			where IdPais=@IdPais)=0
-			insert into Pais(IdPais, NombrePais)
-			values (@IdPais, @NombrePais)
-	else
-	print '¡Error!, este país ya existe'
-commit
-end try
-begin catch
-rollback
-print error_message()
-end catch;
-GO
-
---PROCEDIMIENTO TABLA TIPO EMPLEADO
-create procedure sp_Insertar_TipoEmpleado
-@IdTipoEmpleado varchar(4),
-@NombreTipoEmpleado varchar(100)
-as
-begin try
-begin tran
-	if(select Count(*) from TipoEmpleado
-			where IdTipoEmpleado=@IdTipoEmpleado)=0
-			insert into TipoEmpleado(IdTipoEmpleado, NombreTipoEmpleado)
-			values (@IdTipoEmpleado, @NombreTipoEmpleado)
-	else
-	print '¡Error!, este tipo de empleado ya existe'
 commit
 end try
 begin catch
@@ -1595,3 +1598,52 @@ IF EXISTS (SELECT * FROM inserted) and  EXISTS (SELECT * FROM deleted)
 GO
 
 --*******************************INSERT**************************
+--TABLA FECHA NO PERMITIDA
+EXEC sp_insertarFechaNoPermitida 'FE001','07/11/2020','FECHA FIFA'
+EXEC sp_insertarFechaNoPermitida 'FE002','08/11/2020','FECHA FIFA'
+EXEC sp_insertarFechaNoPermitida 'FE003','09/11/2020','FECHA FIFA'
+EXEC sp_insertarFechaNoPermitida 'FE004','10/11/2020','FECHA FIFA'
+EXEC sp_insertarFechaNoPermitida 'FE005','11/11/2020','FECHA FIFA'
+EXEC sp_insertarFechaNoPermitida 'FE006','12/11/2020','FECHA FIFA'
+EXEC sp_insertarFechaNoPermitida 'FE007','13/11/2020','FECHA FIFA'
+EXEC sp_insertarFechaNoPermitida 'FE008','14/11/2020','FECHA FIFA'
+EXEC sp_insertarFechaNoPermitida 'FE009','24/12/2020','VACACIÓN'
+EXEC sp_insertarFechaNoPermitida 'FE010','25/12/2020','VACACIÓN'
+EXEC sp_insertarFechaNoPermitida 'FE011','26/12/2020','VACACIÓN'
+EXEC sp_insertarFechaNoPermitida 'FE012','27/12/2020','VACACIÓN'
+EXEC sp_insertarFechaNoPermitida 'FE013','28/12/2020','VACACIÓN'
+EXEC sp_insertarFechaNoPermitida 'FE014','29/12/2020','VACACIÓN'
+EXEC sp_insertarFechaNoPermitida 'FE015','30/12/2020','VACACIÓN'
+EXEC sp_insertarFechaNoPermitida 'FE016','31/12/2020','VACACIÓN'
+EXEC sp_insertarFechaNoPermitida 'FE017','01/01/2021','VACACIÓN'
+EXEC sp_insertarFechaNoPermitida 'FE018','02/01/2021','VACACIÓN'
+
+SELECT * FROM FechaNoPermitida
+
+--TABLA PAÍS
+EXEC sp_Insertar_Pais 'ARG','Argentina'
+EXEC sp_Insertar_Pais 'BOL','Bolivia'
+EXEC sp_Insertar_Pais 'BRA','Brasil '
+EXEC sp_Insertar_Pais 'CHI','Chile'
+EXEC sp_Insertar_Pais 'ECU','Ecuador'
+EXEC sp_Insertar_Pais 'PAR','Paraguay'
+EXEC sp_Insertar_Pais 'PER','Perú'
+EXEC sp_Insertar_Pais 'URU','Uruguay'
+EXEC sp_Insertar_Pais 'VEN','Venezuela'
+EXEC sp_Insertar_Pais 'DDR','Alemania'
+EXEC sp_Insertar_Pais 'ESP','España'
+EXEC sp_Insertar_Pais 'RUS','Rusia'
+EXEC sp_Insertar_Pais 'SWE','Suecia'
+EXEC sp_Insertar_Pais 'ITA','Italia'
+EXEC sp_Insertar_Pais 'NED','Países Bajos'
+EXEC sp_Insertar_Pais 'UKR','Ucrania'
+EXEC sp_Insertar_Pais 'POR','Portugal'
+SELECT * FROM Pais
+
+--TABLA TIPO EMPLEADO
+EXEC sp_Insertar_TipoEmpleado 'TE01', 'Entrenador'
+EXEC sp_Insertar_TipoEmpleado 'TE02', 'Auxiliar técnico'
+EXEC sp_Insertar_TipoEmpleado 'TE03', 'Fisioterapista'
+EXEC sp_Insertar_TipoEmpleado 'TE04', 'Médico'
+EXEC sp_Insertar_TipoEmpleado 'TE05', 'Utilero'
+SELECT * FROM TipoEmpleado
