@@ -5,9 +5,6 @@ go
 use Control_Ligas
 go
 
-drop database Control_Ligas
-go
-
 --CREANDO TABLAS
 --TABLA FechaNoPermitida
 create table FechaNoPermitida
@@ -21,7 +18,6 @@ create table FechaNoPermitida
 	DescripcionFecha VARCHAR(MAX) not null,
 	--LLAVE PRIMARIA
 	constraint pk_FechaNoPermitida primary key (IdFechaNoPermitida),
-
 	--RESTRICCIONES
 	constraint u_FechaNoPermitida UNIQUE(FechaNoPermitida),
 	constraint ck_FechaNoPermitida check(FechaNoPermitida>=getdate()),
@@ -40,7 +36,6 @@ create table Pais
 	NombrePais varchar(100) not null unique,
 	--LLAVE PRIMARIA 
 	constraint pk_IdPais primary key (IdPais),
-
 	--RESTRICCIONES
 	constraint ck_NombrePais check(NombrePais like '%[a-zA-Z]%'),
 	constraint ck_IdPais check(IdPais like '[a-z][a-z][0-9][0-9][0-9]')
@@ -57,7 +52,6 @@ create table TipoEmpleado
 	NombreTipoEmpleado varchar(100) not null unique,
 	--LLAVE PRIMARIA
 	constraint pk_IdTipoEmpleado primary key (IdTipoEmpleado),
-
 	--RESTRICCIONES
 	constraint ck_IdTipoEmpleado check(IdTipoEmpleado like '[a-z][a-z][0-9][0-9]'),
 	constraint ck_NombreTipoEmpleado check(NombreTipoEmpleado like '%[a-zA-Z]%') 
@@ -79,7 +73,6 @@ create table Estadio
 	correoRepresentante varchar(50) not null,
 	--LLAVE PRIMARIA
 	constraint pk_IdEstadio primary key (IdEstadio),
-
 	--RESTRICCIONES
 	constraint ck_IdEstadio check(IdEstadio like '[E][D][0-9][0-9]'),
 	constraint ck_NombreEstadio check(NombreEstadio like '%[a-zA-Z]%'),
@@ -89,7 +82,6 @@ create table Estadio
 	constraint U_telefonoRepresentante unique(telefonoRepresentante),
 	constraint U_correoRepresentante unique(correoRepresentante),
 	constraint ck_correoRepresentante check(correoRepresentante like '%_@_%_._%'),
-
 );
 
 
@@ -104,14 +96,10 @@ create table DiaFavorito
 	NombreDia varchar(50) not null unique,
 	--LLAVE PRIMARIA
 	constraint pk_IdDiaFavorito primary key (IdDiaFavorito),
-
 	--RESTRICCIONES
 	constraint ck_IdDiaFavorito check(IdDiaFavorito like '[D][A][F][0-9][0-9]'),
 	constraint ck_NombreDia check(NombreDia like '%[a-zA-Z]%')
-
-
 );
-
 
 --TABLA DIVISIÓN
 create table Division
@@ -124,11 +112,9 @@ create table Division
 	NombreDivision varchar(100) not null unique,
 	--LLAVE PRIMARIA
 	constraint pk_IdDivision primary key (IdDivision),
-
 	--RESTRICCIONES
 	constraint ck_IdDivision check(IdDivision like '[A-Z][A-Z][0-9][0-9]'),
 	constraint ck_NombreDivision check(NombreDivision like '%[a-zA-Z0-9]%')
-
 );
 
 --TABLA LIGA
@@ -148,12 +134,10 @@ create table Liga
 	constraint pk_IdLiga primary key (IdLiga),
 	--LLAVE SECUNDARIA
 	constraint fk_Liga_Division foreign key (IdDivision) references Division (IdDivision),
-
 	--RESTRICCIONES
 	constraint ck_IdLiga check(IdLiga like '[A-Z][A-Z][0-9][0-9]'),
 	constraint ck_NombreLiga check(NombreLiga like '%[a-zA-Z0-9]%'),
 	constraint ck_fechasliga check(FechaFinalLiga>FechaInicioLiga)
-
 );
 
 --TABLA EQUIPO
@@ -178,12 +162,9 @@ create table Equipo
 	constraint fk_Equipo_Estadio foreign key (IdEstadio) references Estadio (IdEstadio),
 	constraint fk_Equipo_Pais foreign key (IdPais) references Pais (IdPais),
 	constraint fk_Equipo_Liga foreign key (IdLiga) references Liga (IdLiga),
-
 	--RESTRICCIONES
 	constraint ck_IdEquipo check(IdEquipo like '[A-Z][A-Z][0-9][0-9]'),
-	constraint ck_NombreEquipo check(NombreEquipo like '%[a-zA-Z0-9]%'),
-
-	
+	constraint ck_NombreEquipo check(NombreEquipo like '%[a-zA-Z0-9]%'),	
 );
 
 --TABLA CAMPAÑA
@@ -203,12 +184,10 @@ create table Campania
 	--Pendiente de eliminar
 	--constraint fk_Campania_EquipoGanador foreign key (EquipoGanador) references Equipo (IdEquipo),
 	constraint fk_Campania_Liga foreign key (IdLiga) references Liga (IdLiga),
-	
 	--RESTRICCIONES
 	constraint ck_IdCampania check(IdCampania like '[C][A][0-9][0-9]'),
 	constraint ck_NombreCampania check(NombreCampania like '%[a-zA-Z0-9]%'),
 	constraint ck_EquipoGanador check(EquipoGanador like '%[a-zA-Z0-9]%'),
-	
 );
 
 --TABLA EMPLEADO
@@ -233,14 +212,12 @@ create table Empleado
 	constraint fk_Empleado_TipoEmpleado foreign key (IdTipoEmpleado) references TipoEmpleado (IdTipoEmpleado),
 	constraint fk_Empleado_Equipo foreign key (IdEquipo) references Equipo (IdEquipo),
 	constraint fk_Empleado_pais foreign key (IdPais) references pais (IdPais),
-
 	--RESTRICCIONES
 	constraint ck_IdEmpleado check(IdEmpleado like '[E][M][P][0-9][0-9]'),
 	constraint ck_NombreEmpleado check(NombreEmpleado like '%[a-zA-Z]%'),
 	constraint ck_correoempleado check(correo like '%_@_%_._%'),
 	constraint U_correoempleado unique(correo),
 	constraint ck_generoempleado check(sexo='M' or sexo='F')
-
 );
 
 --TABLA PATROCINADOR
@@ -257,7 +234,6 @@ create table Patrocinador
 	Logo IMAGE,
 	--LLAVE PRIMARIA
 	constraint pk_IdPatrocinador primary key (IdPatrocinador),
-	
 	--RESTRICCIONES 
 	constraint ck_IdPatrocinador check(IdPatrocinador like '[P][T][R][0-9][0-9]'),
 	constraint ck_NombrePatrocinador check(NombrePatrocinador like '%[a-zA-Z]%'),
@@ -280,7 +256,6 @@ create table Detalle_Equipo_Patrocinador
 	--Llaves secundaria
 	constraint fk_Detalle_Equipo_Patrocinador_IdEquipo foreign key (IdEquipo) references Equipo (IdEquipo),
 	constraint fk_Detalle_Equipo_Patrocinador_IdPatrocinador foreign key (IdPatrocinador) references Patrocinador (IdPatrocinador),
-
 	--RESTRICCIONES 
 	constraint ck_FechasDetalleEquipoPatrocinador check(FechaFin>FechaInicio)
 );
@@ -299,7 +274,6 @@ create table Duenio
 	IdEquipo varchar(4) not null,
 	--LLAVE PRIMARIA
 	constraint pk_IdDuenio primary key (IdDuenio),
-
 	--RESTRICCIONES
 	constraint ck_IdDuenio check(IdDuenio like '[D][U][E][0-9][0-9]'),
 	constraint ck_NombreDuenio check(NombreDuenio like '%[a-zA-Z]%'),
@@ -337,7 +311,6 @@ create table Equipacion
 	constraint pk_IdEquipacion primary key (IdEquipacion),
 	--LLAVE SECUNDARIA
 	constraint fk_Equipacio_Equipo foreign key (IdEquipo) references Equipo (IdEquipo),
-
 	--RESTRICCIONES
 	constraint ck_IdEquipacion check(IdEquipacion like '[E][Q][U][I][0-9][0-9]')
 );
@@ -360,7 +333,6 @@ create table Jugador
 	constraint pk_IdJugador primary key (IdJugador),
 	--LLAVE SECUNDARIA
 	constraint fk_Jugador_Pais foreign key (IdPais) references Pais (IdPais),
-
 	--RESTRICCIONES
 	constraint ck_IdJugador check(IdJugador like '[J][G][0-9][0-9]'),
 	constraint ck_NombreJugador check(NombreJugador like '%[a-zA-Z]%'),
@@ -437,7 +409,6 @@ create table Partido
 	--Pendiente de eliminar
 	--constraint fk_Partido_EquipoVisitante foreign key (EquipoVisitante) references Equipo (IdEquipo),
 	--constraint fk_Partido_EquipoPerdedor foreign key (EquipoLocal) references Equipo (IdEquipo),
-
 	--RESTRICCIONES
 	constraint ck_IdPartido check(IdPartido like '[P][A][R][0-9][0-9]')
 );
@@ -458,9 +429,8 @@ create table Plantilla
 	constraint pk_IdPlantilla primary key (IdPlantilla),
 	--LLAVE SECUNDARIA
 	constraint fk_plantilla_equipo foreign key (IdEquipo) references Equipo(IdEquipo),
-	constraint fk_plantilla_jugador foreign key (IdJugador) references Jugar(IdJugador),
+	constraint fk_plantilla_jugador foreign key (IdJugador) references Jugador(IdJugador),
 	constraint fk_plantilla_partido foreign key (IdPartido) references partido (IdPartido),
-
 	--RESTRICCIONES
 	constraint ck_IdPlantilla check(IdPlantilla like '[P][L][0-9][0-9]')
 );
@@ -494,7 +464,6 @@ create table TipoTarjeta
 	NombreTipoTarjeta varchar(20) not null,
 	--LLAVE PRIMARIA
 	constraint pk_IdTipoTajerta primary key (IdTipoTajerta),
-
 	--RESTRICCIONES
 	constraint ck_IdTipoTarjeta check(IdTipoTajerta like '[T][P][T][0-9]')
 );
