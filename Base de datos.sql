@@ -452,7 +452,6 @@ create table Goles
 	constraint fk_Goles_Jugador foreign key (IdJugador) references Jugador (IdJugador)
 );
 
-
 --TABLA TIPO TARJETA
 create table TipoTarjeta
 (
@@ -485,7 +484,6 @@ create table Tarjeta
 	constraint fk_Tarjeta_TipoTarjeta foreign key (IdTipoTajerta) references TipoTarjeta (IdTipoTajerta),
 	constraint fk_Tarjeta_Jugador foreign key (IdJugador) references Jugador (IdJugador),
 	constraint fk_Tarjeta_partido foreign key (IdPartido) references partido (IdPartido),
-
 	--RESTRICCIONES
 	constraint ck_IdTarjeta check(IdTarjeta like '[T][A][R][0-9]')
 );
@@ -514,7 +512,6 @@ create table Tabla_De_Posicion
 	--LLAVE SECUNDARIA
 	constraint fk_Posicion_Equipo foreign key (IdEquipo) references Equipo (IdEquipo),
 	constraint fk_Posicion_Campania foreign key (IdCampania) references Campania (IdCampania),
-
 	--RESTRICCIONES 
 	constraint ck_IdPosicion check(IdPosicion like '[P][O][S][0-9][0-9]')
 );
