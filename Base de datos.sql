@@ -1663,10 +1663,6 @@ SELECT * FROM Estadio
 --TABLA DIA FAVORITO
 EXEC sp_Insertar_DiaFavorito 'DAF01', 'Domingo'
 EXEC sp_Insertar_DiaFavorito 'DAF02', 'Sábado'
-EXEC sp_Insertar_DiaFavorito 'DAF03', 'Miércoles'
-EXEC sp_Insertar_DiaFavorito 'DAF04', 'Martes'
-EXEC sp_Insertar_DiaFavorito 'DAF05', 'Jueves'
-EXEC sp_Insertar_DiaFavorito 'DAF06', 'Lunes'
 SELECT * FROM DiaFavorito
 
 --TABLA DIVISIÓN
@@ -1710,3 +1706,13 @@ EXEC sp_Insertar_Patrocinador 'PTR05', 'Gillette', '2124-7571', 'industrias_pg.s
 EXEC sp_Insertar_Patrocinador 'PTR06', 'Umbro', '2598-6321', 'contactos_umbro@hotmail.com', 'D:\Patrocinadores\umbro_logo.jpg'
 SELECT * FROM Patrocinador
 
+--TABLA Detalle_Equipo_Patrocinador
+
+EXEC sp_Detalle_Equipo_Patrocinador 'EQ01', 'PTR01', '2019-01-01', '2023-12-31';
+EXEC sp_Detalle_Equipo_Patrocinador 'EQ01', 'PTR06', '2018-11-10', '2020-11-10';
+EXEC sp_Detalle_Equipo_Patrocinador 'EQ02', 'PTR02', '2017-05-20', '2021-05-20';
+EXEC sp_Detalle_Equipo_Patrocinador 'EQ02', 'PTR03', '2016-07-15', '2020-07-15';
+EXEC sp_Detalle_Equipo_Patrocinador 'EQ03', 'PTR04', '2020-06-09', '2024-06-09';
+EXEC sp_Detalle_Equipo_Patrocinador 'EQ03', 'PTR05', '2020-07-08', '2022-07-08'; 
+
+--TABLA 
