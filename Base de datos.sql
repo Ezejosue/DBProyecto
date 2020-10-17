@@ -905,7 +905,7 @@ begin try
 begin tran
 	if(select Count(*) from Campania
 			where IdCampania=@IdCampania or NombreCampania=@NombreCampania or 
-			EquipoGanador=@EquipoGanador or IdLiga=@IdLiga)=0
+			EquipoGanador=@EquipoGanador)=0
 			insert into Campania(IdCampania, NombreCampania, EquipoGanador, IdLiga)
 			values (@IdCampania, @NombreCampania, @EquipoGanador, @IdLiga)
 	else
@@ -1675,14 +1675,19 @@ EXEC sp_insertardivison 'DV03', 'Tercera división'
 SELECT * FROM Division
 
 --TABLA LIGA
-EXEC sp_Insertar_Liga 'LG01', 'Torneo Clausura', '2020-01-15', '2020-06-25', 'ESA', 'DV01'
-EXEC sp_Insertar_Liga 'LG02', 'Torneo Apertura', '2020-07-30', '2020-12-15', 'ESA', 'DV03'
-EXEC sp_Insertar_Liga 'LG03', 'Premier', '2020-03-15', '2020-09-25', 'UKD', 'DV02'
-EXEC sp_Insertar_Liga 'LG04', 'Liga MX', '2020-02-17', '2020-11-21', 'MEX', 'DV01'
-EXEC sp_Insertar_Liga 'LG05', 'Liga Santander', '2020-01-15', '2020-06-25', 'ESP', 'DV01'
+EXEC sp_Insertar_Liga 'LG01', 'Liga mayor de fútbol El Salvdor', '2020-01-15', '2020-06-25', 'ESA', 'DV01'
+EXEC sp_Insertar_Liga 'LG02', 'Premier', '2020-03-15', '2020-09-25', 'UKD', 'DV02'
+EXEC sp_Insertar_Liga 'LG03', 'Liga MX', '2020-02-17', '2020-11-21', 'MEX', 'DV01'
+EXEC sp_Insertar_Liga 'LG04', 'Liga Santander', '2020-01-15', '2020-06-25', 'ESP', 'DV01'
 SELECT * FROM Liga
 
 --TABLA EQUIPO 
 EXEC sp_insertarequipo 'EQ01', 'Alianza Fútbol Club','Oficinas Centrales Alianza Fútbol Club', '3:00', 'DAF02', 'ED01', 'ESA', 'LG01'
 EXEC sp_insertarequipo 'EQ02', 'Club Deportivo FAS','Oficinas Centrales Club Deportivo FAS', '7:00', 'DAF03', 'ED04', 'ESA', 'LG01'
 EXEC sp_insertarequipo 'EQ03', 'Club Deportivo Águila','Oficinas Centrales Club Deportivo Águila', '4:00', 'DAF01', 'ED04', 'ESA', 'LG01'
+SELECT * FROM Equipo
+
+--TABLA CAMPAÑA
+EXEC sp_Insertar_Campania 'CA01', 'Torneo Apertura', 'EQ01', 'LG01'
+EXEC sp_Insertar_Campania 'CA02', 'Torneo Clausura', 'EQ03', 'LG01'
+SELECT * FROM Campania
