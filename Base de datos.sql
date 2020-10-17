@@ -1641,6 +1641,7 @@ EXEC sp_Insertar_Pais 'POR','Portugal'
 EXEC sp_Insertar_Pais 'MEX','México'
 EXEC sp_Insertar_Pais 'ESA','El Salvador'
 EXEC sp_Insertar_Pais 'UKD','Reino Unido'
+EXEC sp_Insertar_Pais 'COL','Colombia'
 SELECT * FROM Pais
 
 --TABLA TIPO EMPLEADO
@@ -1691,3 +1692,20 @@ SELECT * FROM Equipo
 EXEC sp_Insertar_Campania 'CA01', 'Torneo Apertura', 'EQ01', 'LG01'
 EXEC sp_Insertar_Campania 'CA02', 'Torneo Clausura', 'EQ03', 'LG01'
 SELECT * FROM Campania
+
+--TABLA EMPLEADO
+EXEC sp_insertar_empleado 'EMP01','Eddy Vladimir Orellana', '1995-02-19', 'TE02', 'EQ01', 'eddyb@gmail.com','M', '02145601-9', 'ESA'
+EXEC sp_insertar_empleado 'EMP02','Wilson Jaime Gutiérrez', '1971-05-05', 'TE01', 'EQ01', 'wilson_05@gmail.com','M', '02459632-0', 'COL'
+EXEC sp_insertar_empleado 'EMP03','Erick Dowson Prado', '1976-11-25', 'TE01', 'EQ02', 'erick_prado@gmail.com','M', '02185201-7', 'ESA'
+EXEC sp_insertar_empleado 'EMP04','Alex Renato Martínez', '1975-08-01', 'TE03', 'EQ03', 'alex_marti14@gmail.com','M', '01253698-4', 'VEN'
+EXEC sp_insertar_empleado 'EMP05','Roberto José Gómez', '1980-12-04', 'TE05', 'EQ02', 'rob_go@gmail.com','M', '01753628-2', 'ESA'
+SELECT * FROM Empleado
+
+--TABLA PATROCINADOR
+EXEC sp_Insertar_Patrocinador 'PTR01', 'Gatorade', '2256-9874', 'ernesto_mujica@hotmail.com', 'D:\Patrocinadores\gatorade.jpg'
+EXEC sp_Insertar_Patrocinador 'PTR02', 'Powerade', '2485-9632', 'ilc_esa@hotmail.com', 'D:\Patrocinadores\powerade.jpg'
+EXEC sp_Insertar_Patrocinador 'PTR03', 'Mitre', '7895-63214', 'mitre.sv@gmail.com', 'D:\Patrocinadores\mitre.jpg'
+EXEC sp_Insertar_Patrocinador 'PTR04', 'TIGO El Salvador', '6895-4523', 'contactos_TIGO.sv@hotmail.com', 'D:\Patrocinadores\TIGO.jpg'
+EXEC sp_Insertar_Patrocinador 'PTR05', 'Gillette', '2124-7571', 'industrias_pg.sv@outlook.com', 'D:\Patrocinadores\gillette.jpg'
+EXEC sp_Insertar_Patrocinador 'PTR06', 'Umbro', '2598-6321', 'contactos_umbro@hotmail.com', 'D:\Patrocinadores\umbro_logo.jpg'
+SELECT * FROM Patrocinador
