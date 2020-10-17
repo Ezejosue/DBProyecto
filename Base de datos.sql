@@ -1709,3 +1709,4 @@ EXEC sp_Insertar_Patrocinador 'PTR04', 'TIGO El Salvador', '6895-4523', 'contact
 EXEC sp_Insertar_Patrocinador 'PTR05', 'Gillette', '2124-7571', 'industrias_pg.sv@outlook.com', 'D:\Patrocinadores\gillette.jpg'
 EXEC sp_Insertar_Patrocinador 'PTR06', 'Umbro', '2598-6321', 'contactos_umbro@hotmail.com', 'D:\Patrocinadores\umbro_logo.jpg'
 SELECT * FROM Patrocinador
+
