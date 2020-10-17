@@ -1599,24 +1599,24 @@ GO
 
 --*******************************INSERT**************************
 --TABLA FECHA NO PERMITIDA
-EXEC sp_insertarFechaNoPermitida 'FE001','07/11/2020','FECHA FIFA'
-EXEC sp_insertarFechaNoPermitida 'FE002','08/11/2020','FECHA FIFA'
-EXEC sp_insertarFechaNoPermitida 'FE003','09/11/2020','FECHA FIFA'
-EXEC sp_insertarFechaNoPermitida 'FE004','10/11/2020','FECHA FIFA'
-EXEC sp_insertarFechaNoPermitida 'FE005','11/11/2020','FECHA FIFA'
-EXEC sp_insertarFechaNoPermitida 'FE006','12/11/2020','FECHA FIFA'
-EXEC sp_insertarFechaNoPermitida 'FE007','13/11/2020','FECHA FIFA'
-EXEC sp_insertarFechaNoPermitida 'FE008','14/11/2020','FECHA FIFA'
-EXEC sp_insertarFechaNoPermitida 'FE009','24/12/2020','VACACIÓN'
-EXEC sp_insertarFechaNoPermitida 'FE010','25/12/2020','VACACIÓN'
-EXEC sp_insertarFechaNoPermitida 'FE011','26/12/2020','VACACIÓN'
-EXEC sp_insertarFechaNoPermitida 'FE012','27/12/2020','VACACIÓN'
-EXEC sp_insertarFechaNoPermitida 'FE013','28/12/2020','VACACIÓN'
-EXEC sp_insertarFechaNoPermitida 'FE014','29/12/2020','VACACIÓN'
-EXEC sp_insertarFechaNoPermitida 'FE015','30/12/2020','VACACIÓN'
-EXEC sp_insertarFechaNoPermitida 'FE016','31/12/2020','VACACIÓN'
-EXEC sp_insertarFechaNoPermitida 'FE017','01/01/2021','VACACIÓN'
-EXEC sp_insertarFechaNoPermitida 'FE018','02/01/2021','VACACIÓN'
+EXEC sp_insertarFechaNoPermitida 'FE001','2020-11-07','FECHA FIFA'
+EXEC sp_insertarFechaNoPermitida 'FE002','2020-11-08','FECHA FIFA'
+EXEC sp_insertarFechaNoPermitida 'FE003','2020-11-09','FECHA FIFA'
+EXEC sp_insertarFechaNoPermitida 'FE004','2020-11-10','FECHA FIFA'
+EXEC sp_insertarFechaNoPermitida 'FE005','2020-11-11','FECHA FIFA'
+EXEC sp_insertarFechaNoPermitida 'FE006','2020-11-12','FECHA FIFA'
+EXEC sp_insertarFechaNoPermitida 'FE007','2020-11-13','FECHA FIFA'
+EXEC sp_insertarFechaNoPermitida 'FE008','2020-11-14','FECHA FIFA'
+EXEC sp_insertarFechaNoPermitida 'FE009','2020-12-24','VACACIÓN'
+EXEC sp_insertarFechaNoPermitida 'FE010','2020-12-25','VACACIÓN'
+EXEC sp_insertarFechaNoPermitida 'FE011','2020-12-26','VACACIÓN'
+EXEC sp_insertarFechaNoPermitida 'FE012','2020-12-27','VACACIÓN'
+EXEC sp_insertarFechaNoPermitida 'FE013','2020-12-28','VACACIÓN'
+EXEC sp_insertarFechaNoPermitida 'FE014','2020-12-29','VACACIÓN'
+EXEC sp_insertarFechaNoPermitida 'FE015','2020-12-30','VACACIÓN'
+EXEC sp_insertarFechaNoPermitida 'FE016','2020-12-31','VACACIÓN'
+EXEC sp_insertarFechaNoPermitida 'FE017','2021-01-01','VACACIÓN'
+EXEC sp_insertarFechaNoPermitida 'FE018','2021-01-02','VACACIÓN'
 
 SELECT * FROM FechaNoPermitida
 
@@ -1647,3 +1647,11 @@ EXEC sp_Insertar_TipoEmpleado 'TE03', 'Fisioterapista'
 EXEC sp_Insertar_TipoEmpleado 'TE04', 'Médico'
 EXEC sp_Insertar_TipoEmpleado 'TE05', 'Utilero'
 SELECT * FROM TipoEmpleado
+
+--TABLA ESTADIO
+EXEC sp_insertarestadio 'ED01', 'Estadio Cuscatlán','25000', 'Calle Antigua a Huizucar, San Salvador', 'Jorge Alberto Rodríguez', '7754-8963', 'jorgeab@gmail.com'
+EXEC sp_insertarestadio 'ED02', 'Estadio las Delicias','7500', 'Avenida Caoba, Santa Tecla', 'Arnoldo Saldaña Martínez', '7754-2663', 'juli_ar@hotmail.com'
+EXEC sp_insertarestadio 'ED03', 'Estadio Jorge Mágico González','27000', '49 Avenida Sur, San Salvador', 'Mauricio Enrique Martínez', '7854-9632', 'martinore_23@gmail.com'
+EXEC sp_insertarestadio 'ED04', 'Estadio Juan Francisco Barraza','29000', 'San Miguel', 'Julio Rodolfo Rodríguez', '7683-1198', 'julio_ro2@gmail.com'
+EXEC sp_insertarestadio 'ED05', 'Estadio Óscar Quiteño','17500', 'Santa Ana', 'Gerson Daniel Maldonado', '6598-7485', 'Maldonado1234@outlook.com'
+
