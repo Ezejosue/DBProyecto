@@ -136,7 +136,7 @@ create table Liga
 	--LLAVE SECUNDARIA
 	constraint fk_Liga_Division foreign key (IdDivision) references Division (IdDivision),
 	--RESTRICCIONES
-	constraint ck_IdLiga check(IdLiga like '[A-Z][A-Z][0-9][0-9]'),
+	constraint ck_IdLiga check(IdLiga like '[L][G][0-9][0-9]'),
 	constraint ck_NombreLiga check(NombreLiga like '%[a-zA-Z0-9]%'),
 	constraint ck_fechasliga check(FechaFinalLiga>FechaInicioLiga)
 );
@@ -164,7 +164,7 @@ create table Equipo
 	constraint fk_Equipo_Pais foreign key (IdPais) references Pais (IdPais),
 	constraint fk_Equipo_Liga foreign key (IdLiga) references Liga (IdLiga),
 	--RESTRICCIONES
-	constraint ck_IdEquipo check(IdEquipo like '[A-Z][A-Z][0-9][0-9]'),
+	constraint ck_IdEquipo check(IdEquipo like '[E][Q][0-9][0-9]'),
 	constraint ck_NombreEquipo check(NombreEquipo like '%[a-zA-Z0-9]%'),	
 );
 
@@ -1638,6 +1638,9 @@ EXEC sp_Insertar_Pais 'ITA','Italia'
 EXEC sp_Insertar_Pais 'NED','Países Bajos'
 EXEC sp_Insertar_Pais 'UKR','Ucrania'
 EXEC sp_Insertar_Pais 'POR','Portugal'
+EXEC sp_Insertar_Pais 'MEX','México'
+EXEC sp_Insertar_Pais 'ESA','El Salvador'
+EXEC sp_Insertar_Pais 'UKD','Reino Unido'
 SELECT * FROM Pais
 
 --TABLA TIPO EMPLEADO
@@ -1663,8 +1666,23 @@ EXEC sp_Insertar_DiaFavorito 'DAF03', 'Miércoles'
 EXEC sp_Insertar_DiaFavorito 'DAF04', 'Martes'
 EXEC sp_Insertar_DiaFavorito 'DAF05', 'Jueves'
 EXEC sp_Insertar_DiaFavorito 'DAF06', 'Lunes'
+SELECT * FROM DiaFavorito
 
 --TABLA DIVISIÓN
 EXEC sp_insertardivison 'DV01', 'Primera división'
 EXEC sp_insertardivison 'DV02', 'Segunda división'
 EXEC sp_insertardivison 'DV03', 'Tercera división'
+SELECT * FROM Division
+
+--TABLA LIGA
+EXEC sp_Insertar_Liga 'LG01', 'Torneo Clausura', '2020-01-15', '2020-06-25', 'ESA', 'DV01'
+EXEC sp_Insertar_Liga 'LG02', 'Torneo Apertura', '2020-07-30', '2020-12-15', 'ESA', 'DV03'
+EXEC sp_Insertar_Liga 'LG03', 'Premier', '2020-03-15', '2020-09-25', 'UKD', 'DV02'
+EXEC sp_Insertar_Liga 'LG04', 'Liga MX', '2020-02-17', '2020-11-21', 'MEX', 'DV01'
+EXEC sp_Insertar_Liga 'LG05', 'Liga Santander', '2020-01-15', '2020-06-25', 'ESP', 'DV01'
+SELECT * FROM Liga
+
+--TABLA EQUIPO 
+EXEC sp_insertarequipo 'EQ01', 'Alianza Fútbol Club','Oficinas Centrales Alianza Fútbol Club', '3:00', 'DAF02', 'ED01', 'ESA', 'LG01'
+EXEC sp_insertarequipo 'EQ02', 'Club Deportivo FAS','Oficinas Centrales Club Deportivo FAS', '7:00', 'DAF03', 'ED04', 'ESA', 'LG01'
+EXEC sp_insertarequipo 'EQ03', 'Club Deportivo Águila','Oficinas Centrales Club Deportivo Águila', '4:00', 'DAF01', 'ED04', 'ESA', 'LG01'
