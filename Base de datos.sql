@@ -114,7 +114,7 @@ create table Division
 	--LLAVE PRIMARIA
 	constraint pk_IdDivision primary key (IdDivision),
 	--RESTRICCIONES
-	constraint ck_IdDivision check(IdDivision like '[A-Z][A-Z][0-9][0-9]'),
+	constraint ck_IdDivision check(IdDivision like '[D][V][0-9][0-9]'),
 	constraint ck_NombreDivision check(NombreDivision like '%[a-zA-Z0-9]%')
 );
 
@@ -465,7 +465,7 @@ create table TipoTarjeta
 	--LLAVE PRIMARIA
 	constraint pk_IdTipoTajerta primary key (IdTipoTajerta),
 	--RESTRICCIONES
-	constraint ck_IdTipoTarjeta check(IdTipoTajerta like '[T][P][T][0-9]')
+	constraint ck_IdTipoTarjeta check(IdTipoTajerta like '[T][P][T][0-9][0-9]')
 );
 
 --TABLA TARJETA
@@ -486,7 +486,7 @@ create table Tarjeta
 	constraint fk_Tarjeta_Jugador foreign key (IdJugador) references Jugador (IdJugador),
 	constraint fk_Tarjeta_partido foreign key (IdPartido) references partido (IdPartido),
 	--RESTRICCIONES
-	constraint ck_IdTarjeta check(IdTarjeta like '[T][A][R][0-9]')
+	constraint ck_IdTarjeta check(IdTarjeta like '[T][A][R][0-9][0-9]')
 );
 
 --TABLA Tabla_De_Posicion
@@ -1653,5 +1653,18 @@ EXEC sp_insertarestadio 'ED01', 'Estadio Cuscatlán','25000', 'Calle Antigua a H
 EXEC sp_insertarestadio 'ED02', 'Estadio las Delicias','7500', 'Avenida Caoba, Santa Tecla', 'Arnoldo Saldaña Martínez', '7754-2663', 'juli_ar@hotmail.com'
 EXEC sp_insertarestadio 'ED03', 'Estadio Jorge Mágico González','27000', '49 Avenida Sur, San Salvador', 'Mauricio Enrique Martínez', '7854-9632', 'martinore_23@gmail.com'
 EXEC sp_insertarestadio 'ED04', 'Estadio Juan Francisco Barraza','29000', 'San Miguel', 'Julio Rodolfo Rodríguez', '7683-1198', 'julio_ro2@gmail.com'
-EXEC sp_insertarestadio 'ED05', 'Estadio Óscar Quiteño','17500', 'Santa Ana', 'Gerson Daniel Maldonado', '6598-7485', 'Maldonado1234@outlook.com'
+EXEC sp_insertarestadio 'ED05', 'Estadio Óscar Quiteño','17500', 'Santa Ana', 'Gerson Daniel Maldonado', '6598-7485', 'maldonado1234@outlook.com'
+SELECT * FROM Estadio
 
+--TABLA DIA FAVORITO
+EXEC sp_Insertar_DiaFavorito 'DAF01', 'Domingo'
+EXEC sp_Insertar_DiaFavorito 'DAF02', 'Sábado'
+EXEC sp_Insertar_DiaFavorito 'DAF03', 'Miércoles'
+EXEC sp_Insertar_DiaFavorito 'DAF04', 'Martes'
+EXEC sp_Insertar_DiaFavorito 'DAF05', 'Jueves'
+EXEC sp_Insertar_DiaFavorito 'DAF06', 'Lunes'
+
+--TABLA DIVISIÓN
+EXEC sp_insertardivison 'DV01', 'Primera división'
+EXEC sp_insertardivison 'DV02', 'Segunda división'
+EXEC sp_insertardivison 'DV03', 'Tercera división'
