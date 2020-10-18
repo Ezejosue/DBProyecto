@@ -5,7 +5,6 @@ go
 use Control_Ligas
 go
 
-Drop database Control_Ligas;
 --CREANDO TABLAS
 --TABLA FechaNoPermitida
 create table FechaNoPermitida
@@ -443,7 +442,7 @@ create table Plantilla
 --TABLA GOLES
 create table Goles
 (
-	idGol int not null,
+	idGol varchar(7) not null,
 	IdPartido varchar(5) not null,
 	IdJugador varchar(4) not null,
 	usuarioisert varchar(50),
@@ -455,13 +454,13 @@ create table Goles
 	--LLAVE SECUNDARIA
 	constraint fk_idpartido foreign key(IdPartido) references Partido(IdPartido),
 	constraint fk_Goles_Jugador foreign key (IdJugador) references Jugador (IdJugador),
-	constraint ck_IdGol check(idGol like '[G][L][0-9][0-9][0-9]')
+	constraint ck_IdGol check(idGol like '[G][L][0-9][0-9][0-9][0-9][0-9]')
 );
 
 --TABLA TIPO TARJETA
 create table TipoTarjeta
 (
-	IdTipoTajerta varchar(4) not null,
+	IdTipoTajerta varchar(8) not null,
 	usuarioisert varchar(50),
 	usuarioupdate varchar(50),
 	fechainsert date,
@@ -476,12 +475,12 @@ create table TipoTarjeta
 --TABLA TARJETA
 create table Tarjeta
 (
-	IdTarjeta varchar(4) not null,
+	IdTarjeta varchar(8) not null,
 	usuarioisert varchar(50),
 	usuarioupdate varchar(50),
 	fechainsert date,
 	fechaupdate date,
-	IdTipoTajerta varchar(4) not null,
+	IdTipoTajerta varchar(8) not null,
 	IdJugador varchar(4) not null,
 	IdPartido varchar(5) not null,
 	--LLAVE PRIMARIA
@@ -812,7 +811,7 @@ GO
 
 --Goles
 create procedure sp_insertargoles
-@idGol int,	
+@idGol varchar(7),	
 @IdPartido varchar(20),
 @IdJugador varchar(20)
 as
@@ -1635,7 +1634,7 @@ EXEC sp_Insertar_Pais 'PAR','Paraguay'
 EXEC sp_Insertar_Pais 'PER','Perú'
 EXEC sp_Insertar_Pais 'URU','Uruguay'
 EXEC sp_Insertar_Pais 'VEN','Venezuela'
-EXEC sp_Insertar_Pais 'DDR','Alemania'
+EXEC sp_Insertar_Pais 'GER','Alemania'
 EXEC sp_Insertar_Pais 'ESP','España'
 EXEC sp_Insertar_Pais 'RUS','Rusia'
 EXEC sp_Insertar_Pais 'SWE','Suecia'
@@ -1647,6 +1646,13 @@ EXEC sp_Insertar_Pais 'MEX','México'
 EXEC sp_Insertar_Pais 'ESA','El Salvador'
 EXEC sp_Insertar_Pais 'UKD','Reino Unido'
 EXEC sp_Insertar_Pais 'COL','Colombia'
+EXEC sp_Insertar_Pais 'CRI','Costa Rica'
+EXEC sp_Insertar_Pais 'FRA','Francia'
+EXEC sp_Insertar_Pais 'CMR','Camerun'
+EXEC sp_Insertar_Pais 'AUT','Austria'
+EXEC sp_Insertar_Pais 'NOR','Noruega'
+EXEC sp_Insertar_Pais 'CRO','Croacia'
+EXEC sp_Insertar_Pais 'CAN','Canadá'
 SELECT * FROM Pais
 
 --TABLA TIPO EMPLEADO
@@ -1735,8 +1741,9 @@ EXEC sp_insertarDetalleDuenio 'DUE05', 'EQ02';
 EXEC sp_insertarDetalleDuenio 'DUE06', 'EQ01';
 SELECT * from DetalleDuenio;
 GO
---Tabla equipacion
 
+
+--Tabla equipacion
 EXEC sp_Insertar_Equipacion 'EQUI01', 'Color rojo con franjas negras diseño estandar', 'Predator verde claro con puntos grises',
  'Color rojo con logo en pierna derecha','Color blanco sin diseño', 'EQ01'; 
 
@@ -1787,14 +1794,14 @@ EXEC sp_insertarjugador 'JG26', 'Samuel Umtiti', '1.82', '72kg', '1990-10-27', '
 EXEC sp_insertarjugador 'JG27', 'Ronald Araujo', '1.87', '73kg', '1998-02-02', 'Defensa', 'URU';
 EXEC sp_insertarjugador 'JG28', 'Daniel Alves', '1.77', '64kg', '1987-11-17', 'Extremo derecho', 'BRA';
 EXEC sp_insertarjugador 'JG29', 'Xavi Hernández', '1.65', '67kg', '1978-06-20', 'Centrocampista', 'ESP';
-EXEC sp_insertarjugador 'JG30', 'Thomas Muller', '1.79', '61kg', '1979-09-13', 'Medio Centro', 'DEU';
+EXEC sp_insertarjugador 'JG30', 'Thomas Muller', '1.79', '61kg', '1979-09-13', 'Medio Centro', 'GER';
 EXEC sp_insertarjugador 'JG31', 'Frenkie De Jong', '1.79', '64kg', '1997-02-18', 'Centrocampista', 'NED';
 EXEC sp_insertarjugador 'JG32', 'Ansu Fati', '1.78', '61kg', '2003-08-09', 'Delantero centro', 'ESP';
 EXEC sp_insertarjugador 'JG33', 'Diego Costa', '1.80', '78kg', '1983-12-05', 'Delantero centro', 'BRA';
 EXEC sp_insertarjugador 'JG34', 'Francisco Trincao', '1.84', '70kg', '1979-09-13', 'Delantero centro', 'POR';
 EXEC sp_insertarjugador 'JG35', 'Alisson Becker', '1.91', '88kg', '1992-04-12', 'Portero', 'BRA';
 EXEC sp_insertarjugador 'JG36', 'Andre Onana', '1.90', '93kg', '1996-10-23', 'Portero', 'CMR';
-EXEC sp_insertarjugador 'JG37', 'Joshua Kimmich', '1.76', '73kg', '1995-09-16', 'Extremo derecho', 'DEU';
+EXEC sp_insertarjugador 'JG37', 'Joshua Kimmich', '1.76', '73kg', '1995-09-16', 'Extremo derecho', 'GER';
 EXEC sp_insertarjugador 'JG38', 'David Alaba', '1.80', '74kg', '1992-04-13', 'Defensa', 'AUT';
 EXEC sp_insertarjugador 'JG39', 'Clement Lenglet', '1.86', '81kg', '1995-07-03', 'Defensa', 'FRA';
 EXEC sp_insertarjugador 'JG40', 'Ngolo Kante', '1.68', '70kg', '1991-08-11', 'Centrocampista', 'FRA';
@@ -1804,11 +1811,10 @@ EXEC sp_insertarjugador 'JG43', 'Carlos Casimiro', '1.85', '84kg', '1992-04-03',
 EXEC sp_insertarjugador 'JG44', 'Federico Valverde', '1.82', '82kg', '1998-07-22', 'Medio centro', 'URU';
 EXEC sp_insertarjugador 'JG45', 'Oliver Giroud', '1.85', '85kg', '1989-11-06', 'Delantero centro', 'FRA';
 EXEC sp_insertarjugador 'JG46', 'Benjamin Pavard', '1.86', '76kg', '1996-11-09', 'Extremo derecho', 'FRA';
-EXEC sp_insertarjugador 'JG47', 'Alphonso Davies', '1.81', '80kg', '200-11-02', 'Extremo izquierdo', 'CAN';
-EXEC sp_insertarjugador 'JG48', 'Leon Goretzka', '1.89', '76kg', '1995-02-27', 'Centrocampista', 'DEU';
+EXEC sp_insertarjugador 'JG47', 'Alphonso Davies', '1.81', '80kg', '2000-11-02', 'Extremo izquierdo', 'CAN';
+EXEC sp_insertarjugador 'JG48', 'Leon Goretzka', '1.89', '76kg', '1995-02-27', 'Centrocampista', 'GER';
 SELECT * FROM Jugador;
 GO
-
 
 --TABLA Detalle_Equipo_Jugador
 EXEC sp_Insertar_DetalleEquipoJugador 'CON01', '2020-11-23', '2024-12-24', 'EQ01', 'JG01';
@@ -1876,6 +1882,8 @@ GO
 EXEC sp_insertarpartido 'PAR01', 'EQ01', 'EQ02', '2020-10-17', '18:00', 'EQ01', 'EQ02', 4, 2;
 EXEC sp_insertarpartido 'PAR02', 'EQ02', 'EQ03', '2020-10-24', '15:00', 'EQ03', 'EQ02', 1, 0;
 EXEC sp_insertarpartido 'PAR03', 'EQ03', 'EQ01', '2020-10-31', '16:00', 'EQ01', 'EQ03', 3, 1;
+SELECT * FROM Partido
+GO
 
 --TABLA PLANTILLA
 EXEC sp_Insertar_Plantilla 'PL01','EQ01','JG01', 'Titular','PAR01';
@@ -1948,24 +1956,30 @@ EXEC sp_Insertar_Plantilla 'PL67','EQ01','JG08', 'Titular','PAR03';
 EXEC sp_Insertar_Plantilla 'PL68','EQ01','JG09', 'Titular','PAR03';
 EXEC sp_Insertar_Plantilla 'PL69','EQ01','JG10', 'Titular','PAR03';
 EXEC sp_Insertar_Plantilla 'PL70','EQ01','JG11', 'Titular','PAR03';
-
+SELECT * FROM Plantilla
+GO
 
 --TABLA GOLES
-EXEC sp_insertargoles 'GL001', 'PAR01', 'JG06';
-EXEC sp_insertargoles 'GL002', 'PAR01', 'JG07';
-EXEC sp_insertargoles 'GL003', 'PAR01', 'JG08';
-EXEC sp_insertargoles 'GL004', 'PAR01', 'JG09';
-EXEC sp_insertargoles 'GL005', 'PAR01', 'JG24';
-EXEC sp_insertargoles 'GL006', 'PAR01', 'JG25';
-EXEC sp_insertargoles 'GL007', 'PAR02', 'JG38';
-EXEC sp_insertargoles 'GL008', 'PAR03', 'JG01';
-EXEC sp_insertargoles 'GL009', 'PAR03', 'JG02';
-EXEC sp_insertargoles 'GL010', 'PAR03', 'JG03';
-EXEC sp_insertargoles 'GL011', 'PAR03', 'JG39';
+EXEC sp_insertargoles 'GL00001', 'PAR01', 'JG06';
+EXEC sp_insertargoles 'GL00002', 'PAR01', 'JG07';
+EXEC sp_insertargoles 'GL00003', 'PAR01', 'JG08';
+EXEC sp_insertargoles 'GL00004', 'PAR01', 'JG09';
+EXEC sp_insertargoles 'GL00005', 'PAR01', 'JG24';
+EXEC sp_insertargoles 'GL00006', 'PAR01', 'JG25';
+EXEC sp_insertargoles 'GL00007', 'PAR02', 'JG38';
+EXEC sp_insertargoles 'GL00008', 'PAR03', 'JG01';
+EXEC sp_insertargoles 'GL00009', 'PAR03', 'JG02';
+EXEC sp_insertargoles 'GL00010', 'PAR03', 'JG03';
+EXEC sp_insertargoles 'GL00011', 'PAR03', 'JG39';
+SELECT * FROM Goles
+GO
+
 
 --TABLA TIPO TARJETA
 EXEC sp_Insertar_TipoTarjeta 'TPT01', 'Tarjeta roja';
 EXEC sp_Insertar_TipoTarjeta 'TPT02', 'Tarjeta amarilla';
+SELECT * FROM TipoTarjeta
+GO
 
 --TABLA TARJETA
 EXEC sp_insertartarjetas 'TAR01', 'TPT01', 'JG01', 'PAR01';
@@ -1975,8 +1989,12 @@ EXEC sp_insertartarjetas 'TAR04', 'TPT01', 'JG32', 'PAR01';
 EXEC sp_insertartarjetas 'TAR05', 'TPT02', 'JG25', 'PAR01';
 EXEC sp_insertartarjetas 'TAR06', 'TPT01', 'JG25', 'PAR02';
 EXEC sp_insertartarjetas 'TAR07', 'TPT02', 'JG05', 'PAR03';
+SELECT * FROM Tarjeta
+GO
 
 --TABLA POSICION
 EXEC sp_Insertar_Posicion 'POS01', 7, 3, 2, 0, 0, 2, 6, 4, 0, 'EQ01', 'CA01';
 EXEC sp_Insertar_Posicion 'POS02', 2, 5, 0, 2, 0, 2, 0, -3, 0, 'EQ02', 'CA01';
 EXEC sp_Insertar_Posicion 'POS03', 2, 3, 1, 1, 0, 2, 3, -1, 0, 'EQ03', 'CA01';
+SELECT * FROM Tabla_De_Posicion
+GO
