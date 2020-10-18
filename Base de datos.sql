@@ -1876,9 +1876,6 @@ GO
 EXEC sp_insertarpartido 'PAR01', 'EQ01', 'EQ02', '2020-10-17', '18:00', 'EQ01', 'EQ02', 4, 2;
 EXEC sp_insertarpartido 'PAR02', 'EQ02', 'EQ03', '2020-10-24', '15:00', 'EQ03', 'EQ02', 1, 0;
 EXEC sp_insertarpartido 'PAR03', 'EQ03', 'EQ01', '2020-10-31', '16:00', 'EQ01', 'EQ03', 3, 1;
-EXEC sp_insertarpartido 'PAR04', 'EQ02', 'EQ01', '2020-11-08', '15:30', 'EQ01', 'EQ02', 4, 1;
-EXEC sp_insertarpartido 'PAR05', 'EQ03', 'EQ02', '2020-11-14', '18:00', 'EQ02', 'EQ03', 2, 1;
-EXEC sp_insertarpartido 'PAR06', 'EQ01', 'EQ01', '2020-11-1', '18:00', 'EQ01', 'EQ02', 2, 0;
 
 --TABLA PLANTILLA
 EXEC sp_Insertar_Plantilla 'PL01','EQ01','JG01', 'Titular','PAR01';
@@ -1903,7 +1900,55 @@ EXEC sp_Insertar_Plantilla 'PL19','EQ02','JG31', 'Titular','PAR01';
 EXEC sp_Insertar_Plantilla 'PL20','EQ02','JG32', 'Titular','PAR01';
 EXEC sp_Insertar_Plantilla 'PL21','EQ02','JG33', 'Titular','PAR01';
 EXEC sp_Insertar_Plantilla 'PL22','EQ02','JG34', 'Titular','PAR01';
-EXEC sp_Insertar_Plantilla 'PL23','EQ02','JG35', 'Titular','PAR01';
+EXEC sp_Insertar_Plantilla 'PL23','EQ02','JG35', 'Suplente','PAR01';
+EXEC sp_Insertar_Plantilla 'PL24','EQ02','JG24', 'Titular','PAR02';
+EXEC sp_Insertar_Plantilla 'PL25','EQ02','JG25', 'Titular','PAR02';
+EXEC sp_Insertar_Plantilla 'PL26','EQ02','JG26', 'Titular','PAR02';
+EXEC sp_Insertar_Plantilla 'PL27','EQ02','JG27', 'Titular','PAR02';
+EXEC sp_Insertar_Plantilla 'PL28','EQ02','JG28', 'Titular','PAR02';
+EXEC sp_Insertar_Plantilla 'PL29','EQ02','JG29', 'Titular','PAR02';
+EXEC sp_Insertar_Plantilla 'PL30','EQ02','JG30', 'Titular','PAR02';
+EXEC sp_Insertar_Plantilla 'PL31','EQ02','JG31', 'Titular','PAR02';
+EXEC sp_Insertar_Plantilla 'PL32','EQ02','JG32', 'Titular','PAR02';
+EXEC sp_Insertar_Plantilla 'PL33','EQ02','JG33', 'Titular','PAR02';
+EXEC sp_Insertar_Plantilla 'PL34','EQ02','JG34', 'Titular','PAR02';
+EXEC sp_Insertar_Plantilla 'PL35','EQ02','JG35', 'Suplente','PAR02';
+EXEC sp_Insertar_Plantilla 'PL36','EQ03','JG36', 'Titular','PAR02';
+EXEC sp_Insertar_Plantilla 'PL37','EQ03','JG37', 'Titular','PAR02';
+EXEC sp_Insertar_Plantilla 'PL38','EQ03','JG38', 'Titular','PAR02';
+EXEC sp_Insertar_Plantilla 'PL39','EQ03','JG39', 'Titular','PAR02';
+EXEC sp_Insertar_Plantilla 'PL40','EQ03','JG40', 'Titular','PAR02';
+EXEC sp_Insertar_Plantilla 'PL41','EQ03','JG41', 'Titular','PAR02';
+EXEC sp_Insertar_Plantilla 'PL42','EQ03','JG42', 'Titular','PAR02';
+EXEC sp_Insertar_Plantilla 'PL43','EQ03','JG43', 'Titular','PAR02';
+EXEC sp_Insertar_Plantilla 'PL44','EQ03','JG44', 'Titular','PAR02';
+EXEC sp_Insertar_Plantilla 'PL45','EQ03','JG45', 'Titular','PAR02';
+EXEC sp_Insertar_Plantilla 'PL46','EQ03','JG46', 'Titular','PAR02';
+EXEC sp_Insertar_Plantilla 'PL47','EQ03','JG47', 'Suplente','PAR02';
+EXEC sp_Insertar_Plantilla 'PL48','EQ03','JG36', 'Titular','PAR03';
+EXEC sp_Insertar_Plantilla 'PL49','EQ03','JG37', 'Titular','PAR03';
+EXEC sp_Insertar_Plantilla 'PL50','EQ03','JG38', 'Titular','PAR03';
+EXEC sp_Insertar_Plantilla 'PL51','EQ03','JG39', 'Titular','PAR03';
+EXEC sp_Insertar_Plantilla 'PL52','EQ03','JG40', 'Titular','PAR03';
+EXEC sp_Insertar_Plantilla 'PL53','EQ03','JG41', 'Titular','PAR03';
+EXEC sp_Insertar_Plantilla 'PL54','EQ03','JG42', 'Titular','PAR03';
+EXEC sp_Insertar_Plantilla 'PL55','EQ03','JG43', 'Titular','PAR03';
+EXEC sp_Insertar_Plantilla 'PL56','EQ03','JG44', 'Titular','PAR03';
+EXEC sp_Insertar_Plantilla 'PL57','EQ03','JG45', 'Titular','PAR03';
+EXEC sp_Insertar_Plantilla 'PL58','EQ03','JG46', 'Titular','PAR03';
+EXEC sp_Insertar_Plantilla 'PL59','EQ03','JG47', 'Suplente','PAR03';
+EXEC sp_Insertar_Plantilla 'PL60','EQ01','JG01', 'Titular','PAR03';
+EXEC sp_Insertar_Plantilla 'PL61','EQ01','JG02', 'Titular','PAR03';
+EXEC sp_Insertar_Plantilla 'PL62','EQ01','JG03', 'Titular','PAR03';
+EXEC sp_Insertar_Plantilla 'PL63','EQ01','JG04', 'Titular','PAR03';
+EXEC sp_Insertar_Plantilla 'PL64','EQ01','JG05', 'Titular','PAR03';
+EXEC sp_Insertar_Plantilla 'PL65','EQ01','JG06', 'Titular','PAR03';
+EXEC sp_Insertar_Plantilla 'PL66','EQ01','JG07', 'Titular','PAR03';
+EXEC sp_Insertar_Plantilla 'PL67','EQ01','JG08', 'Titular','PAR03';
+EXEC sp_Insertar_Plantilla 'PL68','EQ01','JG09', 'Titular','PAR03';
+EXEC sp_Insertar_Plantilla 'PL69','EQ01','JG10', 'Titular','PAR03';
+EXEC sp_Insertar_Plantilla 'PL70','EQ01','JG11', 'Titular','PAR03';
+
 
 --TABLA GOLES
 EXEC sp_insertargoles 'GL001', 'PAR01', 'JG06';
@@ -1916,3 +1961,14 @@ EXEC sp_insertargoles 'GL006', 'PAR01', 'JG25';
 --TABLA TIPO TARJETA
 EXEC sp_Insertar_TipoTarjeta 'TPT01', 'Tarjeta roja';
 EXEC sp_Insertar_TipoTarjeta 'TPT02', 'Tarjeta amarilla';
+
+--TABLA TARJETA
+EXEC sp_insertartarjetas 'TAR01', 'TPT01', 'JG01', 'PAR01';
+EXEC sp_insertartarjetas 'TAR02', 'TPT02', 'JG29', 'PAR01';
+EXEC sp_insertartarjetas 'TAR03', 'TPT03', 'JG03', 'PAR01';
+EXEC sp_insertartarjetas 'TAR01', 'TPT04', 'JG32', 'PAR01';
+EXEC sp_insertartarjetas 'TAR01', 'TPT05', 'JG25', 'PAR01';
+
+--TABLA POSICION
+IdPosicion,GolesFavor ,GolesContra,PartidosGanados,PartidosPerdidos,
+			PartidosEmpatados,PartidosJugados,Puntaje,DiferenciaGoles,JuegoLimpio,IdEquipo,IdCampania
