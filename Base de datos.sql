@@ -454,7 +454,8 @@ create table Goles
 	constraint pk_IdGol primary key(idGol),
 	--LLAVE SECUNDARIA
 	constraint fk_idpartido foreign key(IdPartido) references Partido(IdPartido),
-	constraint fk_Goles_Jugador foreign key (IdJugador) references Jugador (IdJugador)
+	constraint fk_Goles_Jugador foreign key (IdJugador) references Jugador (IdJugador),
+	constraint ck_IdGol check(idGol like '[G][L][0-9][0-9][0-9]')
 );
 
 --TABLA TIPO TARJETA
@@ -1888,3 +1889,21 @@ EXEC sp_Insertar_Plantilla 'PL05','EQ01','JG05', 'Titular','PAR01';
 EXEC sp_Insertar_Plantilla 'PL06','EQ01','JG06', 'Titular','PAR01';
 EXEC sp_Insertar_Plantilla 'PL07','EQ01','JG07', 'Titular','PAR01';
 EXEC sp_Insertar_Plantilla 'PL08','EQ01','JG08', 'Titular','PAR01';
+EXEC sp_Insertar_Plantilla 'PL09','EQ01','JG09', 'Titular','PAR01';
+EXEC sp_Insertar_Plantilla 'PL10','EQ01','JG10', 'Titular','PAR01';
+EXEC sp_Insertar_Plantilla 'PL11','EQ01','JG11', 'Titular','PAR01';
+EXEC sp_Insertar_Plantilla 'PL12','EQ02','JG24', 'Titular','PAR01';
+EXEC sp_Insertar_Plantilla 'PL13','EQ02','JG25', 'Titular','PAR01';
+EXEC sp_Insertar_Plantilla 'PL14','EQ02','JG26', 'Titular','PAR01';
+EXEC sp_Insertar_Plantilla 'PL15','EQ02','JG27', 'Titular','PAR01';
+EXEC sp_Insertar_Plantilla 'PL16','EQ02','JG28', 'Titular','PAR01';
+EXEC sp_Insertar_Plantilla 'PL17','EQ02','JG29', 'Titular','PAR01';
+EXEC sp_Insertar_Plantilla 'PL18','EQ02','JG30', 'Titular','PAR01';
+EXEC sp_Insertar_Plantilla 'PL19','EQ02','JG31', 'Titular','PAR01';
+EXEC sp_Insertar_Plantilla 'PL20','EQ02','JG32', 'Titular','PAR01';
+EXEC sp_Insertar_Plantilla 'PL21','EQ02','JG33', 'Titular','PAR01';
+EXEC sp_Insertar_Plantilla 'PL22','EQ02','JG34', 'Titular','PAR01';
+EXEC sp_Insertar_Plantilla 'PL23','EQ02','JG35', 'Titular','PAR01';
+
+--TABLA GOLES
+EXEC sp_insertargoles idGol, IdPartido, IdJugador;
