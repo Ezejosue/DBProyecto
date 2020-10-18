@@ -1977,5 +1977,6 @@ EXEC sp_insertartarjetas 'TAR06', 'TPT01', 'JG25', 'PAR02';
 EXEC sp_insertartarjetas 'TAR07', 'TPT02', 'JG05', 'PAR03';
 
 --TABLA POSICION
-IdPosicion,GolesFavor ,GolesContra,PartidosGanados,PartidosPerdidos,
-			PartidosEmpatados,PartidosJugados,Puntaje,DiferenciaGoles,JuegoLimpio,IdEquipo,IdCampania
+EXEC sp_Insertar_Posicion 'POS01', 7, 3, 2, 0, 0, 2, 6, 4, 0, 'EQ01', 'CA01';
+EXEC sp_Insertar_Posicion 'POS02', 2, 5, 0, 2, 0, 2, 0, -3, 0, 'EQ02', 'CA01';
+EXEC sp_Insertar_Posicion 'POS03', 2, 3, 1, 1, 0, 2, 3, -1, 0, 'EQ03', 'CA01';
