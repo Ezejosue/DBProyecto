@@ -1873,7 +1873,7 @@ SELECT * FROM Detalle_Descenso
 GO
 
 --TABLA PARTIDO
-EXEC sp_insertarpartido 'PAR01', 'EQ01', 'EQ02', '2020-10-17', '18:00', 'EQ01', 'EQ02', 2, 0;
+EXEC sp_insertarpartido 'PAR01', 'EQ01', 'EQ02', '2020-10-17', '18:00', 'EQ01', 'EQ02', 4, 2;
 EXEC sp_insertarpartido 'PAR02', 'EQ02', 'EQ03', '2020-10-24', '15:00', 'EQ03', 'EQ02', 1, 0;
 EXEC sp_insertarpartido 'PAR03', 'EQ03', 'EQ01', '2020-10-31', '16:00', 'EQ01', 'EQ03', 3, 1;
 EXEC sp_insertarpartido 'PAR04', 'EQ02', 'EQ01', '2020-11-08', '15:30', 'EQ01', 'EQ02', 4, 1;
@@ -1906,4 +1906,9 @@ EXEC sp_Insertar_Plantilla 'PL22','EQ02','JG34', 'Titular','PAR01';
 EXEC sp_Insertar_Plantilla 'PL23','EQ02','JG35', 'Titular','PAR01';
 
 --TABLA GOLES
-EXEC sp_insertargoles idGol, IdPartido, IdJugador;
+EXEC sp_insertargoles 'GL001', 'PAR01', 'JG06';
+EXEC sp_insertargoles 'GL002', 'PAR01', 'JG07';
+EXEC sp_insertargoles 'GL003', 'PAR01', 'JG08';
+EXEC sp_insertargoles 'GL004', 'PAR01', 'JG09';
+EXEC sp_insertargoles 'GL005', 'PAR01', 'JG24';
+EXEC sp_insertargoles 'GL006', 'PAR01', 'JG25';
