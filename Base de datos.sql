@@ -182,8 +182,6 @@ create table Campania
 	--LLAVE PRIMARIA
 	constraint pk_IdCampania primary key (IdCampania),
 	--LLAVE SECUNDARIA
-	--Pendiente de eliminar
-	--constraint fk_Campania_EquipoGanador foreign key (EquipoGanador) references Equipo (IdEquipo),
 	constraint fk_Campania_Liga foreign key (IdLiga) references Liga (IdLiga),
 	--RESTRICCIONES
 	constraint ck_IdCampania check(IdCampania like '[C][A][0-9][0-9]'),
@@ -410,9 +408,6 @@ create table Partido
 	--LLAVE PRIMARIA
 	constraint pk_IdPartido primary key (IdPartido),
 	--LLAVE SECUNDARIA
-	--Pendiente de eliminar
-	--constraint fk_Partido_EquipoVisitante foreign key (EquipoVisitante) references Equipo (IdEquipo),
-	--constraint fk_Partido_EquipoPerdedor foreign key (EquipoLocal) references Equipo (IdEquipo),
 	--RESTRICCIONES
 	constraint ck_IdPartido check(IdPartido like '[P][A][R][0-9][0-9]')
 );
