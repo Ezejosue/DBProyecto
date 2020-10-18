@@ -357,7 +357,10 @@ create table Detalle_Equipo_Jugador
 	constraint pk_IdContrato primary key (IdContrato),
 	--LLAVE SECUNDARIA
 	constraint fk_Contrato_Equipo foreign key (IdEquipo) references Equipo (IdEquipo),
-	constraint fk_Contrato_Jugador foreign key (IdJugador) references Jugador (IdJugador)
+	constraint fk_Contrato_Jugador foreign key (IdJugador) references Jugador (IdJugador),
+
+	--Restricciones
+	constraint ck_idcontrado check(IdContrato like '[C][O][N][0-9][0-9]')
 );
 
 --TABLA GOLEADOR
@@ -1754,16 +1757,66 @@ SELECT * FROM Equipacion;
 GO
 
 --Tabla jugador
-
-EXEC sp_insertarjugador 'JG01', 'Alexis Sanchez', '1.70', '160kg', '02/02/1985', 'Medio centro', 'CHI';
-EXEC sp_insertarjugador 'JG02', 'Iker Casillas', '1.85', '165kg', '01/04/1980', 'Portero', 'ESP';
-EXEC sp_insertarjugador 'JG03', 'Lionel Messi', '1.70', '160kg', '12/04/1984', 'Extremo derecho', 'ARG';
-EXEC sp_insertarjugador 'JG04', 'Neymar Jr', '1.80', '150kg', '24/08/1986', 'Delantero centro', 'BRA';
-EXEC sp_insertarjugador 'JG05', 'Fito Zelaya', '1.70', '155kg', '15/04/1987', 'Medio centro', 'ESA';
-EXEC sp_insertarjugador 'JG06', 'Gianluigi Buffon', '1.92', '160kg', '02/07/1978', 'Portero', 'ITA';
-EXEC sp_insertarjugador 'JG07', 'Javier Hernandez', '1.70', '150kg', '02/02/1988', 'Delantero centro', 'MEX';
-EXEC sp_insertarjugador 'JG08', 'Cristiano Ronaldo', '1.87', '165kg', '05/02/1985', 'Delantero centro', 'POR';
-EXEC sp_insertarjugador 'JG09', 'Luis Suarez', '1.73', '150kg', '24/01/1984', 'Delantero Centro', 'URU';
-EXEC sp_insertarjugador 'JG10', 'Arjen Robben', '1.70', '160kg', '23/01/1984', 'Medio Centro', 'NED';
+EXEC sp_insertarjugador 'JG01', 'Alexis Sanchez', '1.70', '60kg', '1985-02-02', 'Medio centro', 'CHI';
+EXEC sp_insertarjugador 'JG02', 'Iker Casillas', '1.85', '65kg', '1980-01-04', 'Portero', 'ESP';
+EXEC sp_insertarjugador 'JG03', 'Lionel Messi', '1.70', '60kg', '1984-12-04', 'Extremo derecho', 'ARG';
+EXEC sp_insertarjugador 'JG04', 'Neymar Jr', '1.80', '50kg', '1986-04-08', 'Delantero centro', 'BRA';
+EXEC sp_insertarjugador 'JG05', 'Fito Zelaya', '1.70', '55kg', '1987-05-04', 'Medio centro', 'ESA';
+EXEC sp_insertarjugador 'JG06', 'Gianluigi Buffon', '1.92', '60kg', '1978-02-07', 'Portero', 'ITA';
+EXEC sp_insertarjugador 'JG07', 'Javier Hernandez', '1.70', '50kg', '1988-02-02', 'Delantero centro', 'MEX';
+EXEC sp_insertarjugador 'JG08', 'Cristiano Ronaldo', '1.87', '65kg', '1985-05-02', 'Delantero centro', 'POR';
+EXEC sp_insertarjugador 'JG09', 'Luis Suarez', '1.73', '50kg', '1984-02-01', 'Delantero Centro', 'URU';
+EXEC sp_insertarjugador 'JG10', 'Arjen Robben', '1.70', '60kg', '1984-03-01', 'Medio Centro', 'NED';
+EXEC sp_insertarjugador 'JG11', 'Thibaut Courtois', '2.00', '96kg', '1992-02-06', 'Portero', 'ITA';
+EXEC sp_insertarjugador 'JG12', 'Dani Carvajal', '1.73', '75kg', '1992-11-01', 'Portero', 'ESP';
+EXEC sp_insertarjugador 'JG13', 'Vini Jr', '1.76', '73kg', '2000-12-04', 'Delantero centro', 'BRA';
+EXEC sp_insertarjugador 'JG14', 'Neymar Jr', '1.80', '50kg', '1986-08-08', 'Delantero centro', 'BRA';
+EXEC sp_insertarjugador 'JG15', 'Lucas Vázquez', '1.72', '70kg', '1991-07-04', 'Media punta', 'ESP';
+EXEC sp_insertarjugador 'JG16', 'James Rodriguez', '1.85', '74kg', '1984-03-07', 'Centrocampista', 'COL';
+EXEC sp_insertarjugador 'JG17', 'Sergio Ramos', '1.90', '70kg', '1986-10-02', 'Defensa', 'ESP';
+EXEC sp_insertarjugador 'JG18', 'Rafael Varane', '1.87', '60kg', '1988-11-10', 'Defensa', 'POR';
+EXEC sp_insertarjugador 'JG19', 'Carlos Suarez', '1.77', '68kg', '1987-04-01', 'Delantero Centro', 'URU';
+EXEC sp_insertarjugador 'JG20', 'Robert Lewandoski', '1.85', '68kg', '1985-07-01', 'Delantero', 'NED';
+EXEC sp_insertarjugador 'JG21', 'Di Maria', '1.73', '60kg', '1987-08-14', 'Extremo derecho', 'ARG';
+EXEC sp_insertarjugador 'JG22', 'Oscar Diaz', '1.75', '64kg', '1988-09-14', 'Medio Centro', 'BRA';
+EXEC sp_insertarjugador 'JG23', 'Guillermo Cuadrado', '1.89', '70kg', '1990-09-17', 'Medio Centro', 'COL';
 SELECT * FROM Jugador;
+GO
+
+
+--TABLA Detalle_Equipo_Jugador
+EXEC sp_Insertar_DetalleEquipoJugador 'CON01', '2020-11-23', '2024-12-24', 'EQ01', 'JG01';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON02', '2020-11-01', '2024-12-21', 'EQ01', 'JG02';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON03', '2020-11-08', '2024-12-21', 'EQ01', 'JG03';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON04', '2020-11-22', '2024-12-21', 'EQ01', 'JG04';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON05', '2020-11-25', '2024-12-27', 'EQ01', 'JG05';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON06', '2020-11-10', '2024-12-27', 'EQ01', 'JG06';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON07', '2020-11-11', '2024-12-27', 'EQ01', 'JG07';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON08', '2020-11-14', '2024-12-31', 'EQ01', 'JG08';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON09', '2020-11-15', '2024-12-31', 'EQ01', 'JG09';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON10', '2020-11-16', '2024-12-31', 'EQ01', 'JG10';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON11', '2020-11-18', '2024-12-25', 'EQ01', 'JG11';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON12', '2020-11-03', '2024-12-25', 'EQ01', 'JG12';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON13', '2020-11-07', '2024-12-25', 'EQ01', 'JG13';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON14', '2020-11-09', '2024-12-08', 'EQ01', 'JG14';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON15', '2020-11-12', '2024-12-08', 'EQ01', 'JG15';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON16', '2020-11-16', '2024-12-08', 'EQ01', 'JG16';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON17', '2020-11-22', '2024-12-07', 'EQ01', 'JG17';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON18', '2020-11-20', '2024-12-07', 'EQ01', 'JG18';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON18', '2020-11-08', '2024-12-07', 'EQ01', 'JG19';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON20', '2020-11-17', '2024-12-20', 'EQ01', 'JG20';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON21', '2020-11-09', '2024-12-20', 'EQ01', 'JG21';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON22', '2020-11-13', '2024-12-20', 'EQ01', 'JG22';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON23', '2020-11-19', '2024-12-24', 'EQ01', 'JG23';
+SELECT * FROM Detalle_Equipo_Jugador;
+GO
+--TABLA GOLEADOR
+EXEC sp_insertargoleador 'JG01', 'CA01'; 
+EXEC sp_insertargoleador 'JG08', 'CA02'; 
+SELECT * FROM Goleador;
+GO
+--TABLA Detalle_Descenso
+EXEC sp_Insertar_DetalleDescenso 'EQ01', 'CA01'
+EXEC sp_Insertar_DetalleDescenso 'EQ02', 'CA01'
+SELECT * FROM Detalle_Descenso
 GO
