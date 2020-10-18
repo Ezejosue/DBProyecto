@@ -1957,6 +1957,11 @@ EXEC sp_insertargoles 'GL003', 'PAR01', 'JG08';
 EXEC sp_insertargoles 'GL004', 'PAR01', 'JG09';
 EXEC sp_insertargoles 'GL005', 'PAR01', 'JG24';
 EXEC sp_insertargoles 'GL006', 'PAR01', 'JG25';
+EXEC sp_insertargoles 'GL007', 'PAR02', 'JG38';
+EXEC sp_insertargoles 'GL008', 'PAR03', 'JG01';
+EXEC sp_insertargoles 'GL009', 'PAR03', 'JG02';
+EXEC sp_insertargoles 'GL010', 'PAR03', 'JG03';
+EXEC sp_insertargoles 'GL011', 'PAR03', 'JG39';
 
 --TABLA TIPO TARJETA
 EXEC sp_Insertar_TipoTarjeta 'TPT01', 'Tarjeta roja';
