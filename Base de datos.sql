@@ -1833,6 +1833,31 @@ EXEC sp_Insertar_DetalleEquipoJugador 'CON20', '2020-11-17', '2024-12-20', 'EQ01
 EXEC sp_Insertar_DetalleEquipoJugador 'CON21', '2020-11-09', '2024-12-20', 'EQ01', 'JG21';
 EXEC sp_Insertar_DetalleEquipoJugador 'CON22', '2020-11-13', '2024-12-20', 'EQ01', 'JG22';
 EXEC sp_Insertar_DetalleEquipoJugador 'CON23', '2020-11-19', '2024-12-24', 'EQ01', 'JG23';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON24', '2020-11-01', '2024-12-14', 'EQ02', 'JG24';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON25', '2020-11-20', '2024-12-18', 'EQ02', 'JG25';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON26', '2020-11-19', '2024-12-09', 'EQ02', 'JG26';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON27', '2020-11-03', '2024-12-04', 'EQ02', 'JG27';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON28', '2020-11-19', '2024-12-19', 'EQ02', 'JG28';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON29', '2020-11-09', '2024-12-29', 'EQ02', 'JG29';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON30', '2020-11-07', '2024-12-13', 'EQ02', 'JG30';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON31', '2020-11-24', '2024-12-21', 'EQ02', 'JG31';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON32', '2020-11-05', '2024-12-27', 'EQ02', 'JG32';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON33', '2020-11-15', '2024-12-17', 'EQ02', 'JG33';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON34', '2020-11-25', '2024-12-07', 'EQ02', 'JG34';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON35', '2020-11-08', '2024-12-28', 'EQ02', 'JG35';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON36', '2020-11-18', '2024-12-08', 'EQ03', 'JG36';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON37', '2020-11-28', '2024-12-18', 'EQ03', 'JG37';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON38', '2020-11-24', '2024-12-04', 'EQ03', 'JG38';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON39', '2020-11-04', '2024-12-24', 'EQ03', 'JG39';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON40', '2020-11-24', '2024-12-14', 'EQ03', 'JG40';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON41', '2020-11-14', '2024-12-04', 'EQ03', 'JG41';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON42', '2020-11-29', '2024-12-09', 'EQ03', 'JG42';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON43', '2020-11-09', '2024-12-19', 'EQ03', 'JG43';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON44', '2020-11-19', '2024-12-29', 'EQ03', 'JG44';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON45', '2020-11-13', '2024-12-07', 'EQ03', 'JG45';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON46', '2020-11-16', '2024-12-18', 'EQ03', 'JG46';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON47', '2020-11-14', '2024-12-23', 'EQ03', 'JG47';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON48', '2020-11-25', '2024-12-11', 'EQ03', 'JG48';
 SELECT * FROM Detalle_Equipo_Jugador;
 GO
 --TABLA GOLEADOR
@@ -1853,3 +1878,13 @@ EXEC sp_insertarpartido 'PAR03', 'EQ03', 'EQ01', '2020-10-31', '16:00', 'EQ01', 
 EXEC sp_insertarpartido 'PAR04', 'EQ02', 'EQ01', '2020-11-08', '15:30', 'EQ01', 'EQ02', 4, 1;
 EXEC sp_insertarpartido 'PAR05', 'EQ03', 'EQ02', '2020-11-14', '18:00', 'EQ02', 'EQ03', 2, 1;
 EXEC sp_insertarpartido 'PAR06', 'EQ01', 'EQ01', '2020-11-1', '18:00', 'EQ01', 'EQ02', 2, 0;
+
+--TABLA PLANTILLA
+EXEC sp_Insertar_Plantilla 'PL01','EQ01','JG01', 'Titular','PAR01';
+EXEC sp_Insertar_Plantilla 'PL02','EQ01','JG02', 'Titular','PAR01';
+EXEC sp_Insertar_Plantilla 'PL03','EQ01','JG03', 'Titular','PAR01';
+EXEC sp_Insertar_Plantilla 'PL04','EQ01','JG04', 'Titular','PAR01';
+EXEC sp_Insertar_Plantilla 'PL05','EQ01','JG05', 'Titular','PAR01';
+EXEC sp_Insertar_Plantilla 'PL06','EQ01','JG06', 'Titular','PAR01';
+EXEC sp_Insertar_Plantilla 'PL07','EQ01','JG07', 'Titular','PAR01';
+EXEC sp_Insertar_Plantilla 'PL08','EQ01','JG08', 'Titular','PAR01';
