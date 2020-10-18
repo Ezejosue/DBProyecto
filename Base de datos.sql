@@ -1680,7 +1680,7 @@ SELECT * FROM Liga
 
 --TABLA EQUIPO 
 EXEC sp_insertarequipo 'EQ01', 'Alianza Fútbol Club','Oficinas Centrales Alianza Fútbol Club', '3:00', 'DAF02', 'ED01', 'ESA', 'LG01'
-EXEC sp_insertarequipo 'EQ02', 'Club Deportivo FAS','Oficinas Centrales Club Deportivo FAS', '7:00', 'DAF03', 'ED04', 'ESA', 'LG01'
+EXEC sp_insertarequipo 'EQ02', 'Club Deportivo FAS','Oficinas Centrales Club Deportivo FAS', '7:00', 'DAF01', 'ED04', 'ESA', 'LG01'
 EXEC sp_insertarequipo 'EQ03', 'Club Deportivo Águila','Oficinas Centrales Club Deportivo Águila', '4:00', 'DAF01', 'ED04', 'ESA', 'LG01'
 SELECT * FROM Equipo
 
@@ -1707,12 +1707,10 @@ EXEC sp_Insertar_Patrocinador 'PTR06', 'Umbro', '2598-6321', 'contactos_umbro@ho
 SELECT * FROM Patrocinador
 
 --TABLA Detalle_Equipo_Patrocinador
-EXEC sp_Detalle_Equipo_Patrocinador 'EQ01', 'PTR01', '2019-01-01', '2023-12-31';
-EXEC sp_Detalle_Equipo_Patrocinador 'EQ01', 'PTR06', '2018-11-10', '2020-11-10';
-EXEC sp_Detalle_Equipo_Patrocinador 'EQ02', 'PTR02', '2017-05-20', '2021-05-20';
-EXEC sp_Detalle_Equipo_Patrocinador 'EQ02', 'PTR03', '2016-07-15', '2020-07-15';
-EXEC sp_Detalle_Equipo_Patrocinador 'EQ03', 'PTR04', '2020-06-09', '2024-06-09';
-EXEC sp_Detalle_Equipo_Patrocinador 'EQ03', 'PTR05', '2020-07-08', '2022-07-08'; 
+EXEC sp_Detalle_Equipo_Patrocinador 'EQ01', 'PTR01',1, '2019-01-01', '2023-12-31';
+EXEC sp_Detalle_Equipo_Patrocinador 'EQ02', 'PTR02',1, '2017-05-20', '2021-05-20';
+EXEC sp_Detalle_Equipo_Patrocinador 'EQ03', 'PTR04',0, '2020-06-09', '2024-06-09';
+SELECT * FROM Detalle_Equipo_Patrocinador
 
 --TABLA DUENIO
 EXEC sp_Insertar_Duenio 'DUE01', 'Alberto Roca', 'San Salvador, El Salvador', '78945612', 'EQ01';
@@ -1721,3 +1719,4 @@ EXEC sp_Insertar_Duenio 'DUE03', 'Carlos Martínez', 'Santa Ana, El Salvador', '
 EXEC sp_Insertar_Duenio 'DUE04', 'Wilber Vera', 'Cuscatlán, El Salvador', '69852314', 'EQ01';
 EXEC sp_Insertar_Duenio 'DUE05', 'Cristian Solorzano', 'La Libertad, El Salvador', '63214578', 'EQ02';
 EXEC sp_Insertar_Duenio 'DUE06', 'Gilberto Castro', 'La Paz, El Salvador', '76321549', 'EQ03';
+SELECT * FROM Duenio
