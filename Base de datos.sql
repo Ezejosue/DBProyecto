@@ -1970,9 +1970,11 @@ EXEC sp_Insertar_TipoTarjeta 'TPT02', 'Tarjeta amarilla';
 --TABLA TARJETA
 EXEC sp_insertartarjetas 'TAR01', 'TPT01', 'JG01', 'PAR01';
 EXEC sp_insertartarjetas 'TAR02', 'TPT02', 'JG29', 'PAR01';
-EXEC sp_insertartarjetas 'TAR03', 'TPT03', 'JG03', 'PAR01';
-EXEC sp_insertartarjetas 'TAR01', 'TPT04', 'JG32', 'PAR01';
-EXEC sp_insertartarjetas 'TAR01', 'TPT05', 'JG25', 'PAR01';
+EXEC sp_insertartarjetas 'TAR03', 'TPT02', 'JG03', 'PAR01';
+EXEC sp_insertartarjetas 'TAR04', 'TPT01', 'JG32', 'PAR01';
+EXEC sp_insertartarjetas 'TAR05', 'TPT02', 'JG25', 'PAR01';
+EXEC sp_insertartarjetas 'TAR06', 'TPT01', 'JG25', 'PAR02';
+EXEC sp_insertartarjetas 'TAR07', 'TPT02', 'JG05', 'PAR03';
 
 --TABLA POSICION
 IdPosicion,GolesFavor ,GolesContra,PartidosGanados,PartidosPerdidos,
