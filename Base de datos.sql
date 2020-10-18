@@ -1912,3 +1912,7 @@ EXEC sp_insertargoles 'GL003', 'PAR01', 'JG08';
 EXEC sp_insertargoles 'GL004', 'PAR01', 'JG09';
 EXEC sp_insertargoles 'GL005', 'PAR01', 'JG24';
 EXEC sp_insertargoles 'GL006', 'PAR01', 'JG25';
+
+--TABLA TIPO TARJETA
+EXEC sp_Insertar_TipoTarjeta 'TPT01', 'Tarjeta roja';
+EXEC sp_Insertar_TipoTarjeta 'TPT02', 'Tarjeta amarilla';
