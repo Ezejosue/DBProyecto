@@ -5,6 +5,7 @@ go
 use Control_Ligas
 go
 
+Drop database Control_Ligas;
 --CREANDO TABLAS
 --TABLA FechaNoPermitida
 create table FechaNoPermitida
@@ -337,7 +338,7 @@ create table Jugador
 	--RESTRICCIONES
 	constraint ck_IdJugador check(IdJugador like '[J][G][0-9][0-9]'),
 	constraint ck_NombreJugador check(NombreJugador like '%[a-zA-Z]%'),
-	constraint ck_Posicion check(posicion like '%[a-zA-Z]]')
+	constraint ck_Posicion check(posicion like '%[a-zA-Z]%')
 );
 
 --TABLA Detalle_Equipo_Jugador
@@ -1720,3 +1721,49 @@ EXEC sp_Insertar_Duenio 'DUE04', 'Wilber Vera', 'Cuscatlán, El Salvador', '6985
 EXEC sp_Insertar_Duenio 'DUE05', 'Cristian Solorzano', 'La Libertad, El Salvador', '63214578', 'EQ02';
 EXEC sp_Insertar_Duenio 'DUE06', 'Gilberto Castro', 'La Paz, El Salvador', '76321549', 'EQ03';
 SELECT * FROM Duenio
+
+--Tabla DetalleDuenio
+EXEC sp_insertarDetalleDuenio 'DUE01', 'EQ01';
+EXEC sp_insertarDetalleDuenio 'DUE02', 'EQ01';
+EXEC sp_insertarDetalleDuenio 'DUE03', 'EQ03';
+EXEC sp_insertarDetalleDuenio 'DUE04', 'EQ03';
+EXEC sp_insertarDetalleDuenio 'DUE05', 'EQ02';
+EXEC sp_insertarDetalleDuenio 'DUE06', 'EQ01';
+SELECT * from DetalleDuenio;
+GO
+--Tabla equipacion
+
+EXEC sp_Insertar_Equipacion 'EQUI01', 'Color rojo con franjas negras diseño estandar', 'Predator verde claro con puntos grises',
+ 'Color rojo con logo en pierna derecha','Color blanco sin diseño', 'EQ01'; 
+
+EXEC sp_Insertar_Equipacion 'EQUI02', 'Color blanco con logo a la izquierda y frajas doradas a los costados', 'Nike rojo oscuro con negro',
+ 'Color blanco con logo en pierna derecha y franjas doradas','Color blanco con logo al centro', 'EQ01'; 
+
+EXEC sp_Insertar_Equipacion 'EQUI03', 'Color celeste con franjas blancas diseño estandar', 'Adidas blancos con logo a los costados',
+ 'Color celeste con logo en pierna derecha','Color celeste con logo al costado', 'EQ02'; 
+
+EXEC sp_Insertar_Equipacion 'EQUI04', 'Color morado con linea negras', 'Precission negros con blanco logo al costado',
+ 'Color morado con logo en pierna derecha','Color blanco sin diseño', 'EQ02'; 
+
+EXEC sp_Insertar_Equipacion 'EQUI05', 'Color de fondo rojo con franjas blancas verticales', 'Fusion dorados con negro diseño generico',
+ 'Color rojo con blanco y logo en pierna derecha','Color blanco sin diseño', 'EQ03';
+ 
+EXEC sp_Insertar_Equipacion 'EQUI06', 'Color negro con degradado en gris', 'Air rosas con negro y logo al centro',
+ 'Color negro con logo en pierna derecha y franjas blancas','Color negro sin diseño', 'EQ03'; 
+SELECT * FROM Equipacion;
+GO
+
+--Tabla jugador
+
+EXEC sp_insertarjugador 'JG01', 'Alexis Sanchez', '1.70', '160kg', '02/02/1985', 'Medio centro', 'CHI';
+EXEC sp_insertarjugador 'JG02', 'Iker Casillas', '1.85', '165kg', '01/04/1980', 'Portero', 'ESP';
+EXEC sp_insertarjugador 'JG03', 'Lionel Messi', '1.70', '160kg', '12/04/1984', 'Extremo derecho', 'ARG';
+EXEC sp_insertarjugador 'JG04', 'Neymar Jr', '1.80', '150kg', '24/08/1986', 'Delantero centro', 'BRA';
+EXEC sp_insertarjugador 'JG05', 'Fito Zelaya', '1.70', '155kg', '15/04/1987', 'Medio centro', 'ESA';
+EXEC sp_insertarjugador 'JG06', 'Gianluigi Buffon', '1.92', '160kg', '02/07/1978', 'Portero', 'ITA';
+EXEC sp_insertarjugador 'JG07', 'Javier Hernandez', '1.70', '150kg', '02/02/1988', 'Delantero centro', 'MEX';
+EXEC sp_insertarjugador 'JG08', 'Cristiano Ronaldo', '1.87', '165kg', '05/02/1985', 'Delantero centro', 'POR';
+EXEC sp_insertarjugador 'JG09', 'Luis Suarez', '1.73', '150kg', '24/01/1984', 'Delantero Centro', 'URU';
+EXEC sp_insertarjugador 'JG10', 'Arjen Robben', '1.70', '160kg', '23/01/1984', 'Medio Centro', 'NED';
+SELECT * FROM Jugador;
+GO
