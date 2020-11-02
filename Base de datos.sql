@@ -5,6 +5,122 @@ go
 use Control_Ligas
 go
 
+
+--PUNTO 4 APARTADO 3
+--CREANDO ESQUEMA
+CREATE SCHEMA Administracion;
+
+--CREANDO INICIOS DE SESION
+CREATE LOGIN Usuario1
+WITH PASSWORD = '123456'
+
+CREATE LOGIN Usuario2
+WITH PASSWORD = '123456'
+
+CREATE LOGIN Usuario3
+WITH PASSWORD = '123456'
+
+CREATE LOGIN Usuario4
+WITH PASSWORD = '123456'
+
+--CREANDO USUARIOS
+CREATE USER Ezequiel FOR LOGIN Usuario1
+WITH DEFAULT_SCHEMA = Administracion
+
+CREATE USER Erick FOR LOGIN Usuario2
+WITH DEFAULT_SCHEMA = Administracion
+
+CREATE USER Fabiola FOR LOGIN Usuario3
+WITH DEFAULT_SCHEMA = Administracion
+
+CREATE USER Josue FOR LOGIN Usuario4
+WITH DEFAULT_SCHEMA = Administracion
+
+--Bridando permisos de consultar los datos
+GRANT SELECT ON SCHEMA :: Administracion
+TO Ezequiel WITH GRANT OPTION 
+GO
+
+GRANT SELECT ON SCHEMA :: Administracion
+TO Erick WITH GRANT OPTION 
+GO
+
+GRANT SELECT ON SCHEMA :: Administracion
+TO Fabiola WITH GRANT OPTION 
+GO
+
+GRANT SELECT ON SCHEMA :: Administracion
+TO Josue WITH GRANT OPTION 
+GO
+
+GRANT SELECT ON SCHEMA :: Administracion
+TO Ezequiel WITH GRANT OPTION 
+GO
+
+GRANT SELECT ON SCHEMA :: Administracion
+TO Erick WITH GRANT OPTION 
+GO
+
+GRANT SELECT ON SCHEMA :: Administracion
+TO Fabiola WITH GRANT OPTION 
+GO
+
+GRANT SELECT ON SCHEMA :: Administracion
+TO Josue WITH GRANT OPTION 
+GO
+
+--Otorgando permisos de insersion 
+GRANT INSERT ON SCHEMA :: Administracion
+TO Ezequiel WITH GRANT OPTION 
+GO
+
+GRANT INSERT ON SCHEMA :: Administracion
+TO Erick WITH GRANT OPTION 
+GO
+
+GRANT INSERT ON SCHEMA :: Administracion
+TO Fabiola WITH GRANT OPTION 
+GO
+
+GRANT INSERT ON SCHEMA :: Administracion
+TO Josue WITH GRANT OPTION 
+GO
+
+--Otorgando permisos de Actualización 
+GRANT UPDATE ON SCHEMA :: Administracion
+TO Ezequiel WITH GRANT OPTION 
+GO
+
+GRANT UPDATE ON SCHEMA :: Administracion
+TO Erick WITH GRANT OPTION 
+GO
+
+GRANT UPDATE ON SCHEMA :: Administracion
+TO Fabiola WITH GRANT OPTION 
+GO
+
+GRANT UPDATE ON SCHEMA :: Administracion
+TO Josue WITH GRANT OPTION 
+GO
+
+--Otorgando permisos de eliminación 
+GRANT DELETE ON SCHEMA :: Administracion
+TO Ezequiel WITH GRANT OPTION 
+GO
+
+GRANT DELETE ON SCHEMA :: Administracion
+TO Erick WITH GRANT OPTION 
+GO
+
+GRANT DELETE ON SCHEMA :: Administracion
+TO Fabiola WITH GRANT OPTION 
+GO
+
+GRANT DELETE ON SCHEMA :: Administracion
+TO Josue WITH GRANT OPTION 
+GO
+
+
 --CREANDO TABLAS
 --TABLA FechaNoPermitida
 create table FechaNoPermitida
@@ -142,7 +258,7 @@ create table Liga
 );
 
 --TABLA EQUIPO
-create table Equipo
+create table Administracion.Equipo
 (
 	IdEquipo varchar(4) not null,
 	usuarioisert varchar(50),
@@ -209,7 +325,7 @@ create table Empleado
 	constraint pk_IdEmpleado primary key (IdEmpleado),
 	--LLAVE SECUNDARIA
 	constraint fk_Empleado_TipoEmpleado foreign key (IdTipoEmpleado) references TipoEmpleado (IdTipoEmpleado),
-	constraint fk_Empleado_Equipo foreign key (IdEquipo) references Equipo (IdEquipo),
+	constraint fk_Empleado_Equipo foreign key (IdEquipo) references Administracion.Equipo (IdEquipo),
 	constraint fk_Empleado_pais foreign key (IdPais) references pais (IdPais),
 	--RESTRICCIONES
 	constraint ck_IdEmpleado check(IdEmpleado like '[E][M][P][0-9][0-9]'),
@@ -253,7 +369,7 @@ create table Detalle_Equipo_Patrocinador
 	FechaInicio DATE,
 	FechaFin DATE,
 	--Llaves secundaria
-	constraint fk_Detalle_Equipo_Patrocinador_IdEquipo foreign key (IdEquipo) references Equipo (IdEquipo),
+	constraint fk_Detalle_Equipo_Patrocinador_IdEquipo foreign key (IdEquipo) references Administracion.Equipo (IdEquipo),
 	constraint fk_Detalle_Equipo_Patrocinador_IdPatrocinador foreign key (IdPatrocinador) references Patrocinador (IdPatrocinador),
 	--RESTRICCIONES 
 	constraint ck_FechasDetalleEquipoPatrocinador check(FechaFin>FechaInicio)
@@ -290,7 +406,7 @@ create table DetalleDuenio
 	fechaupdate date,
 	--LLAVE SECUNDARIA
 	constraint fk_Detalle_Dueño foreign key (IdDuenio) references Duenio (IdDuenio),
-	constraint fk_Dueño_Equipo foreign key (IdEquipo) references Equipo (IdEquipo)
+	constraint fk_Dueño_Equipo foreign key (IdEquipo) references Administracion.Equipo (IdEquipo)
 );
 
 --TABLA EQUIPACIÓN
@@ -309,13 +425,13 @@ create table Equipacion
 	--LLAVE PRIMARIA
 	constraint pk_IdEquipacion primary key (IdEquipacion),
 	--LLAVE SECUNDARIA
-	constraint fk_Equipacio_Equipo foreign key (IdEquipo) references Equipo (IdEquipo),
+	constraint fk_Equipacio_Equipo foreign key (IdEquipo) references Administracion.Equipo (IdEquipo),
 	--RESTRICCIONES
 	constraint ck_IdEquipacion check(IdEquipacion like '[E][Q][U][I][0-9][0-9]')
 );
 
 --TABLA JUGADOR
-create table Jugador
+create table Administracion.Jugador
 (
 	IdJugador varchar(4) not null,
 	usuarioisert varchar(50),
@@ -353,8 +469,8 @@ create table Detalle_Equipo_Jugador
 	--LLAVE PRIMARIA
 	constraint pk_IdContrato primary key (IdContrato),
 	--LLAVE SECUNDARIA
-	constraint fk_Contrato_Equipo foreign key (IdEquipo) references Equipo (IdEquipo),
-	constraint fk_Contrato_Jugador foreign key (IdJugador) references Jugador (IdJugador),
+	constraint fk_Contrato_Equipo foreign key (IdEquipo) references Administracion.Equipo (IdEquipo),
+	constraint fk_Contrato_Jugador foreign key (IdJugador) references Administracion.Jugador (IdJugador),
 
 	--Restricciones
 	constraint ck_idcontrado check(IdContrato like '[C][O][N][0-9][0-9]')
@@ -370,7 +486,7 @@ create table Goleador
 	fechainsert date,
 	fechaupdate date,
 	--LLAVE SECUNDARIA
-	constraint fk_Goleador_Jugador foreign key (IdJugador) references Jugador (IdJugador),
+	constraint fk_Goleador_Jugador foreign key (IdJugador) references Administracion.Jugador (IdJugador),
 	constraint fk_Goleador_Campania foreign key (IdCampania) references Campania (IdCampania)
 );
 
@@ -384,7 +500,7 @@ create table Detalle_Descenso
 	fechainsert date,
 	fechaupdate date,
 	--LLAVE SECUNDARIA
-	constraint fk_Detalle_Descenso_IdEquipo foreign key (IdEquipo) references Equipo (IdEquipo),
+	constraint fk_Detalle_Descenso_IdEquipo foreign key (IdEquipo) references Administracion.Equipo (IdEquipo),
 	constraint fk_Detalle_Descenso_IdCampania foreign key (IdCampania) references Campania (IdCampania)
 );
 
@@ -427,8 +543,8 @@ create table Plantilla
 	--LLAVE PRIMARIA
 	constraint pk_IdPlantilla primary key (IdPlantilla),
 	--LLAVE SECUNDARIA
-	constraint fk_plantilla_equipo foreign key (IdEquipo) references Equipo(IdEquipo),
-	constraint fk_plantilla_jugador foreign key (IdJugador) references Jugador(IdJugador),
+	constraint fk_plantilla_equipo foreign key (IdEquipo) references Administracion.Equipo(IdEquipo),
+	constraint fk_plantilla_jugador foreign key (IdJugador) references Administracion.Jugador(IdJugador),
 	constraint fk_plantilla_partido foreign key (IdPartido) references partido (IdPartido),
 	--RESTRICCIONES
 	constraint ck_IdPlantilla check(IdPlantilla like '[P][L][0-9][0-9]')
@@ -448,7 +564,7 @@ create table Goles
 	constraint pk_IdGol primary key(idGol),
 	--LLAVE SECUNDARIA
 	constraint fk_idpartido foreign key(IdPartido) references Partido(IdPartido),
-	constraint fk_Goles_Jugador foreign key (IdJugador) references Jugador (IdJugador),
+	constraint fk_Goles_Jugador foreign key (IdJugador) references Administracion.Jugador (IdJugador),
 	constraint ck_IdGol check(idGol like '[G][L][0-9][0-9][0-9][0-9][0-9]')
 );
 
@@ -482,7 +598,7 @@ create table Tarjeta
 	constraint pk_IdTarjeta primary key (IdTarjeta),
 	--LLAVE SECUNDARIA
 	constraint fk_Tarjeta_TipoTarjeta foreign key (IdTipoTajerta) references TipoTarjeta (IdTipoTajerta),
-	constraint fk_Tarjeta_Jugador foreign key (IdJugador) references Jugador (IdJugador),
+	constraint fk_Tarjeta_Jugador foreign key (IdJugador) references Administracion.Jugador (IdJugador),
 	constraint fk_Tarjeta_partido foreign key (IdPartido) references partido (IdPartido),
 	--RESTRICCIONES
 	constraint ck_IdTarjeta check(IdTarjeta like '[T][A][R][0-9][0-9]')
@@ -510,7 +626,7 @@ create table Tabla_De_Posicion
 	--LLAVE PRIMARIA
 	constraint pk_IdPosicion primary key (IdPosicion),
 	--LLAVE SECUNDARIA
-	constraint fk_Posicion_Equipo foreign key (IdEquipo) references Equipo (IdEquipo),
+	constraint fk_Posicion_Equipo foreign key (IdEquipo) references Administracion.Equipo (IdEquipo),
 	constraint fk_Posicion_Campania foreign key (IdCampania) references Campania (IdCampania),
 	--RESTRICCIONES 
 	constraint ck_IdPosicion check(IdPosicion like '[P][O][S][0-9][0-9]')
@@ -647,8 +763,8 @@ create procedure sp_insertarequipo
 as
 begin try
 begin tran
-	if(select count(*) from Equipo where IdEquipo=@IdEquipo)=0
-	insert into Equipo(IdEquipo, NombreEquipo, NombreOficinasEquipo, HoraFavoritaEquipo, IdDiaFavorito, IdEstadio, IdPais, IdLiga)
+	if(select count(*) from Administracion.Equipo where IdEquipo=@IdEquipo)=0
+	insert into Administracion.Equipo(IdEquipo, NombreEquipo, NombreOficinasEquipo, HoraFavoritaEquipo, IdDiaFavorito, IdEstadio, IdPais, IdLiga)
 	values(@IdEquipo, @NombreEquipo, @NombreOficinasEquipo, @HoraFavoritaEquipo, @IdDiaFavorito, @IdEstadio, @IdPais, @IdLiga)
 	else
 	print'¡Error!, este equipo ya existe'
@@ -743,8 +859,8 @@ create procedure sp_insertarjugador
 as
 begin try
 begin tran
-	if(select count(*) from Jugador where IdJugador=@IdJugador) = 0
-	insert into Jugador(IdJugador,NombreJugador, AlturaJugador, PesoJugador, FechaNacimientoJugador, posicion, IdPais)
+	if(select count(*) from Administracion.Jugador where IdJugador=@IdJugador) = 0
+	insert into Administracion.Jugador(IdJugador,NombreJugador, AlturaJugador, PesoJugador, FechaNacimientoJugador, posicion, IdPais)
 	values(@IdJugador, @NombreJugador, @AlturaJugador, @PesoJugador, @FechaNacimientoJugador, @posicion, @IdPais)
 	else
 	print'¡Error!, este jugador ya existe'
@@ -1252,18 +1368,18 @@ GO
 
 --TRIGGER TABLA EQUIPO
 CREATE TRIGGER trg_equipo
-ON Equipo
+ON Administracion.Equipo
 AFTER INSERT, UPDATE
 AS
 IF EXISTS (SELECT * FROM inserted) and  EXISTS (SELECT * FROM deleted)
 	BEGIN
-	UPDATE Equipo 
+	UPDATE Administracion.Equipo 
 	SET usuarioupdate = (SELECT CURRENT_USER), fechaupdate = getdate()
 	WHERE IdEquipo = (SELECT i.IdEquipo FROM inserted i);
 	END
 	ELSE IF EXISTS(SELECT * FROM inserted)
 	BEGIN
-	UPDATE Equipo 
+	UPDATE Administracion.Equipo 
 	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
 	WHERE IdEquipo = (SELECT i.IdEquipo FROM inserted i);
 	END
@@ -1405,18 +1521,18 @@ GO
 
 --TRIGGER TABLA JUGADOR
 CREATE TRIGGER trg_jugador
-ON Jugador
+ON Administracion.Jugador
 AFTER INSERT, UPDATE
 AS
 IF EXISTS (SELECT * FROM inserted) and  EXISTS (SELECT * FROM deleted)
 	BEGIN
-	UPDATE Jugador 
+	UPDATE Administracion.Jugador 
 	SET usuarioupdate = (SELECT CURRENT_USER), fechaupdate = getdate()
 	WHERE IdJugador = (SELECT i.IdJugador FROM inserted i);
 	END
 	ELSE IF EXISTS(SELECT * FROM inserted)
 	BEGIN
-	UPDATE Jugador 
+	UPDATE Administracion.Jugador 
 	SET usuarioisert = (SELECT CURRENT_USER), fechainsert = getdate()
 	WHERE IdJugador = (SELECT i.IdJugador FROM inserted i);
 	END
@@ -1993,3 +2109,4 @@ EXEC sp_Insertar_Posicion 'POS02', 2, 5, 0, 2, 0, 2, 0, -3, 0, 'EQ02', 'CA01';
 EXEC sp_Insertar_Posicion 'POS03', 2, 3, 1, 1, 0, 2, 3, -1, 0, 'EQ03', 'CA01';
 SELECT * FROM Tabla_De_Posicion
 GO
+
