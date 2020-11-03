@@ -517,10 +517,10 @@ create table Partido
 	EquipoLocal varchar(20) not null,
 	FechaPartido date not null,
 	HoraPartido time not null,
-	EquipoGanador varchar(20) not null,
-	EquipoPerdedor varchar(20) not null,
-	GolesGanador int not null,
-	GolesPerdedor int not null,
+	EquipoGanador varchar(20),
+	EquipoPerdedor varchar(20),
+	GolesGanador int,
+	GolesPerdedor int,
 	--LLAVE PRIMARIA
 	constraint pk_IdPartido primary key (IdPartido)
 );
@@ -1774,10 +1774,11 @@ EXEC sp_insertarestadio 'ED02', 'Estadio Óscar Quiteño','17500', 'Santa Ana', 
 EXEC sp_insertarestadio 'ED03', 'Estadio Juan Francisco Barraza','29000', 'San Miguel', 'Julio Rodolfo Rodríguez', '7683-1198', 'julio_ro2@gmail.com'
 EXEC sp_insertarestadio 'ED04', 'Estadio Jorge "Calero" Suárez','27000', 'Metapán','Guillermo Martínez', '7854-9632', 'martinore_23@gmail.com'
 EXEC sp_insertarestadio 'ED05', 'Estadio Sergio Torres Rivera','7500', 'Usulután', 'Arnoldo Saldaña Martínez', '7754-2663', 'juli_ar@hotmail.com'
-EXEC sp_insertarestadio 'ED06', 'Estadio Dr. Ramón Flores Berrios','29000', 'La Unión', 'Julio Rodolfo Rodríguez', '7683-1198', 'julio_ro2@gmail.com'
-EXEC sp_insertarestadio 'ED07', 'Estadio Las Delicias','17500', 'Santa Tecla', 'Gerson Daniel Maldonado', '6598-7485', 'maldonado1234@outlook.com'
-EXEC sp_insertarestadio 'ED08', 'Estadio Gregorio Martínez','17500', 'Chalatenango', 'Gerson Daniel Maldonado', '6598-7485', 'maldonado1234@outlook.com'
-EXEC sp_insertarestadio 'ED09', 'Estadio Arturo Simeón Magaña','17500', 'Ahuachapán', 'Gerson Daniel Maldonado', '6598-7485', 'maldonado1234@outlook.com'
+EXEC sp_insertarestadio 'ED06', 'Estadio Dr. Ramón Flores Berrios','29000', 'La Unión', 'Julio Rodolfo Rodríguez', '7841-1198', 'pedro_ro2@gmail.com'
+EXEC sp_insertarestadio 'ED07', 'Estadio Las Delicias','17500', 'Santa Tecla', 'Gerson Daniel Maldonado', '7873-7485', 'paramientras1234@outlook.com'
+EXEC sp_insertarestadio 'ED08', 'Estadio Gregorio Martínez','17500', 'Chalatenango', 'Gerson Daniel Maldonado', '6598-4564', 'prueba1234@outlook.com'
+EXEC sp_insertarestadio 'ED09', 'Estadio Arturo Simeón Magaña','17500', 'Ahuachapán', 'Gerson Daniel Maldonado', '5665-4566', 'borrador1234@outlook.com'
+EXEC sp_insertarestadio 'ED10', 'Estadio Prueba','2000', 'Calle Antigua a Huizucar, San Salvador', 'Gerson Daniel Maldonado', '7888-8888', 'borrador21234@outlook.com'
 SELECT * FROM Estadio
 
 --TABLA DIA FAVORITO
