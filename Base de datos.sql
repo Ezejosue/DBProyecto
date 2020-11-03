@@ -1745,7 +1745,7 @@ EXEC sp_Insertar_Pais 'PAR','Paraguay'
 EXEC sp_Insertar_Pais 'PER','Perú'
 EXEC sp_Insertar_Pais 'URU','Uruguay'
 EXEC sp_Insertar_Pais 'VEN','Venezuela'
-EXEC sp_Insertar_Pais 'GER','Alemania'
+EXEC sp_Insertar_Pais 'PER','Perú'
 EXEC sp_Insertar_Pais 'ESP','España'
 EXEC sp_Insertar_Pais 'RUS','Rusia'
 EXEC sp_Insertar_Pais 'SWE','Suecia'
@@ -1825,11 +1825,17 @@ EXEC sp_Insertar_Campania 'CA02', 'Torneo Clausura', 'EQ03', 'LG01'
 SELECT * FROM Campania
 
 --TABLA EMPLEADO
-EXEC sp_insertar_empleado 'EMP01','Eddy Vladimir Orellana', '1995-02-19', 'TE02', 'EQ01', 'eddyb@gmail.com','M', '02145601-9', 'ESA'
-EXEC sp_insertar_empleado 'EMP02','Wilson Jaime Gutiérrez', '1971-05-05', 'TE01', 'EQ01', 'wilson_05@gmail.com','M', '02459632-0', 'COL'
-EXEC sp_insertar_empleado 'EMP03','Erick Dowson Prado', '1976-11-25', 'TE01', 'EQ02', 'erick_prado@gmail.com','M', '02185201-7', 'ESA'
-EXEC sp_insertar_empleado 'EMP04','Alex Renato Martínez', '1975-08-01', 'TE03', 'EQ03', 'alex_marti14@gmail.com','M', '01253698-4', 'VEN'
-EXEC sp_insertar_empleado 'EMP05','Roberto José Gómez', '1980-12-04', 'TE05', 'EQ02', 'rob_go@gmail.com','M', '01753628-2', 'ESA'
+EXEC sp_insertar_empleado 'EMP01','Juan Cortés', '1983-11-05', 'TE01', 'EQ01', 'jua_dieguez@gmail.com','M', '02145601-9', 'ESP'
+EXEC sp_insertar_empleado 'EMP02','Guillermo Rivera', '1969-11-25', 'TE01', 'EQ02', 'memo_riv@gmail.com','M', '12589632-8', 'ESA'
+EXEC sp_insertar_empleado 'EMP03','Osvaldo Escudero', '1960-10-15', 'TE01', 'EQ03', 'salvador_escudero@gmail.com','M', '45896321-7', 'ARG'
+EXEC sp_insertar_empleado 'EMP04','Agustín Castillo', '1963-06-15', 'TE01', 'EQ04', 'albert_castillo@gmail.com','M', '02145601-9', 'PER'
+EXEC sp_insertar_empleado 'EMP05','José Antonio Calles Franco', '1962-02-12', 'TE01', 'EQ05', 'jose_franco@gmail.com','M', '14589632-5', 'ESA'
+EXEC sp_insertar_empleado 'EMP06','David Sevilla', '1983-11-05', 'TE01', 'EQ06', 'jua_dieguez@gmail.com','M', '02145601-9', 'ESP'
+EXEC sp_insertar_empleado 'EMP07','Marco Sánchez', '1972-05-10', 'TE01', 'EQ07', 'marco@gmail.com','M', '12563594-2', 'MEX'
+EXEC sp_insertar_empleado 'EMP08','Melvin Giovanni Portillo Amaya', '1983-11-15', 'TE01', 'EQ08', 'melvin@gmail.com','M', '12759632-8', 'ESA'
+EXEC sp_insertar_empleado 'EMP09','Marco Antonio Pineda Guerra', '1983-01-05', 'TE01', 'EQ09', 'antonio_guerra@gmail.com','M', '25365487-9', 'ESA'
+EXEC sp_insertar_empleado 'EMP10','	Juan Andrés Sarulyte', '1962-04-18', 'TE01', 'EQ10', 'andresz@gmail.com','M', '78523698-5', 'ARG'
+
 SELECT * FROM Empleado
 
 --TABLA PATROCINADOR
@@ -2217,3 +2223,4 @@ GO
 --Agrego 5 equipos con 23 futbolistas, faltan 5 equipos más de los que ya están en los registros
 --Patrocinador
 --Detalle Equipo-patrocinador
+--Empleado (entrenadores)
