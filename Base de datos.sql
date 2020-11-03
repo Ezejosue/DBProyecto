@@ -1836,15 +1836,26 @@ SELECT * FROM Empleado
 EXEC sp_Insertar_Patrocinador 'PTR01', 'Gatorade', '2256-9874', 'ernesto_mujica@hotmail.com', 'D:\Patrocinadores\gatorade.jpg'
 EXEC sp_Insertar_Patrocinador 'PTR02', 'Powerade', '2485-9632', 'ilc_esa@hotmail.com', 'D:\Patrocinadores\powerade.jpg'
 EXEC sp_Insertar_Patrocinador 'PTR03', 'Mitre', '7895-63214', 'mitre.sv@gmail.com', 'D:\Patrocinadores\mitre.jpg'
-EXEC sp_Insertar_Patrocinador 'PTR04', 'TIGO El Salvador', '6895-4523', 'contactos_TIGO.sv@hotmail.com', 'D:\Patrocinadores\TIGO.jpg'
-EXEC sp_Insertar_Patrocinador 'PTR05', 'Gillette', '2124-7571', 'industrias_pg.sv@outlook.com', 'D:\Patrocinadores\gillette.jpg'
+EXEC sp_Insertar_Patrocinador 'PTR04', 'Canal 4', '6895-4523', 'contacto_canal4.sv@hotmail.com', 'D:\Patrocinadores\Canal4.jpg'
+EXEC sp_Insertar_Patrocinador 'PTR05', 'Maseca', '2124-7571', 'industrias_maseca.sv@outlook.com', 'D:\Patrocinadores\maseca.jpg'
 EXEC sp_Insertar_Patrocinador 'PTR06', 'Umbro', '2598-6321', 'contactos_umbro@hotmail.com', 'D:\Patrocinadores\umbro_logo.jpg'
+EXEC sp_Insertar_Patrocinador 'PTR07', 'Pepsi', '2368-7852', 'contactos_pepsi@hotmail.com', 'D:\Patrocinadores\pepsi_logo.jpg'
+EXEC sp_Insertar_Patrocinador 'PTR08', 'Canal 21', '2598-7831', 'contactos_canal21@hotmail.com', 'D:\Patrocinadores\canal21.jpg'
+EXEC sp_Insertar_Patrocinador 'PTR09', 'Pilsener', '2748-6521', 'contactos_ilc@hotmail.com', 'D:\Patrocinadores\pilsener_logo.jpg'
+EXEC sp_Insertar_Patrocinador 'PTR010', 'Alo', '2968-6781', 'contactos_alo33@hotmail.com', 'D:\Patrocinadores\alo33_logo.jpg'
 SELECT * FROM Patrocinador
 
 --TABLA Detalle_Equipo_Patrocinador
 EXEC sp_Detalle_Equipo_Patrocinador 'EQ01', 'PTR01',1, '2019-01-01', '2023-12-31';
 EXEC sp_Detalle_Equipo_Patrocinador 'EQ02', 'PTR02',1, '2017-05-20', '2021-05-20';
-EXEC sp_Detalle_Equipo_Patrocinador 'EQ03', 'PTR04',0, '2020-06-09', '2024-06-09';
+EXEC sp_Detalle_Equipo_Patrocinador 'EQ03', 'PTR03',0, '2020-06-09', '2024-06-09';
+EXEC sp_Detalle_Equipo_Patrocinador 'EQ04', 'PTR04',0, '2020-06-09', '2024-06-09';
+EXEC sp_Detalle_Equipo_Patrocinador 'EQ05', 'PTR05',0, '2020-06-09', '2024-06-09';
+EXEC sp_Detalle_Equipo_Patrocinador 'EQ06', 'PTR06',0, '2020-06-09', '2024-06-09';
+EXEC sp_Detalle_Equipo_Patrocinador 'EQ07', 'PTR07',0, '2020-06-09', '2024-06-09';
+EXEC sp_Detalle_Equipo_Patrocinador 'EQ08', 'PTR08',0, '2020-06-09', '2024-06-09';
+EXEC sp_Detalle_Equipo_Patrocinador 'EQ09', 'PTR09',0, '2020-06-09', '2024-06-09';
+EXEC sp_Detalle_Equipo_Patrocinador 'EQ10', 'PTR10',0, '2020-06-09', '2024-06-09';
 SELECT * FROM Detalle_Equipo_Patrocinador
 
 --TABLA DUENIO
@@ -2204,3 +2215,5 @@ GO
 --Equipo
 --Estadio
 --Agrego 5 equipos con 23 futbolistas, faltan 5 equipos más de los que ya están en los registros
+--Patrocinador
+--Detalle Equipo-patrocinador
