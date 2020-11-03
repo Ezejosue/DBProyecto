@@ -449,7 +449,7 @@ create table Administracion.Jugador
 	--LLAVE SECUNDARIA
 	constraint fk_Jugador_Pais foreign key (IdPais) references Pais (IdPais),
 	--RESTRICCIONES
-	constraint ck_IdJugador check(IdJugador like '[J][G][0-9][0-9]'),
+	constraint ck_IdJugador check(IdJugador like '[J][G][0-9][0-9][0-9]'),
 	constraint ck_NombreJugador check(NombreJugador like '%[a-zA-Z]%'),
 	constraint ck_Posicion check(posicion like '%[a-zA-Z]%')
 );
@@ -1755,15 +1755,17 @@ EXEC sp_Insertar_Pais 'UKR','Ucrania'
 EXEC sp_Insertar_Pais 'POR','Portugal'
 EXEC sp_Insertar_Pais 'MEX','México'
 EXEC sp_Insertar_Pais 'ESA','El Salvador'
-EXEC sp_Insertar_Pais 'UKD','Reino Unido'
+EXEC sp_Insertar_Pais 'USA','Estados Unidos'
 EXEC sp_Insertar_Pais 'COL','Colombia'
 EXEC sp_Insertar_Pais 'CRI','Costa Rica'
 EXEC sp_Insertar_Pais 'FRA','Francia'
 EXEC sp_Insertar_Pais 'CMR','Camerun'
 EXEC sp_Insertar_Pais 'AUT','Austria'
-EXEC sp_Insertar_Pais 'NOR','Noruega'
+EXEC sp_Insertar_Pais 'PAN','Panamá'
 EXEC sp_Insertar_Pais 'CRO','Croacia'
-EXEC sp_Insertar_Pais 'CAN','Canadá'
+EXEC sp_Insertar_Pais 'GUT','Guatemala'
+EXEC sp_Insertar_Pais 'PAY','Paraguay'
+EXEC sp_Insertar_Pais 'TTG','Trinidad y Tobago'
 SELECT * FROM Pais
 
 --TABLA TIPO EMPLEADO
@@ -1776,10 +1778,14 @@ SELECT * FROM TipoEmpleado
 
 --TABLA ESTADIO
 EXEC sp_insertarestadio 'ED01', 'Estadio Cuscatlán','25000', 'Calle Antigua a Huizucar, San Salvador', 'Jorge Alberto Rodríguez', '7754-8963', 'jorgeab@gmail.com'
-EXEC sp_insertarestadio 'ED02', 'Estadio las Delicias','7500', 'Avenida Caoba, Santa Tecla', 'Arnoldo Saldaña Martínez', '7754-2663', 'juli_ar@hotmail.com'
-EXEC sp_insertarestadio 'ED03', 'Estadio Jorge Mágico González','27000', '49 Avenida Sur, San Salvador', 'Mauricio Enrique Martínez', '7854-9632', 'martinore_23@gmail.com'
-EXEC sp_insertarestadio 'ED04', 'Estadio Juan Francisco Barraza','29000', 'San Miguel', 'Julio Rodolfo Rodríguez', '7683-1198', 'julio_ro2@gmail.com'
-EXEC sp_insertarestadio 'ED05', 'Estadio Óscar Quiteño','17500', 'Santa Ana', 'Gerson Daniel Maldonado', '6598-7485', 'maldonado1234@outlook.com'
+EXEC sp_insertarestadio 'ED02', 'Estadio Óscar Quiteño','17500', 'Santa Ana', 'Gerson Daniel Maldonado', '6598-7485', 'maldonado1234@outlook.com'
+EXEC sp_insertarestadio 'ED03', 'Estadio Juan Francisco Barraza','29000', 'San Miguel', 'Julio Rodolfo Rodríguez', '7683-1198', 'julio_ro2@gmail.com'
+EXEC sp_insertarestadio 'ED04', 'Estadio Jorge "Calero" Suárez','27000', 'Metapán','Guillermo Martínez', '7854-9632', 'martinore_23@gmail.com'
+EXEC sp_insertarestadio 'ED05', 'Estadio Sergio Torres Rivera','7500', 'Usulután', 'Arnoldo Saldaña Martínez', '7754-2663', 'juli_ar@hotmail.com'
+EXEC sp_insertarestadio 'ED06', 'Estadio Dr. Ramón Flores Berrios','29000', 'La Unión', 'Julio Rodolfo Rodríguez', '7683-1198', 'julio_ro2@gmail.com'
+EXEC sp_insertarestadio 'ED07', 'Estadio Las Delicias','17500', 'Santa Tecla', 'Gerson Daniel Maldonado', '6598-7485', 'maldonado1234@outlook.com'
+EXEC sp_insertarestadio 'ED08', 'Estadio Gregorio Martínez','17500', 'Chalatenango', 'Gerson Daniel Maldonado', '6598-7485', 'maldonado1234@outlook.com'
+EXEC sp_insertarestadio 'ED09', 'Estadio Arturo Simeón Magaña','17500', 'Ahuachapán', 'Gerson Daniel Maldonado', '6598-7485', 'maldonado1234@outlook.com'
 SELECT * FROM Estadio
 
 --TABLA DIA FAVORITO
@@ -1802,9 +1808,16 @@ SELECT * FROM Liga
 
 --TABLA EQUIPO 
 EXEC sp_insertarequipo 'EQ01', 'Alianza Fútbol Club','Oficinas Centrales Alianza Fútbol Club', '3:00', 'DAF02', 'ED01', 'ESA', 'LG01'
-EXEC sp_insertarequipo 'EQ02', 'Club Deportivo FAS','Oficinas Centrales Club Deportivo FAS', '7:00', 'DAF01', 'ED04', 'ESA', 'LG01'
-EXEC sp_insertarequipo 'EQ03', 'Club Deportivo Águila','Oficinas Centrales Club Deportivo Águila', '4:00', 'DAF01', 'ED04', 'ESA', 'LG01'
-SELECT * FROM Equipo
+EXEC sp_insertarequipo 'EQ02', 'Club Deportivo FAS','Oficinas Centrales Club Deportivo FAS', '7:00', 'DAF01', 'ED02', 'ESA', 'LG01'
+EXEC sp_insertarequipo 'EQ03', 'Club Deportivo Águila','Oficinas Centrales Club Deportivo Águila', '4:00', 'DAF01', 'ED03', 'ESA', 'LG01'
+EXEC sp_insertarequipo 'EQ04', 'Asociación Deportiva Isidro Metapán','Oficinas Centrales Asociación Deportiva Isidro Metapán', '6:00', 'DAF02', 'ED04', 'ESA', 'LG01'
+EXEC sp_insertarequipo 'EQ05', 'Club Deportivo Luis Angel Firpo','Oficinas Centrales Club Deportivo Luis Angel Firpo', '2:00', 'DAF02', 'ED05', 'ESA', 'LG01'
+EXEC sp_insertarequipo 'EQ06', 'Municipal Limeño','Oficinas Centrales Municipal Limeño', '3:30', 'DAF01', 'ED06', 'ESA', 'LG01'
+EXEC sp_insertarequipo 'EQ07', 'Santa Tecla Futbol Club','Oficinas Centrales Santa Tecla Futbol Club', '3:30:00', 'DAF01', 'ED07', 'ESA', 'LG01'
+EXEC sp_insertarequipo 'EQ08', 'Club Deportivo Chalatenango','Oficinas Centrales Club Deportivo Chalatenango', '8:00', 'DAF01', 'ED08', 'ESA', 'LG01'
+EXEC sp_insertarequipo 'EQ09', 'Once Deportivo Fútbol Club','Oficinas Centrales Once Deportivo Fútbol Club', '6:00', 'DAF02', 'ED09', 'ESA', 'LG01'
+EXEC sp_insertarequipo 'EQ10', 'Club Deportivo Atlético Marte Quezaltepe','Oficinas Centrales Club Deportivo Atlético Marte Quezaltepe', '6:00', 'DAF02', 'ED01', 'ESA', 'LG01'
+SELECT * FROM Administracion.Equipo
 
 --TABLA CAMPAÑA
 EXEC sp_Insertar_Campania 'CA01', 'Torneo Apertura', 'EQ01', 'LG01'
@@ -1876,55 +1889,132 @@ SELECT * FROM Equipacion;
 GO
 
 --Tabla jugador
-EXEC sp_insertarjugador 'JG01', 'Alexis Sanchez', '1.70', '60kg', '1985-02-02', 'Medio centro', 'CHI';
-EXEC sp_insertarjugador 'JG02', 'Iker Casillas', '1.85', '65kg', '1980-01-04', 'Portero', 'ESP';
-EXEC sp_insertarjugador 'JG03', 'Lionel Messi', '1.70', '60kg', '1984-12-04', 'Extremo derecho', 'ARG';
-EXEC sp_insertarjugador 'JG04', 'Neymar Jr', '1.80', '50kg', '1986-04-08', 'Delantero centro', 'BRA';
-EXEC sp_insertarjugador 'JG05', 'Fito Zelaya', '1.70', '55kg', '1987-05-04', 'Medio centro', 'ESA';
-EXEC sp_insertarjugador 'JG06', 'Gianluigi Buffon', '1.92', '60kg', '1978-02-07', 'Portero', 'ITA';
-EXEC sp_insertarjugador 'JG07', 'Javier Hernandez', '1.70', '50kg', '1988-02-02', 'Delantero centro', 'MEX';
-EXEC sp_insertarjugador 'JG08', 'Cristiano Ronaldo', '1.87', '65kg', '1985-05-02', 'Delantero centro', 'POR';
-EXEC sp_insertarjugador 'JG09', 'Luis Suarez', '1.73', '50kg', '1984-02-01', 'Delantero Centro', 'URU';
-EXEC sp_insertarjugador 'JG10', 'Arjen Robben', '1.70', '60kg', '1984-03-01', 'Medio Centro', 'NED';
-EXEC sp_insertarjugador 'JG11', 'Thibaut Courtois', '2.00', '96kg', '1992-02-06', 'Portero', 'ITA';
-EXEC sp_insertarjugador 'JG12', 'Dani Carvajal', '1.73', '75kg', '1992-11-01', 'Portero', 'ESP';
-EXEC sp_insertarjugador 'JG13', 'Vini Jr', '1.76', '73kg', '2000-12-04', 'Delantero centro', 'BRA';
-EXEC sp_insertarjugador 'JG14', 'Neymar Jr', '1.80', '50kg', '1986-08-08', 'Delantero centro', 'BRA';
-EXEC sp_insertarjugador 'JG15', 'Lucas Vázquez', '1.72', '70kg', '1991-07-04', 'Media punta', 'ESP';
-EXEC sp_insertarjugador 'JG16', 'James Rodriguez', '1.85', '74kg', '1984-03-07', 'Centrocampista', 'COL';
-EXEC sp_insertarjugador 'JG17', 'Sergio Ramos', '1.90', '70kg', '1986-10-02', 'Defensa', 'ESP';
-EXEC sp_insertarjugador 'JG18', 'Rafael Varane', '1.87', '60kg', '1988-11-10', 'Defensa', 'POR';
-EXEC sp_insertarjugador 'JG19', 'Carlos Suarez', '1.77', '68kg', '1987-04-01', 'Delantero Centro', 'URU';
-EXEC sp_insertarjugador 'JG20', 'Robert Lewandoski', '1.85', '68kg', '1985-07-01', 'Delantero', 'NED';
-EXEC sp_insertarjugador 'JG21', 'Di Maria', '1.73', '60kg', '1987-08-14', 'Extremo derecho', 'ARG';
-EXEC sp_insertarjugador 'JG22', 'Oscar Diaz', '1.75', '64kg', '1988-09-14', 'Medio Centro', 'BRA';
-EXEC sp_insertarjugador 'JG23', 'Guillermo Cuadrado', '1.89', '70kg', '1990-09-17', 'Medio Centro', 'COL';
-EXEC sp_insertarjugador 'JG24', 'Keylor Navas', '1.80', '68kg', '1985-08-07', 'Portero', 'CRI';
-EXEC sp_insertarjugador 'JG25', 'Jordi Alba', '1.65', '50kg', '1980-05-01', 'Extremo Izquierdo', 'ESP';
-EXEC sp_insertarjugador 'JG26', 'Samuel Umtiti', '1.82', '72kg', '1990-10-27', 'Defensa', 'FRA';
-EXEC sp_insertarjugador 'JG27', 'Ronald Araujo', '1.87', '73kg', '1998-02-02', 'Defensa', 'URU';
-EXEC sp_insertarjugador 'JG28', 'Daniel Alves', '1.77', '64kg', '1987-11-17', 'Extremo derecho', 'BRA';
-EXEC sp_insertarjugador 'JG29', 'Xavi Hernández', '1.65', '67kg', '1978-06-20', 'Centrocampista', 'ESP';
-EXEC sp_insertarjugador 'JG30', 'Thomas Muller', '1.79', '61kg', '1979-09-13', 'Medio Centro', 'GER';
-EXEC sp_insertarjugador 'JG31', 'Frenkie De Jong', '1.79', '64kg', '1997-02-18', 'Centrocampista', 'NED';
-EXEC sp_insertarjugador 'JG32', 'Ansu Fati', '1.78', '61kg', '2003-08-09', 'Delantero centro', 'ESP';
-EXEC sp_insertarjugador 'JG33', 'Diego Costa', '1.80', '78kg', '1983-12-05', 'Delantero centro', 'BRA';
-EXEC sp_insertarjugador 'JG34', 'Francisco Trincao', '1.84', '70kg', '1979-09-13', 'Delantero centro', 'POR';
-EXEC sp_insertarjugador 'JG35', 'Alisson Becker', '1.91', '88kg', '1992-04-12', 'Portero', 'BRA';
-EXEC sp_insertarjugador 'JG36', 'Andre Onana', '1.90', '93kg', '1996-10-23', 'Portero', 'CMR';
-EXEC sp_insertarjugador 'JG37', 'Joshua Kimmich', '1.76', '73kg', '1995-09-16', 'Extremo derecho', 'GER';
-EXEC sp_insertarjugador 'JG38', 'David Alaba', '1.80', '74kg', '1992-04-13', 'Defensa', 'AUT';
-EXEC sp_insertarjugador 'JG39', 'Clement Lenglet', '1.86', '81kg', '1995-07-03', 'Defensa', 'FRA';
-EXEC sp_insertarjugador 'JG40', 'Ngolo Kante', '1.68', '70kg', '1991-08-11', 'Centrocampista', 'FRA';
-EXEC sp_insertarjugador 'JG41', 'Erling Haaland', '1.94', '79kg', '2000-03-25', 'Delantero centro', 'NOR';
-EXEC sp_insertarjugador 'JG42', 'Luka Modric', '1.76', '69kg', '1985-05-23', 'Medio centro', 'CRO';
-EXEC sp_insertarjugador 'JG43', 'Carlos Casimiro', '1.85', '84kg', '1992-04-03', 'Medio centro', 'BRA';
-EXEC sp_insertarjugador 'JG44', 'Federico Valverde', '1.82', '82kg', '1998-07-22', 'Medio centro', 'URU';
-EXEC sp_insertarjugador 'JG45', 'Oliver Giroud', '1.85', '85kg', '1989-11-06', 'Delantero centro', 'FRA';
-EXEC sp_insertarjugador 'JG46', 'Benjamin Pavard', '1.86', '76kg', '1996-11-09', 'Extremo derecho', 'FRA';
-EXEC sp_insertarjugador 'JG47', 'Alphonso Davies', '1.81', '80kg', '2000-11-02', 'Extremo izquierdo', 'CAN';
-EXEC sp_insertarjugador 'JG48', 'Leon Goretzka', '1.89', '76kg', '1995-02-27', 'Centrocampista', 'GER';
-SELECT * FROM Jugador;
+--Alianza
+EXEC sp_insertarjugador 'JG001', 'Mario González', '1.70', '60kg', '1997-05-20', 'Portero', 'ESA'
+EXEC sp_insertarjugador 'JG002', 'Yimi Cuellas De León', '1.70', '60kg', '1989-10-20', 'Portero', 'ESA'
+EXEC sp_insertarjugador 'JG003', 'Alexander Mendoza', '1.70', '60kg', '1990-06-04', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG004', 'César Linares', '1.70', '60kg', '1996-03-17', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG005', 'Henry Ventura', '1.70', '60kg', '1991-10-17', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG006', 'Israel López', '1.70', '60kg', '1994-06-23', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG007', 'Iván Ramírez', '1.70', '60kg', '1992-12-19', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG008', 'Jonathan Guzmán', '1.70', '60kg', '1992-07-12', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG009', 'Mario Segovia', '1.70', '60kg', '1996-08-02', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG010', 'Rudy Clavel', '1.70', '60kg', '1996-10-10', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG011', 'Rubén Marroquín', '1.70', '60kg', '1992-10-15', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG012', 'Bryan Tamacas', '1.70', '60kg', '1995-02-21', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG013', 'Elías Muñoz', '1.70', '60kg', '1998-05-20', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG014', 'Felipe Ponce', '1.70', '60kg', '1988-03-29', 'Centrocampista', 'MEX'
+EXEC sp_insertarjugador 'JG015', 'Isaac Portillo', '1.70', '60kg', '1994-11-08', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG016', 'Isaac Molina', '1.70', '60kg', '1999-11-14', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG017', 'José Estrada', '1.70', '60kg', '1997-01-01', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG018', 'Diego Ascencio', '1.70', '60kg', '1995-05-15', 'Delantero', 'ESA'
+EXEC sp_insertarjugador 'JG019', 'Gerardo Freitas', '1.70', '60kg', '1991-03-04', 'Delantero', 'URU'
+EXEC sp_insertarjugador 'JG020', 'Michel Mercado', '1.70', '60kg', '1990-01-01', 'Delantero', 'COL'
+EXEC sp_insertarjugador 'JG021', 'Oswaldo Blanco', '1.70', '60kg', '1990-05-21', 'Delantero', 'COL'
+EXEC sp_insertarjugador 'JG022', 'Rodolfo Zelaya', '1.70', '60kg', '1988-07-03', 'Delantero', 'ESA'
+EXEC sp_insertarjugador 'JG023', 'Wilfreso Ulises Cienfuegos', '1.70', '60kg', '1996-10-02', 'Delantero', 'ESA'
+
+--FAS
+EXEC sp_insertarjugador 'JG024', 'Kévin Carabantes', '1.70', '60kg', '1995-03-20', 'Portero', 'ESA'
+EXEC sp_insertarjugador 'JG025', 'Nicolas Pacheco', '1.70', '60kg', '1995-04-07', 'Portero', 'ESA'
+EXEC sp_insertarjugador 'JG026', 'Andrés Flores', '1.70', '60kg', '1995-01-20', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG027', 'Siliazar Prado', '1.70', '60kg', '1999-02-01', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG028', 'Diego Chávez', '1.70', '60kg', '1997-04-05', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG029', 'Ibsen Castro', '1.70', '60kg', '1988-10-24', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG030', 'Juan Palma', '1.70', '60kg', '1982-05-06', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG031', 'Marvin Aranda', '1.70', '60kg', '1998-06-13', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG032', 'Edwin Cuellar', '1.70', '60kg', '1995-06-17', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG033', 'Rodolfo Huezo', '1.70', '60kg', '2001-08-14', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG034', 'Moises Garcia', '1.70', '60kg', '1990-06-26', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG035', 'Brayan Landaverde', '1.70', '60kg', '1995-05-27', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG036', 'José Flores', '1.70', '60kg', '1996-09-28', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG037', 'Julio Amaya', '1.70', '60kg', '1995-03-29', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG038', 'Javier Bolaños', '1.70', '60kg', '2001-08-14', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG039', 'Jeffrey', '1.70', '60kg', '1995-10-15', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG040', 'Álvaro López', '1.70', '60kg', '1992-09-24', 'Delantero', 'CHI'
+EXEC sp_insertarjugador 'JG041', 'Diego Areco', '1.70', '60kg', '1992-11-05', 'Delantero', 'PAY'
+EXEC sp_insertarjugador 'JG042', 'Guillermo Stradella', '1.70', '60kg', '1993-09-16', 'Delantero', 'ARG'
+EXEC sp_insertarjugador 'JG043', 'Irvin Herrera', '1.70', '60kg', '1991-08-30', 'Delantero', 'ESA'
+EXEC sp_insertarjugador 'JG044', 'Josué Arévalo', '1.70', '60kg', '1999-03-09', 'Delantero', 'ESA'
+EXEC sp_insertarjugador 'JG045', 'Luis Perea', '1.70', '60kg', '1986-09-03', 'Delantero', 'COL'
+EXEC sp_insertarjugador 'JG046', 'óscar Rodas', '1.70', '60kg', '1987-06-04', 'Delantero', 'COL'
+
+--Aguila
+EXEC sp_insertarjugador 'JG047', 'Benjamin Villalobos', '1.70', '60kg', '1988-07-15', 'Portero', 'ESA'
+EXEC sp_insertarjugador 'JG048', 'José Mejía', '1.70', '60kg', '1993-08-15', 'Portero', 'ESA'
+EXEC sp_insertarjugador 'JG049', 'Andrés Quejada', '1.70', '60kg', '1985-11-21', 'Defensa', 'COL'
+EXEC sp_insertarjugador 'JG050', 'Ever Acosta', '1.70', '60kg', '1998-08-28', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG051', 'Fredy Cornejo', '1.70', '60kg', '1992-04-19', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG052', 'Reynaldo Aparicio', '1.70', '60kg', '1993-05-17', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG053', 'José Villalobos', '1.70', '60kg', '1997-09-01', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG054', 'Carlos Ortiz', '1.70', '60kg', '1999-02-12', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG055', 'Diego Coca', '1.70', '60kg', '1994-08-26', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG056', 'Dixon Rivas', '1.70', '60kg', '1999-11-08', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG057', 'Edwin Lazo', '1.70', '60kg', '1990-06-16', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG058', 'Enmauel Medina', '1.70', '60kg', '1999-08-04', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG059', 'Fabricio Alfaro', '1.70', '60kg', '1990-12-03', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG060', 'Gerson Mayén', '1.70', '60kg', '1989-02-09', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG061', 'Kevin Berríos', '1.70', '60kg', '1998-06-08', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG062', 'Kairon Da Silva', '1.70', '60kg', '1989-07-20', 'Centrocampista', 'BRA'
+EXEC sp_insertarjugador 'JG063', 'Marlon Trejo', '1.70', '60kg', '1988-10-03', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG064', 'Ronald Gómez', '1.70', '60kg', '1998-09-22', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG065', 'Santos Ortiz', '1.70', '60kg', '1993-01-22', 'Delantero', 'USA'
+EXEC sp_insertarjugador 'JG066', 'Victor García', '1.70', '60kg', '1995-02-18', 'Delantero', 'ESA'
+EXEC sp_insertarjugador 'JG067', 'Wilson Rugamas', '1.70', '60kg', '1990-01-19', 'Delantero', 'ESA'
+EXEC sp_insertarjugador 'JG068', 'Marlon De Moura', '1.70', '60kg', '1990-02-05', 'Delantero', 'BRA'
+EXEC sp_insertarjugador 'JG069', 'Nicolas Jarvis', '1.70', '60kg', '1981-12-21', 'Delantero', 'CHI'
+
+--Isidro
+EXEC sp_insertarjugador 'JG070', 'Óscar Pleitez', '1.70', '60kg', '1993-02-06', 'Portero', 'ESA'
+EXEC sp_insertarjugador 'JG071', 'Alexander Larín', '1.70', '60kg', '1992-06-27', 'Defensa', 'GUT'
+EXEC sp_insertarjugador 'JG072', 'Julio Cerritos', '1.70', '60kg', '1988-07-16', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG073', 'Moisés Mejía', '1.70', '60kg', '1994-12-11', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG074', 'Milton Molina', '1.70', '60kg', '1989-02-02', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG075', 'Yeison Murillo', '1.70', '60kg', '1992-11-30', 'Defensa', 'COL'
+EXEC sp_insertarjugador 'JG076', 'Iván Castro', '1.70', '60kg', '1994-01-05', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG077', 'Christian Aguilar', '1.70', '60kg', '2001-07-14', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG078', 'Cristian Cisneros', '1.70', '60kg', '1994-04-16', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG079', 'Fernando Clavel', '1.70', '60kg', '1999-09-28', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG080', 'Herbert Sosa', '1.70', '60kg', '1990-01-11', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG081', 'Jaime García', '1.70', '60kg', '1994-04-20', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG082', 'Luis Figueroa', '1.70', '60kg', '1995-02-01', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG083', 'Marvin Lemus', '1.70', '60kg', '1993-03-12', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG084', 'Rudy Batres', '1.70', '60kg', '1990-11-09', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG085', 'Carlos Morales', '1.70', '60kg', '1995-03-05', 'Delantero', 'ESA'
+EXEC sp_insertarjugador 'JG086', 'Cristian Gil', '1.70', '60kg', '1996-11-05', 'Delantero', 'COL'
+EXEC sp_insertarjugador 'JG087', 'John Machado', '1.70', '60kg', '1993-01-01', 'Delantero', 'COL'
+EXEC sp_insertarjugador 'JG088', 'Jomal Williams', '1.70', '60kg', '1994-04-28', 'Delantero', 'TTG'
+EXEC sp_insertarjugador 'JG089', 'Marvin Joya', '1.70', '60kg', '1998-03-12', 'Delantero', 'ESA'
+EXEC sp_insertarjugador 'JG090', 'Ricardo Da Silva', '1.70', '60kg', '1986-12-31', 'Delantero', 'BRA'
+EXEC sp_insertarjugador 'JG091', 'Luis Martinez', '1.70', '60kg', '1997-12-01', 'Delantero', 'ESA'
+EXEC sp_insertarjugador 'JG092', 'Marlon Juarez', '1.70', '60kg', '1996-01-02', 'Delantero', 'ESA'
+
+--Firpo
+EXEC sp_insertarjugador 'JG093', 'Matias Lavandeira', '1.70', '60kg','1985-09-11', 'Portero', 'ARG'
+EXEC sp_insertarjugador 'JG094', 'Carlos Márquez', '1.70', '60kg', '1996-09-27', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG095', 'Edwin Escobar', '1.70', '60kg', '1983-01-20', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG096', 'Eduardo Acosta', '1.70', '60kg', '1996-08-07', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG097', '', '1.70', '60kg', '', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG098', '', '1.70', '60kg', '', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG099', '', '1.70', '60kg', '', 'Defensa', 'COL'
+EXEC sp_insertarjugador 'JG100', '', '1.70', '60kg', '', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG101', '', '1.70', '60kg', '', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG102', '', '1.70', '60kg', '', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG103', '', '1.70', '60kg', '', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG104', '', '1.70', '60kg', '', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG105', '', '1.70', '60kg', '', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG106', '', '1.70', '60kg', '', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG107', '', '1.70', '60kg', '', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG108', '', '1.70', '60kg', '', 'Centrocampista', 'PAN'
+EXEC sp_insertarjugador 'JG109', '', '1.70', '60kg', '', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG110', '', '1.70', '60kg', '', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG111', '', '1.70', '60kg', '', 'Delantero', 'ESA'
+EXEC sp_insertarjugador 'JG112', '', '1.70', '60kg', '', 'Delantero', 'PAN'
+EXEC sp_insertarjugador 'JG113', '', '1.70', '60kg', '', 'Delantero', 'BRA'
+EXEC sp_insertarjugador 'JG114', '', '1.70', '60kg', '', 'Delantero', 'ESA'
+EXEC sp_insertarjugador 'JG115', '', '1.70', '60kg', '', 'Delantero', 'ESA'
+
+SELECT * FROM Administracion.Jugador;
 GO
 
 --TABLA Detalle_Equipo_Jugador
@@ -2110,3 +2200,6 @@ EXEC sp_Insertar_Posicion 'POS03', 2, 3, 1, 1, 0, 2, 3, -1, 0, 'EQ03', 'CA01';
 SELECT * FROM Tabla_De_Posicion
 GO
 
+--Tablas Modificadas
+--Equipo
+--Estadio
