@@ -5,7 +5,6 @@ go
 use Control_Ligas
 go
 
-
 --PUNTO 4 APARTADO 3
 --CREANDO ESQUEMA
 GO
@@ -434,7 +433,7 @@ create table Equipacion
 --TABLA JUGADOR
 create table Administracion.Jugador
 (
-	IdJugador varchar(4) not null,
+	IdJugador varchar(5) not null,
 	usuarioisert varchar(50),
 	usuarioupdate varchar(50),
 	fechainsert date,
@@ -466,7 +465,7 @@ create table Detalle_Equipo_Jugador
 	FechaInicioContrato date not null,
 	FechaFinalContrato date not null,
 	IdEquipo varchar(4) not null,
-	IdJugador varchar(4) not null,
+	IdJugador varchar(5) not null,
 	--LLAVE PRIMARIA
 	constraint pk_IdContrato primary key (IdContrato),
 	--LLAVE SECUNDARIA
@@ -480,7 +479,7 @@ create table Detalle_Equipo_Jugador
 --TABLA GOLEADOR
 create table Goleador
 (
-	IdJugador varchar(4) not null,
+	IdJugador varchar(5) not null,
 	IdCampania varchar(4) not null,
 	usuarioisert varchar(50),
 	usuarioupdate varchar(50),
@@ -509,7 +508,7 @@ create table Detalle_Descenso
 --TABLA PARTIDO
 create table Partido
 (
-	IdPartido varchar(5) not null,
+	IdPartido int IDENTITY(1,1) not null,
 	usuarioisert varchar(50),
 	usuarioupdate varchar(50),
 	fechainsert date,
@@ -523,10 +522,7 @@ create table Partido
 	GolesGanador int not null,
 	GolesPerdedor int not null,
 	--LLAVE PRIMARIA
-	constraint pk_IdPartido primary key (IdPartido),
-	--LLAVE SECUNDARIA
-	--RESTRICCIONES
-	constraint ck_IdPartido check(IdPartido like '[P][A][R][0-9][0-9]')
+	constraint pk_IdPartido primary key (IdPartido)
 );
 
 -- TABLA PLANTILLA
@@ -534,9 +530,9 @@ create table Plantilla
 (
 	IdPlantilla varchar(4) not null,
 	IdEquipo varchar(4) not null,
-	IdJugador varchar(4) not null,
+	IdJugador varchar(5) not null,
 	RolJugador varchar(20) not null check(RolJugador='Titular' or RolJugador='Suplente'),
-	IdPartido varchar(5) not null,
+	IdPartido int not null,
 	usuarioisert varchar(50),
 	usuarioupdate varchar(50),
 	fechainsert date,
@@ -551,12 +547,13 @@ create table Plantilla
 	constraint ck_IdPlantilla check(IdPlantilla like '[P][L][0-9][0-9]')
 );
 
+
 --TABLA GOLES
 create table Goles
 (
 	idGol varchar(7) not null,
-	IdPartido varchar(5) not null,
-	IdJugador varchar(4) not null,
+	IdPartido int not null,
+	IdJugador varchar(5) not null,
 	usuarioisert varchar(50),
 	usuarioupdate varchar(50),
 	fechainsert date,
@@ -593,8 +590,8 @@ create table Tarjeta
 	fechainsert date,
 	fechaupdate date,
 	IdTipoTajerta varchar(8) not null,
-	IdJugador varchar(4) not null,
-	IdPartido varchar(5) not null,
+	IdJugador varchar(5) not null,
+	IdPartido int not null,
 	--LLAVE PRIMARIA
 	constraint pk_IdTarjeta primary key (IdTarjeta),
 	--LLAVE SECUNDARIA
@@ -895,7 +892,6 @@ GO
 
 --Partido
 create procedure sp_insertarpartido
-@IdPartido varchar(20),
 @EquipoVisitante varchar(20),
 @EquipoLocal varchar(20),
 @FechaPartido date,
@@ -907,11 +903,8 @@ create procedure sp_insertarpartido
 as
 begin try
 begin tran
-	if(select count(*) from Partido where IdPartido=@IdPartido) = 0
-	insert into Partido(IdPartido, EquipoVisitante, EquipoLocal, FechaPartido, HoraPartido, EquipoGanador, EquipoPerdedor, GolesGanador, GolesPerdedor)
-	values(@IdPartido, @EquipoVisitante, @EquipoLocal, @FechaPartido, @HoraPartido, @EquipoGanador, @EquipoPerdedor, @GolesGanador, @GolesPerdedor)
-	else
-	print'¡Error!, este partido ya existe'
+	insert into Partido(EquipoVisitante, EquipoLocal, FechaPartido, HoraPartido, EquipoGanador, EquipoPerdedor, GolesGanador, GolesPerdedor)
+	values(@EquipoVisitante, @EquipoLocal, @FechaPartido, @HoraPartido, @EquipoGanador, @EquipoPerdedor, @GolesGanador, @GolesPerdedor)
 commit
 end try
 begin catch
@@ -920,11 +913,10 @@ print error_message()
 end catch;
 GO
 
-
 --Goles
 create procedure sp_insertargoles
 @idGol varchar(7),	
-@IdPartido varchar(20),
+@IdPartido int,
 @IdJugador varchar(20)
 as
 begin try
@@ -947,7 +939,7 @@ create procedure sp_insertartarjetas
 @IdTarjeta varchar(20),
 @IdTipoTajerta varchar(20),
 @IdJugador varchar(20),
-@IdPartido varchar(20)
+@IdPartido int
 as
 begin try
 begin tran
@@ -1154,10 +1146,10 @@ GO
 --PROCEDIMIENTO TABLA PLANTILLA
 create procedure sp_Insertar_Plantilla
 @IdPlantilla varchar(4),
-@IdEquipo varchar(4),
+@IdEquipo varchar(5),
 @IdJugador varchar(20),
 @RolJugador varchar(20),
-@IdPartido varchar(20)
+@IdPartido int
 as
 begin try
 begin tran
@@ -1174,7 +1166,6 @@ rollback
 print error_message()
 end catch;
 GO
-
 
 --PROCEDIMIENTO TIPO TARJETA
 create procedure sp_Insertar_TipoTarjeta
@@ -2036,59 +2027,59 @@ SELECT * FROM Administracion.Jugador;
 GO
 
 --TABLA Detalle_Equipo_Jugador
-EXEC sp_Insertar_DetalleEquipoJugador 'CON01', '2020-11-23', '2024-12-24', 'EQ01', 'JG01';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON02', '2020-11-01', '2024-12-21', 'EQ01', 'JG02';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON03', '2020-11-08', '2024-12-21', 'EQ01', 'JG03';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON04', '2020-11-22', '2024-12-21', 'EQ01', 'JG04';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON05', '2020-11-25', '2024-12-27', 'EQ01', 'JG05';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON06', '2020-11-10', '2024-12-27', 'EQ01', 'JG06';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON07', '2020-11-11', '2024-12-27', 'EQ01', 'JG07';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON08', '2020-11-14', '2024-12-31', 'EQ01', 'JG08';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON09', '2020-11-15', '2024-12-31', 'EQ01', 'JG09';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON10', '2020-11-16', '2024-12-31', 'EQ01', 'JG10';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON11', '2020-11-18', '2024-12-25', 'EQ01', 'JG11';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON12', '2020-11-03', '2024-12-25', 'EQ01', 'JG12';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON13', '2020-11-07', '2024-12-25', 'EQ01', 'JG13';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON14', '2020-11-09', '2024-12-08', 'EQ01', 'JG14';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON15', '2020-11-12', '2024-12-08', 'EQ01', 'JG15';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON16', '2020-11-16', '2024-12-08', 'EQ01', 'JG16';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON17', '2020-11-22', '2024-12-07', 'EQ01', 'JG17';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON18', '2020-11-20', '2024-12-07', 'EQ01', 'JG18';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON18', '2020-11-08', '2024-12-07', 'EQ01', 'JG19';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON20', '2020-11-17', '2024-12-20', 'EQ01', 'JG20';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON21', '2020-11-09', '2024-12-20', 'EQ01', 'JG21';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON22', '2020-11-13', '2024-12-20', 'EQ01', 'JG22';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON23', '2020-11-19', '2024-12-24', 'EQ01', 'JG23';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON24', '2020-11-01', '2024-12-14', 'EQ02', 'JG24';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON25', '2020-11-20', '2024-12-18', 'EQ02', 'JG25';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON26', '2020-11-19', '2024-12-09', 'EQ02', 'JG26';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON27', '2020-11-03', '2024-12-04', 'EQ02', 'JG27';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON28', '2020-11-19', '2024-12-19', 'EQ02', 'JG28';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON29', '2020-11-09', '2024-12-29', 'EQ02', 'JG29';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON30', '2020-11-07', '2024-12-13', 'EQ02', 'JG30';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON31', '2020-11-24', '2024-12-21', 'EQ02', 'JG31';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON32', '2020-11-05', '2024-12-27', 'EQ02', 'JG32';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON33', '2020-11-15', '2024-12-17', 'EQ02', 'JG33';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON34', '2020-11-25', '2024-12-07', 'EQ02', 'JG34';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON35', '2020-11-08', '2024-12-28', 'EQ02', 'JG35';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON36', '2020-11-18', '2024-12-08', 'EQ03', 'JG36';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON37', '2020-11-28', '2024-12-18', 'EQ03', 'JG37';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON38', '2020-11-24', '2024-12-04', 'EQ03', 'JG38';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON39', '2020-11-04', '2024-12-24', 'EQ03', 'JG39';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON40', '2020-11-24', '2024-12-14', 'EQ03', 'JG40';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON41', '2020-11-14', '2024-12-04', 'EQ03', 'JG41';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON42', '2020-11-29', '2024-12-09', 'EQ03', 'JG42';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON43', '2020-11-09', '2024-12-19', 'EQ03', 'JG43';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON44', '2020-11-19', '2024-12-29', 'EQ03', 'JG44';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON45', '2020-11-13', '2024-12-07', 'EQ03', 'JG45';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON46', '2020-11-16', '2024-12-18', 'EQ03', 'JG46';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON47', '2020-11-14', '2024-12-23', 'EQ03', 'JG47';
-EXEC sp_Insertar_DetalleEquipoJugador 'CON48', '2020-11-25', '2024-12-11', 'EQ03', 'JG48';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON01', '2020-11-23', '2024-12-24', 'EQ01', 'JG001';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON02', '2020-11-01', '2024-12-21', 'EQ01', 'JG002';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON03', '2020-11-08', '2024-12-21', 'EQ01', 'JG003';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON04', '2020-11-22', '2024-12-21', 'EQ01', 'JG004';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON05', '2020-11-25', '2024-12-27', 'EQ01', 'JG005';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON06', '2020-11-10', '2024-12-27', 'EQ01', 'JG006';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON07', '2020-11-11', '2024-12-27', 'EQ01', 'JG007';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON08', '2020-11-14', '2024-12-31', 'EQ01', 'JG008';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON09', '2020-11-15', '2024-12-31', 'EQ01', 'JG009';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON10', '2020-11-16', '2024-12-31', 'EQ01', 'JG010';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON11', '2020-11-18', '2024-12-25', 'EQ01', 'JG011';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON12', '2020-11-03', '2024-12-25', 'EQ01', 'JG012';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON13', '2020-11-07', '2024-12-25', 'EQ01', 'JG013';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON14', '2020-11-09', '2024-12-08', 'EQ01', 'JG014';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON15', '2020-11-12', '2024-12-08', 'EQ01', 'JG015';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON16', '2020-11-16', '2024-12-08', 'EQ01', 'JG016';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON17', '2020-11-22', '2024-12-07', 'EQ01', 'JG017';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON18', '2020-11-20', '2024-12-07', 'EQ01', 'JG018';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON18', '2020-11-08', '2024-12-07', 'EQ01', 'JG019';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON20', '2020-11-17', '2024-12-20', 'EQ01', 'JG020';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON21', '2020-11-09', '2024-12-20', 'EQ01', 'JG021';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON22', '2020-11-13', '2024-12-20', 'EQ01', 'JG022';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON23', '2020-11-19', '2024-12-24', 'EQ01', 'JG023';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON24', '2020-11-01', '2024-12-14', 'EQ02', 'JG024';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON25', '2020-11-20', '2024-12-18', 'EQ02', 'JG025';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON26', '2020-11-19', '2024-12-09', 'EQ02', 'JG026';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON27', '2020-11-03', '2024-12-04', 'EQ02', 'JG027';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON28', '2020-11-19', '2024-12-19', 'EQ02', 'JG028';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON29', '2020-11-09', '2024-12-29', 'EQ02', 'JG029';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON30', '2020-11-07', '2024-12-13', 'EQ02', 'JG030';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON31', '2020-11-24', '2024-12-21', 'EQ02', 'JG031';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON32', '2020-11-05', '2024-12-27', 'EQ02', 'JG032';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON33', '2020-11-15', '2024-12-17', 'EQ02', 'JG033';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON34', '2020-11-25', '2024-12-07', 'EQ02', 'JG034';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON35', '2020-11-08', '2024-12-28', 'EQ02', 'JG035';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON36', '2020-11-18', '2024-12-08', 'EQ03', 'JG036';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON37', '2020-11-28', '2024-12-18', 'EQ03', 'JG037';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON38', '2020-11-24', '2024-12-04', 'EQ03', 'JG038';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON39', '2020-11-04', '2024-12-24', 'EQ03', 'JG039';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON40', '2020-11-24', '2024-12-14', 'EQ03', 'JG040';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON41', '2020-11-14', '2024-12-04', 'EQ03', 'JG041';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON42', '2020-11-29', '2024-12-09', 'EQ03', 'JG042';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON43', '2020-11-09', '2024-12-19', 'EQ03', 'JG043';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON44', '2020-11-19', '2024-12-29', 'EQ03', 'JG044';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON45', '2020-11-13', '2024-12-07', 'EQ03', 'JG045';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON46', '2020-11-16', '2024-12-18', 'EQ03', 'JG046';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON47', '2020-11-14', '2024-12-23', 'EQ03', 'JG047';
+EXEC sp_Insertar_DetalleEquipoJugador 'CON48', '2020-11-25', '2024-12-11', 'EQ03', 'JG048';
 SELECT * FROM Detalle_Equipo_Jugador;
 GO
 --TABLA GOLEADOR
-EXEC sp_insertargoleador 'JG01', 'CA01'; 
-EXEC sp_insertargoleador 'JG08', 'CA02'; 
+EXEC sp_insertargoleador 'JG001', 'CA01'; 
+EXEC sp_insertargoleador 'JG008', 'CA02'; 
 SELECT * FROM Goleador;
 GO
 --TABLA Detalle_Descenso
@@ -2098,20 +2089,20 @@ SELECT * FROM Detalle_Descenso
 GO
 
 --TABLA PARTIDO
-EXEC sp_insertarpartido 'PAR01', 'EQ01', 'EQ02', '2020-10-17', '18:00', 'EQ01', 'EQ02', 4, 2;
-EXEC sp_insertarpartido 'PAR02', 'EQ02', 'EQ03', '2020-10-24', '15:00', 'EQ03', 'EQ02', 1, 0;
-EXEC sp_insertarpartido 'PAR03', 'EQ03', 'EQ01', '2020-10-31', '16:00', 'EQ01', 'EQ03', 3, 1;
+EXEC sp_insertarpartido 'EQ01', 'EQ02', '2020-10-17', '18:00', 'EQ01', 'EQ02', 4, 2;
+EXEC sp_insertarpartido 'EQ02', 'EQ03', '2020-10-24', '15:00', 'EQ03', 'EQ02', 1, 0;
+EXEC sp_insertarpartido 'EQ03', 'EQ01', '2020-10-31', '16:00', 'EQ01', 'EQ03', 3, 1;
 SELECT * FROM Partido
 GO
 
 --TABLA PLANTILLA
-EXEC sp_Insertar_Plantilla 'PL01','EQ01','JG01', 'Titular','PAR01';
-EXEC sp_Insertar_Plantilla 'PL02','EQ01','JG02', 'Titular','PAR01';
-EXEC sp_Insertar_Plantilla 'PL03','EQ01','JG03', 'Titular','PAR01';
-EXEC sp_Insertar_Plantilla 'PL04','EQ01','JG04', 'Titular','PAR01';
-EXEC sp_Insertar_Plantilla 'PL05','EQ01','JG05', 'Titular','PAR01';
-EXEC sp_Insertar_Plantilla 'PL06','EQ01','JG06', 'Titular','PAR01';
-EXEC sp_Insertar_Plantilla 'PL07','EQ01','JG07', 'Titular','PAR01';
+EXEC sp_Insertar_Plantilla 'PL01','EQ01','JG001', 'Titular',1;
+EXEC sp_Insertar_Plantilla 'PL02','EQ01','JG002', 'Titular',1;
+EXEC sp_Insertar_Plantilla 'PL03','EQ01','JG003', 'Titular',2;
+EXEC sp_Insertar_Plantilla 'PL04','EQ01','JG004', 'Titular',2;
+EXEC sp_Insertar_Plantilla 'PL05','EQ01','JG005', 'Titular',3;
+EXEC sp_Insertar_Plantilla 'PL06','EQ01','JG006', 'Titular',3;
+/*EXEC sp_Insertar_Plantilla 'PL07','EQ01','JG07', 'Titular','PAR01';
 EXEC sp_Insertar_Plantilla 'PL08','EQ01','JG08', 'Titular','PAR01';
 EXEC sp_Insertar_Plantilla 'PL09','EQ01','JG09', 'Titular','PAR01';
 EXEC sp_Insertar_Plantilla 'PL10','EQ01','JG10', 'Titular','PAR01';
@@ -2174,22 +2165,22 @@ EXEC sp_Insertar_Plantilla 'PL66','EQ01','JG07', 'Titular','PAR03';
 EXEC sp_Insertar_Plantilla 'PL67','EQ01','JG08', 'Titular','PAR03';
 EXEC sp_Insertar_Plantilla 'PL68','EQ01','JG09', 'Titular','PAR03';
 EXEC sp_Insertar_Plantilla 'PL69','EQ01','JG10', 'Titular','PAR03';
-EXEC sp_Insertar_Plantilla 'PL70','EQ01','JG11', 'Titular','PAR03';
+EXEC sp_Insertar_Plantilla 'PL70','EQ01','JG11', 'Titular','PAR03';*/
 SELECT * FROM Plantilla
 GO
 
 --TABLA GOLES
-EXEC sp_insertargoles 'GL00001', 'PAR01', 'JG06';
-EXEC sp_insertargoles 'GL00002', 'PAR01', 'JG07';
-EXEC sp_insertargoles 'GL00003', 'PAR01', 'JG08';
-EXEC sp_insertargoles 'GL00004', 'PAR01', 'JG09';
-EXEC sp_insertargoles 'GL00005', 'PAR01', 'JG24';
-EXEC sp_insertargoles 'GL00006', 'PAR01', 'JG25';
-EXEC sp_insertargoles 'GL00007', 'PAR02', 'JG38';
-EXEC sp_insertargoles 'GL00008', 'PAR03', 'JG01';
-EXEC sp_insertargoles 'GL00009', 'PAR03', 'JG02';
-EXEC sp_insertargoles 'GL00010', 'PAR03', 'JG03';
-EXEC sp_insertargoles 'GL00011', 'PAR03', 'JG39';
+EXEC sp_insertargoles 'GL00001', 1, 'JG006';
+EXEC sp_insertargoles 'GL00002', 2, 'JG007';
+EXEC sp_insertargoles 'GL00003', 3, 'JG008';
+EXEC sp_insertargoles 'GL00004', 1, 'JG009';
+EXEC sp_insertargoles 'GL00005', 2, 'JG024';
+EXEC sp_insertargoles 'GL00006', 3, 'JG025';
+EXEC sp_insertargoles 'GL00007', 1, 'JG038';
+EXEC sp_insertargoles 'GL00008', 2, 'JG001';
+EXEC sp_insertargoles 'GL00009', 3, 'JG002';
+EXEC sp_insertargoles 'GL00010', 1, 'JG003';
+EXEC sp_insertargoles 'GL00011', 2, 'JG039';
 SELECT * FROM Goles
 GO
 
@@ -2201,13 +2192,13 @@ SELECT * FROM TipoTarjeta
 GO
 
 --TABLA TARJETA
-EXEC sp_insertartarjetas 'TAR01', 'TPT01', 'JG01', 'PAR01';
-EXEC sp_insertartarjetas 'TAR02', 'TPT02', 'JG29', 'PAR01';
-EXEC sp_insertartarjetas 'TAR03', 'TPT02', 'JG03', 'PAR01';
-EXEC sp_insertartarjetas 'TAR04', 'TPT01', 'JG32', 'PAR01';
-EXEC sp_insertartarjetas 'TAR05', 'TPT02', 'JG25', 'PAR01';
-EXEC sp_insertartarjetas 'TAR06', 'TPT01', 'JG25', 'PAR02';
-EXEC sp_insertartarjetas 'TAR07', 'TPT02', 'JG05', 'PAR03';
+EXEC sp_insertartarjetas 'TAR01', 'TPT01', 'JG001', 1;
+EXEC sp_insertartarjetas 'TAR02', 'TPT02', 'JG029', 1;
+EXEC sp_insertartarjetas 'TAR03', 'TPT02', 'JG003', 2;
+EXEC sp_insertartarjetas 'TAR04', 'TPT01', 'JG032', 2;
+EXEC sp_insertartarjetas 'TAR05', 'TPT02', 'JG025', 3;
+EXEC sp_insertartarjetas 'TAR06', 'TPT01', 'JG025', 3;
+EXEC sp_insertartarjetas 'TAR07', 'TPT02', 'JG005', 3;
 SELECT * FROM Tarjeta
 GO
 
