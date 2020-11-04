@@ -551,7 +551,7 @@ create table Plantilla
 --TABLA GOLES
 create table Goles
 (
-	idGol varchar(7) not null,
+	idGol int IDENTITY(1,1) not null,
 	IdPartido int not null,
 	IdJugador varchar(5) not null,
 	usuarioisert varchar(50),
@@ -562,8 +562,7 @@ create table Goles
 	constraint pk_IdGol primary key(idGol),
 	--LLAVE SECUNDARIA
 	constraint fk_idpartido foreign key(IdPartido) references Partido(IdPartido),
-	constraint fk_Goles_Jugador foreign key (IdJugador) references Administracion.Jugador (IdJugador),
-	constraint ck_IdGol check(idGol like '[G][L][0-9][0-9][0-9][0-9][0-9]')
+	constraint fk_Goles_Jugador foreign key (IdJugador) references Administracion.Jugador (IdJugador)
 );
 
 --TABLA TIPO TARJETA
@@ -584,7 +583,7 @@ create table TipoTarjeta
 --TABLA TARJETA
 create table Tarjeta
 (
-	IdTarjeta varchar(8) not null,
+	IdTarjeta int IDENTITY (1,1) not null,
 	usuarioisert varchar(50),
 	usuarioupdate varchar(50),
 	fechainsert date,
@@ -598,8 +597,7 @@ create table Tarjeta
 	constraint fk_Tarjeta_TipoTarjeta foreign key (IdTipoTajerta) references TipoTarjeta (IdTipoTajerta),
 	constraint fk_Tarjeta_Jugador foreign key (IdJugador) references Administracion.Jugador (IdJugador),
 	constraint fk_Tarjeta_partido foreign key (IdPartido) references partido (IdPartido),
-	--RESTRICCIONES
-	constraint ck_IdTarjeta check(IdTarjeta like '[T][A][R][0-9][0-9]')
+	)
 );
 
 --TABLA Tabla_De_Posicion
@@ -915,7 +913,7 @@ GO
 
 --Goles
 create procedure sp_insertargoles
-@idGol varchar(7),	
+@idGol int,	
 @IdPartido int,
 @IdJugador varchar(20)
 as
@@ -936,7 +934,7 @@ GO
 
 --Tarjeta
 create procedure sp_insertartarjetas
-@IdTarjeta varchar(20),
+@IdTarjeta int,
 @IdTipoTajerta varchar(20),
 @IdJugador varchar(20),
 @IdPartido int
@@ -2171,17 +2169,17 @@ SELECT * FROM Plantilla
 GO
 
 --TABLA GOLES
-EXEC sp_insertargoles 'GL00001', 1, 'JG006';
-EXEC sp_insertargoles 'GL00002', 2, 'JG007';
-EXEC sp_insertargoles 'GL00003', 3, 'JG008';
-EXEC sp_insertargoles 'GL00004', 1, 'JG009';
-EXEC sp_insertargoles 'GL00005', 2, 'JG024';
-EXEC sp_insertargoles 'GL00006', 3, 'JG025';
-EXEC sp_insertargoles 'GL00007', 1, 'JG038';
-EXEC sp_insertargoles 'GL00008', 2, 'JG001';
-EXEC sp_insertargoles 'GL00009', 3, 'JG002';
-EXEC sp_insertargoles 'GL00010', 1, 'JG003';
-EXEC sp_insertargoles 'GL00011', 2, 'JG039';
+EXEC sp_insertargoles '1', 1, 'JG006';
+EXEC sp_insertargoles '2', 2, 'JG007';
+EXEC sp_insertargoles '3', 3, 'JG008';
+EXEC sp_insertargoles '4', 1, 'JG009';
+EXEC sp_insertargoles '5', 2, 'JG024';
+EXEC sp_insertargoles '6', 3, 'JG025';
+EXEC sp_insertargoles '7', 1, 'JG038';
+EXEC sp_insertargoles '8', 2, 'JG001';
+EXEC sp_insertargoles '9', 3, 'JG002';
+EXEC sp_insertargoles '10', 1, 'JG003';
+EXEC sp_insertargoles '11', 2, 'JG039';
 SELECT * FROM Goles
 GO
 
@@ -2193,13 +2191,13 @@ SELECT * FROM TipoTarjeta
 GO
 
 --TABLA TARJETA
-EXEC sp_insertartarjetas 'TAR01', 'TPT01', 'JG001', 1;
-EXEC sp_insertartarjetas 'TAR02', 'TPT02', 'JG029', 1;
-EXEC sp_insertartarjetas 'TAR03', 'TPT02', 'JG003', 2;
-EXEC sp_insertartarjetas 'TAR04', 'TPT01', 'JG032', 2;
-EXEC sp_insertartarjetas 'TAR05', 'TPT02', 'JG025', 3;
-EXEC sp_insertartarjetas 'TAR06', 'TPT01', 'JG025', 3;
-EXEC sp_insertartarjetas 'TAR07', 'TPT02', 'JG005', 3;
+EXEC sp_insertartarjetas '1', 'TPT01', 'JG001', 1;
+EXEC sp_insertartarjetas '2', 'TPT02', 'JG029', 1;
+EXEC sp_insertartarjetas '3', 'TPT02', 'JG003', 2;
+EXEC sp_insertartarjetas '4', 'TPT01', 'JG032', 2;
+EXEC sp_insertartarjetas '5', 'TPT02', 'JG025', 3;
+EXEC sp_insertartarjetas '6', 'TPT01', 'JG025', 3;
+EXEC sp_insertartarjetas '7', 'TPT02', 'JG005', 3;
 SELECT * FROM Tarjeta
 GO
 
