@@ -515,7 +515,7 @@ create table Partido
 	fechaupdate date,
 	EquipoVisitante varchar(20) not null,
 	EquipoLocal varchar(20) not null,
-	FechaPartido date not null,
+	FechaPartido date,
 	HoraPartido time not null,
 	EquipoGanador varchar(20),
 	EquipoPerdedor varchar(20),
