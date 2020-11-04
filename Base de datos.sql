@@ -596,8 +596,8 @@ create table Tarjeta
 	--LLAVE SECUNDARIA
 	constraint fk_Tarjeta_TipoTarjeta foreign key (IdTipoTajerta) references TipoTarjeta (IdTipoTajerta),
 	constraint fk_Tarjeta_Jugador foreign key (IdJugador) references Administracion.Jugador (IdJugador),
-	constraint fk_Tarjeta_partido foreign key (IdPartido) references partido (IdPartido),
-	)
+	constraint fk_Tarjeta_partido foreign key (IdPartido) references partido (IdPartido)
+	
 );
 
 --TABLA Tabla_De_Posicion
@@ -913,17 +913,13 @@ GO
 
 --Goles
 create procedure sp_insertargoles
-@idGol int,	
 @IdPartido int,
 @IdJugador varchar(20)
 as
 begin try
 begin tran
-	if(select count(*) from Goles where idGol=@idGol) = 0
-	insert into Goles(idGol, IdPartido, IdJugador)
-	values(@idGol, @IdPartido, @IdJugador)
-	else
-	print'¡Error!, este registro goles ya existe'
+	insert into Goles(IdPartido, IdJugador)
+	values (@IdPartido, @IdJugador)
 commit
 end try
 begin catch
@@ -934,18 +930,14 @@ GO
 
 --Tarjeta
 create procedure sp_insertartarjetas
-@IdTarjeta int,
 @IdTipoTajerta varchar(20),
 @IdJugador varchar(20),
 @IdPartido int
 as
 begin try
 begin tran
-	if(select count(*) from Tarjeta where IdTarjeta=@IdTarjeta) = 0
-	insert into Tarjeta(IdTarjeta, IdTipoTajerta, IdJugador, IdPartido)
-	values(@IdTarjeta, @IdTipoTajerta, @IdJugador, @IdPartido)
-	else
-	print'¡Error!, este regristro tarjea ya existe'
+	insert into Tarjeta( IdTipoTajerta, IdJugador, IdPartido)
+	values( @IdTipoTajerta, @IdJugador, @IdPartido)
 commit
 end try
 begin catch
@@ -1821,7 +1813,7 @@ EXEC sp_insertar_empleado 'EMP02','Guillermo Rivera', '1969-11-25', 'TE01', 'EQ0
 EXEC sp_insertar_empleado 'EMP03','Osvaldo Escudero', '1960-10-15', 'TE01', 'EQ03', 'salvador_escudero@gmail.com','M', '45896321-7', 'ARG'
 EXEC sp_insertar_empleado 'EMP04','Agustín Castillo', '1963-06-15', 'TE01', 'EQ04', 'albert_castillo@gmail.com','M', '02145601-9', 'PER'
 EXEC sp_insertar_empleado 'EMP05','José Antonio Calles Franco', '1962-02-12', 'TE01', 'EQ05', 'jose_franco@gmail.com','M', '14589632-5', 'ESA'
-EXEC sp_insertar_empleado 'EMP06','David Sevilla', '1983-11-05', 'TE01', 'EQ06', 'jua_dieguez@gmail.com','M', '02145601-9', 'ESP'
+EXEC sp_insertar_empleado 'EMP06','David Sevilla', '1983-11-05', 'TE01', 'EQ06', 'jua_diegueza@gmail.com','M', '02145601-9', 'ESP'
 EXEC sp_insertar_empleado 'EMP07','Marco Sánchez', '1972-05-10', 'TE01', 'EQ07', 'marco@gmail.com','M', '12563594-2', 'MEX'
 EXEC sp_insertar_empleado 'EMP08','Melvin Giovanni Portillo Amaya', '1983-11-15', 'TE01', 'EQ08', 'melvin@gmail.com','M', '12759632-8', 'ESA'
 EXEC sp_insertar_empleado 'EMP09','Marco Antonio Pineda Guerra', '1983-01-05', 'TE01', 'EQ09', 'antonio_guerra@gmail.com','M', '25365487-9', 'ESA'
@@ -2169,17 +2161,17 @@ SELECT * FROM Plantilla
 GO
 
 --TABLA GOLES
-EXEC sp_insertargoles '1', 1, 'JG006';
-EXEC sp_insertargoles '2', 2, 'JG007';
-EXEC sp_insertargoles '3', 3, 'JG008';
-EXEC sp_insertargoles '4', 1, 'JG009';
-EXEC sp_insertargoles '5', 2, 'JG024';
-EXEC sp_insertargoles '6', 3, 'JG025';
-EXEC sp_insertargoles '7', 1, 'JG038';
-EXEC sp_insertargoles '8', 2, 'JG001';
-EXEC sp_insertargoles '9', 3, 'JG002';
-EXEC sp_insertargoles '10', 1, 'JG003';
-EXEC sp_insertargoles '11', 2, 'JG039';
+EXEC sp_insertargoles 1, 'JG006';
+EXEC sp_insertargoles 2, 'JG007';
+EXEC sp_insertargoles 3, 'JG008';
+EXEC sp_insertargoles 1, 'JG009';
+EXEC sp_insertargoles 2, 'JG024';
+EXEC sp_insertargoles 3, 'JG025';
+EXEC sp_insertargoles 1, 'JG038';
+EXEC sp_insertargoles 2, 'JG001';
+EXEC sp_insertargoles 3, 'JG002';
+EXEC sp_insertargoles 1, 'JG003';
+EXEC sp_insertargoles 2, 'JG039';
 SELECT * FROM Goles
 GO
 
@@ -2191,13 +2183,13 @@ SELECT * FROM TipoTarjeta
 GO
 
 --TABLA TARJETA
-EXEC sp_insertartarjetas '1', 'TPT01', 'JG001', 1;
-EXEC sp_insertartarjetas '2', 'TPT02', 'JG029', 1;
-EXEC sp_insertartarjetas '3', 'TPT02', 'JG003', 2;
-EXEC sp_insertartarjetas '4', 'TPT01', 'JG032', 2;
-EXEC sp_insertartarjetas '5', 'TPT02', 'JG025', 3;
-EXEC sp_insertartarjetas '6', 'TPT01', 'JG025', 3;
-EXEC sp_insertartarjetas '7', 'TPT02', 'JG005', 3;
+EXEC sp_insertartarjetas 'TPT01', 'JG001', 1;
+EXEC sp_insertartarjetas 'TPT02', 'JG029', 1;
+EXEC sp_insertartarjetas 'TPT02', 'JG003', 2;
+EXEC sp_insertartarjetas 'TPT01', 'JG032', 2;
+EXEC sp_insertartarjetas 'TPT02', 'JG022', 3;
+EXEC sp_insertartarjetas 'TPT01', 'JG023', 3;
+EXEC sp_insertartarjetas 'TPT02', 'JG005', 3;
 SELECT * FROM Tarjeta
 GO
 
