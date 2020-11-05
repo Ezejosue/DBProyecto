@@ -1832,6 +1832,7 @@ EXEC sp_Insertar_Patrocinador 'PTR07', 'Pepsi', '2368-7852', 'contactos_pepsi@ho
 EXEC sp_Insertar_Patrocinador 'PTR08', 'Canal 21', '2598-7831', 'contactos_canal21@hotmail.com', 'D:\Patrocinadores\canal21.jpg'
 EXEC sp_Insertar_Patrocinador 'PTR09', 'Pilsener', '2748-6521', 'contactos_ilc@hotmail.com', 'D:\Patrocinadores\pilsener_logo.jpg'
 EXEC sp_Insertar_Patrocinador 'PTR010', 'Alo', '2968-6781', 'contactos_alo33@hotmail.com', 'D:\Patrocinadores\alo33_logo.jpg'
+
 SELECT * FROM Patrocinador
 
 --TABLA Detalle_Equipo_Patrocinador
@@ -2168,7 +2169,7 @@ EXEC sp_insertargoles 1, 'JG009';
 EXEC sp_insertargoles 2, 'JG024';
 EXEC sp_insertargoles 3, 'JG025';
 EXEC sp_insertargoles 1, 'JG038';
-EXEC sp_insertargoles 2, 'JG001';
+EXEC sp_insertargoles 2, 'JG007';
 EXEC sp_insertargoles 3, 'JG002';
 EXEC sp_insertargoles 1, 'JG003';
 EXEC sp_insertargoles 2, 'JG039';
@@ -2207,3 +2208,35 @@ GO
 --Patrocinador
 --Detalle Equipo-patrocinador
 --Empleado (entrenadores)
+
+
+--VISTA 3
+CREATE VIEW Posiciones
+AS
+	SELECT E.NombreEquipo, T.PartidosJugados, T.Puntaje, T.PartidosGanados, T.PartidosEmpatados, T.PartidosPerdidos,
+	T.GolesFavor, T.GolesContra, T.DiferenciaGoles 
+	FROM Tabla_De_Posicion T INNER JOIN Administracion.Equipo E ON E.IdEquipo = T.IdEquipo
+GO
+
+SELECT * FROM Posiciones
+
+--Vista 4 
+CREATE VIEW Goleadores
+AS
+	SELECT TOP 99.9 PERCENT E.NombreEquipo, J.NombreJugador, COUNT(G.idGol) AS Goles FROM 
+	Goles G INNER JOIN Partido P ON G.IdPartido=P.IdPartido INNER JOIN Administracion.Jugador J ON G.IdJugador=J.IdJugador
+	INNER JOIN Administracion.Equipo E ON E.IdEquipo = p.EquipoGanador 
+	GROUP BY E.NombreEquipo, J.NombreJugador ORDER BY Goles DESC	
+GO
+
+SELECT * FROM Goleadores
+
+--VISTA 5
+CREATE VIEW PlantillaEquipo
+AS
+	SELECT E.NombreEquipo, J.NombreJugador, P.RolJugador, J.posicion, PA.FechaPartido FROM Plantilla P INNER JOIN Administracion.Equipo E ON P.IdEquipo=E.IdEquipo 
+	INNER JOIN Administracion.Jugador J ON J.IdJugador=p.IdJugador INNER JOIN Partido PA ON PA.IdPartido=P.IdPartido
+GO
+
+SELECT * FROM PlantillaEquipo
+
