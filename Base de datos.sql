@@ -9,6 +9,7 @@ go
 --CREANDO ESQUEMA
 GO
 CREATE SCHEMA Administracion;
+CREATE SCHEMA Vistas;
 GO
 --CREANDO INICIOS DE SESION
 CREATE LOGIN Usuario1
@@ -23,6 +24,21 @@ WITH PASSWORD = '123456'
 CREATE LOGIN Usuario4
 WITH PASSWORD = '123456'
 
+CREATE LOGIN Usuario5
+WITH PASSWORD = '123456'
+
+CREATE LOGIN Usuario6
+WITH PASSWORD = '12345'
+
+CREATE LOGIN Usuario7
+WITH PASSWORD = '12345'
+
+CREATE LOGIN Usuario8
+WITH PASSWORD = '12345'
+
+CREATE LOGIN Usuario9
+WITH PASSWORD = '12345'
+
 --CREANDO USUARIOS
 CREATE USER Ezequiel FOR LOGIN Usuario1
 WITH DEFAULT_SCHEMA = Administracion
@@ -35,6 +51,22 @@ WITH DEFAULT_SCHEMA = Administracion
 
 CREATE USER Josue FOR LOGIN Usuario4
 WITH DEFAULT_SCHEMA = Administracion
+
+--Esquema Vistas
+CREATE USER Ezequiel1 FOR LOGIN Usuario5
+WITH DEFAULT_SCHEMA = Vistas
+
+CREATE USER Erick1 FOR LOGIN Usuario6
+WITH DEFAULT_SCHEMA = Vistas
+
+CREATE USER Fabiola1 FOR LOGIN Usuario7
+WITH DEFAULT_SCHEMA = Vistas
+
+CREATE USER Josue1 FOR LOGIN Usuario8
+WITH DEFAULT_SCHEMA = Vistas
+
+CREATE USER Fabs FOR LOGIN Usuario9
+WITH DEFAULT_SCHEMA = Vistas
 
 --Bridando permisos de consultar los datos
 GRANT SELECT ON SCHEMA :: Administracion
@@ -53,20 +85,25 @@ GRANT SELECT ON SCHEMA :: Administracion
 TO Josue WITH GRANT OPTION 
 GO
 
-GRANT SELECT ON SCHEMA :: Administracion
-TO Ezequiel WITH GRANT OPTION 
+--Permisos para esquema vistas
+GRANT SELECT ON SCHEMA :: Vistas
+TO Ezequiel1 WITH GRANT OPTION 
 GO
 
-GRANT SELECT ON SCHEMA :: Administracion
-TO Erick WITH GRANT OPTION 
+GRANT SELECT ON SCHEMA :: Vistas
+TO Erick1 WITH GRANT OPTION 
 GO
 
-GRANT SELECT ON SCHEMA :: Administracion
-TO Fabiola WITH GRANT OPTION 
+GRANT SELECT ON SCHEMA :: Vistas
+TO Fabiola1 WITH GRANT OPTION 
 GO
 
-GRANT SELECT ON SCHEMA :: Administracion
-TO Josue WITH GRANT OPTION 
+GRANT SELECT ON SCHEMA :: Vistas
+TO Josue1 WITH GRANT OPTION 
+GO
+
+GRANT SELECT ON SCHEMA :: Vistas
+TO Fabs WITH GRANT OPTION 
 GO
 
 --Otorgando permisos de insersion 
@@ -2210,18 +2247,20 @@ GO
 --Empleado (entrenadores)
 
 
+DROP VIEW PlantillaEquipo
+
 --VISTA 3
-CREATE VIEW Posiciones
+CREATE VIEW Vistas.Posiciones
 AS
 	SELECT E.NombreEquipo, T.PartidosJugados, T.Puntaje, T.PartidosGanados, T.PartidosEmpatados, T.PartidosPerdidos,
 	T.GolesFavor, T.GolesContra, T.DiferenciaGoles 
 	FROM Tabla_De_Posicion T INNER JOIN Administracion.Equipo E ON E.IdEquipo = T.IdEquipo
 GO
 
-SELECT * FROM Posiciones
+SELECT * FROM Vistas.Posiciones
 
 --Vista 4 
-CREATE VIEW Goleadores
+CREATE VIEW Vistas.Goleadores
 AS
 	SELECT TOP 99.9 PERCENT E.NombreEquipo, J.NombreJugador, COUNT(G.idGol) AS Goles FROM 
 	Goles G INNER JOIN Partido P ON G.IdPartido=P.IdPartido INNER JOIN Administracion.Jugador J ON G.IdJugador=J.IdJugador
@@ -2229,14 +2268,14 @@ AS
 	GROUP BY E.NombreEquipo, J.NombreJugador ORDER BY Goles DESC	
 GO
 
-SELECT * FROM Goleadores
+SELECT * FROM Vistas.Goleadores
 
 --VISTA 5
-CREATE VIEW PlantillaEquipo
+CREATE VIEW Vistas.PlantillaEquipo
 AS
 	SELECT E.NombreEquipo, J.NombreJugador, P.RolJugador, J.posicion, PA.FechaPartido FROM Plantilla P INNER JOIN Administracion.Equipo E ON P.IdEquipo=E.IdEquipo 
 	INNER JOIN Administracion.Jugador J ON J.IdJugador=p.IdJugador INNER JOIN Partido PA ON PA.IdPartido=P.IdPartido
 GO
 
-SELECT * FROM PlantillaEquipo
+SELECT * FROM Vistas.PlantillaEquipo
 
