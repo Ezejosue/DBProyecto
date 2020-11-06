@@ -291,8 +291,7 @@ create table Liga
 	constraint fk_Liga_Division foreign key (IdDivision) references Division (IdDivision),
 	--RESTRICCIONES
 	constraint ck_IdLiga check(IdLiga like '[L][G][0-9][0-9]'),
-	constraint ck_NombreLiga check(NombreLiga like '%[a-zA-Z0-9]%'),
-	constraint ck_fechasliga check(FechaFinalLiga>FechaInicioLiga)
+	constraint ck_NombreLiga check(NombreLiga like '%[a-zA-Z0-9]%')
 );
 
 --TABLA EQUIPO
@@ -1821,7 +1820,7 @@ EXEC sp_insertardivison 'DV03', 'Tercera división'
 SELECT * FROM Division
 
 --TABLA LIGA
-EXEC sp_Insertar_Liga 'LG01', 'Liga mayor de fútbol El Salvdor', '2020-01-15', '2020-06-25', 'ESA', 'DV01'
+EXEC sp_Insertar_Liga 'LG01', 'Liga mayor de fútbol El Salvdor', '2020-11-07', '2020-06-25', 'ESA', 'DV01'
 EXEC sp_Insertar_Liga 'LG02', 'Premier', '2020-03-15', '2020-09-25', 'UKD', 'DV02'
 EXEC sp_Insertar_Liga 'LG03', 'Liga MX', '2020-02-17', '2020-11-21', 'MEX', 'DV01'
 EXEC sp_Insertar_Liga 'LG04', 'Liga Santander', '2020-01-15', '2020-06-25', 'ESP', 'DV01'
