@@ -1798,13 +1798,13 @@ SELECT * FROM TipoEmpleado
 --TABLA ESTADIO
 EXEC sp_insertarestadio 'ED01', 'Estadio Cuscatlán','25000', 'Calle Antigua a Huizucar, San Salvador', 'Jorge Alberto Rodríguez', '7754-8963', 'jorgeab@gmail.com'
 EXEC sp_insertarestadio 'ED02', 'Estadio Óscar Quiteño','17500', 'Santa Ana', 'Gerson Daniel Maldonado', '6598-7485', 'maldonado1234@outlook.com'
-EXEC sp_insertarestadio 'ED03', 'Estadio Juan Francisco Barraza','29000', 'San Miguel', 'Julio Rodolfo Rodríguez', '7683-1198', 'julio_ro2@gmail.com'
+EXEC sp_insertarestadio 'ED03', 'Estadio Juan Francisco Barraza','29000', 'San Miguel', 'Julio Adolfo Rodríguez', '7683-1198', 'julio_ro2@gmail.com'
 EXEC sp_insertarestadio 'ED04', 'Estadio Jorge "Calero" Suárez','27000', 'Metapán','Guillermo Martínez', '7854-9632', 'martinore_23@gmail.com'
-EXEC sp_insertarestadio 'ED05', 'Estadio Sergio Torres Rivera','7500', 'Usulután', 'Arnoldo Saldaña Martínez', '7754-2663', 'juli_ar@hotmail.com'
-EXEC sp_insertarestadio 'ED06', 'Estadio Dr. Ramón Flores Berrios','29000', 'La Unión', 'Julio Rodolfo Rodríguez', '7841-1198', 'pedro_ro2@gmail.com'
-EXEC sp_insertarestadio 'ED07', 'Estadio Las Delicias','17500', 'Santa Tecla', 'Gerson Daniel Maldonado', '7873-7485', 'paramientras1234@outlook.com'
-EXEC sp_insertarestadio 'ED08', 'Estadio Gregorio Martínez','17500', 'Chalatenango', 'Gerson Daniel Maldonado', '6598-4564', 'prueba1234@outlook.com'
-EXEC sp_insertarestadio 'ED09', 'Estadio Arturo Simeón Magaña','17500', 'Ahuachapán', 'Gerson Daniel Maldonado', '5665-4566', 'borrador1234@outlook.com'
+EXEC sp_insertarestadio 'ED05', 'Estadio Sergio Torres Rivera','7500', 'Usulután', 'Arnoldo Saldaña Martínez', '7754-2663', 'jsaldania_@hotmail.com'
+EXEC sp_insertarestadio 'ED06', 'Estadio Dr. Ramón Flores Berrios','29000', 'La Unión', 'Luis Gonzales', '7841-1198', 'gonzales102@gmail.com'
+EXEC sp_insertarestadio 'ED07', 'Estadio Las Delicias','17500', 'Santa Tecla', 'Eddy René Barahona', '7873-7485', 'baha_esc4@outlook.com'
+EXEC sp_insertarestadio 'ED08', 'Estadio Gregorio Martínez','17500', 'Chalatenango', 'Mauricio Orellana', '6598-4564', 'mauricio_ore@outlook.com'
+EXEC sp_insertarestadio 'ED09', 'Estadio Arturo Simeón Magaña','17500', 'Ahuachapán', 'Alejandro Manuel Ventura', '5665-4566', 'ventura1997@outlook.com'
 EXEC sp_insertarestadio 'ED10', 'Estadio Prueba','2000', 'Calle Antigua a Huizucar, San Salvador', 'Gerson Daniel Maldonado', '7888-8888', 'borrador21234@outlook.com'
 SELECT * FROM Estadio
 
@@ -1868,7 +1868,7 @@ EXEC sp_Insertar_Patrocinador 'PTR06', 'Umbro', '2598-6321', 'contactos_umbro@ho
 EXEC sp_Insertar_Patrocinador 'PTR07', 'Pepsi', '2368-7852', 'contactos_pepsi@hotmail.com', 'D:\Patrocinadores\pepsi_logo.jpg'
 EXEC sp_Insertar_Patrocinador 'PTR08', 'Canal 21', '2598-7831', 'contactos_canal21@hotmail.com', 'D:\Patrocinadores\canal21.jpg'
 EXEC sp_Insertar_Patrocinador 'PTR09', 'Pilsener', '2748-6521', 'contactos_ilc@hotmail.com', 'D:\Patrocinadores\pilsener_logo.jpg'
-EXEC sp_Insertar_Patrocinador 'PTR010', 'Alo', '2968-6781', 'contactos_alo33@hotmail.com', 'D:\Patrocinadores\alo33_logo.jpg'
+EXEC sp_Insertar_Patrocinador 'PTR10', 'Alo', '2968-6781', 'contactos_alo33@hotmail.com', 'D:\Patrocinadores\alo33_logo.jpg'
 
 SELECT * FROM Patrocinador
 
