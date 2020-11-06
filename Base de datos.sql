@@ -9,6 +9,7 @@ go
 --CREANDO ESQUEMA
 GO
 CREATE SCHEMA Administracion;
+go
 CREATE SCHEMA Vistas;
 GO
 --CREANDO INICIOS DE SESION
@@ -2118,19 +2119,19 @@ SELECT * FROM Detalle_Descenso
 GO
 
 --TABLA PARTIDO
-EXEC sp_insertarpartido 'EQ01', 'EQ02', '2020-10-17', '18:00', 'EQ01', 'EQ02', 4, 2;
+/*EXEC sp_insertarpartido 'EQ01', 'EQ02', '2020-10-17', '18:00', 'EQ01', 'EQ02', 4, 2;
 EXEC sp_insertarpartido 'EQ02', 'EQ03', '2020-10-24', '15:00', 'EQ03', 'EQ02', 1, 0;
 EXEC sp_insertarpartido 'EQ03', 'EQ01', '2020-10-31', '16:00', 'EQ01', 'EQ03', 3, 1;
 SELECT * FROM Partido
-GO
+GO*/
 
 --TABLA PLANTILLA
-EXEC sp_Insertar_Plantilla 'PL01','EQ01','JG001', 'Titular',1;
+/*EXEC sp_Insertar_Plantilla 'PL01','EQ01','JG001', 'Titular',1;
 EXEC sp_Insertar_Plantilla 'PL02','EQ01','JG002', 'Titular',1;
 EXEC sp_Insertar_Plantilla 'PL03','EQ01','JG003', 'Titular',2;
 EXEC sp_Insertar_Plantilla 'PL04','EQ01','JG004', 'Titular',2;
 EXEC sp_Insertar_Plantilla 'PL05','EQ01','JG005', 'Titular',3;
-EXEC sp_Insertar_Plantilla 'PL06','EQ01','JG006', 'Titular',3;
+EXEC sp_Insertar_Plantilla 'PL06','EQ01','JG006', 'Titular',3;*/
 /*EXEC sp_Insertar_Plantilla 'PL07','EQ01','JG07', 'Titular','PAR01';
 EXEC sp_Insertar_Plantilla 'PL08','EQ01','JG08', 'Titular','PAR01';
 EXEC sp_Insertar_Plantilla 'PL09','EQ01','JG09', 'Titular','PAR01';
@@ -2195,11 +2196,11 @@ EXEC sp_Insertar_Plantilla 'PL67','EQ01','JG08', 'Titular','PAR03';
 EXEC sp_Insertar_Plantilla 'PL68','EQ01','JG09', 'Titular','PAR03';
 EXEC sp_Insertar_Plantilla 'PL69','EQ01','JG10', 'Titular','PAR03';
 EXEC sp_Insertar_Plantilla 'PL70','EQ01','JG11', 'Titular','PAR03';*/
-SELECT * FROM Plantilla
-GO
+/*SELECT * FROM Plantilla
+GO*/
 
 --TABLA GOLES
-EXEC sp_insertargoles 1, 'JG006';
+/*EXEC sp_insertargoles 1, 'JG006';
 EXEC sp_insertargoles 2, 'JG007';
 EXEC sp_insertargoles 3, 'JG008';
 EXEC sp_insertargoles 1, 'JG009';
@@ -2211,7 +2212,7 @@ EXEC sp_insertargoles 3, 'JG002';
 EXEC sp_insertargoles 1, 'JG003';
 EXEC sp_insertargoles 2, 'JG039';
 SELECT * FROM Goles
-GO
+GO*/
 
 
 --TABLA TIPO TARJETA
@@ -2221,7 +2222,7 @@ SELECT * FROM TipoTarjeta
 GO
 
 --TABLA TARJETA
-EXEC sp_insertartarjetas 'TPT01', 'JG001', 1;
+/*EXEC sp_insertartarjetas 'TPT01', 'JG001', 1;
 EXEC sp_insertartarjetas 'TPT02', 'JG029', 1;
 EXEC sp_insertartarjetas 'TPT02', 'JG003', 2;
 EXEC sp_insertartarjetas 'TPT01', 'JG032', 2;
@@ -2230,13 +2231,13 @@ EXEC sp_insertartarjetas 'TPT01', 'JG023', 3;
 EXEC sp_insertartarjetas 'TPT02', 'JG005', 3;
 SELECT * FROM Tarjeta
 GO
+*/
 
 --TABLA POSICION
-EXEC sp_Insertar_Posicion 'POS01', 7, 3, 2, 0, 0, 2, 6, 4, 0, 'EQ01', 'CA01';
+/*EXEC sp_Insertar_Posicion 'POS01', 7, 3, 2, 0, 0, 2, 6, 4, 0, 'EQ01', 'CA01';
 EXEC sp_Insertar_Posicion 'POS02', 2, 5, 0, 2, 0, 2, 0, -3, 0, 'EQ02', 'CA01';
 EXEC sp_Insertar_Posicion 'POS03', 2, 3, 1, 1, 0, 2, 3, -1, 0, 'EQ03', 'CA01';
-SELECT * FROM Tabla_De_Posicion
-GO
+SELECT * FROM Tabla_De_Posicion*/
 
 --Tablas Modificadas
 --Equipo
@@ -2247,7 +2248,8 @@ GO
 --Empleado (entrenadores)
 
 
-DROP VIEW PlantillaEquipo
+--DROP VIEW PlantillaEquipo
+GO
 
 --VISTA 3
 CREATE VIEW Vistas.Posiciones
@@ -2258,7 +2260,7 @@ AS
 GO
 
 SELECT * FROM Vistas.Posiciones
-
+GO
 --Vista 4 
 CREATE VIEW Vistas.Goleadores
 AS
@@ -2269,7 +2271,7 @@ AS
 GO
 
 SELECT * FROM Vistas.Goleadores
-
+GO
 --VISTA 5
 CREATE VIEW Vistas.PlantillaEquipo
 AS
@@ -2279,3 +2281,178 @@ GO
 
 SELECT * FROM Vistas.PlantillaEquipo
 
+
+
+
+
+--NO TOCAR :) SIEMPRE DEJAR ESTO HASTA EL FINAL
+---PROCEDIMIENTOS ALMACENADOS Y CURSOR PARA CREAR PARTIDOS*********************
+GO
+
+--Procedimiento para crear partido
+create procedure sp_crearPartido_cursor
+@EquipoLocal varchar(20),
+@FechaInicio date,
+@HoraPartido time,
+@idLiga varchar(4),
+@DiaFavorito varchar(50)
+as
+begin try
+begin tran
+					Declare @EquipoVisitante varchar(4)
+					declare @fechaPartido date
+					set @fechaPartido = @FechaInicio;
+
+					Declare cursor_equipos_visitantes cursor GLOBAL
+					for Select IdEquipo from Administracion.Equipo
+					where IdEquipo != @EquipoLocal
+					Open cursor_equipos_visitantes
+					fetch cursor_equipos_visitantes into @EquipoVisitante
+					while(@@fetch_status=0)
+					begin
+							insert into Partido(EquipoVisitante, EquipoLocal, FechaPartido, HoraPartido)
+							values(@EquipoVisitante, @EquipoLocal, null, @HoraPartido)
+							
+
+					fetch cursor_equipos_visitantes into @EquipoVisitante
+					end
+					close cursor_equipos_visitantes
+					deallocate cursor_equipos_visitantes
+commit
+end try
+begin catch
+rollback
+print error_message()
+end catch;
+GO
+
+--Procedimiento para establecer fechas
+create procedure sp_establecerFechas
+@FechaInicioLiga date
+as
+begin try
+begin tran			
+					Declare @FechaInicio date
+					set @FechaInicio = @FechaInicioLiga
+
+					Declare @EquipoVisitante varchar(4)
+					Declare @EquipoLocal varchar(4)
+					Declare @fechaFin date
+
+					set @fechaFin = (SELECT DATEADD(week,36,@FechaInicio) AS DateAdd)
+					print @fechaFin
+
+					Declare cursor_partidos cursor GLOBAL
+					for Select EquipoVisitante, EquipoLocal from Partido
+					Open cursor_partidos
+					fetch cursor_partidos into @EquipoVisitante, @EquipoLocal
+					
+					while(@@fetch_status=0)
+					begin
+							set @FechaInicio = @FechaInicioLiga
+							declare @contador int
+							set @contador = 0   
+
+							WHILE @FechaInicio <= @fechaFin
+							BEGIN
+							   if((select datename(dw,@FechaInicio))='Sábado' or (select datename(dw,@FechaInicio))='Domingo')
+							   begin
+
+
+									declare @fechasRepetidas int
+
+									declare @fechasRepetidasDiaAntes int
+									declare @fechaDiaAntes date
+									set @fechaDiaAntes = (SELECT DATEADD(day,-1,@FechaInicio))
+									declare @fechaDiaDespues date
+									set @fechaDiaDespues = (SELECT DATEADD(day,1,@FechaInicio))
+
+									set @fechasRepetidas =  (select count(*) from partido where (FechaPartido = @FechaInicio and EquipoLocal = @EquipoLocal) OR (FechaPartido = @FechaInicio AND EquipoVisitante = @EquipoLocal)
+															OR (FechaPartido = @FechaInicio AND EquipoLocal = @EquipoVisitante)	OR (FechaPartido = @FechaInicio AND EquipoVisitante = @EquipoVisitante))
+
+									
+
+									set @fechasRepetidasDiaAntes =  (select count(*) from partido where (FechaPartido = @fechaDiaAntes and EquipoLocal = @EquipoLocal) OR (FechaPartido = @fechaDiaAntes AND EquipoVisitante = @EquipoLocal) 
+																	OR (FechaPartido = @fechaDiaAntes and EquipoLocal = @EquipoVisitante) OR (FechaPartido = @fechaDiaAntes AND EquipoVisitante = @EquipoVisitante))
+
+									declare @fechasRepetidasDiaDespues int
+									set @fechasRepetidasDiaDespues =  (select count(*) from partido where (FechaPartido = @fechaDiaDespues and EquipoLocal = @EquipoLocal) OR (FechaPartido = @fechaDiaDespues AND EquipoVisitante = @EquipoLocal)
+																	OR (FechaPartido = @fechaDiaDespues and EquipoLocal = @EquipoVisitante) OR (FechaPartido = @fechaDiaDespues AND EquipoVisitante = @EquipoVisitante))
+
+
+									if(@fechasRepetidas = 0 and @fechasRepetidasDiaAntes = 0 and @fechasRepetidasDiaDespues = 0)
+									begin
+										declare @DiaFavorito varchar(20)
+										set @DiaFavorito = (select D.NombreDia from Administracion.Equipo E
+																inner join DiaFavorito D on D.IdDiaFavorito = E.IdDiaFavorito  where IdEquipo = @EquipoLocal)
+										declare @FechaPartido date
+										set @FechaPartido = @FechaInicio
+																	
+										--Ajuste de fecha para día favorito
+										if(@DiaFavorito!=(select datename(dw,@FechaPartido)))
+										begin
+											if((select datename(dw,@FechaPartido))='Domingo' and @DiaFavorito = 'Sábado')
+											begin
+												set @FechaPartido = (SELECT DATEADD(day,-1,@FechaPartido))
+											end
+											else if((select datename(dw,@FechaInicio))='Sábado' and @DiaFavorito = 'Domingo')
+											begin
+												set @FechaPartido = (SELECT DATEADD(day,1,@FechaPartido))
+											end
+										end
+
+										update Partido set FechaPartido = @FechaPartido
+										where EquipoLocal = @EquipoLocal and EquipoVisitante = @EquipoVisitante
+
+										BREAK;
+		
+									end
+							   end
+							   set @FechaInicio = (SELECT DATEADD(day,1,@FechaInicio) AS DateAdd)
+							END
+
+					fetch cursor_partidos into @EquipoVisitante, @EquipoLocal
+					end
+					close cursor_partidos
+					deallocate cursor_partidos
+commit
+end try
+begin catch
+rollback
+print error_message()
+end catch;
+GO
+
+
+
+----Cursor para crear partidos
+Declare @IdEquipo varchar(4),
+@NombreEquipo varchar(100),
+@HoraFavoritaEquipo time,
+@IdEstadio varchar(4),
+@IdLiga varchar(4),
+@FechaInicio date,
+@DiaFavorito varchar(50)
+
+Declare cursor_equipos cursor GLOBAL
+for Select IdEquipo,  NombreEquipo, HoraFavoritaEquipo, IdEstadio, L.IdLiga, L.FechaInicioLiga, DF.NombreDia from Administracion.Equipo E
+INNER JOIN Liga L ON L.IdLiga = E.IdLiga
+INNER JOIN DiaFavorito DF ON DF.IdDiaFavorito = E.IdDiaFavorito
+WHERE L.IdLiga = 'LG01';
+Open cursor_equipos
+fetch cursor_equipos into @IdEquipo, @NombreEquipo, @HoraFavoritaEquipo,@IdEstadio,@IdLiga,@FechaInicio, @DiaFavorito
+while(@@fetch_status=0)
+begin
+		EXEC sp_crearPartido_cursor @IdEquipo, @FechaInicio, @HoraFavoritaEquipo, @IdLiga,@DiaFavorito
+
+		if(select count(*) from partido)=90
+		begin
+			EXEC sp_establecerFechas @FechaInicio
+		end
+
+fetch cursor_equipos into @IdEquipo,  @NombreEquipo, @HoraFavoritaEquipo, @IdEstadio, @IdLiga, @FechaInicio, @DiaFavorito
+end
+close cursor_equipos
+deallocate cursor_equipos
+GO
+select * from Partido
