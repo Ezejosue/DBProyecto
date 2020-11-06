@@ -556,8 +556,8 @@ create table Partido
 	HoraPartido time not null,
 	EquipoGanador varchar(20),
 	EquipoPerdedor varchar(20),
-	GolesGanador int,
-	GolesPerdedor int,
+	GolesLocal int,
+	GolesVisitante int,
 	--LLAVE PRIMARIA
 	constraint pk_IdPartido primary key (IdPartido)
 );
@@ -591,6 +591,7 @@ create table Goles
 	idGol int IDENTITY(1,1) not null,
 	IdPartido int not null,
 	IdJugador varchar(5) not null,
+	IdEquipo varchar(4),
 	usuarioisert varchar(50),
 	usuarioupdate varchar(50),
 	fechainsert date,
@@ -933,13 +934,13 @@ create procedure sp_insertarpartido
 @HoraPartido time,
 @EquipoGanador varchar(20),
 @EquipoPerdedor varchar(20), 
-@GolesGanador int,
-@GolesPerdedor int
+@GolesLocal int,
+@GolesVisitante int
 as
 begin try
 begin tran
-	insert into Partido(EquipoVisitante, EquipoLocal, FechaPartido, HoraPartido, EquipoGanador, EquipoPerdedor, GolesGanador, GolesPerdedor)
-	values(@EquipoVisitante, @EquipoLocal, @FechaPartido, @HoraPartido, @EquipoGanador, @EquipoPerdedor, @GolesGanador, @GolesPerdedor)
+	insert into Partido(EquipoVisitante, EquipoLocal, FechaPartido, HoraPartido, EquipoGanador, EquipoPerdedor, GolesLocal, GolesVisitante)
+	values(@EquipoVisitante, @EquipoLocal, @FechaPartido, @HoraPartido, @EquipoGanador, @EquipoPerdedor, @GolesLocal, @GolesVisitante)
 commit
 end try
 begin catch
@@ -951,12 +952,13 @@ GO
 --Goles
 create procedure sp_insertargoles
 @IdPartido int,
-@IdJugador varchar(20)
+@IdJugador varchar(20),
+@IdEquipo varchar(4)
 as
 begin try
 begin tran
-	insert into Goles(IdPartido, IdJugador)
-	values (@IdPartido, @IdJugador)
+	insert into Goles(IdPartido, IdJugador,idEquipo)
+	values (@IdPartido, @IdJugador,@idEquipo)
 commit
 end try
 begin catch
@@ -1805,7 +1807,6 @@ EXEC sp_insertarestadio 'ED06', 'Estadio Dr. Ramón Flores Berrios','29000', 'La
 EXEC sp_insertarestadio 'ED07', 'Estadio Las Delicias','17500', 'Santa Tecla', 'Eddy René Barahona', '7873-7485', 'baha_esc4@outlook.com'
 EXEC sp_insertarestadio 'ED08', 'Estadio Gregorio Martínez','17500', 'Chalatenango', 'Mauricio Orellana', '6598-4564', 'mauricio_ore@outlook.com'
 EXEC sp_insertarestadio 'ED09', 'Estadio Arturo Simeón Magaña','17500', 'Ahuachapán', 'Alejandro Manuel Ventura', '5665-4566', 'ventura1997@outlook.com'
-EXEC sp_insertarestadio 'ED10', 'Estadio Prueba','2000', 'Calle Antigua a Huizucar, San Salvador', 'Gerson Daniel Maldonado', '7888-8888', 'borrador21234@outlook.com'
 SELECT * FROM Estadio
 
 --TABLA DIA FAVORITO
@@ -2106,8 +2107,10 @@ EXEC sp_Insertar_DetalleEquipoJugador 'CON47', '2020-11-14', '2024-12-23', 'EQ03
 EXEC sp_Insertar_DetalleEquipoJugador 'CON48', '2020-11-25', '2024-12-11', 'EQ03', 'JG048';
 SELECT * FROM Detalle_Equipo_Jugador;
 GO
+
+
 --TABLA GOLEADOR
-EXEC sp_insertargoleador 'JG001', 'CA01'; 
+/*EXEC sp_insertargoleador 'JG001', 'CA01'; 
 EXEC sp_insertargoleador 'JG008', 'CA02'; 
 SELECT * FROM Goleador;
 GO
@@ -2115,7 +2118,7 @@ GO
 EXEC sp_Insertar_DetalleDescenso 'EQ01', 'CA01'
 EXEC sp_Insertar_DetalleDescenso 'EQ02', 'CA01'
 SELECT * FROM Detalle_Descenso
-GO
+GO*/
 
 --TABLA PARTIDO
 /*EXEC sp_insertarpartido 'EQ01', 'EQ02', '2020-10-17', '18:00', 'EQ01', 'EQ02', 4, 2;
@@ -2312,7 +2315,6 @@ begin tran
 							insert into Partido(EquipoVisitante, EquipoLocal, FechaPartido, HoraPartido)
 							values(@EquipoVisitante, @EquipoLocal, null, @HoraPartido)
 							
-
 					fetch cursor_equipos_visitantes into @EquipoVisitante
 					end
 					close cursor_equipos_visitantes
@@ -2339,7 +2341,6 @@ begin tran
 					Declare @fechaFin date
 
 					set @fechaFin = (SELECT DATEADD(week,36,@FechaInicio) AS DateAdd)
-					print @fechaFin
 
 					Declare cursor_partidos cursor GLOBAL
 					for Select EquipoVisitante, EquipoLocal from Partido
@@ -2454,4 +2455,80 @@ end
 close cursor_equipos
 deallocate cursor_equipos
 GO
+
+
 select * from Partido
+
+select * from Goles
+
+
+----Cursor para generar goles
+Declare 
+@idPartido int,
+@EquipoLocal varchar(4),
+@EquipoVisitante varchar(4)
+
+Declare cursor_goles cursor GLOBAL
+for Select IdPartido ,EquipoLocal, EquipoVisitante from Partido
+
+Open cursor_goles
+fetch cursor_goles into @idPartido, @EquipoLocal, @EquipoVisitante
+while(@@fetch_status=0)
+begin
+		declare @NumeroDesde int = 0;
+		declare @NumeroHasta int = 6;
+
+		declare @golesLocal int = 0;
+		declare @golesVisitante int = 0;
+
+		set @golesLocal = (SELECT ROUND(((@NumeroHasta - @NumeroDesde) * RAND() + @NumeroDesde), 0))
+		set @golesVisitante = (SELECT ROUND(((@NumeroHasta - @NumeroDesde) * RAND() + @NumeroDesde), 0))
+
+
+		if(@golesVisitante=@golesLocal)
+		begin
+			update Partido set GolesLocal=@golesLocal,GolesVisitante=@golesVisitante,EquipoGanador='EMPATE',EquipoPerdedor='EMPATE'
+			where EquipoLocal = @EquipoLocal AND EquipoVisitante = @EquipoVisitante
+		end
+		else if(@golesVisitante>@golesLocal)
+		begin
+			update Partido set GolesLocal=@golesLocal,GolesVisitante=@golesVisitante,EquipoGanador=@EquipoVisitante,EquipoPerdedor=@EquipoLocal
+			where EquipoLocal = @EquipoLocal AND EquipoVisitante = @EquipoVisitante
+		end
+		else if(@golesLocal>@golesVisitante)
+		begin
+			update Partido set GolesLocal=@golesLocal,GolesVisitante=@golesVisitante,EquipoGanador=@EquipoLocal,EquipoPerdedor=@EquipoVisitante
+			where EquipoLocal = @EquipoLocal AND EquipoVisitante = @EquipoVisitante
+		end
+
+		while @golesLocal >= 0
+		begin
+			DECLARE @jugadorLocal VARCHAR(6)
+			SET @jugadorLocal = (select TOP 1 J.IdJugador from Administracion.jugador  J
+			inner join Detalle_Equipo_Jugador DJ ON DJ.IdJugador = J.IdJugador
+			where DJ.IdEquipo = @EquipoLocal 
+			ORDER BY NEWID())
+
+			EXEC sp_insertargoles @IdPartido, @jugadorLocal,@EquipoLocal;
+
+			set @golesLocal = @golesLocal - 1;
+		end
+
+		while @golesVisitante >= 0
+		begin
+			DECLARE @jugadorVisitante VARCHAR(6)
+			SET @jugadorVisitante = (select TOP 1 J.IdJugador from Administracion.jugador  J
+			inner join Detalle_Equipo_Jugador DJ ON DJ.IdJugador = J.IdJugador
+			where DJ.IdEquipo = @EquipoVisitante
+			ORDER BY NEWID())
+
+			EXEC sp_insertargoles @IdPartido, @jugadorVisitante,@EquipoVisitante;
+
+			set @golesVisitante = @golesVisitante - 1;
+		end
+
+fetch cursor_goles into @idPartido, @EquipoLocal, @EquipoVisitante
+end
+close cursor_goles
+deallocate cursor_goles
+GO
