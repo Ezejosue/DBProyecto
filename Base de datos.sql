@@ -330,7 +330,7 @@ create table Campania
 	fechainsert date,
 	fechaupdate date,
 	NombreCampania varchar(100) not null unique,
-	EquipoGanador varchar(20) not null,
+	EquipoGanador varchar(20),
 	IdLiga varchar(4) not null,
 	--LLAVE PRIMARIA
 	constraint pk_IdCampania primary key (IdCampania),
@@ -646,17 +646,16 @@ create table Tabla_De_Posicion
 	usuarioupdate varchar(50),
 	fechainsert date,
 	fechaupdate date,
-	GolesFavor int not null,
-	GolesContra int not null,
-	PartidosGanados int not null,
-	PartidosPerdidos int not null,
-	PartidosEmpatados int not null,
-	PartidosJugados int not null,
-	Puntaje int not null,
-	DiferenciaGoles int not null,
-	JuegoLimpio int not null,
-	IdEquipo varchar(4) not null,
-	IdCampania varchar(4) not null,
+	GolesFavor int default 0,
+	GolesContra int default 0,
+	PartidosGanados int default 0,
+	PartidosPerdidos int default 0,
+	PartidosEmpatados int default 0,
+	PartidosJugados int default 0,
+	Puntaje int default 0,
+	DiferenciaGoles int default 0,
+	IdEquipo varchar(4),
+	IdCampania varchar(4),
 	--LLAVE PRIMARIA
 	constraint pk_IdPosicion primary key (IdPosicion),
 	--LLAVE SECUNDARIA
@@ -666,8 +665,6 @@ create table Tabla_De_Posicion
 	constraint ck_IdPosicion check(IdPosicion like '[P][O][S][0-9][0-9]')
 );
 GO
-
-
 
 
 --*******************************PROCEDIMIENTOS ALMACENADOS**************************
@@ -1035,16 +1032,14 @@ GO
 create procedure sp_Insertar_Campania
 @IdCampania varchar(4),
 @NombreCampania varchar(100),
-@EquipoGanador varchar(20),
 @IdLiga varchar(4)
 as
 begin try
 begin tran
 	if(select Count(*) from Campania
-			where IdCampania=@IdCampania or NombreCampania=@NombreCampania or 
-			EquipoGanador=@EquipoGanador)=0
-			insert into Campania(IdCampania, NombreCampania, EquipoGanador, IdLiga)
-			values (@IdCampania, @NombreCampania, @EquipoGanador, @IdLiga)
+			where IdCampania=@IdCampania or NombreCampania=@NombreCampania)=0
+			insert into Campania(IdCampania, NombreCampania, IdLiga)
+			values (@IdCampania, @NombreCampania, @IdLiga)
 	else
 	print '¡Error!, esta campaña ya es existente en los registros'
 commit
@@ -1220,15 +1215,6 @@ GO
 --PROCEDIMIENTO TABLA POSICION
 create procedure sp_Insertar_Posicion
 @IdPosicion varchar(20),
-@GolesFavor int, 
-@GolesContra int,
-@PartidosGanados int,
-@PartidosPerdidos int,
-@PartidosEmpatados int,
-@PartidosJugados int,
-@Puntaje int,
-@DiferenciaGoles int,
-@JuegoLimpio int,
 @IdEquipo varchar(4),
 @IdCampania varchar(4)
 as
@@ -1236,10 +1222,8 @@ begin try
 begin tran
 	if(select count(*) from Tabla_De_Posicion
 			where IdPosicion=@IdPosicion)=0
-			insert into Tabla_De_Posicion(IdPosicion,GolesFavor ,GolesContra,PartidosGanados,PartidosPerdidos,
-			PartidosEmpatados,PartidosJugados,Puntaje,DiferenciaGoles,JuegoLimpio,IdEquipo,IdCampania)
-			values(@IdPosicion,@GolesFavor ,@GolesContra,@PartidosGanados,@PartidosPerdidos,
-			@PartidosEmpatados,@PartidosJugados,@Puntaje,@DiferenciaGoles,@JuegoLimpio,@IdEquipo,@IdCampania)
+			insert into Tabla_De_Posicion(IdPosicion,IdEquipo,IdCampania)
+			values(@IdPosicion,@IdEquipo,@IdCampania)
 	else
 	print '¡Error!, este registro  ya es existente'
 commit
@@ -1249,7 +1233,6 @@ rollback
 print error_message()
 end catch;
 GO
-
 
 --*******************************TRIGGERS**************************
 
@@ -1841,8 +1824,7 @@ EXEC sp_insertarequipo 'EQ10', 'Club Deportivo Atlético Marte Quezaltepe','Ofic
 SELECT * FROM Administracion.Equipo
 
 --TABLA CAMPAÑA
-EXEC sp_Insertar_Campania 'CA01', 'Torneo Apertura', 'EQ01', 'LG01'
-EXEC sp_Insertar_Campania 'CA02', 'Torneo Clausura', 'EQ03', 'LG01'
+EXEC sp_Insertar_Campania 'CA01', 'Torneo Apertura', 'LG01'
 SELECT * FROM Campania
 
 --TABLA EMPLEADO
@@ -2311,10 +2293,17 @@ GO
 */
 
 --TABLA POSICION
-/*EXEC sp_Insertar_Posicion 'POS01', 7, 3, 2, 0, 0, 2, 6, 4, 0, 'EQ01', 'CA01';
-EXEC sp_Insertar_Posicion 'POS02', 2, 5, 0, 2, 0, 2, 0, -3, 0, 'EQ02', 'CA01';
-EXEC sp_Insertar_Posicion 'POS03', 2, 3, 1, 1, 0, 2, 3, -1, 0, 'EQ03', 'CA01';
-SELECT * FROM Tabla_De_Posicion*/
+EXEC sp_Insertar_Posicion 'POS01','EQ01', 'CA01';
+EXEC sp_Insertar_Posicion 'POS02','EQ02', 'CA01';
+EXEC sp_Insertar_Posicion 'POS03','EQ03', 'CA01';
+EXEC sp_Insertar_Posicion 'POS04','EQ04', 'CA01';
+EXEC sp_Insertar_Posicion 'POS05','EQ05', 'CA01';
+EXEC sp_Insertar_Posicion 'POS06','EQ06', 'CA01';
+EXEC sp_Insertar_Posicion 'POS07','EQ07', 'CA01';
+EXEC sp_Insertar_Posicion 'POS08','EQ08', 'CA01';
+EXEC sp_Insertar_Posicion 'POS09','EQ09', 'CA01';
+EXEC sp_Insertar_Posicion 'POS10','EQ10', 'CA01';
+SELECT * FROM Tabla_De_Posicion
 
 --Tablas Modificadas
 --Equipo
@@ -2532,10 +2521,10 @@ deallocate cursor_equipos
 GO
 
 
-select * from Partido
-
+/*select * from Partido
+delete from Partido
 select * from Goles
-
+delete from Goles*/
 
 ----Cursor para generar goles
 Declare 
@@ -2564,18 +2553,61 @@ begin
 		begin
 			update Partido set GolesLocal=@golesLocal,GolesVisitante=@golesVisitante,EquipoGanador='EMPATE',EquipoPerdedor='EMPATE'
 			where EquipoLocal = @EquipoLocal AND EquipoVisitante = @EquipoVisitante
+
+			--Equipo Local
+			update Tabla_De_Posicion set GolesFavor +=  @golesLocal, GolesContra += @golesVisitante,
+			PartidosEmpatados += 1,Puntaje += 1, PartidosJugados += 1
+			where IdEquipo = @EquipoLocal
+			update Tabla_De_Posicion set DiferenciaGoles = (GolesFavor-GolesContra)
+			where IdEquipo = @EquipoLocal
+
+			--Equipo Visitante
+			update Tabla_De_Posicion set GolesFavor +=  @golesVisitante, GolesContra += @golesLocal,
+			PartidosEmpatados += 1,Puntaje += 1, PartidosJugados += 1
+			where IdEquipo = @EquipoVisitante
+			update Tabla_De_Posicion set DiferenciaGoles = (GolesFavor-GolesContra)
+			where IdEquipo = @EquipoVisitante
 		end
 		else if(@golesVisitante>@golesLocal)
 		begin
 			update Partido set GolesLocal=@golesLocal,GolesVisitante=@golesVisitante,EquipoGanador=@EquipoVisitante,EquipoPerdedor=@EquipoLocal
 			where EquipoLocal = @EquipoLocal AND EquipoVisitante = @EquipoVisitante
+
+
+			--Equipo Local
+			update Tabla_De_Posicion set GolesFavor +=  @golesLocal, GolesContra += @golesVisitante,
+			PartidosPerdidos += 1, PartidosJugados += 1
+			where IdEquipo = @EquipoLocal
+			update Tabla_De_Posicion set DiferenciaGoles = (GolesFavor-GolesContra)
+			where IdEquipo = @EquipoLocal
+
+			--Equipo Visitante
+			update Tabla_De_Posicion set GolesFavor +=  @golesVisitante, GolesContra += @golesLocal,
+			PartidosGanados += 1,Puntaje += 3, PartidosJugados += 1
+			where IdEquipo = @EquipoVisitante
+			update Tabla_De_Posicion set DiferenciaGoles = (GolesFavor-GolesContra)
+			where IdEquipo = @EquipoVisitante
+
 		end
 		else if(@golesLocal>@golesVisitante)
 		begin
 			update Partido set GolesLocal=@golesLocal,GolesVisitante=@golesVisitante,EquipoGanador=@EquipoLocal,EquipoPerdedor=@EquipoVisitante
 			where EquipoLocal = @EquipoLocal AND EquipoVisitante = @EquipoVisitante
-		end
+			
+			--Equipo Local
+			update Tabla_De_Posicion set GolesFavor +=  @golesLocal, GolesContra += @golesVisitante,
+			PartidosGanados += 1,Puntaje += 3, PartidosJugados += 1
+			where IdEquipo = @EquipoLocal
+			update Tabla_De_Posicion set DiferenciaGoles = (GolesFavor-GolesContra)
+			where IdEquipo = @EquipoLocal
 
+			--Equipo Visitante
+			update Tabla_De_Posicion set GolesFavor +=  @golesVisitante, GolesContra += @golesLocal,
+			PartidosPerdidos += 1, PartidosJugados += 1
+			where IdEquipo = @EquipoVisitante
+			update Tabla_De_Posicion set DiferenciaGoles = (GolesFavor-GolesContra)
+			where IdEquipo = @EquipoVisitante
+		end
 		while @golesLocal >= 0
 		begin
 			DECLARE @jugadorLocal VARCHAR(6)
