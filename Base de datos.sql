@@ -2316,7 +2316,14 @@ SELECT * FROM Tabla_De_Posicion
 
 --DROP VIEW PlantillaEquipo
 GO
+--VISTA 1
+CREATE VIEW Vistas.Candelarizacion
+AS
+	Select FechaPartido, HoraPartido, EquipoLocal, EquipoVisitante from Partido 
+GO
 
+select * from vistas.Candelarizacion
+GO
 --VISTA 3
 CREATE VIEW Vistas.Posiciones
 AS
