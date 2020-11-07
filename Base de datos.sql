@@ -2319,11 +2319,34 @@ GO
 --VISTA 1
 CREATE VIEW Vistas.Candelarizacion
 AS
-	Select FechaPartido, HoraPartido, EquipoLocal, EquipoVisitante from Partido 
-GO
-
+	select FechaPartido, HoraPartido,
+	(select NombreEquipo from Administracion.Equipo where IdEquipo = P.EquipoVisitante) as [Equipo Visitante],
+	(select NombreEquipo from Administracion.Equipo where IdEquipo = P.EquipoLocal) as [Equipo Local]
+	from partido P
 select * from vistas.Candelarizacion
 GO
+
+
+--VISTA 2 (Procedure)
+create procedure candelarizacion_equipo
+@IdEquipo varchar(20)
+as
+begin try
+begin tran
+	select FechaPartido, HoraPartido,
+	(select NombreEquipo from Administracion.Equipo where IdEquipo = P.EquipoVisitante) as [Equipo Visitante],
+	(select NombreEquipo from Administracion.Equipo where IdEquipo = P.EquipoLocal) as [Equipo Local]
+	from partido P
+	inner join Administracion.Equipo E on E.IdEquipo = P.EquipoLocal
+	where EquipoLocal = @IdEquipo OR EquipoVisitante = @IdEquipo
+	commit
+end try
+begin catch
+rollback
+print error_message()
+end catch;
+GO
+
 --VISTA 3
 CREATE VIEW Vistas.Posiciones
 AS
