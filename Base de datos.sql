@@ -1770,6 +1770,8 @@ EXEC sp_Insertar_Pais 'CRO','Croacia'
 EXEC sp_Insertar_Pais 'GUT','Guatemala'
 EXEC sp_Insertar_Pais 'PAY','Paraguay'
 EXEC sp_Insertar_Pais 'TTG','Trinidad y Tobago'
+EXEC sp_Insertar_Pais 'HON','Honduras'
+EXEC sp_Insertar_Pais 'CUB','Cuba'
 SELECT * FROM Pais
 
 --TABLA TIPO EMPLEADO
@@ -2035,6 +2037,114 @@ EXEC sp_insertarjugador 'JG113', 'André Vasconcelos', '1.70', '60kg', '1995-05-
 EXEC sp_insertarjugador 'JG114', 'Chistopher Ramirez', '1.70', '60kg', '1990-02-02', 'Delantero', 'ESA'
 EXEC sp_insertarjugador 'JG115', 'Edgar Cruz', '1.70', '60kg', '1993-11-20', 'Delantero', 'ESA'
 
+--Limeño
+EXEC sp_insertarjugador 'JG116', 'Abiel Aguilera', '1.76', '60kg','1988-08-29', 'Portero', 'ESA'
+EXEC sp_insertarjugador 'JG117', 'William Torres', '1.80', '60kg','1993-02-08', 'Portero', 'ESA'
+EXEC sp_insertarjugador 'JG118', 'Salvador Morales', '1.80', '60kg','1979-10-25', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG119', 'Christian Portillo', '1.74', '60kg','1985-01-18', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG120', 'Mario Machado', '1.79', '60kg','1990-07-17', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG121', 'Walter Guevara', '1.73', '60kg','1992-11-13', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG122', 'Hugo Oviedo', '1.77', '60kg','1992-12-14', 'Defensa', 'PAN'
+EXEC sp_insertarjugador 'JG123', 'Samuel Giménez', '1.79', '60kg','1991-02-10', 'Defensa', 'PAR'
+EXEC sp_insertarjugador 'JG124', 'Éver Acosta', '1.77', '60kg','1998-08-28', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG125', 'Arnulfo Beitar', '1.87', '60kg','1988-11-11', 'Defensa', 'COL'
+EXEC sp_insertarjugador 'JG126', 'Luis Méndez', '1.73', '60kg','1997-10-29', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG127', 'Francisco Álvarez', '1.67', '60kg','1982-11-24', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG128', 'Christopher Galea', '1.77', '60kg','1993-01-03', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG129', 'Ramón Viera', '1.77', '60kg','1993-08-30', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG130', 'Ramón Rodríguez', '1.73', '60kg','1997-02-12', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG131', 'Ever Rodríguez', '1.73', '60kg','1997-02-12', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG132', 'Kevin Oviedo', '1.72', '60kg','1998-05-18', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG133', 'Blas Lizama', '1.78', '60kg','1994-04-11', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG134', 'William Canales', '1.73', '60kg','1995-02-18', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG135', 'Edwin Sánchez', '1.72', '60kg','1990-02-21', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG136', 'Isidro Gutiérrez', '1.73', '60kg','1989-10-21', 'Delantero', 'ESA'
+EXEC sp_insertarjugador 'JG137', 'Jeison Quiñonez', '1.80', '60kg','1986-09-17', 'Delantero', 'COL'
+EXEC sp_insertarjugador 'JG138', 'Harold Alas', '1.82', '60kg','1989-09-19', 'Delantero', 'ESA'
+
+--Santa Tecla
+EXEC sp_insertarjugador 'JG139', 'Jesús Dautt', '1.77', '60kg','1990-03-03', 'Portero', 'MEX'
+EXEC sp_insertarjugador 'JG140', 'Wilberth Hernández', '1.76', '60kg','1994-04-05', 'Portero', 'ESA'
+EXEC sp_insertarjugador 'JG141', 'Geovanni Ávila', '1.87', '60kg','2000-03-21', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG142', 'Wálter Torres', '1.72', '60kg','1998-04-19', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG143', 'Yosimar Qiñónez', '1.89', '60kg','1988-08-04', 'Defensa', 'COL'
+EXEC sp_insertarjugador 'JG144', 'Alexander Mendoza', '1.78', '60kg','1990-06-04', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG145', 'josué Santos', '1.80', '60kg','1997-06-12', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG146', 'Gerardo García', '1.71', '60kg','1999-05-31', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG147', 'Elmer Escobar', '1.72', '60kg','1998-02-19', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG148', 'Andrés Hernández', '1.70', '60kg','2000-02-20', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG149', 'Iván Barahona', '1.81', '60kg','1995-03-27', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG150', 'Rodrigo Rivera', '1.74', '60kg','1992-07-10', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG151', 'Fernando Quintanilla', '1.75', '60kg','1998-01-02', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG152', 'Kevin Reyes', '1.75', '60kg','1999-08-28', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG153', 'Marlón Cornejo', '1.83', '60kg','1993-09-14', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG154', 'Álvaro Lizama', '1.71', '60kg','1995-05-24', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG155', 'Juan Aimar', '1.76', '60kg','1988-10-26', 'Centrocampista', 'ARG'
+EXEC sp_insertarjugador 'JG156', 'Ángel Callejas', '1.71', '60kg','1999-01-14', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG157', 'Henry Argueta', '1.73', '60kg','1997-09-19', 'Delantero', 'ESA'
+EXEC sp_insertarjugador 'JG158', 'Santos Guzmán', '1.77', '60kg','1993-05-23', 'Delantero', 'ESA'
+EXEC sp_insertarjugador 'JG159', 'Óscar Paz', '1.72', '60kg','1998-03-14', 'Delantero', 'ESA'
+EXEC sp_insertarjugador 'JG160', 'Wilmar Cruz', '1.71', '60kg','1993-07-27', 'Delantero', 'COL'
+EXEC sp_insertarjugador 'JG161', 'David Díaz', '1.83', '60kg','1992-10-20', 'Delantero', 'ESA'
+
+--Chalatenango
+EXEC sp_insertarjugador 'JG162', 'Daniel Arroyo', '1.82', '60kg','1990-01-28', 'Portero', 'ESA'
+EXEC sp_insertarjugador 'JG163', 'Émerson Lalín', '1.82', '60kg','1994-01-18', 'Defensa', 'HON'
+EXEC sp_insertarjugador 'JG164', 'Raúl Cruz', '1.76', '60kg','1993-12-08', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG165', 'Fidel Jiménez', '1.73', '60kg','1992-01-29', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG166', 'Miguel Lemus', '1.62', '60kg','1993-10-26', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG167', 'Juan Granados', '1.74', '60kg','1981-01-05', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG168', 'Francisco Posada', '1.72', '60kg','1997-12-20', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG169', 'Boris Morales', '1.72', '60kg','1998-08-13', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG170', 'Brayan Landaverde', '1.73', '60kg','1997-04-01', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG171', 'Rodrigo Herrera', '1.71', '60kg','1999-05-08', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG172', 'Peter Domínguez', '1.75', '60kg','1990-10-28', 'Centrocampista', 'COL'
+EXEC sp_insertarjugador 'JG173', 'Félix Sánchez', '1.80', '60kg','1990-07-16', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG174', 'Henry Reyes', '1.74', '60kg','1992-04-03', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG175', 'Jairo Enríquez', '1.73', '60kg','1993-08-31', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG176', 'Rubén Robledo', '1.76', '60kg','1989-12-19', 'Delantero', 'COL'
+EXEC sp_insertarjugador 'JG177', 'Carlos Félix', '1.85', '60kg','1991-05-14', 'Delantero', 'MEX'
+EXEC sp_insertarjugador 'JG178', 'Luis Paradela', '1.69', '60kg','1997-01-21', 'Delantero', 'CUB'
+EXEC sp_insertarjugador 'JG179', 'josé Ángel Peña', '1.86', '60kg','1994-12-10', 'Delantero', 'ESA'
+EXEC sp_insertarjugador 'JG180', 'Ezequiel Rivas', '1.76', '60kg','1998-05-20', 'Delantero', 'ESA'
+
+--Once Deportivo
+EXEC sp_insertarjugador 'JG181', 'José Luis Gonzáles', '1.76', '60kg','1984-06-12', 'Portero', 'ESA'
+EXEC sp_insertarjugador 'JG182', 'Ismael Valladares', '1.79', '60kg','1986-09-26', 'Portero', 'ESA'
+EXEC sp_insertarjugador 'JG183', 'Luis Copete', '1.87', '60kg','1989-02-12', 'Defensa', 'COL'
+EXEC sp_insertarjugador 'JG184', 'Julio Sibrián', '1.74', '60kg','1996-07-17', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG185', 'Gerardo Guirola', '1.75', '60kg','1997-06-21', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG186', 'Kevin Menjívar', '1.73', '60kg','2000-09-23', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG187', 'Carlos Araujo', '1.77', '60kg','1982-10-12', 'Centrocampista', 'BRA'
+EXEC sp_insertarjugador 'JG188', 'Franklin Turcios', '1.73', '60kg','1997-06-11', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG189', 'Abdiel Macea', '1.72', '60kg','1991-04-05', 'Centrocampista', 'PAN'
+EXEC sp_insertarjugador 'JG190', 'Cristhian Sánchez', '1.75', '60kg','1983-05-15', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG191', 'Diego Peraza', '1.72', '60kg','1992-06-19', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG192', 'Camilo Mejía', '1.77', '60kg','1981-08-30', 'Centrocampista', 'COL'
+EXEC sp_insertarjugador 'JG193', 'Fernando Castillo', '1.70', '60kg','1997-07-09', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG194', 'Elvin Alvarado', '1.73', '60kg','1998-08-23', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG195', 'Gilberto Baires', '1.65', '60kg','1990-04-01', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG196', 'Daley Mena', '1.76', '60kg','1985-02-07', 'Delantero', 'ESA'
+EXEC sp_insertarjugador 'JG197', 'Mario Deras', '1.73', '60kg','1978-12-29', 'Delantero', 'ESA'
+EXEC sp_insertarjugador 'JG198', 'Marco Granados', '1.83', '60kg','1996-09-29', 'Delantero', 'MEX'
+EXEC sp_insertarjugador 'JG199', 'David Rugamas', '1.71', '60kg','1990-02-17', 'Delantero', 'ESA'
+EXEC sp_insertarjugador 'JG200', 'Brayan Paz', '1.76', '60kg','1997-11-14', 'Delantero', 'ESA'
+
+--Atlético Marte
+EXEC sp_insertarjugador 'JG201', 'Luis Tatuaca', '1.85', '60kg','1990-07-06', 'Portero', 'GUT'
+EXEC sp_insertarjugador 'JG202', 'José Alvarado', '1.78', '60kg','1980-03-23', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG203', 'Josué Cheguen', '1.73', '60kg','1996-12-08', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG204', 'Argenis Alba', '1.74', '60kg','1996-04-02', 'Defensa', 'COL'
+EXEC sp_insertarjugador 'JG205', 'Óscar Menjívar', '1.82', '60kg','1997-07-07', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG206', 'William Pinto', '1.70', '60kg','2000-07-25', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG207', 'Kevin Barahona', '1.69', '60kg','1997-10-01', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG208', 'Eduardo Merino', '1.74', '60kg','1995-12-21', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG209', 'Edgardo Mira', '1.74', '60kg','1993-03-10', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG210', 'Daniel Guzmán', '1.78', '60kg','1992-06-28', 'Delantero', 'MEX'
+EXEC sp_insertarjugador 'JG211', 'Bryan Pérez', '1.74', '60kg','1996-03-04', 'Delantero', 'ESA'
+
+
+
 SELECT * FROM Administracion.Jugador;
 GO
 
@@ -2162,6 +2272,114 @@ EXEC sp_Insertar_DetalleEquipoJugador 'PER112', '2020-11-14', '2024-12-23', 'EQ0
 EXEC sp_Insertar_DetalleEquipoJugador 'PER113', '2020-11-14', '2024-12-23', 'EQ05', 'JG113';
 EXEC sp_Insertar_DetalleEquipoJugador 'PER114', '2020-11-14', '2024-12-23', 'EQ05', 'JG114';
 EXEC sp_Insertar_DetalleEquipoJugador 'PER115', '2020-11-14', '2024-12-23', 'EQ05', 'JG115';
+
+--Limeño
+EXEC sp_Insertar_DetalleEquipoJugador 'PER116', '2020-11-14', '2024-12-23', 'EQ06', 'JG116';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER117', '2020-11-14', '2024-12-23', 'EQ06', 'JG117';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER118', '2020-11-14', '2024-12-23', 'EQ06', 'JG118';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER119', '2020-11-14', '2024-12-23', 'EQ05', 'JG119';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER120', '2020-11-14', '2024-12-23', 'EQ05', 'JG120';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER121', '2020-11-14', '2024-12-23', 'EQ05', 'JG121';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER122', '2020-11-14', '2024-12-23', 'EQ05', 'JG122';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER123', '2020-11-14', '2024-12-23', 'EQ05', 'JG123';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER124', '2020-11-14', '2024-12-23', 'EQ05', 'JG124';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER125', '2020-11-14', '2024-12-23', 'EQ05', 'JG125';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER126', '2020-11-14', '2024-12-23', 'EQ05', 'JG126';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER127', '2020-11-14', '2024-12-23', 'EQ05', 'JG127';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER128', '2020-11-14', '2024-12-23', 'EQ05', 'JG128';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER129', '2020-11-14', '2024-12-23', 'EQ05', 'JG129';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER130', '2020-11-14', '2024-12-23', 'EQ05', 'JG130';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER131', '2020-11-14', '2024-12-23', 'EQ05', 'JG131';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER132', '2020-11-14', '2024-12-23', 'EQ05', 'JG132';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER133', '2020-11-14', '2024-12-23', 'EQ05', 'JG133';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER134', '2020-11-14', '2024-12-23', 'EQ05', 'JG134';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER135', '2020-11-14', '2024-12-23', 'EQ05', 'JG135';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER136', '2020-11-14', '2024-12-23', 'EQ05', 'JG136';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER137', '2020-11-14', '2024-12-23', 'EQ05', 'JG137';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER138', '2020-11-14', '2024-12-23', 'EQ05', 'JG138';
+
+--Santa Tecla
+EXEC sp_Insertar_DetalleEquipoJugador 'PER139', '2020-11-14', '2024-12-23', 'EQ06', 'JG139';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER140', '2020-11-14', '2024-12-23', 'EQ06', 'JG140';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER141', '2020-11-14', '2024-12-23', 'EQ06', 'JG141';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER142', '2020-11-14', '2024-12-23', 'EQ05', 'JG142';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER143', '2020-11-14', '2024-12-23', 'EQ05', 'JG143';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER144', '2020-11-14', '2024-12-23', 'EQ05', 'JG144';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER145', '2020-11-14', '2024-12-23', 'EQ05', 'JG145';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER146', '2020-11-14', '2024-12-23', 'EQ05', 'JG146';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER147', '2020-11-14', '2024-12-23', 'EQ05', 'JG147';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER148', '2020-11-14', '2024-12-23', 'EQ05', 'JG148';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER149', '2020-11-14', '2024-12-23', 'EQ05', 'JG149';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER150', '2020-11-14', '2024-12-23', 'EQ05', 'JG150';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER151', '2020-11-14', '2024-12-23', 'EQ05', 'JG151';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER152', '2020-11-14', '2024-12-23', 'EQ05', 'JG152';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER153', '2020-11-14', '2024-12-23', 'EQ05', 'JG153';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER154', '2020-11-14', '2024-12-23', 'EQ05', 'JG154';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER155', '2020-11-14', '2024-12-23', 'EQ05', 'JG155';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER156', '2020-11-14', '2024-12-23', 'EQ05', 'JG156';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER157', '2020-11-14', '2024-12-23', 'EQ05', 'JG157';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER158', '2020-11-14', '2024-12-23', 'EQ05', 'JG158';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER159', '2020-11-14', '2024-12-23', 'EQ05', 'JG159';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER160', '2020-11-14', '2024-12-23', 'EQ05', 'JG160';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER161', '2020-11-14', '2024-12-23', 'EQ05', 'JG161';
+
+--Chalatenango
+EXEC sp_Insertar_DetalleEquipoJugador 'PER162', '2020-11-14', '2024-12-23', 'EQ06', 'JG162';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER163', '2020-11-14', '2024-12-23', 'EQ06', 'JG163';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER164', '2020-11-14', '2024-12-23', 'EQ06', 'JG164';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER165', '2020-11-14', '2024-12-23', 'EQ05', 'JG165';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER166', '2020-11-14', '2024-12-23', 'EQ05', 'JG166';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER167', '2020-11-14', '2024-12-23', 'EQ05', 'JG167';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER168', '2020-11-14', '2024-12-23', 'EQ05', 'JG168';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER169', '2020-11-14', '2024-12-23', 'EQ05', 'JG169';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER170', '2020-11-14', '2024-12-23', 'EQ05', 'JG170';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER171', '2020-11-14', '2024-12-23', 'EQ05', 'JG171';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER172', '2020-11-14', '2024-12-23', 'EQ05', 'JG172';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER173', '2020-11-14', '2024-12-23', 'EQ05', 'JG173';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER174', '2020-11-14', '2024-12-23', 'EQ05', 'JG174';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER175', '2020-11-14', '2024-12-23', 'EQ05', 'JG175';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER176', '2020-11-14', '2024-12-23', 'EQ05', 'JG176';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER177', '2020-11-14', '2024-12-23', 'EQ05', 'JG177';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER178', '2020-11-14', '2024-12-23', 'EQ05', 'JG178';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER179', '2020-11-14', '2024-12-23', 'EQ05', 'JG179';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER180', '2020-11-14', '2024-12-23', 'EQ05', 'JG180';
+
+--Once Deportivo
+EXEC sp_Insertar_DetalleEquipoJugador 'PER181', '2020-11-14', '2024-12-23', 'EQ06', 'JG181';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER182', '2020-11-14', '2024-12-23', 'EQ06', 'JG182';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER183', '2020-11-14', '2024-12-23', 'EQ06', 'JG183';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER184', '2020-11-14', '2024-12-23', 'EQ05', 'JG184';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER185', '2020-11-14', '2024-12-23', 'EQ05', 'JG185';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER186', '2020-11-14', '2024-12-23', 'EQ05', 'JG186';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER187', '2020-11-14', '2024-12-23', 'EQ05', 'JG187';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER188', '2020-11-14', '2024-12-23', 'EQ05', 'JG188';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER189', '2020-11-14', '2024-12-23', 'EQ05', 'JG189';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER190', '2020-11-14', '2024-12-23', 'EQ05', 'JG190';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER191', '2020-11-14', '2024-12-23', 'EQ05', 'JG191';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER192', '2020-11-14', '2024-12-23', 'EQ05', 'JG192';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER193', '2020-11-14', '2024-12-23', 'EQ05', 'JG193';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER194', '2020-11-14', '2024-12-23', 'EQ05', 'JG194';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER195', '2020-11-14', '2024-12-23', 'EQ05', 'JG195';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER196', '2020-11-14', '2024-12-23', 'EQ05', 'JG196';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER197', '2020-11-14', '2024-12-23', 'EQ05', 'JG197';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER198', '2020-11-14', '2024-12-23', 'EQ05', 'JG198';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER199', '2020-11-14', '2024-12-23', 'EQ05', 'JG199';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER200', '2020-11-14', '2024-12-23', 'EQ05', 'JG200';
+
+--Atletico Marte
+EXEC sp_Insertar_DetalleEquipoJugador 'PER201', '2020-11-14', '2024-12-23', 'EQ06', 'JG201';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER202', '2020-11-14', '2024-12-23', 'EQ06', 'JG202';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER203', '2020-11-14', '2024-12-23', 'EQ06', 'JG203';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER204', '2020-11-14', '2024-12-23', 'EQ05', 'JG204';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER205', '2020-11-14', '2024-12-23', 'EQ05', 'JG205';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER206', '2020-11-14', '2024-12-23', 'EQ05', 'JG206';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER207', '2020-11-14', '2024-12-23', 'EQ05', 'JG207';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER208', '2020-11-14', '2024-12-23', 'EQ05', 'JG208';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER209', '2020-11-14', '2024-12-23', 'EQ05', 'JG209';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER210', '2020-11-14', '2024-12-23', 'EQ05', 'JG210';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER211', '2020-11-14', '2024-12-23', 'EQ05', 'JG211';
+
+
 SELECT * FROM Detalle_Equipo_Jugador;
 GO
 
