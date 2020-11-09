@@ -2535,16 +2535,17 @@ SELECT * FROM Tabla_De_Posicion
 --DROP VIEW PlantillaEquipo
 GO
 --VISTA 1
+GO
 CREATE VIEW Vistas.Candelarizacion
 AS
 	select FechaPartido, HoraPartido,
 	(select NombreEquipo from Administracion.Equipo where IdEquipo = P.EquipoVisitante) as [Equipo Visitante],
 	(select NombreEquipo from Administracion.Equipo where IdEquipo = P.EquipoLocal) as [Equipo Local]
 	from partido P
-select * from vistas.Candelarizacion
+
 GO
-
-
+select * from vistas.Candelarizacion
+go
 --VISTA 2 (Procedure)
 create procedure candelarizacion_equipo
 @IdEquipo varchar(20)
