@@ -556,8 +556,9 @@ create table Partido
 	HoraPartido time not null,
 	EquipoGanador varchar(20),
 	EquipoPerdedor varchar(20),
-	GolesLocal int,
-	GolesVisitante int,
+	GolesLocal int default 0,
+	GolesVisitante int default 0,
+	estado varchar(100) null DEFAULT 'PROGRAMADO',
 	--LLAVE PRIMARIA
 	constraint pk_IdPartido primary key (IdPartido)
 );
@@ -954,8 +955,16 @@ create procedure sp_insertargoles
 as
 begin try
 begin tran
-	insert into Goles(IdPartido, IdJugador,idEquipo)
-	values (@IdPartido, @IdJugador,@idEquipo)
+	IF(SELECT Estado FROM Partido WHERE IdPartido = @IdPartido) != 'FINALIZADO'
+	BEGIN
+		insert into Goles(IdPartido, IdJugador,idEquipo)
+		values (@IdPartido, @IdJugador,@idEquipo)
+	END
+	ELSE
+	BEGIN
+		PRINT ('No se puede ingresar goles porque el partido ya ha finalizado')
+	END
+	
 commit
 end try
 begin catch
@@ -2538,12 +2547,13 @@ GO
 GO
 CREATE VIEW Vistas.Candelarizacion
 AS
-	select FechaPartido, HoraPartido,
+	select TOP 90 FechaPartido, HoraPartido,
 	(select NombreEquipo from Administracion.Equipo where IdEquipo = P.EquipoVisitante) as [Equipo Visitante],
 	(select NombreEquipo from Administracion.Equipo where IdEquipo = P.EquipoLocal) as [Equipo Local]
-	from partido P
+	from partido P order by FechaPartido
 
 GO
+
 select * from vistas.Candelarizacion
 go
 --VISTA 2 (Procedure)
@@ -2558,6 +2568,7 @@ begin tran
 	from partido P
 	inner join Administracion.Equipo E on E.IdEquipo = P.EquipoLocal
 	where EquipoLocal = @IdEquipo OR EquipoVisitante = @IdEquipo
+	ORDER BY FechaPartido
 	commit
 end try
 begin catch
@@ -2566,12 +2577,17 @@ print error_message()
 end catch;
 GO
 
+EXEC candelarizacion_equipo 'EQ01'
+GO
+
 --VISTA 3
 CREATE VIEW Vistas.Posiciones
 AS
-	SELECT E.NombreEquipo, T.PartidosJugados, T.Puntaje, T.PartidosGanados, T.PartidosEmpatados, T.PartidosPerdidos,
+	SELECT TOP 10 E.NombreEquipo, T.PartidosJugados, T.Puntaje, T.PartidosGanados, T.PartidosEmpatados, T.PartidosPerdidos,
 	T.GolesFavor, T.GolesContra, T.DiferenciaGoles 
 	FROM Tabla_De_Posicion T INNER JOIN Administracion.Equipo E ON E.IdEquipo = T.IdEquipo
+	WHERE IdCampania = 'CA01'
+	ORDER BY Puntaje DESC,DiferenciaGoles DESC
 GO
 
 SELECT * FROM Vistas.Posiciones
@@ -2587,6 +2603,7 @@ GO
 
 SELECT * FROM Vistas.Goleadores
 GO
+
 --VISTA 5
 CREATE VIEW Vistas.PlantillaEquipo
 AS
@@ -2595,7 +2612,36 @@ AS
 GO
 
 SELECT * FROM Vistas.PlantillaEquipo
+GO
 
+
+--VISTA PARA SABER EL EQUIPO GANADOR
+CREATE VIEW Vistas.EquipoGanador
+AS
+	SELECT TOP 1 E.NombreEquipo, T.PartidosJugados, T.Puntaje, T.PartidosGanados, T.PartidosEmpatados, T.PartidosPerdidos,
+	T.GolesFavor, T.GolesContra, T.DiferenciaGoles 
+	FROM Tabla_De_Posicion T INNER JOIN Administracion.Equipo E ON E.IdEquipo = T.IdEquipo
+	WHERE IdCampania = 'CA01'
+	ORDER BY Puntaje DESC,DiferenciaGoles DESC
+GO
+
+SELECT * FROM Vistas.EquipoGanador
+GO
+
+
+--VISTA PARA SABER los equipos en descenso
+CREATE VIEW Vistas.EquiposDescenso
+AS
+		SELECT TOP 2 E.IdEquipo, E.NombreEquipo
+		FROM Tabla_De_Posicion T 
+		INNER JOIN Administracion.Equipo E ON E.IdEquipo = T.IdEquipo
+		INNER JOIN Campania C ON C.IdCampania = T.IdCampania
+		WHERE T.IdCampania = 'CA01'
+		ORDER BY Puntaje ASC,DiferenciaGoles ASC
+GO
+
+SELECT * FROM Vistas.EquiposDescenso
+GO
 
 
 
@@ -2736,8 +2782,6 @@ print error_message()
 end catch;
 GO
 
-
-
 ----Cursor para crear partidos
 Declare @IdEquipo varchar(4),
 @NombreEquipo varchar(100),
@@ -2769,14 +2813,8 @@ close cursor_equipos
 deallocate cursor_equipos
 GO
 
-
-/*select * from Partido
-delete from Partido
-select * from Goles
-delete from Goles*/
-
 ----Cursor para generar goles
-Declare 
+/*Declare 
 @idPartido int,
 @EquipoLocal varchar(4),
 @EquipoVisitante varchar(4)
@@ -2887,4 +2925,269 @@ fetch cursor_goles into @idPartido, @EquipoLocal, @EquipoVisitante
 end
 close cursor_goles
 deallocate cursor_goles
+GO*/
+
+
+--TRIGGER QUE ACTUALIZA LA TABLA DE PARTIDOS LUEGO DE CADA GOL
+CREATE TRIGGER trg_actualizar_goles_partido
+ON Goles
+AFTER INSERT
+AS
+		IF (SELECT EquipoLocal FROM Partido WHERE IdPartido = (SELECT i.IdPartido FROM inserted i)) = (SELECT i.IdEquipo FROM inserted i)
+		BEGIN
+
+			UPDATE Partido SET GolesLocal += 1
+			WHERE IdPartido = (SELECT i.IdPartido FROM inserted i);
+
+		END
+		ELSE IF (SELECT EquipoVisitante FROM Partido WHERE IdPartido = (SELECT i.IdPartido FROM inserted i)) = (SELECT i.IdEquipo FROM inserted i)
+		BEGIN
+
+			UPDATE Partido SET GolesVisitante += 1
+			WHERE IdPartido = (SELECT i.IdPartido FROM inserted i);
+
+		END
 GO
+
+--TRIGGER QUE ACTUALIZA LA TABLA DE PARTIDOS Y LA TABLA DE POSICIONES AL FINALIZAR
+CREATE TRIGGER trg_actualizar_posicion_partido
+ON Partido
+AFTER UPDATE
+AS
+		IF UPDATE (Estado)	
+		BEGIN
+				IF (SELECT i.Estado FROM inserted i) = 'FINALIZADO'	
+				BEGIN
+						DECLARE @golesLocal int = (SELECT i.GolesLocal FROM inserted i);
+						DECLARE @golesVisitante int = (SELECT i.GolesVisitante FROM inserted i);
+
+						DECLARE @EquipoLocal varchar(10) = (SELECT i.EquipoLocal FROM inserted i);
+						DECLARE @EquipoVisitante varchar(10) = (SELECT i.EquipoVisitante FROM inserted i);
+
+				
+						IF(@golesVisitante=@golesLocal)
+						BEGIN
+							update Partido set GolesLocal=@golesLocal,GolesVisitante=@golesVisitante,EquipoGanador='EMPATE',EquipoPerdedor='EMPATE'
+							where EquipoLocal = @EquipoLocal AND EquipoVisitante = @EquipoVisitante
+
+							--Equipo Local
+							update Tabla_De_Posicion set GolesFavor +=  @golesLocal, GolesContra += @golesVisitante,
+							PartidosEmpatados += 1,Puntaje += 1, PartidosJugados += 1
+							where IdEquipo = @EquipoLocal
+							update Tabla_De_Posicion set DiferenciaGoles = (GolesFavor-GolesContra)
+							where IdEquipo = @EquipoLocal
+
+							--Equipo Visitante
+							update Tabla_De_Posicion set GolesFavor +=  @golesVisitante, GolesContra += @golesLocal,
+							PartidosEmpatados += 1,Puntaje += 1, PartidosJugados += 1
+							where IdEquipo = @EquipoVisitante
+							update Tabla_De_Posicion set DiferenciaGoles = (GolesFavor-GolesContra)
+							where IdEquipo = @EquipoVisitante
+						END
+						ELSE IF(@golesVisitante>@golesLocal)
+						BEGIN
+							update Partido set GolesLocal=@golesLocal,GolesVisitante=@golesVisitante,EquipoGanador=@EquipoVisitante,EquipoPerdedor=@EquipoLocal
+							where EquipoLocal = @EquipoLocal AND EquipoVisitante = @EquipoVisitante
+
+
+							--Equipo Local
+							update Tabla_De_Posicion set GolesFavor +=  @golesLocal, GolesContra += @golesVisitante,
+							PartidosPerdidos += 1, PartidosJugados += 1
+							where IdEquipo = @EquipoLocal
+							update Tabla_De_Posicion set DiferenciaGoles = (GolesFavor-GolesContra)
+							where IdEquipo = @EquipoLocal
+
+							--Equipo Visitante
+							update Tabla_De_Posicion set GolesFavor +=  @golesVisitante, GolesContra += @golesLocal,
+							PartidosGanados += 1,Puntaje += 3, PartidosJugados += 1
+							where IdEquipo = @EquipoVisitante
+							update Tabla_De_Posicion set DiferenciaGoles = (GolesFavor-GolesContra)
+							where IdEquipo = @EquipoVisitante
+
+						END
+						ELSE IF(@golesLocal>@golesVisitante)
+						BEGIN
+							update Partido set GolesLocal=@golesLocal,GolesVisitante=@golesVisitante,EquipoGanador=@EquipoLocal,EquipoPerdedor=@EquipoVisitante
+							where EquipoLocal = @EquipoLocal AND EquipoVisitante = @EquipoVisitante
+			
+							--Equipo Local
+							update Tabla_De_Posicion set GolesFavor +=  @golesLocal, GolesContra += @golesVisitante,
+							PartidosGanados += 1,Puntaje += 3, PartidosJugados += 1
+							where IdEquipo = @EquipoLocal
+							update Tabla_De_Posicion set DiferenciaGoles = (GolesFavor-GolesContra)
+							where IdEquipo = @EquipoLocal
+
+							--Equipo Visitante
+							update Tabla_De_Posicion set GolesFavor +=  @golesVisitante, GolesContra += @golesLocal,
+							PartidosPerdidos += 1, PartidosJugados += 1
+							where IdEquipo = @EquipoVisitante
+							update Tabla_De_Posicion set DiferenciaGoles = (GolesFavor-GolesContra)
+							where IdEquipo = @EquipoVisitante
+						END
+				END
+		END
+GO
+
+
+--Procedimiento PARA FINALIZAR UN PARTIDO
+create procedure sp_finalizar_partido
+@idPartido varchar(20)
+as
+begin try
+begin tran	
+	IF(SELECT Estado FROM Partido WHERE IdPartido = @IdPartido) != 'FINALIZADO'
+	BEGIN
+	UPDATE Partido SET ESTADO = 'FINALIZADO' WHERE IdPartido = @idPartido
+	PRINT 'El partido ha sido FINALIZADO'
+	END
+	ELSE
+	BEGIN
+		PRINT 'El partido ya ha finalizado'
+	END
+commit
+end try
+begin catch
+rollback
+print error_message()
+end catch;
+GO
+
+--Procedimiento PARA DETERMINAR EL GANADOR DEL TORNEO
+--Todos los partidos deben estar finalizados
+create procedure sp_ganador_campania
+@idCampania varchar(20)
+as
+begin try
+begin tran	
+	IF(SELECT COUNT(*) FROM Partido WHERE Estado = 'FINALIZADO') = 90
+	BEGIN
+		UPDATE Campania SET EquipoGanador = (SELECT TOP 1 E.IdEquipo
+		FROM Tabla_De_Posicion T 
+		INNER JOIN Administracion.Equipo E ON E.IdEquipo = T.IdEquipo
+		INNER JOIN Campania C ON C.IdCampania = T.IdCampania
+		WHERE T.IdCampania = @idCampania
+		ORDER BY Puntaje DESC,DiferenciaGoles DESC)
+		WHERE IdCampania = @idCampania
+	END
+	ELSE
+	BEGIN
+		PRINT 'La campaña aún no ha finalizado'
+	END
+commit
+end try
+begin catch
+rollback
+print error_message()
+end catch;
+GO
+EXEC  sp_ganador_campania  'CA01'
+GO
+
+
+--Procedimiento PARA DETERMINAR EL GOLEADOR DEL TORNEO
+--Todos los partidos deben estar finalizados
+create procedure sp_goleador_campania
+@idCampania varchar(20)
+as
+begin try
+begin tran	
+	IF(SELECT COUNT(*) FROM Partido WHERE Estado = 'FINALIZADO') = 90
+	BEGIN
+
+			DECLARE @idJugador varchar(10) =	(SELECT TOP 1  J.IdJugador AS Goles FROM Goles G
+												INNER JOIN Partido P ON G.IdPartido=P.IdPartido 
+												INNER JOIN Administracion.Jugador J ON G.IdJugador=J.IdJugador
+												INNER JOIN Administracion.Equipo E ON E.IdEquipo = p.EquipoGanador 
+												GROUP BY J.IdJugador ORDER BY COUNT(G.idGol) DESC)	
+			
+
+			exec sp_insertargoleador @idJugador,@idCampania
+	END
+	ELSE
+	BEGIN
+		PRINT 'La campaña aún no ha finalizado'
+	END
+commit
+end try
+begin catch
+rollback
+print error_message()
+end catch;
+GO
+EXEC sp_goleador_campania 'CA01'
+GO
+
+
+--Procedimiento PARA DETERMINAR EQUIPOS EN DESCENSO
+--Todos los partidos deben estar finalizados
+/*create procedure sp_descenso_campania
+@idCampania varchar(20)
+as
+begin try
+begin tran	
+	IF(SELECT COUNT(*) FROM Partido WHERE Estado = 'FINALIZADO') = 90
+	BEGIN
+		
+		DECLARE @equipo1 varchar(10) =	(SELECT TOP 2 E.IdEquipo
+										FROM Tabla_De_Posicion T 
+										INNER JOIN Administracion.Equipo E ON E.IdEquipo = T.IdEquipo
+										INNER JOIN Campania C ON C.IdCampania = T.IdCampania
+										WHERE T.IdCampania = 'CA01'
+										ORDER BY Puntaje ASC,DiferenciaGoles ASC)
+
+		sp_Insertar_DetalleDescenso
+
+	END
+	ELSE
+	BEGIN
+		PRINT 'La campaña aún no ha finalizado'
+	END
+commit
+end try
+begin catch
+rollback
+print error_message()
+end catch;
+GO*/
+
+
+-----------------------------
+
+		SELECT TOP 2 E.IdEquipo
+		FROM Tabla_De_Posicion T 
+		INNER JOIN Administracion.Equipo E ON E.IdEquipo = T.IdEquipo
+		INNER JOIN Campania C ON C.IdCampania = T.IdCampania
+		WHERE T.IdCampania = 'CA01'
+		ORDER BY Puntaje ASC,DiferenciaGoles ASC
+
+
+SELECT * FROM Vistas.Posiciones
+
+
+
+SELECT * FROM Goleador
+
+select * from Administracion.Equipo
+select * from Campania
+
+drop procedure sp_ganador_campania
+	
+
+--Insert de gol
+EXEC sp_insertargoles  1081, 'JG007','EQ01'
+EXEC sp_insertargoles  1081, 'JG007','EQ02'
+
+--Vamos a cambiar el estado del partido a FINALIZADO
+exec sp_finalizar_partido 1081
+
+
+select * from Partido
+select * from goles
+select * from Tabla_De_Posicion
+SELECT * FROM Vistas.Posiciones
+DELETE FROM Tabla_De_Posicion
+select * from Partido
+delete from Partido
+select * from Goles
+delete from Goles
+delete from Tabla_De_Posicion
