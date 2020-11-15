@@ -12,6 +12,9 @@ CREATE SCHEMA Administracion;
 go
 CREATE SCHEMA Vistas;
 GO
+CREATE SCHEMA ProcGoles;
+GO
+
 --CREANDO INICIOS DE SESION
 CREATE LOGIN Usuario1
 WITH PASSWORD = '123456'
@@ -40,7 +43,16 @@ WITH PASSWORD = '12345'
 CREATE LOGIN Usuario9
 WITH PASSWORD = '12345'
 
---CREANDO USUARIOS
+CREATE LOGIN Usuario10
+WITH PASSWORD = '12345'
+
+CREATE LOGIN Usuario11
+WITH PASSWORD = '12345'
+
+CREATE LOGIN Usuario12
+WITH PASSWORD = '12345'
+
+--Esquema administración
 CREATE USER Ezequiel FOR LOGIN Usuario1
 WITH DEFAULT_SCHEMA = Administracion
 
@@ -68,6 +80,17 @@ WITH DEFAULT_SCHEMA = Vistas
 
 CREATE USER Fabs FOR LOGIN Usuario9
 WITH DEFAULT_SCHEMA = Vistas
+
+--Esquema Procedemientos 
+
+CREATE USER Fabiola2 FOR LOGIN Usuario10
+WITH DEFAULT_SCHEMA = ProcGoles
+
+CREATE USER Erick2 FOR LOGIN Usuario11
+WITH DEFAULT_SCHEMA = ProcGoles
+
+CREATE USER Fabs1 FOR LOGIN Usuario12
+WITH DEFAULT_SCHEMA = ProcGoles
 
 --Bridando permisos de consultar los datos
 GRANT SELECT ON SCHEMA :: Administracion
@@ -106,6 +129,20 @@ GO
 GRANT SELECT ON SCHEMA :: Vistas
 TO Fabs WITH GRANT OPTION 
 GO
+
+--Permisos esquema ProcGoles
+GRANT INSERT ON SCHEMA :: ProcGoles
+TO Fabiola2 WITH GRANT OPTION 
+GO
+
+GRANT INSERT ON SCHEMA :: ProcGoles
+TO Erick2 WITH GRANT OPTION 
+GO
+
+GRANT INSERT ON SCHEMA :: ProcGoles
+TO Fabs1 WITH GRANT OPTION 
+GO
+
 
 --Otorgando permisos de insersion 
 GRANT INSERT ON SCHEMA :: Administracion
@@ -942,7 +979,7 @@ end catch;
 GO
 
 --Goles
-create procedure sp_insertargoles
+create procedure ProcGoles.sp_insertargoles
 @IdPartido int,
 @IdJugador varchar(20),
 @IdEquipo varchar(4)
@@ -2768,7 +2805,7 @@ begin
 			where DJ.IdEquipo = @EquipoLocal 
 			ORDER BY NEWID())
 
-			EXEC sp_insertargoles @IdPartido, @jugadorLocal,@EquipoLocal;
+			EXEC ProcGoles.sp_insertargoles @IdPartido, @jugadorLocal,@EquipoLocal;
 
 			set @golesLocal = @golesLocal - 1;
 		end
@@ -2781,7 +2818,7 @@ begin
 			where DJ.IdEquipo = @EquipoVisitante
 			ORDER BY NEWID())
 
-			EXEC sp_insertargoles @IdPartido, @jugadorVisitante,@EquipoVisitante;
+			EXEC ProcGoles.sp_insertargoles @IdPartido, @jugadorVisitante,@EquipoVisitante;
 
 			set @golesVisitante = @golesVisitante - 1;
 		end
@@ -3136,6 +3173,9 @@ select * from Campania
 drop procedure sp_ganador_campania
 	
 
+--Insert de gol
+EXEC ProcGoles.sp_insertargoles  1081, 'JG007','EQ01'
+EXEC ProcGoles.sp_insertargoles  1081, 'JG007','EQ02'
 
 delete from Administracion.Equipo
 delete from Detalle_Equipo_Jugador
