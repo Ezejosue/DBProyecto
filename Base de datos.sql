@@ -3166,7 +3166,7 @@ exec sp_finalizar_partido 1
 
 -----------------------------
 
-		SELECT TOP 2 E.IdEquipo
+		/*SELECT TOP 2 E.IdEquipo
 		FROM Tabla_De_Posicion T 
 		INNER JOIN Administracion.Equipo E ON E.IdEquipo = T.IdEquipo
 		INNER JOIN Campania C ON C.IdCampania = T.IdCampania
@@ -3187,8 +3187,8 @@ drop procedure sp_ganador_campania
 	
 
 
-
-
+delete from Administracion.Equipo
+delete from Detalle_Equipo_Jugador
 select * from Partido order by FechaPartido
 select * from goles
 select * from Tabla_De_Posicion
@@ -3199,4 +3199,4 @@ delete from Partido
 select * from Goles
 delete from Goles
 delete from Tabla_De_Posicion
-delete from Tabla_De_Posicion
+delete from Tabla_De_Posicion*/
