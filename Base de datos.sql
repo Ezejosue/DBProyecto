@@ -3151,14 +3151,20 @@ GO
 --En este caso para el partido 1 hay un empate
 --Luego solo se usa el procedimiento almacenado para finalizar el partido
 --Al insertar un gol se actualiza la tabla partido, dependiendo el equipo que se ingrese se le suma el gol
+
 --Insert de gol
+--Partido EQ01 VS EQ02
+--GOLES LOCAL
 EXEC sp_insertargoles  1, 'JG007','EQ01'
+--GOLES VISITANTE
 EXEC sp_insertargoles  1, 'JG030','EQ02'
+EXEC sp_insertargoles  1, 'JG030','EQ02'
+EXEC sp_insertargoles  1, 'JG031','EQ02'
 
 --Al finalizar el partido se modifica la tabla de partido. Se cambia el estado a FINALIZADO e ingresa el ganador y perdedor, o el empate
 --También se actualiza la tabla de posiciones
 --Vamos a cambiar el estado del partido a FINALIZADO
-exec sp_finalizar_partido 1
+exec sp_finalizar_partido 271
 
 
 
