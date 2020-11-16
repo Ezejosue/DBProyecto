@@ -282,7 +282,6 @@ create table Liga
 	fechaupdate date,
 	NombreLiga varchar(100) not null unique,
 	FechaInicioLiga date not null,
-	FechaFinalLiga date not null,
 	IdPais varchar(5) not null,
 	IdDivision varchar(4) not null,
 	--LLAVE PRIMARIA
@@ -636,7 +635,6 @@ create table Tarjeta
 	constraint fk_Tarjeta_TipoTarjeta foreign key (IdTipoTajerta) references TipoTarjeta (IdTipoTajerta),
 	constraint fk_Tarjeta_Jugador foreign key (IdJugador) references Administracion.Jugador (IdJugador),
 	constraint fk_Tarjeta_partido foreign key (IdPartido) references partido (IdPartido)
-	
 );
 
 --TABLA Tabla_De_Posicion
@@ -955,16 +953,33 @@ create procedure sp_insertargoles
 as
 begin try
 begin tran
+	--Valida que el partido aún no este finalizado
 	IF(SELECT Estado FROM Partido WHERE IdPartido = @IdPartido) != 'FINALIZADO'
 	BEGIN
-		insert into Goles(IdPartido, IdJugador,idEquipo)
-		values (@IdPartido, @IdJugador,@idEquipo)
+		--Valida que el equipo pertenezca al partido
+		IF(select count(*) from partido where (IdPartido = @IdPartido AND EquipoLocal = @IdEquipo) OR (IdPartido = @IdPartido AND EquipoVisitante = @IdEquipo)) != 0
+		BEGIN 
+			--Valida que el jugador pertenezca al equipo ingresado
+			IF(select count(*) from Detalle_Equipo_Jugador where (IdEquipo = @IdEquipo and IdJugador = @IdJugador)) != 0
+			BEGIN
+					insert into Goles(IdPartido, IdJugador,idEquipo)
+					values (@IdPartido, @IdJugador,@idEquipo)
+			END
+			ELSE
+			BEGIN
+				PRINT ('El jugador ingresado no pertenece a este equipo')
+			END
+
+		END
+		ELSE
+		BEGIN
+			PRINT 'El equipo ingresado no pertenece a este partido'
+		END
 	END
 	ELSE
 	BEGIN
 		PRINT ('No se puede ingresar goles porque el partido ya ha finalizado')
 	END
-	
 commit
 end try
 begin catch
@@ -1017,7 +1032,6 @@ create procedure sp_Insertar_Liga
 @IdLiga varchar(4),
 @NombreLiga varchar(100),
 @FechaInicioLiga date,
-@FechaFinalLiga date,
 @IdPais varchar(5),
 @IdDivision varchar(4)
 as
@@ -1025,8 +1039,8 @@ begin try
 begin tran
 	if(select Count(*) from Liga
 			where IdLiga=@IdLiga)=0
-			insert into Liga(IdLiga,NombreLiga,FechaInicioLiga,FechaFinalLiga,IdPais,IdDivision)
-			values (@IdLiga, @NombreLiga, @FechaInicioLiga, @FechaFinalLiga, @IdPais, @IdDivision)
+			insert into Liga(IdLiga,NombreLiga,FechaInicioLiga,IdPais,IdDivision)
+			values (@IdLiga, @NombreLiga, @FechaInicioLiga, @IdPais, @IdDivision)
 	else
 	print '¡Error!, esta liga ya existe en los registros'
 commit
@@ -1815,23 +1829,23 @@ EXEC sp_insertardivison 'DV03', 'Tercera división'
 SELECT * FROM Division
 
 --TABLA LIGA
-EXEC sp_Insertar_Liga 'LG01', 'Liga mayor de fútbol El Salvdor', '2020-11-07', '2020-06-25', 'ESA', 'DV01'
-EXEC sp_Insertar_Liga 'LG02', 'Premier', '2020-03-15', '2020-09-25', 'UKD', 'DV02'
+EXEC sp_Insertar_Liga 'LG01', 'Liga mayor de fútbol El Salvdor', '2021-01-28', 'ESA', 'DV01'
+/*EXEC sp_Insertar_Liga 'LG02', 'Premier', '2020-03-15', '2020-09-25', 'UKD', 'DV02'
 EXEC sp_Insertar_Liga 'LG03', 'Liga MX', '2020-02-17', '2020-11-21', 'MEX', 'DV01'
-EXEC sp_Insertar_Liga 'LG04', 'Liga Santander', '2020-01-15', '2020-06-25', 'ESP', 'DV01'
+EXEC sp_Insertar_Liga 'LG04', 'Liga Santander', '2020-01-15', '2020-06-25', 'ESP', 'DV01'*/
 SELECT * FROM Liga
 
 --TABLA EQUIPO 
-EXEC sp_insertarequipo 'EQ01', 'Alianza Fútbol Club','Oficinas Centrales Alianza Fútbol Club', '3:00', 'DAF02', 'ED01', 'ESA', 'LG01'
-EXEC sp_insertarequipo 'EQ02', 'Club Deportivo FAS','Oficinas Centrales Club Deportivo FAS', '7:00', 'DAF01', 'ED02', 'ESA', 'LG01'
-EXEC sp_insertarequipo 'EQ03', 'Club Deportivo Águila','Oficinas Centrales Club Deportivo Águila', '4:00', 'DAF01', 'ED03', 'ESA', 'LG01'
-EXEC sp_insertarequipo 'EQ04', 'Asociación Deportiva Isidro Metapán','Oficinas Centrales Asociación Deportiva Isidro Metapán', '6:00', 'DAF02', 'ED04', 'ESA', 'LG01'
-EXEC sp_insertarequipo 'EQ05', 'Club Deportivo Luis Angel Firpo','Oficinas Centrales Club Deportivo Luis Angel Firpo', '2:00', 'DAF02', 'ED05', 'ESA', 'LG01'
-EXEC sp_insertarequipo 'EQ06', 'Municipal Limeño','Oficinas Centrales Municipal Limeño', '3:30', 'DAF01', 'ED06', 'ESA', 'LG01'
-EXEC sp_insertarequipo 'EQ07', 'Santa Tecla Futbol Club','Oficinas Centrales Santa Tecla Futbol Club', '3:30:00', 'DAF01', 'ED07', 'ESA', 'LG01'
-EXEC sp_insertarequipo 'EQ08', 'Club Deportivo Chalatenango','Oficinas Centrales Club Deportivo Chalatenango', '8:00', 'DAF01', 'ED08', 'ESA', 'LG01'
-EXEC sp_insertarequipo 'EQ09', 'Once Deportivo Fútbol Club','Oficinas Centrales Once Deportivo Fútbol Club', '6:00', 'DAF02', 'ED09', 'ESA', 'LG01'
-EXEC sp_insertarequipo 'EQ10', 'Club Deportivo Atlético Marte Quezaltepe','Oficinas Centrales Club Deportivo Atlético Marte Quezaltepe', '6:00', 'DAF02', 'ED01', 'ESA', 'LG01'
+EXEC sp_insertarequipo 'EQ01', 'Alianza Fútbol Club','Oficinas Centrales Alianza Fútbol Club', '15:00', 'DAF02', 'ED01', 'ESA', 'LG01'
+EXEC sp_insertarequipo 'EQ02', 'Club Deportivo FAS','Oficinas Centrales Club Deportivo FAS', '17:00', 'DAF01', 'ED02', 'ESA', 'LG01'
+EXEC sp_insertarequipo 'EQ03', 'Club Deportivo Águila','Oficinas Centrales Club Deportivo Águila', '13:00', 'DAF01', 'ED03', 'ESA', 'LG01'
+EXEC sp_insertarequipo 'EQ04', 'Asociación Deportiva Isidro Metapán','Oficinas Centrales Asociación Deportiva Isidro Metapán', '17:00', 'DAF02', 'ED04', 'ESA', 'LG01'
+EXEC sp_insertarequipo 'EQ05', 'Club Deportivo Luis Angel Firpo','Oficinas Centrales Club Deportivo Luis Angel Firpo', '16:00', 'DAF02', 'ED05', 'ESA', 'LG01'
+EXEC sp_insertarequipo 'EQ06', 'Municipal Limeño','Oficinas Centrales Municipal Limeño', '13:30', 'DAF01', 'ED06', 'ESA', 'LG01'
+EXEC sp_insertarequipo 'EQ07', 'Santa Tecla Futbol Club','Oficinas Centrales Santa Tecla Futbol Club', '15:30', 'DAF01', 'ED07', 'ESA', 'LG01'
+EXEC sp_insertarequipo 'EQ08', 'Club Deportivo Chalatenango','Oficinas Centrales Club Deportivo Chalatenango', '14:00', 'DAF01', 'ED08', 'ESA', 'LG01'
+EXEC sp_insertarequipo 'EQ09', 'Once Deportivo Fútbol Club','Oficinas Centrales Once Deportivo Fútbol Club', '15:00', 'DAF02', 'ED09', 'ESA', 'LG01'
+EXEC sp_insertarequipo 'EQ10', 'Club Deportivo Atlético Marte Quezaltepe','Oficinas Centrales Club Deportivo Atlético Marte Quezaltepe', '14:00', 'DAF02', 'ED01', 'ESA', 'LG01'
 SELECT * FROM Administracion.Equipo
 
 --TABLA CAMPAÑA
@@ -2151,8 +2165,18 @@ EXEC sp_insertarjugador 'JG208', 'Eduardo Merino', '1.74', '60kg','1995-12-21', 
 EXEC sp_insertarjugador 'JG209', 'Edgardo Mira', '1.74', '60kg','1993-03-10', 'Centrocampista', 'ESA'
 EXEC sp_insertarjugador 'JG210', 'Daniel Guzmán', '1.78', '60kg','1992-06-28', 'Delantero', 'MEX'
 EXEC sp_insertarjugador 'JG211', 'Bryan Pérez', '1.74', '60kg','1996-03-04', 'Delantero', 'ESA'
-
-
+EXEC sp_insertarjugador 'JG212', 'Rolando Morales', '1.80', '60kg','1994-03-04', 'Portero', 'ESA'
+EXEC sp_insertarjugador 'JG213', 'Rodrigo Artiga', '1.90', '60kg','1999-03-04', 'Portero', 'ESA'
+EXEC sp_insertarjugador 'JG214', 'Carlos Anzora', '1.60', '60kg','1992-03-04', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG215', 'Diego Chévez', '1.65', '60kg','1996-03-04', 'Defensa', 'ESA'
+EXEC sp_insertarjugador 'JG216', 'José Henríquez Leal', '1.70', '60kg','1996-03-04', 'Deefensa', 'ESA'
+EXEC sp_insertarjugador 'JG217', 'Yohalin Palacios', '1.82', '60kg','1996-03-04', 'Defensa', 'COL'
+EXEC sp_insertarjugador 'JG218', 'Héctor Crespín', '1.74', '60kg','1996-03-04', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG219', 'Mario González', '1.74', '60kg','1996-03-04', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG220', 'Diego Jiménez Hunter', '1.69', '60kg','1996-03-04', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG221', 'Hugo López', '1.80', '60kg','1996-03-04', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG222', 'Fernando Montes', '1.65', '60kg','1996-03-04', 'Centrocampista', 'ESA'
+EXEC sp_insertarjugador 'JG223', 'Edgar Valladares', '1.70', '60kg','1996-03-04', 'Delantero', 'ESA'
 
 SELECT * FROM Administracion.Jugador;
 GO
@@ -2387,8 +2411,18 @@ EXEC sp_Insertar_DetalleEquipoJugador 'PER208', '2020-11-14', '2024-12-23', 'EQ0
 EXEC sp_Insertar_DetalleEquipoJugador 'PER209', '2020-11-14', '2024-12-23', 'EQ05', 'JG209';
 EXEC sp_Insertar_DetalleEquipoJugador 'PER210', '2020-11-14', '2024-12-23', 'EQ05', 'JG210';
 EXEC sp_Insertar_DetalleEquipoJugador 'PER211', '2020-11-14', '2024-12-23', 'EQ05', 'JG211';
-
-
+EXEC sp_Insertar_DetalleEquipoJugador 'PER212', '2020-11-14', '2024-12-23', 'EQ05', 'JG212';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER213', '2020-11-14', '2024-12-23', 'EQ05', 'JG213';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER214', '2020-11-14', '2024-12-23', 'EQ05', 'JG214';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER215', '2020-11-14', '2024-12-23', 'EQ05', 'JG215';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER216', '2020-11-14', '2024-12-23', 'EQ05', 'JG216';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER217', '2020-11-14', '2024-12-23', 'EQ05', 'JG217';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER218', '2020-11-14', '2024-12-23', 'EQ05', 'JG218';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER219', '2020-11-14', '2024-12-23', 'EQ05', 'JG219';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER220', '2020-11-14', '2024-12-23', 'EQ05', 'JG220';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER221', '2020-11-14', '2024-12-23', 'EQ05', 'JG221';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER222', '2020-11-14', '2024-12-23', 'EQ05', 'JG222';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER223', '2020-11-14', '2024-12-23', 'EQ05', 'JG223';
 SELECT * FROM Detalle_Equipo_Jugador;
 GO
 
@@ -2502,10 +2536,10 @@ GO*/
 
 
 --TABLA TIPO TARJETA
-EXEC sp_Insertar_TipoTarjeta 'TPT01', 'Tarjeta roja';
+/*EXEC sp_Insertar_TipoTarjeta 'TPT01', 'Tarjeta roja';
 EXEC sp_Insertar_TipoTarjeta 'TPT02', 'Tarjeta amarilla';
 SELECT * FROM TipoTarjeta
-GO
+GO*/
 
 --TABLA TARJETA
 /*EXEC sp_insertartarjetas 'TPT01', 'JG001', 1;
@@ -2531,18 +2565,9 @@ EXEC sp_Insertar_Posicion 'POS08','EQ08', 'CA01';
 EXEC sp_Insertar_Posicion 'POS09','EQ09', 'CA01';
 EXEC sp_Insertar_Posicion 'POS10','EQ10', 'CA01';
 SELECT * FROM Tabla_De_Posicion
-
---Tablas Modificadas
---Equipo
---Estadio
---Agrego 5 equipos con 23 futbolistas, faltan 5 equipos más de los que ya están en los registros
---Patrocinador
---Detalle Equipo-patrocinador
---Empleado (entrenadores)
-
-
---DROP VIEW PlantillaEquipo
 GO
+
+
 --VISTA 1
 GO
 CREATE VIEW Vistas.Candelarizacion
@@ -2556,6 +2581,7 @@ GO
 
 select * from vistas.Candelarizacion
 go
+
 --VISTA 2 (Procedure)
 create procedure candelarizacion_equipo
 @IdEquipo varchar(20)
@@ -2644,12 +2670,7 @@ SELECT * FROM Vistas.EquiposDescenso
 GO
 
 
-
-
---NO TOCAR :) SIEMPRE DEJAR ESTO HASTA EL FINAL
 ---PROCEDIMIENTOS ALMACENADOS Y CURSOR PARA CREAR PARTIDOS*********************
-GO
-
 --Procedimiento para crear partido
 create procedure sp_crearPartido_cursor
 @EquipoLocal varchar(20),
@@ -2759,12 +2780,13 @@ begin tran
 												set @FechaPartido = (SELECT DATEADD(day,1,@FechaPartido))
 											end
 										end
-
-										update Partido set FechaPartido = @FechaPartido
-										where EquipoLocal = @EquipoLocal and EquipoVisitante = @EquipoVisitante
-
-										BREAK;
-		
+											--Verifica si es una fecha fifa o vacación
+											if(SELECT COUNT(*) FROM FechaNoPermitida WHERE FechaNoPermitida = @FechaPartido) = 0
+											begin
+												update Partido set FechaPartido = @FechaPartido
+												where EquipoLocal = @EquipoLocal and EquipoVisitante = @EquipoVisitante
+												BREAK;
+											end
 									end
 							   end
 							   set @FechaInicio = (SELECT DATEADD(day,1,@FechaInicio) AS DateAdd)
@@ -3118,37 +3140,28 @@ EXEC sp_goleador_campania 'CA01'
 GO
 
 
---Procedimiento PARA DETERMINAR EQUIPOS EN DESCENSO
---Todos los partidos deben estar finalizados
-/*create procedure sp_descenso_campania
-@idCampania varchar(20)
-as
-begin try
-begin tran	
-	IF(SELECT COUNT(*) FROM Partido WHERE Estado = 'FINALIZADO') = 90
-	BEGIN
-		
-		DECLARE @equipo1 varchar(10) =	(SELECT TOP 2 E.IdEquipo
-										FROM Tabla_De_Posicion T 
-										INNER JOIN Administracion.Equipo E ON E.IdEquipo = T.IdEquipo
-										INNER JOIN Campania C ON C.IdCampania = T.IdCampania
-										WHERE T.IdCampania = 'CA01'
-										ORDER BY Puntaje ASC,DiferenciaGoles ASC)
 
-		sp_Insertar_DetalleDescenso
+--SE DEBEN INGRESAR GOLES PARA LOS 90 PARTIDOS PROGRAMADOS
+--Los id de partidos son autoincrementables. (Hacerlo de 1 a 90 porque al generar por primera vez los partidos esos id van a tener)
+--Se deben ingresar datos logicos. (Los equipos deben coindidir con el partido al igual que los jugadores)
+--La cantidad de goles por partido y por equipo puede ser aleatoria (Simular el torneo)
+--Lego de ingresar los goles se debe de finalizar el partido para hacer todos los calculos de posicion
 
-	END
-	ELSE
-	BEGIN
-		PRINT 'La campaña aún no ha finalizado'
-	END
-commit
-end try
-begin catch
-rollback
-print error_message()
-end catch;
-GO*/
+--EJEMPLO
+--En este caso para el partido 1 hay un empate
+--Luego solo se usa el procedimiento almacenado para finalizar el partido
+--Al insertar un gol se actualiza la tabla partido, dependiendo el equipo que se ingrese se le suma el gol
+--Insert de gol
+EXEC sp_insertargoles  1, 'JG007','EQ01'
+EXEC sp_insertargoles  1, 'JG030','EQ02'
+
+--Al finalizar el partido se modifica la tabla de partido. Se cambia el estado a FINALIZADO e ingresa el ganador y perdedor, o el empate
+--También se actualiza la tabla de posiciones
+--Vamos a cambiar el estado del partido a FINALIZADO
+exec sp_finalizar_partido 1
+
+
+
 
 
 -----------------------------
@@ -3173,15 +3186,10 @@ select * from Campania
 drop procedure sp_ganador_campania
 	
 
---Insert de gol
-EXEC sp_insertargoles  1081, 'JG007','EQ01'
-EXEC sp_insertargoles  1081, 'JG007','EQ02'
-
---Vamos a cambiar el estado del partido a FINALIZADO
-exec sp_finalizar_partido 1081
 
 
-select * from Partido
+
+select * from Partido order by FechaPartido
 select * from goles
 select * from Tabla_De_Posicion
 SELECT * FROM Vistas.Posiciones
@@ -3190,4 +3198,5 @@ select * from Partido
 delete from Partido
 select * from Goles
 delete from Goles
+delete from Tabla_De_Posicion
 delete from Tabla_De_Posicion
