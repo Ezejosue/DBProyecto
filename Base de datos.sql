@@ -174,7 +174,6 @@ create table FechaNoPermitida
 	constraint pk_FechaNoPermitida primary key (IdFechaNoPermitida),
 	--RESTRICCIONES
 	constraint u_FechaNoPermitida UNIQUE(FechaNoPermitida),
-	constraint ck_FechaNoPermitida check(FechaNoPermitida>=getdate()),
 	constraint ck_IdFechaNoPermitida check(IdFechaNoPermitida like '[F][E][0-9][0-9][0-9]')
 );
 GO
@@ -565,10 +564,9 @@ create table Partido
 -- TABLA PLANTILLA
 create table Plantilla
 (
-	IdPlantilla varchar(4) not null,
+	IdPlantilla int IDENTITY(1,1) not null,
 	IdEquipo varchar(4) not null,
 	IdJugador varchar(5) not null,
-	RolJugador varchar(20) not null check(RolJugador='Titular' or RolJugador='Suplente'),
 	IdPartido int not null,
 	usuarioisert varchar(50),
 	usuarioupdate varchar(50),
@@ -579,9 +577,7 @@ create table Plantilla
 	--LLAVE SECUNDARIA
 	constraint fk_plantilla_equipo foreign key (IdEquipo) references Administracion.Equipo(IdEquipo),
 	constraint fk_plantilla_jugador foreign key (IdJugador) references Administracion.Jugador(IdJugador),
-	constraint fk_plantilla_partido foreign key (IdPartido) references partido (IdPartido),
-	--RESTRICCIONES
-	constraint ck_IdPlantilla check(IdPlantilla like '[P][L][0-9][0-9]')
+	constraint fk_plantilla_partido foreign key (IdPartido) references partido (IdPartido)
 );
 
 
@@ -1189,30 +1185,6 @@ print error_message()
 end catch;
 GO
 
-
---PROCEDIMIENTO TABLA PLANTILLA
-create procedure sp_Insertar_Plantilla
-@IdPlantilla varchar(4),
-@IdEquipo varchar(5),
-@IdJugador varchar(20),
-@RolJugador varchar(20),
-@IdPartido int
-as
-begin try
-begin tran
-	if(select count (*) from Plantilla
-			where IdPlantilla=@IdPlantilla)=0
-			insert into Plantilla(IdPlantilla,IdEquipo,IdJugador, RolJugador,IdPartido)
-			values (@IdPlantilla,@IdEquipo,@IdJugador, @RolJugador,@IdPartido)
-	else
-	print '¡Error!, este registro de plantilla ya es existente'
-commit
-end try
-begin catch
-rollback
-print error_message()
-end catch;
-GO
 
 --PROCEDIMIENTO TIPO TARJETA
 create procedure sp_Insertar_TipoTarjeta
@@ -1830,9 +1802,6 @@ SELECT * FROM Division
 
 --TABLA LIGA
 EXEC sp_Insertar_Liga 'LG01', 'Liga mayor de fútbol El Salvdor', '2021-01-28', 'ESA', 'DV01'
-/*EXEC sp_Insertar_Liga 'LG02', 'Premier', '2020-03-15', '2020-09-25', 'UKD', 'DV02'
-EXEC sp_Insertar_Liga 'LG03', 'Liga MX', '2020-02-17', '2020-11-21', 'MEX', 'DV01'
-EXEC sp_Insertar_Liga 'LG04', 'Liga Santander', '2020-01-15', '2020-06-25', 'ESP', 'DV01'*/
 SELECT * FROM Liga
 
 --TABLA EQUIPO 
@@ -2427,132 +2396,6 @@ SELECT * FROM Detalle_Equipo_Jugador;
 GO
 
 
---TABLA GOLEADOR
-/*EXEC sp_insertargoleador 'JG001', 'CA01'; 
-EXEC sp_insertargoleador 'JG008', 'CA02'; 
-SELECT * FROM Goleador;
-GO
---TABLA Detalle_Descenso
-EXEC sp_Insertar_DetalleDescenso 'EQ01', 'CA01'
-EXEC sp_Insertar_DetalleDescenso 'EQ02', 'CA01'
-SELECT * FROM Detalle_Descenso
-GO*/
-
---TABLA PARTIDO
-/*EXEC sp_insertarpartido 'EQ01', 'EQ02', '2020-10-17', '18:00', 'EQ01', 'EQ02', 4, 2;
-EXEC sp_insertarpartido 'EQ02', 'EQ03', '2020-10-24', '15:00', 'EQ03', 'EQ02', 1, 0;
-EXEC sp_insertarpartido 'EQ03', 'EQ01', '2020-10-31', '16:00', 'EQ01', 'EQ03', 3, 1;
-SELECT * FROM Partido
-GO*/
-
---TABLA PLANTILLA
-/*EXEC sp_Insertar_Plantilla 'PL01','EQ01','JG001', 'Titular',1;
-EXEC sp_Insertar_Plantilla 'PL02','EQ01','JG002', 'Titular',1;
-EXEC sp_Insertar_Plantilla 'PL03','EQ01','JG003', 'Titular',2;
-EXEC sp_Insertar_Plantilla 'PL04','EQ01','JG004', 'Titular',2;
-EXEC sp_Insertar_Plantilla 'PL05','EQ01','JG005', 'Titular',3;
-EXEC sp_Insertar_Plantilla 'PL06','EQ01','JG006', 'Titular',3;*/
-/*EXEC sp_Insertar_Plantilla 'PL07','EQ01','JG07', 'Titular','PAR01';
-EXEC sp_Insertar_Plantilla 'PL08','EQ01','JG08', 'Titular','PAR01';
-EXEC sp_Insertar_Plantilla 'PL09','EQ01','JG09', 'Titular','PAR01';
-EXEC sp_Insertar_Plantilla 'PL10','EQ01','JG10', 'Titular','PAR01';
-EXEC sp_Insertar_Plantilla 'PL11','EQ01','JG11', 'Titular','PAR01';
-EXEC sp_Insertar_Plantilla 'PL12','EQ02','JG24', 'Titular','PAR01';
-EXEC sp_Insertar_Plantilla 'PL13','EQ02','JG25', 'Titular','PAR01';
-EXEC sp_Insertar_Plantilla 'PL14','EQ02','JG26', 'Titular','PAR01';
-EXEC sp_Insertar_Plantilla 'PL15','EQ02','JG27', 'Titular','PAR01';
-EXEC sp_Insertar_Plantilla 'PL16','EQ02','JG28', 'Titular','PAR01';
-EXEC sp_Insertar_Plantilla 'PL17','EQ02','JG29', 'Titular','PAR01';
-EXEC sp_Insertar_Plantilla 'PL18','EQ02','JG30', 'Titular','PAR01';
-EXEC sp_Insertar_Plantilla 'PL19','EQ02','JG31', 'Titular','PAR01';
-EXEC sp_Insertar_Plantilla 'PL20','EQ02','JG32', 'Titular','PAR01';
-EXEC sp_Insertar_Plantilla 'PL21','EQ02','JG33', 'Titular','PAR01';
-EXEC sp_Insertar_Plantilla 'PL22','EQ02','JG34', 'Titular','PAR01';
-EXEC sp_Insertar_Plantilla 'PL23','EQ02','JG35', 'Suplente','PAR01';
-EXEC sp_Insertar_Plantilla 'PL24','EQ02','JG24', 'Titular','PAR02';
-EXEC sp_Insertar_Plantilla 'PL25','EQ02','JG25', 'Titular','PAR02';
-EXEC sp_Insertar_Plantilla 'PL26','EQ02','JG26', 'Titular','PAR02';
-EXEC sp_Insertar_Plantilla 'PL27','EQ02','JG27', 'Titular','PAR02';
-EXEC sp_Insertar_Plantilla 'PL28','EQ02','JG28', 'Titular','PAR02';
-EXEC sp_Insertar_Plantilla 'PL29','EQ02','JG29', 'Titular','PAR02';
-EXEC sp_Insertar_Plantilla 'PL30','EQ02','JG30', 'Titular','PAR02';
-EXEC sp_Insertar_Plantilla 'PL31','EQ02','JG31', 'Titular','PAR02';
-EXEC sp_Insertar_Plantilla 'PL32','EQ02','JG32', 'Titular','PAR02';
-EXEC sp_Insertar_Plantilla 'PL33','EQ02','JG33', 'Titular','PAR02';
-EXEC sp_Insertar_Plantilla 'PL34','EQ02','JG34', 'Titular','PAR02';
-EXEC sp_Insertar_Plantilla 'PL35','EQ02','JG35', 'Suplente','PAR02';
-EXEC sp_Insertar_Plantilla 'PL36','EQ03','JG36', 'Titular','PAR02';
-EXEC sp_Insertar_Plantilla 'PL37','EQ03','JG37', 'Titular','PAR02';
-EXEC sp_Insertar_Plantilla 'PL38','EQ03','JG38', 'Titular','PAR02';
-EXEC sp_Insertar_Plantilla 'PL39','EQ03','JG39', 'Titular','PAR02';
-EXEC sp_Insertar_Plantilla 'PL40','EQ03','JG40', 'Titular','PAR02';
-EXEC sp_Insertar_Plantilla 'PL41','EQ03','JG41', 'Titular','PAR02';
-EXEC sp_Insertar_Plantilla 'PL42','EQ03','JG42', 'Titular','PAR02';
-EXEC sp_Insertar_Plantilla 'PL43','EQ03','JG43', 'Titular','PAR02';
-EXEC sp_Insertar_Plantilla 'PL44','EQ03','JG44', 'Titular','PAR02';
-EXEC sp_Insertar_Plantilla 'PL45','EQ03','JG45', 'Titular','PAR02';
-EXEC sp_Insertar_Plantilla 'PL46','EQ03','JG46', 'Titular','PAR02';
-EXEC sp_Insertar_Plantilla 'PL47','EQ03','JG47', 'Suplente','PAR02';
-EXEC sp_Insertar_Plantilla 'PL48','EQ03','JG36', 'Titular','PAR03';
-EXEC sp_Insertar_Plantilla 'PL49','EQ03','JG37', 'Titular','PAR03';
-EXEC sp_Insertar_Plantilla 'PL50','EQ03','JG38', 'Titular','PAR03';
-EXEC sp_Insertar_Plantilla 'PL51','EQ03','JG39', 'Titular','PAR03';
-EXEC sp_Insertar_Plantilla 'PL52','EQ03','JG40', 'Titular','PAR03';
-EXEC sp_Insertar_Plantilla 'PL53','EQ03','JG41', 'Titular','PAR03';
-EXEC sp_Insertar_Plantilla 'PL54','EQ03','JG42', 'Titular','PAR03';
-EXEC sp_Insertar_Plantilla 'PL55','EQ03','JG43', 'Titular','PAR03';
-EXEC sp_Insertar_Plantilla 'PL56','EQ03','JG44', 'Titular','PAR03';
-EXEC sp_Insertar_Plantilla 'PL57','EQ03','JG45', 'Titular','PAR03';
-EXEC sp_Insertar_Plantilla 'PL58','EQ03','JG46', 'Titular','PAR03';
-EXEC sp_Insertar_Plantilla 'PL59','EQ03','JG47', 'Suplente','PAR03';
-EXEC sp_Insertar_Plantilla 'PL60','EQ01','JG01', 'Titular','PAR03';
-EXEC sp_Insertar_Plantilla 'PL61','EQ01','JG02', 'Titular','PAR03';
-EXEC sp_Insertar_Plantilla 'PL62','EQ01','JG03', 'Titular','PAR03';
-EXEC sp_Insertar_Plantilla 'PL63','EQ01','JG04', 'Titular','PAR03';
-EXEC sp_Insertar_Plantilla 'PL64','EQ01','JG05', 'Titular','PAR03';
-EXEC sp_Insertar_Plantilla 'PL65','EQ01','JG06', 'Titular','PAR03';
-EXEC sp_Insertar_Plantilla 'PL66','EQ01','JG07', 'Titular','PAR03';
-EXEC sp_Insertar_Plantilla 'PL67','EQ01','JG08', 'Titular','PAR03';
-EXEC sp_Insertar_Plantilla 'PL68','EQ01','JG09', 'Titular','PAR03';
-EXEC sp_Insertar_Plantilla 'PL69','EQ01','JG10', 'Titular','PAR03';
-EXEC sp_Insertar_Plantilla 'PL70','EQ01','JG11', 'Titular','PAR03';*/
-/*SELECT * FROM Plantilla
-GO*/
-
---TABLA GOLES
-/*EXEC sp_insertargoles 1, 'JG006';
-EXEC sp_insertargoles 2, 'JG007';
-EXEC sp_insertargoles 3, 'JG008';
-EXEC sp_insertargoles 1, 'JG009';
-EXEC sp_insertargoles 2, 'JG024';
-EXEC sp_insertargoles 3, 'JG025';
-EXEC sp_insertargoles 1, 'JG038';
-EXEC sp_insertargoles 2, 'JG007';
-EXEC sp_insertargoles 3, 'JG002';
-EXEC sp_insertargoles 1, 'JG003';
-EXEC sp_insertargoles 2, 'JG039';
-SELECT * FROM Goles
-GO*/
-
-
---TABLA TIPO TARJETA
-/*EXEC sp_Insertar_TipoTarjeta 'TPT01', 'Tarjeta roja';
-EXEC sp_Insertar_TipoTarjeta 'TPT02', 'Tarjeta amarilla';
-SELECT * FROM TipoTarjeta
-GO*/
-
---TABLA TARJETA
-/*EXEC sp_insertartarjetas 'TPT01', 'JG001', 1;
-EXEC sp_insertartarjetas 'TPT02', 'JG029', 1;
-EXEC sp_insertartarjetas 'TPT02', 'JG003', 2;
-EXEC sp_insertartarjetas 'TPT01', 'JG032', 2;
-EXEC sp_insertartarjetas 'TPT02', 'JG022', 3;
-EXEC sp_insertartarjetas 'TPT01', 'JG023', 3;
-EXEC sp_insertartarjetas 'TPT02', 'JG005', 3;
-SELECT * FROM Tarjeta
-GO
-*/
-
 --TABLA POSICION
 EXEC sp_Insertar_Posicion 'POS01','EQ01', 'CA01';
 EXEC sp_Insertar_Posicion 'POS02','EQ02', 'CA01';
@@ -2633,7 +2476,7 @@ GO
 --VISTA 5
 CREATE VIEW Vistas.PlantillaEquipo
 AS
-	SELECT E.NombreEquipo, J.NombreJugador, P.RolJugador, J.posicion, PA.FechaPartido FROM Plantilla P INNER JOIN Administracion.Equipo E ON P.IdEquipo=E.IdEquipo 
+	SELECT E.NombreEquipo, J.NombreJugador, J.posicion, PA.IdPartido, PA.FechaPartido FROM Plantilla P INNER JOIN Administracion.Equipo E ON P.IdEquipo=E.IdEquipo 
 	INNER JOIN Administracion.Jugador J ON J.IdJugador=p.IdJugador INNER JOIN Partido PA ON PA.IdPartido=P.IdPartido
 GO
 
@@ -2951,6 +2794,8 @@ GO*/
 
 
 --TRIGGER QUE ACTUALIZA LA TABLA DE PARTIDOS LUEGO DE CADA GOL
+
+
 CREATE TRIGGER trg_actualizar_goles_partido
 ON Goles
 AFTER INSERT
@@ -3141,6 +2986,96 @@ GO
 
 
 
+--PROCEDIMIENTO TABLA PLANTILLA
+create procedure sp_Insertar_Plantilla
+@IdEquipo varchar(5),
+@IdJugador varchar(20),
+@IdPartido int
+as
+begin try
+begin tran
+
+	--Valida que el equipo pertenezca al partido
+		IF(select count(*) from partido where (IdPartido = @IdPartido AND EquipoLocal = @IdEquipo) OR (IdPartido = @IdPartido AND EquipoVisitante = @IdEquipo)) != 0
+		BEGIN 
+			--Valida que el jugador pertenezca al equipo ingresado
+			IF(select count(*) from Detalle_Equipo_Jugador where (IdEquipo = @IdEquipo and IdJugador = @IdJugador)) != 0
+			BEGIN
+					--Valida que la plantilla no tenga mas de 11 jugadores
+					IF(SELECT COUNT(*) FROM Plantilla WHERE IdPartido = @IdPartido AND IdEquipo = @IdEquipo) < 11
+					BEGIN
+						--Valida si el jugador tiene tarjetas
+						IF(SELECT COUNT(*) FROM Tarjeta WHERE IdJugador = @IdJugador) = 0
+						BEGIN
+							insert into Plantilla(IdEquipo,IdJugador,IdPartido)
+							values (@IdEquipo,@IdJugador,@IdPartido)
+						END
+						ELSE
+						BEGIN
+							PRINT 'El Jugador posee tarjetas, no puede jugar'
+						END
+					END
+					ELSE
+					BEGIN
+						PRINT 'La plantilla ya tiene 11 jugadores'
+					END
+			END
+			ELSE
+			BEGIN
+				PRINT ('El jugador ingresado no pertenece a este equipo')
+			END
+
+		END
+		ELSE
+		BEGIN
+			PRINT 'El equipo ingresado no pertenece a este partido'
+		END
+commit
+end try
+begin catch
+rollback
+print error_message()
+end catch;
+GO
+
+--INGRESO DE PLANTILLAS PARA CADA EQUIPO EN LOS 90 PARTIDOS DE TODO EL TORNEO
+
+--Plantilla para el equipo EQ01 para el partido 1
+EXEC sp_Insertar_Plantilla 'EQ01','JG001',1
+EXEC sp_Insertar_Plantilla 'EQ01','JG002',1
+EXEC sp_Insertar_Plantilla 'EQ01','JG003',1
+EXEC sp_Insertar_Plantilla 'EQ01','JG004',1
+EXEC sp_Insertar_Plantilla 'EQ01','JG005',1
+EXEC sp_Insertar_Plantilla 'EQ01','JG006',1
+EXEC sp_Insertar_Plantilla 'EQ01','JG007',1
+EXEC sp_Insertar_Plantilla 'EQ01','JG008',1
+EXEC sp_Insertar_Plantilla 'EQ01','JG009',1
+EXEC sp_Insertar_Plantilla 'EQ01','JG010',1
+EXEC sp_Insertar_Plantilla 'EQ01','JG011',1
+
+--Plantilla para el equipo EQ02 para el partido 1
+EXEC sp_Insertar_Plantilla 'EQ02','JG024',1
+EXEC sp_Insertar_Plantilla 'EQ02','JG025',1
+EXEC sp_Insertar_Plantilla 'EQ02','JG026',1
+EXEC sp_Insertar_Plantilla 'EQ02','JG027',1
+EXEC sp_Insertar_Plantilla 'EQ02','JG028',1
+EXEC sp_Insertar_Plantilla 'EQ02','JG029',1
+EXEC sp_Insertar_Plantilla 'EQ02','JG030',1
+EXEC sp_Insertar_Plantilla 'EQ02','JG031',1
+EXEC sp_Insertar_Plantilla 'EQ02','JG032',1
+EXEC sp_Insertar_Plantilla 'EQ02','JG033',1
+EXEC sp_Insertar_Plantilla 'EQ02','JG034',1
+
+--Esto se debe hacer para los 90 partidos
+
+
+
+
+
+
+
+
+
 --SE DEBEN INGRESAR GOLES PARA LOS 90 PARTIDOS PROGRAMADOS
 --Los id de partidos son autoincrementables. (Hacerlo de 1 a 90 porque al generar por primera vez los partidos esos id van a tener)
 --Se deben ingresar datos logicos. (Los equipos deben coindidir con el partido al igual que los jugadores)
@@ -3165,6 +3100,15 @@ EXEC sp_insertargoles  1, 'JG031','EQ02'
 --También se actualiza la tabla de posiciones
 --Vamos a cambiar el estado del partido a FINALIZADO
 exec sp_finalizar_partido 271
+
+
+
+
+
+
+
+
+
 
 
 
