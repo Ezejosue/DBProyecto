@@ -3052,15 +3052,15 @@ begin tran
 			IF(select count(*) from Detalle_Equipo_Jugador where (IdEquipo = @IdEquipo and IdJugador = @IdJugador)) != 0
 			BEGIN
 				--Valida que el jugador este convocado para ese partido
-				/*IF(select count(*) from Plantilla where (IdEquipo = @IdEquipo and IdJugador = @IdJugador AND IdPartido = @IdPartido)) != 0
-				BEGIN	*/
+				IF(select count(*) from Plantilla where (IdEquipo = @IdEquipo and IdJugador = @IdJugador AND IdPartido = @IdPartido)) != 0
+				BEGIN
 					insert into Goles(IdPartido, IdJugador,idEquipo)
 					values (@IdPartido, @IdJugador,@idEquipo)
-				/*END
+				END
 				ELSE
 				BEGIN
 					PRINT 'Este jugador no esta convocado'
-				END*/
+				END
 			END
 			ELSE
 			BEGIN
