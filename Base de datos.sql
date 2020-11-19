@@ -2426,7 +2426,8 @@ create procedure candelarizacion_equipo
 as
 begin try
 begin tran
-	select FechaPartido, HoraPartido,
+	select (select NombreEquipo from Administracion.Equipo where IdEquipo = @IdEquipo) as [Equipo filtrado],
+	FechaPartido, HoraPartido, NombreEquipo,
 	(select NombreEquipo from Administracion.Equipo where IdEquipo = P.EquipoVisitante) as [Equipo Visitante],
 	(select NombreEquipo from Administracion.Equipo where IdEquipo = P.EquipoLocal) as [Equipo Local]
 	from partido P
@@ -2441,7 +2442,7 @@ print error_message()
 end catch;
 GO
 
-EXEC candelarizacion_equipo 'EQ01'
+EXEC candelarizacion_equipo 'EQ02'
 GO
 
 --VISTA 3
