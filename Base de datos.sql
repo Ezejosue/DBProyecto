@@ -1941,7 +1941,7 @@ EXEC sp_insertarjugador 'JG037', 'Julio Amaya', '1.70', '60kg', '1995-03-29', 'C
 EXEC sp_insertarjugador 'JG038', 'Javier Bolaños', '1.70', '60kg', '2001-08-14', 'Centrocampista', 'ESA'
 EXEC sp_insertarjugador 'JG039', 'Jeffrey', '1.70', '60kg', '1995-10-15', 'Centrocampista', 'ESA'
 EXEC sp_insertarjugador 'JG040', 'Álvaro López', '1.70', '60kg', '1992-09-24', 'Delantero', 'CHI'
-EXEC sp_insertarjugador 'JG041', 'Diego Areco', '1.70', '60kg', '1992-11-05', 'Delantero', 'PAY'
+EXEC sp_insertarjugador 'JG041', 'Diego Areco', '1.70', '60kg', '1992-11-05', 'Delantero', 'PAR'
 EXEC sp_insertarjugador 'JG042', 'Guillermo Stradella', '1.70', '60kg', '1993-09-16', 'Delantero', 'ARG'
 EXEC sp_insertarjugador 'JG043', 'Irvin Herrera', '1.70', '60kg', '1991-08-30', 'Delantero', 'ESA'
 EXEC sp_insertarjugador 'JG044', 'Josué Arévalo', '1.70', '60kg', '1999-03-09', 'Delantero', 'ESA'
