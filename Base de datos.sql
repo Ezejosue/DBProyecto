@@ -5591,30 +5591,16 @@ EXEC sp_Insertar_Plantilla 'EQ09','JG198',90
 EXEC sp_Insertar_Plantilla 'EQ09','JG199',90
 EXEC sp_Insertar_Plantilla 'EQ09','JG200',90
 
---Esto se debe hacer para los 90 partidos
 
-
-
-
-
-
-
-
-
-
-Select * from Partido
-SELECT * FROM Vistas.Goleadores
-SELECT * FROM Vistas.Posiciones
-SELECT * FROM Vistas.EquiposDescenso
 
 --REGISTRO DE GOLES PARA LOS 90 PARTIDOS
 --Partido EQ01 VS EQ02
 --GOLES LOCAL
-EXEC ProcGoles.sp_insertargoles  1, 'JG007','EQ01'
+EXEC ProcGoles.sp_insertargoles  1, 'JG018','EQ01'
 --GOLES VISITANTE
-EXEC ProcGoles.sp_insertargoles  1, 'JG030','EQ02'
-EXEC ProcGoles.sp_insertargoles  1, 'JG030','EQ02'
-EXEC ProcGoles.sp_insertargoles  1, 'JG031','EQ02'
+EXEC ProcGoles.sp_insertargoles  1, 'JG040','EQ02'
+EXEC ProcGoles.sp_insertargoles  1, 'JG040','EQ02'
+EXEC ProcGoles.sp_insertargoles  1, 'JG041','EQ02'
 
 exec sp_finalizar_partido 1
 
@@ -5625,17 +5611,17 @@ EXEC ProcGoles.sp_insertargoles  2, 'JG023','EQ01'
 EXEC ProcGoles.sp_insertargoles  2, 'JG022','EQ01'
 EXEC ProcGoles.sp_insertargoles  2, 'JG022','EQ01'
 --GOLES VISITANTE
-EXEC ProcGoles.sp_insertargoles  2, 'JG069','EQ03'
+EXEC ProcGoles.sp_insertargoles  2, 'JG054','EQ03'
 
 exec sp_finalizar_partido 2
 
 --Partido EQ01 VS EQ04
 --GOLES LOCAL
-EXEC ProcGoles.sp_insertargoles  3, 'JG022','EQ01'
-EXEC ProcGoles.sp_insertargoles  3, 'JG022','EQ01'
-EXEC ProcGoles.sp_insertargoles  3, 'JG023','EQ01'
+EXEC ProcGoles.sp_insertargoles  3, 'JG012','EQ01'
+EXEC ProcGoles.sp_insertargoles  3, 'JG018','EQ01'
+EXEC ProcGoles.sp_insertargoles  3, 'JG018','EQ01'
 --GOLES VISITANTE
-EXEC ProcGoles.sp_insertargoles  3, 'JG092','EQ04'
+EXEC ProcGoles.sp_insertargoles  3, 'JG085','EQ04'
 
 exec sp_finalizar_partido 3
 
@@ -5644,18 +5630,18 @@ exec sp_finalizar_partido 3
 EXEC ProcGoles.sp_insertargoles  4, 'JG022','EQ01'
 EXEC ProcGoles.sp_insertargoles  4, 'JG023','EQ01'
 --GOLES VISITANTE
-EXEC ProcGoles.sp_insertargoles  4, 'JG114','EQ05'
-EXEC ProcGoles.sp_insertargoles  4, 'JG115','EQ05'
-EXEC ProcGoles.sp_insertargoles  4, 'JG115','EQ05'
+EXEC ProcGoles.sp_insertargoles  4, 'JG111','EQ05'
+EXEC ProcGoles.sp_insertargoles  4, 'JG112','EQ05'
+EXEC ProcGoles.sp_insertargoles  4, 'JG112','EQ05'
 
 exec sp_finalizar_partido 4
 
 --Partido EQ01 VS EQ06
 --GOLES LOCAL
-EXEC ProcGoles.sp_insertargoles  5, 'JG022','EQ01'
+EXEC ProcGoles.sp_insertargoles  5, 'JG015','EQ01'
 --GOLES VISITANTE
-EXEC ProcGoles.sp_insertargoles  5, 'JG138','EQ06'
-EXEC ProcGoles.sp_insertargoles  5, 'JG137','EQ06'
+EXEC ProcGoles.sp_insertargoles  5, 'JG128','EQ06'
+EXEC ProcGoles.sp_insertargoles  5, 'JG136','EQ06'
 
 exec sp_finalizar_partido 5
 
@@ -5663,15 +5649,15 @@ exec sp_finalizar_partido 5
 --GOLES LOCAL
 EXEC ProcGoles.sp_insertargoles  6, 'JG023','EQ01'
 --GOLES VISITANTE
-EXEC ProcGoles.sp_insertargoles  6, 'JG161','EQ07'
+EXEC ProcGoles.sp_insertargoles  6, 'JG157','EQ07'
 
 exec sp_finalizar_partido 6
 
 --Partido EQ01 VS EQ08
 --GOLES LOCAL
-EXEC ProcGoles.sp_insertargoles  7, 'JG022','EQ01'
+EXEC ProcGoles.sp_insertargoles  7, 'JG019','EQ01'
 --GOLES VISITANTE
-EXEC ProcGoles.sp_insertargoles  7, 'JG180','EQ08'
+EXEC ProcGoles.sp_insertargoles  7, 'JG176','EQ08'
 
 exec sp_finalizar_partido 7
 
@@ -5680,22 +5666,22 @@ exec sp_finalizar_partido 7
 EXEC ProcGoles.sp_insertargoles  8, 'JG023','EQ01'
 EXEC ProcGoles.sp_insertargoles  8, 'JG022','EQ01'
 --GOLES VISITANTE
-EXEC ProcGoles.sp_insertargoles  8, 'JG200','EQ09'
+EXEC ProcGoles.sp_insertargoles  8, 'JG196','EQ09'
 
 exec sp_finalizar_partido 8
 
 --Partido EQ01 VS EQ10
 --GOLES LOCAL
-EXEC ProcGoles.sp_insertargoles  9, 'JG022','EQ01'
+EXEC ProcGoles.sp_insertargoles  9, 'JG018','EQ01'
 --GOLES VISITANTE
-EXEC ProcGoles.sp_insertargoles  9, 'JG223','EQ10'
-EXEC ProcGoles.sp_insertargoles  9, 'JG222','EQ10'
+EXEC ProcGoles.sp_insertargoles  9, 'JG210','EQ10'
+EXEC ProcGoles.sp_insertargoles  9, 'JG211','EQ10'
 
 exec sp_finalizar_partido 9
 
 --Partido EQ02 VS EQ01
 --GOLES LOCAL
-EXEC ProcGoles.sp_insertargoles  10, 'JG046','EQ02'
+EXEC ProcGoles.sp_insertargoles  10, 'JG041','EQ02'
 --GOLES VISITANTE
 EXEC ProcGoles.sp_insertargoles  10, 'JG022','EQ01'
 EXEC ProcGoles.sp_insertargoles  10, 'JG023','EQ01'
@@ -5706,7 +5692,7 @@ exec sp_finalizar_partido 10
 --GOLES LOCAL
 EXEC ProcGoles.sp_insertargoles  11, 'JG046','EQ02'
 EXEC ProcGoles.sp_insertargoles  11, 'JG046','EQ02'
-EXEC ProcGoles.sp_insertargoles  11, 'JG045','EQ02'
+EXEC ProcGoles.sp_insertargoles  11, 'JG046','EQ02'
 --GOLES VISITANTE
 EXEC ProcGoles.sp_insertargoles  11, 'JG069','EQ03'
 EXEC ProcGoles.sp_insertargoles  11, 'JG069','EQ03'
@@ -5716,26 +5702,26 @@ exec sp_finalizar_partido 11
 
 --Partido EQ02 VS EQ04
 --GOLES LOCAL
-EXEC ProcGoles.sp_insertargoles  12, 'JG046','EQ02'
+EXEC ProcGoles.sp_insertargoles  12, 'JG041','EQ02'
 --GOLES VISITANTE
-EXEC ProcGoles.sp_insertargoles  12, 'JG092','EQ04'
+EXEC ProcGoles.sp_insertargoles  12, 'JG090','EQ04'
 
 exec sp_finalizar_partido 12
 
 --Partido EQ02 VS EQ05
 --GOLES LOCAL
-EXEC ProcGoles.sp_insertargoles  13, 'JG046','EQ02'
+EXEC ProcGoles.sp_insertargoles  13, 'JG045','EQ02'
 --GOLES VISITANTE
-EXEC ProcGoles.sp_insertargoles  13, 'JG0115','EQ05'
+EXEC ProcGoles.sp_insertargoles  13, 'JG113','EQ05'
 
 exec sp_finalizar_partido 13
 
 --Partido EQ02 VS EQ06
 --GOLES LOCAL
-EXEC ProcGoles.sp_insertargoles  14, 'JG046','EQ02'
+EXEC ProcGoles.sp_insertargoles  14, 'JG041','EQ02'
 --GOLES VISITANTE
 EXEC ProcGoles.sp_insertargoles  14, 'JG138','EQ06'
-EXEC ProcGoles.sp_insertargoles  14, 'JG137','EQ06'
+EXEC ProcGoles.sp_insertargoles  14, 'JG138','EQ06'
 
 exec sp_finalizar_partido 14
 
@@ -5743,14 +5729,14 @@ exec sp_finalizar_partido 14
 --GOLES LOCAL
 EXEC ProcGoles.sp_insertargoles  15, 'JG046','EQ02'
 --GOLES VISITANTE
-EXEC ProcGoles.sp_insertargoles  15, 'JG161','EQ07'
+EXEC ProcGoles.sp_insertargoles  15, 'JG160','EQ07'
 EXEC ProcGoles.sp_insertargoles  15, 'JG160','EQ07'
 
 exec sp_finalizar_partido 15
 
 --Partido EQ02 VS EQ08
 --GOLES LOCAL
-EXEC ProcGoles.sp_insertargoles  16, 'JG046','EQ02'
+EXEC ProcGoles.sp_insertargoles  16, 'JG040','EQ02'
 --GOLES VISITANTE
 EXEC ProcGoles.sp_insertargoles  16, 'JG180','EQ08'
 
@@ -5758,7 +5744,7 @@ exec sp_finalizar_partido 16
 
 --Partido EQ02 VS EQ09
 --GOLES LOCAL
-EXEC ProcGoles.sp_insertargoles  17, 'JG046','EQ02'
+EXEC ProcGoles.sp_insertargoles  17, 'JG042','EQ02'
 --GOLES VISITANTE
 EXEC ProcGoles.sp_insertargoles  17, 'JG200','EQ09'
 
@@ -5766,7 +5752,7 @@ exec sp_finalizar_partido 17
 
 --Partido EQ02 VS EQ10
 --GOLES LOCAL
-EXEC ProcGoles.sp_insertargoles  18, 'JG046','EQ02'
+EXEC ProcGoles.sp_insertargoles  18, 'JG041','EQ02'
 --GOLES VISITANTE
 EXEC ProcGoles.sp_insertargoles  18, 'JG223','EQ10'
 
@@ -5774,9 +5760,9 @@ exec sp_finalizar_partido 18
 
 --Partido EQ03 VS EQ01
 --GOLES LOCAL
-EXEC ProcGoles.sp_insertargoles  19, 'JG069','EQ03'
+EXEC ProcGoles.sp_insertargoles  19, 'JG065','EQ03'
 --GOLES VISITANTE
-EXEC ProcGoles.sp_insertargoles  19, 'JG023','EQ01'
+EXEC ProcGoles.sp_insertargoles  19, 'JG018','EQ01'
 
 exec sp_finalizar_partido 19
 
@@ -5784,15 +5770,15 @@ exec sp_finalizar_partido 19
 --GOLES LOCAL
 EXEC ProcGoles.sp_insertargoles  20, 'JG069','EQ03'
 --GOLES VISITANTE
-EXEC ProcGoles.sp_insertargoles  20, 'JG046','EQ02'
+EXEC ProcGoles.sp_insertargoles  20, 'JG041','EQ02'
 
 exec sp_finalizar_partido 20
 
 --Partido EQ03 VS EQ04
 --GOLES LOCAL
-EXEC ProcGoles.sp_insertargoles  21, 'JG069','EQ03'
+EXEC ProcGoles.sp_insertargoles  21, 'JG065','EQ03'
 --GOLES VISITANTE
-EXEC ProcGoles.sp_insertargoles  21, 'JG092','EQ04'
+EXEC ProcGoles.sp_insertargoles  21, 'JG086','EQ04'
 
 exec sp_finalizar_partido 21
 
@@ -5800,19 +5786,19 @@ exec sp_finalizar_partido 21
 --GOLES LOCAL
 EXEC ProcGoles.sp_insertargoles  22, 'JG069','EQ03'
 --GOLES VISITANTE
-EXEC ProcGoles.sp_insertargoles  22, 'JG115','EQ05'
-EXEC ProcGoles.sp_insertargoles  22, 'JG114','EQ05'
+EXEC ProcGoles.sp_insertargoles  22, 'JG112','EQ05'
+EXEC ProcGoles.sp_insertargoles  22, 'JG112','EQ05'
 
 exec sp_finalizar_partido 22
 
 --Partido EQ03 VS EQ06
 --GOLES LOCAL
-EXEC ProcGoles.sp_insertargoles  23, 'JG069','EQ03'
-EXEC ProcGoles.sp_insertargoles  23, 'JG069','EQ03'
-EXEC ProcGoles.sp_insertargoles  23, 'JG068','EQ03'
-EXEC ProcGoles.sp_insertargoles  23, 'JG068','EQ03'
+EXEC ProcGoles.sp_insertargoles  23, 'JG065','EQ03'
+EXEC ProcGoles.sp_insertargoles  23, 'JG065','EQ03'
+EXEC ProcGoles.sp_insertargoles  23, 'JG055','EQ03'
+EXEC ProcGoles.sp_insertargoles  23, 'JG055','EQ03'
 --GOLES VISITANTE
-EXEC ProcGoles.sp_insertargoles  23, 'JG138','EQ06'
+EXEC ProcGoles.sp_insertargoles  23, 'JG136','EQ06'
 
 exec sp_finalizar_partido 23
 
@@ -5821,20 +5807,20 @@ exec sp_finalizar_partido 23
 EXEC ProcGoles.sp_insertargoles  24, 'JG069','EQ03'
 EXEC ProcGoles.sp_insertargoles  24, 'JG069','EQ03'
 --GOLES VISITANTE
-EXEC ProcGoles.sp_insertargoles  24, 'JG161','EQ07'
+EXEC ProcGoles.sp_insertargoles  24, 'JG150','EQ07'
 
 exec sp_finalizar_partido 24
 
 --Partido EQ03 VS EQ08
 --GOLES LOCAL
-EXEC ProcGoles.sp_insertargoles  25, 'JG069','EQ03'
-EXEC ProcGoles.sp_insertargoles  25, 'JG069','EQ03'
-EXEC ProcGoles.sp_insertargoles  25, 'JG068','EQ03'
+EXEC ProcGoles.sp_insertargoles  25, 'JG065','EQ03'
+EXEC ProcGoles.sp_insertargoles  25, 'JG065','EQ03'
+EXEC ProcGoles.sp_insertargoles  25, 'JG065','EQ03'
 --GOLES VISITANTE
-EXEC ProcGoles.sp_insertargoles  25, 'JG180','EQ08'
-EXEC ProcGoles.sp_insertargoles  25, 'JG180','EQ08'
-EXEC ProcGoles.sp_insertargoles  25, 'JG179','EQ08'
-EXEC ProcGoles.sp_insertargoles  25, 'JG179','EQ08'
+EXEC ProcGoles.sp_insertargoles  25, 'JG170','EQ08'
+EXEC ProcGoles.sp_insertargoles  25, 'JG170','EQ08'
+EXEC ProcGoles.sp_insertargoles  25, 'JG169','EQ08'
+EXEC ProcGoles.sp_insertargoles  25, 'JG169','EQ08'
 
 exec sp_finalizar_partido 25
 
@@ -5842,16 +5828,16 @@ exec sp_finalizar_partido 25
 --GOLES LOCAL
 EXEC ProcGoles.sp_insertargoles  26, 'JG069','EQ03'
 --GOLES VISITANTE
-EXEC ProcGoles.sp_insertargoles  26, 'JG200','EQ09'
-EXEC ProcGoles.sp_insertargoles  26, 'JG200','EQ09'
+EXEC ProcGoles.sp_insertargoles  26, 'JG197','EQ09'
+EXEC ProcGoles.sp_insertargoles  26, 'JG197','EQ09'
 
 exec sp_finalizar_partido 26
 
 --Partido EQ03 VS EQ10
 --GOLES LOCAL
-EXEC ProcGoles.sp_insertargoles  27, 'JG069','EQ03'
+EXEC ProcGoles.sp_insertargoles  27, 'JG050','EQ03'
 --GOLES VISITANTE
-EXEC ProcGoles.sp_insertargoles  27, 'JG223','EQ10'
+EXEC ProcGoles.sp_insertargoles  27, 'JG219','EQ10'
 
 exec sp_finalizar_partido 27
 
@@ -5866,7 +5852,7 @@ exec sp_finalizar_partido 28
 
 --Partido EQ04 VS EQ02
 --GOLES LOCAL
-EXEC ProcGoles.sp_insertargoles  29, 'JG092','EQ04'
+EXEC ProcGoles.sp_insertargoles  29, 'JG085','EQ04'
 --GOLES VISITANTE
 EXEC ProcGoles.sp_insertargoles  29, 'JG046','EQ02'
 EXEC ProcGoles.sp_insertargoles  29, 'JG046','EQ02'
@@ -5875,8 +5861,8 @@ exec sp_finalizar_partido 29
 
 --Partido EQ04 VS EQ03
 --GOLES LOCAL
-EXEC ProcGoles.sp_insertargoles  30, 'JG092','EQ04'
-EXEC ProcGoles.sp_insertargoles  30, 'JG092','EQ04'
+EXEC ProcGoles.sp_insertargoles  30, 'JG090','EQ04'
+EXEC ProcGoles.sp_insertargoles  30, 'JG091','EQ04'
 --GOLES VISITANTE
 EXEC ProcGoles.sp_insertargoles  30, 'JG069','EQ03'
 
@@ -5884,7 +5870,7 @@ exec sp_finalizar_partido 30
 
 --Partido EQ04 VS EQ05
 --GOLES LOCAL
-EXEC ProcGoles.sp_insertargoles  31, 'JG092','EQ04'
+EXEC ProcGoles.sp_insertargoles  31, 'JG085','EQ04'
 --GOLES VISITANTE
 EXEC ProcGoles.sp_insertargoles  31, 'JG115','EQ05'
 EXEC ProcGoles.sp_insertargoles  31, 'JG115','EQ05'
@@ -5901,10 +5887,10 @@ exec sp_finalizar_partido 32
 
 --Partido EQ04 VS EQ07
 --GOLES LOCAL
-EXEC ProcGoles.sp_insertargoles  33, 'JG092','EQ04'
-EXEC ProcGoles.sp_insertargoles  33, 'JG092','EQ04'
-EXEC ProcGoles.sp_insertargoles  33, 'JG091','EQ04'
-EXEC ProcGoles.sp_insertargoles  33, 'JG091','EQ04'
+EXEC ProcGoles.sp_insertargoles  33, 'JG085','EQ04'
+EXEC ProcGoles.sp_insertargoles  33, 'JG085','EQ04'
+EXEC ProcGoles.sp_insertargoles  33, 'JG078','EQ04'
+EXEC ProcGoles.sp_insertargoles  33, 'JG078','EQ04'
 --GOLES VISITANTE
 EXEC ProcGoles.sp_insertargoles  33, 'JG161','EQ07'
 
@@ -5912,7 +5898,7 @@ exec sp_finalizar_partido 33
 
 --Partido EQ04 VS EQ08
 --GOLES LOCAL
-EXEC ProcGoles.sp_insertargoles  34, 'JG092','EQ04'
+EXEC ProcGoles.sp_insertargoles  34, 'JG090','EQ04'
 --GOLES VISITANTE
 EXEC ProcGoles.sp_insertargoles  34, 'JG180','EQ08'
 
@@ -5920,7 +5906,7 @@ exec sp_finalizar_partido 34
 
 --Partido EQ04 VS EQ09
 --GOLES LOCAL
-EXEC ProcGoles.sp_insertargoles  35, 'JG092','EQ04'
+EXEC ProcGoles.sp_insertargoles  35, 'JG085','EQ04'
 --GOLES VISITANTE
 EXEC ProcGoles.sp_insertargoles  35, 'JG200','EQ09'
 EXEC ProcGoles.sp_insertargoles  35, 'JG200','EQ09'
@@ -5934,36 +5920,36 @@ exec sp_finalizar_partido 35
 EXEC ProcGoles.sp_insertargoles  36, 'JG092','EQ04'
 EXEC ProcGoles.sp_insertargoles  36, 'JG092','EQ04'
 --GOLES VISITANTE
-EXEC ProcGoles.sp_insertargoles  36, 'JG180','EQ10'
+EXEC ProcGoles.sp_insertargoles  36, 'JG223','EQ10'
 
 exec sp_finalizar_partido 36
 
 --Partido EQ05 VS EQ01
 --GOLES LOCAL
-EXEC ProcGoles.sp_insertargoles  37, 'JG115','EQ05'
+EXEC ProcGoles.sp_insertargoles  37, 'JG111','EQ05'
 --GOLES VISITANTE
-EXEC ProcGoles.sp_insertargoles  37, 'JG023','EQ01'
-EXEC ProcGoles.sp_insertargoles  37, 'JG023','EQ01'
+EXEC ProcGoles.sp_insertargoles  37, 'JG018','EQ01'
+EXEC ProcGoles.sp_insertargoles  37, 'JG018','EQ01'
 
 exec sp_finalizar_partido 37
 
 --Partido EQ05 VS EQ02
 --GOLES LOCAL
-EXEC ProcGoles.sp_insertargoles  38, 'JG115','EQ05'
-EXEC ProcGoles.sp_insertargoles  38, 'JG115','EQ05'
+EXEC ProcGoles.sp_insertargoles  38, 'JG114','EQ05'
+EXEC ProcGoles.sp_insertargoles  38, 'JG114','EQ05'
 EXEC ProcGoles.sp_insertargoles  38, 'JG114','EQ05'
 EXEC ProcGoles.sp_insertargoles  38, 'JG114','EQ05'
 --GOLES VISITANTE
-EXEC ProcGoles.sp_insertargoles  38, 'JG046','EQ02'
+EXEC ProcGoles.sp_insertargoles  38, 'JG040','EQ02'
 
 exec sp_finalizar_partido 38
 
 --Partido EQ05 VS EQ03
 --GOLES LOCAL
-EXEC ProcGoles.sp_insertargoles  39, 'JG115','EQ05'
+EXEC ProcGoles.sp_insertargoles  39, 'JG111','EQ05'
 --GOLES VISITANTE
-EXEC ProcGoles.sp_insertargoles  39, 'JG069','EQ03'
-EXEC ProcGoles.sp_insertargoles  39, 'JG069','EQ03'
+EXEC ProcGoles.sp_insertargoles  39, 'JG065','EQ03'
+EXEC ProcGoles.sp_insertargoles  39, 'JG065','EQ03'
 
 exec sp_finalizar_partido 39
 
@@ -5971,18 +5957,18 @@ exec sp_finalizar_partido 39
 --GOLES LOCAL
 EXEC ProcGoles.sp_insertargoles  40, 'JG115','EQ05'
 EXEC ProcGoles.sp_insertargoles  40, 'JG115','EQ05'
-EXEC ProcGoles.sp_insertargoles  40, 'JG114','EQ05'
+EXEC ProcGoles.sp_insertargoles  40, 'JG115','EQ05'
 --GOLES VISITANTE
-EXEC ProcGoles.sp_insertargoles  40, 'JG092','EQ04'
+EXEC ProcGoles.sp_insertargoles  40, 'JG074','EQ04'
 
 exec sp_finalizar_partido 40
 
 --Partido EQ05 VS EQ06
 --GOLES LOCAL
-EXEC ProcGoles.sp_insertargoles  41, 'JG115','EQ05'
+EXEC ProcGoles.sp_insertargoles  41, 'JG111','EQ05'
 --GOLES VISITANTE
-EXEC ProcGoles.sp_insertargoles  41, 'JG138','EQ06'
-EXEC ProcGoles.sp_insertargoles  41, 'JG138','EQ06'
+EXEC ProcGoles.sp_insertargoles  41, 'JG130','EQ06'
+EXEC ProcGoles.sp_insertargoles  41, 'JG130','EQ06'
 EXEC ProcGoles.sp_insertargoles  41, 'JG137','EQ06'
 EXEC ProcGoles.sp_insertargoles  41, 'JG137','EQ06'
 
@@ -5993,38 +5979,38 @@ exec sp_finalizar_partido 41
 EXEC ProcGoles.sp_insertargoles  42, 'JG115','EQ05'
 EXEC ProcGoles.sp_insertargoles  42, 'JG115','EQ05'
 --GOLES VISITANTE
-EXEC ProcGoles.sp_insertargoles  42, 'JG161','EQ07'
+EXEC ProcGoles.sp_insertargoles  42, 'JG150','EQ07'
 
 exec sp_finalizar_partido 42
 
 --Partido EQ05 VS EQ08
 --GOLES LOCAL
-EXEC ProcGoles.sp_insertargoles  43, 'JG115','EQ05'
+EXEC ProcGoles.sp_insertargoles  43, 'JG111','EQ05'
 --GOLES VISITANTE
-EXEC ProcGoles.sp_insertargoles  43, 'JG180','EQ08'
-EXEC ProcGoles.sp_insertargoles  43, 'JG180','EQ08'
-EXEC ProcGoles.sp_insertargoles  43, 'JG179','EQ08'
-EXEC ProcGoles.sp_insertargoles  43, 'JG179','EQ08'
-EXEC ProcGoles.sp_insertargoles  43, 'JG178','EQ08'
+EXEC ProcGoles.sp_insertargoles  43, 'JG170','EQ08'
+EXEC ProcGoles.sp_insertargoles  43, 'JG170','EQ08'
+EXEC ProcGoles.sp_insertargoles  43, 'JG169','EQ08'
+EXEC ProcGoles.sp_insertargoles  43, 'JG169','EQ08'
+EXEC ProcGoles.sp_insertargoles  43, 'JG168','EQ08'
 
 exec sp_finalizar_partido 43
 
 --Partido EQ05 VS EQ09
 --GOLES LOCAL
-EXEC ProcGoles.sp_insertargoles  44, 'JG115','EQ05'
+EXEC ProcGoles.sp_insertargoles  44, 'JG109','EQ05'
 --GOLES VISITANTE
-EXEC ProcGoles.sp_insertargoles  44, 'JG200','EQ09'
+EXEC ProcGoles.sp_insertargoles  44, 'JG190','EQ09'
 
 exec sp_finalizar_partido 44
 
 --Partido EQ05 VS EQ10
 --GOLES LOCAL
-EXEC ProcGoles.sp_insertargoles  45, 'JG115','EQ05'
-EXEC ProcGoles.sp_insertargoles  45, 'JG115','EQ05'
-EXEC ProcGoles.sp_insertargoles  45, 'JG115','EQ05'
-EXEC ProcGoles.sp_insertargoles  45, 'JG115','EQ05'
+EXEC ProcGoles.sp_insertargoles  45, 'JG111','EQ05'
+EXEC ProcGoles.sp_insertargoles  45, 'JG111','EQ05'
+EXEC ProcGoles.sp_insertargoles  45, 'JG111','EQ05'
+EXEC ProcGoles.sp_insertargoles  45, 'JG111','EQ05'
 --GOLES VISITANTE
-EXEC ProcGoles.sp_insertargoles  45, 'JG223','EQ10'
+EXEC ProcGoles.sp_insertargoles  45, 'JG218','EQ10'
 
 exec sp_finalizar_partido 45
 
