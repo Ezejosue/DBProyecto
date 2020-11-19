@@ -6027,11 +6027,11 @@ exec sp_finalizar_partido 46
 
 --Partido EQ06 VS EQ02
 --GOLES LOCAL
-EXEC ProcGoles.sp_insertargoles  47, 'JG138','EQ06'
-EXEC ProcGoles.sp_insertargoles  47, 'JG138','EQ06'
+EXEC ProcGoles.sp_insertargoles  47, 'JG130','EQ06'
+EXEC ProcGoles.sp_insertargoles  47, 'JG130','EQ06'
 --GOLES VISITANTE
-EXEC ProcGoles.sp_insertargoles  47, 'JG046','EQ02'
-EXEC ProcGoles.sp_insertargoles  47, 'JG046','EQ02'
+EXEC ProcGoles.sp_insertargoles  47, 'JG045','EQ02'
+EXEC ProcGoles.sp_insertargoles  47, 'JG045','EQ02'
 
 exec sp_finalizar_partido 47
 
