@@ -2164,7 +2164,7 @@ EXEC sp_Insertar_DetalleEquipoJugador 'PER015', '2020-11-12', '2024-12-08', 'EQ0
 EXEC sp_Insertar_DetalleEquipoJugador 'PER016', '2020-11-16', '2024-12-08', 'EQ01', 'JG016';
 EXEC sp_Insertar_DetalleEquipoJugador 'PER017', '2020-11-22', '2024-12-07', 'EQ01', 'JG017';
 EXEC sp_Insertar_DetalleEquipoJugador 'PER018', '2020-11-20', '2024-12-07', 'EQ01', 'JG018';
-EXEC sp_Insertar_DetalleEquipoJugador 'PER018', '2020-11-08', '2024-12-07', 'EQ01', 'JG019';
+EXEC sp_Insertar_DetalleEquipoJugador 'PER019', '2020-11-08', '2024-12-07', 'EQ01', 'JG019';
 EXEC sp_Insertar_DetalleEquipoJugador 'PER020', '2020-11-17', '2024-12-20', 'EQ01', 'JG020';
 EXEC sp_Insertar_DetalleEquipoJugador 'PER021', '2020-11-09', '2024-12-20', 'EQ01', 'JG021';
 EXEC sp_Insertar_DetalleEquipoJugador 'PER022', '2020-11-13', '2024-12-20', 'EQ01', 'JG022';
@@ -3094,31 +3094,2502 @@ GO
 
 --INGRESO DE PLANTILLAS PARA CADA EQUIPO EN LOS 90 PARTIDOS DE TODO EL TORNEO
 
---Plantilla para el equipo EQ01 para el partido 1
+/*-----------------------------  PARTIDO 1  ----------------------------------------------*/
+-- EQUIPO 1
 EXEC sp_Insertar_Plantilla 'EQ01','JG001',1
-EXEC sp_Insertar_Plantilla 'EQ01','JG002',1
 EXEC sp_Insertar_Plantilla 'EQ01','JG003',1
 EXEC sp_Insertar_Plantilla 'EQ01','JG004',1
 EXEC sp_Insertar_Plantilla 'EQ01','JG005',1
 EXEC sp_Insertar_Plantilla 'EQ01','JG006',1
-EXEC sp_Insertar_Plantilla 'EQ01','JG007',1
-EXEC sp_Insertar_Plantilla 'EQ01','JG008',1
-EXEC sp_Insertar_Plantilla 'EQ01','JG009',1
-EXEC sp_Insertar_Plantilla 'EQ01','JG010',1
-EXEC sp_Insertar_Plantilla 'EQ01','JG011',1
+EXEC sp_Insertar_Plantilla 'EQ01','JG012',1
+EXEC sp_Insertar_Plantilla 'EQ01','JG013',1
+EXEC sp_Insertar_Plantilla 'EQ01','JG014',1
+EXEC sp_Insertar_Plantilla 'EQ01','JG015',1
+EXEC sp_Insertar_Plantilla 'EQ01','JG018',1
+EXEC sp_Insertar_Plantilla 'EQ01','JG019',1
 
---Plantilla para el equipo EQ02 para el partido 1
+--EQUIPO 2
 EXEC sp_Insertar_Plantilla 'EQ02','JG024',1
-EXEC sp_Insertar_Plantilla 'EQ02','JG025',1
 EXEC sp_Insertar_Plantilla 'EQ02','JG026',1
 EXEC sp_Insertar_Plantilla 'EQ02','JG027',1
 EXEC sp_Insertar_Plantilla 'EQ02','JG028',1
 EXEC sp_Insertar_Plantilla 'EQ02','JG029',1
-EXEC sp_Insertar_Plantilla 'EQ02','JG030',1
-EXEC sp_Insertar_Plantilla 'EQ02','JG031',1
-EXEC sp_Insertar_Plantilla 'EQ02','JG032',1
 EXEC sp_Insertar_Plantilla 'EQ02','JG033',1
 EXEC sp_Insertar_Plantilla 'EQ02','JG034',1
+EXEC sp_Insertar_Plantilla 'EQ02','JG035',1
+EXEC sp_Insertar_Plantilla 'EQ02','JG036',1
+EXEC sp_Insertar_Plantilla 'EQ02','JG040',1
+EXEC sp_Insertar_Plantilla 'EQ02','JG041',1
+
+/*-----------------------------  PARTIDO 2  ----------------------------------------------*/
+-- EQUIPO 1
+EXEC sp_Insertar_Plantilla 'EQ01','JG002',2
+EXEC sp_Insertar_Plantilla 'EQ01','JG007',2
+EXEC sp_Insertar_Plantilla 'EQ01','JG008',2
+EXEC sp_Insertar_Plantilla 'EQ01','JG009',2
+EXEC sp_Insertar_Plantilla 'EQ01','JG010',2
+EXEC sp_Insertar_Plantilla 'EQ01','JG016',2
+EXEC sp_Insertar_Plantilla 'EQ01','JG017',2
+EXEC sp_Insertar_Plantilla 'EQ01','JG020',2
+EXEC sp_Insertar_Plantilla 'EQ01','JG021',2
+EXEC sp_Insertar_Plantilla 'EQ01','JG022',2
+EXEC sp_Insertar_Plantilla 'EQ01','JG023',2
+
+--EQUIPO 3
+EXEC sp_Insertar_Plantilla 'EQ03','JG047',2
+EXEC sp_Insertar_Plantilla 'EQ03','JG049',2
+EXEC sp_Insertar_Plantilla 'EQ03','JG050',2
+EXEC sp_Insertar_Plantilla 'EQ03','JG051',2
+EXEC sp_Insertar_Plantilla 'EQ03','JG052',2
+EXEC sp_Insertar_Plantilla 'EQ03','JG054',2
+EXEC sp_Insertar_Plantilla 'EQ03','JG055',2
+EXEC sp_Insertar_Plantilla 'EQ03','JG056',2
+EXEC sp_Insertar_Plantilla 'EQ03','JG057',2
+EXEC sp_Insertar_Plantilla 'EQ03','JG065',2
+EXEC sp_Insertar_Plantilla 'EQ03','JG066',2
+
+/*-----------------------------  PARTIDO 3  ----------------------------------------------*/
+-- EQUIPO 1
+EXEC sp_Insertar_Plantilla 'EQ01','JG001',3
+EXEC sp_Insertar_Plantilla 'EQ01','JG003',3
+EXEC sp_Insertar_Plantilla 'EQ01','JG004',3
+EXEC sp_Insertar_Plantilla 'EQ01','JG005',3
+EXEC sp_Insertar_Plantilla 'EQ01','JG006',3
+EXEC sp_Insertar_Plantilla 'EQ01','JG012',3
+EXEC sp_Insertar_Plantilla 'EQ01','JG013',3
+EXEC sp_Insertar_Plantilla 'EQ01','JG014',3
+EXEC sp_Insertar_Plantilla 'EQ01','JG015',3
+EXEC sp_Insertar_Plantilla 'EQ01','JG018',3
+EXEC sp_Insertar_Plantilla 'EQ01','JG019',3
+
+--EQUIPO 4
+EXEC sp_Insertar_Plantilla 'EQ04','JG070',3
+EXEC sp_Insertar_Plantilla 'EQ04','JG071',3
+EXEC sp_Insertar_Plantilla 'EQ04','JG072',3
+EXEC sp_Insertar_Plantilla 'EQ04','JG073',3
+EXEC sp_Insertar_Plantilla 'EQ04','JG074',3
+EXEC sp_Insertar_Plantilla 'EQ04','JG076',3
+EXEC sp_Insertar_Plantilla 'EQ04','JG077',3
+EXEC sp_Insertar_Plantilla 'EQ04','JG078',3
+EXEC sp_Insertar_Plantilla 'EQ04','JG079',3
+EXEC sp_Insertar_Plantilla 'EQ04','JG085',3
+EXEC sp_Insertar_Plantilla 'EQ04','JG086',3
+
+/*-----------------------------  PARTIDO 4  ----------------------------------------------*/
+-- EQUIPO 1
+EXEC sp_Insertar_Plantilla 'EQ01','JG002',4
+EXEC sp_Insertar_Plantilla 'EQ01','JG007',4
+EXEC sp_Insertar_Plantilla 'EQ01','JG008',4
+EXEC sp_Insertar_Plantilla 'EQ01','JG009',4
+EXEC sp_Insertar_Plantilla 'EQ01','JG011',4
+EXEC sp_Insertar_Plantilla 'EQ01','JG016',4
+EXEC sp_Insertar_Plantilla 'EQ01','JG017',4
+EXEC sp_Insertar_Plantilla 'EQ01','JG020',4
+EXEC sp_Insertar_Plantilla 'EQ01','JG021',4
+EXEC sp_Insertar_Plantilla 'EQ01','JG022',4
+EXEC sp_Insertar_Plantilla 'EQ01','JG023',4
+
+--EQUIPO 5
+EXEC sp_Insertar_Plantilla 'EQ05','JG093',4
+EXEC sp_Insertar_Plantilla 'EQ05','JG094',4
+EXEC sp_Insertar_Plantilla 'EQ05','JG095',4
+EXEC sp_Insertar_Plantilla 'EQ05','JG096',4
+EXEC sp_Insertar_Plantilla 'EQ05','JG097',4
+EXEC sp_Insertar_Plantilla 'EQ05','JG101',4
+EXEC sp_Insertar_Plantilla 'EQ05','JG102',4
+EXEC sp_Insertar_Plantilla 'EQ05','JG103',4
+EXEC sp_Insertar_Plantilla 'EQ05','JG104',4
+EXEC sp_Insertar_Plantilla 'EQ05','JG111',4
+EXEC sp_Insertar_Plantilla 'EQ05','JG112',4
+
+/*-----------------------------  PARTIDO 5  ----------------------------------------------*/
+-- EQUIPO 1
+EXEC sp_Insertar_Plantilla 'EQ01','JG001',5
+EXEC sp_Insertar_Plantilla 'EQ01','JG003',5
+EXEC sp_Insertar_Plantilla 'EQ01','JG004',5
+EXEC sp_Insertar_Plantilla 'EQ01','JG005',5
+EXEC sp_Insertar_Plantilla 'EQ01','JG006',5
+EXEC sp_Insertar_Plantilla 'EQ01','JG012',5
+EXEC sp_Insertar_Plantilla 'EQ01','JG013',5
+EXEC sp_Insertar_Plantilla 'EQ01','JG014',5
+EXEC sp_Insertar_Plantilla 'EQ01','JG015',5
+EXEC sp_Insertar_Plantilla 'EQ01','JG018',5
+EXEC sp_Insertar_Plantilla 'EQ01','JG019',5
+
+--EQUIPO 6
+EXEC sp_Insertar_Plantilla 'EQ06','JG116',5
+EXEC sp_Insertar_Plantilla 'EQ06','JG118',5
+EXEC sp_Insertar_Plantilla 'EQ06','JG119',5
+EXEC sp_Insertar_Plantilla 'EQ06','JG120',5
+EXEC sp_Insertar_Plantilla 'EQ06','JG121',5
+EXEC sp_Insertar_Plantilla 'EQ06','JG128',5
+EXEC sp_Insertar_Plantilla 'EQ06','JG129',5
+EXEC sp_Insertar_Plantilla 'EQ06','JG130',5
+EXEC sp_Insertar_Plantilla 'EQ06','JG131',5
+EXEC sp_Insertar_Plantilla 'EQ06','JG136',5
+EXEC sp_Insertar_Plantilla 'EQ06','JG137',5
+
+/*-----------------------------  PARTIDO 6  ----------------------------------------------*/
+-- EQUIPO 1
+EXEC sp_Insertar_Plantilla 'EQ01','JG002',6
+EXEC sp_Insertar_Plantilla 'EQ01','JG007',6
+EXEC sp_Insertar_Plantilla 'EQ01','JG008',6
+EXEC sp_Insertar_Plantilla 'EQ01','JG009',6
+EXEC sp_Insertar_Plantilla 'EQ01','JG010',6
+EXEC sp_Insertar_Plantilla 'EQ01','JG016',6
+EXEC sp_Insertar_Plantilla 'EQ01','JG017',6
+EXEC sp_Insertar_Plantilla 'EQ01','JG020',6
+EXEC sp_Insertar_Plantilla 'EQ01','JG021',6
+EXEC sp_Insertar_Plantilla 'EQ01','JG022',6
+EXEC sp_Insertar_Plantilla 'EQ01','JG023',6
+
+--EQUIPO 7
+EXEC sp_Insertar_Plantilla 'EQ07','JG139',6
+EXEC sp_Insertar_Plantilla 'EQ07','JG141',6
+EXEC sp_Insertar_Plantilla 'EQ07','JG142',6
+EXEC sp_Insertar_Plantilla 'EQ07','JG143',6
+EXEC sp_Insertar_Plantilla 'EQ07','JG144',6
+EXEC sp_Insertar_Plantilla 'EQ07','JG147',6
+EXEC sp_Insertar_Plantilla 'EQ07','JG148',6
+EXEC sp_Insertar_Plantilla 'EQ07','JG149',6
+EXEC sp_Insertar_Plantilla 'EQ07','JG150',6
+EXEC sp_Insertar_Plantilla 'EQ07','JG157',6
+EXEC sp_Insertar_Plantilla 'EQ07','JG158',6
+
+/*-----------------------------  PARTIDO 7  ----------------------------------------------*/
+-- EQUIPO 1
+EXEC sp_Insertar_Plantilla 'EQ01','JG001',7
+EXEC sp_Insertar_Plantilla 'EQ01','JG003',7
+EXEC sp_Insertar_Plantilla 'EQ01','JG004',7
+EXEC sp_Insertar_Plantilla 'EQ01','JG005',7
+EXEC sp_Insertar_Plantilla 'EQ01','JG006',7
+EXEC sp_Insertar_Plantilla 'EQ01','JG012',7
+EXEC sp_Insertar_Plantilla 'EQ01','JG013',7
+EXEC sp_Insertar_Plantilla 'EQ01','JG014',7
+EXEC sp_Insertar_Plantilla 'EQ01','JG015',7
+EXEC sp_Insertar_Plantilla 'EQ01','JG018',7
+EXEC sp_Insertar_Plantilla 'EQ01','JG019',7
+
+--EQUIPO 8
+EXEC sp_Insertar_Plantilla 'EQ08','JG162',7
+EXEC sp_Insertar_Plantilla 'EQ08','JG163',7
+EXEC sp_Insertar_Plantilla 'EQ08','JG164',7
+EXEC sp_Insertar_Plantilla 'EQ08','JG165',7
+EXEC sp_Insertar_Plantilla 'EQ08','JG166',7
+EXEC sp_Insertar_Plantilla 'EQ08','JG167',7
+EXEC sp_Insertar_Plantilla 'EQ08','JG168',7
+EXEC sp_Insertar_Plantilla 'EQ08','JG169',7
+EXEC sp_Insertar_Plantilla 'EQ08','JG170',7
+EXEC sp_Insertar_Plantilla 'EQ08','JG176',7
+EXEC sp_Insertar_Plantilla 'EQ08','JG177',7
+
+/*-----------------------------  PARTIDO 8  ----------------------------------------------*/
+-- EQUIPO 1
+EXEC sp_Insertar_Plantilla 'EQ01','JG002',8
+EXEC sp_Insertar_Plantilla 'EQ01','JG007',8
+EXEC sp_Insertar_Plantilla 'EQ01','JG008',8
+EXEC sp_Insertar_Plantilla 'EQ01','JG009',8
+EXEC sp_Insertar_Plantilla 'EQ01','JG011',8
+EXEC sp_Insertar_Plantilla 'EQ01','JG016',8
+EXEC sp_Insertar_Plantilla 'EQ01','JG017',8
+EXEC sp_Insertar_Plantilla 'EQ01','JG020',8
+EXEC sp_Insertar_Plantilla 'EQ01','JG021',8
+EXEC sp_Insertar_Plantilla 'EQ01','JG022',8
+EXEC sp_Insertar_Plantilla 'EQ01','JG023',8
+
+--EQUIPO 8
+EXEC sp_Insertar_Plantilla 'EQ09','JG181',8
+EXEC sp_Insertar_Plantilla 'EQ09','JG183',8
+EXEC sp_Insertar_Plantilla 'EQ09','JG184',8
+EXEC sp_Insertar_Plantilla 'EQ09','JG185',8
+EXEC sp_Insertar_Plantilla 'EQ09','JG186',8
+EXEC sp_Insertar_Plantilla 'EQ09','JG187',8
+EXEC sp_Insertar_Plantilla 'EQ09','JG188',8
+EXEC sp_Insertar_Plantilla 'EQ09','JG189',8
+EXEC sp_Insertar_Plantilla 'EQ09','JG190',8
+EXEC sp_Insertar_Plantilla 'EQ09','JG196',8
+EXEC sp_Insertar_Plantilla 'EQ09','JG197',8
+
+/*-----------------------------  PARTIDO 9  ----------------------------------------------*/
+-- EQUIPO 1
+EXEC sp_Insertar_Plantilla 'EQ01','JG001',9
+EXEC sp_Insertar_Plantilla 'EQ01','JG003',9
+EXEC sp_Insertar_Plantilla 'EQ01','JG004',9
+EXEC sp_Insertar_Plantilla 'EQ01','JG005',9
+EXEC sp_Insertar_Plantilla 'EQ01','JG006',9
+EXEC sp_Insertar_Plantilla 'EQ01','JG012',9
+EXEC sp_Insertar_Plantilla 'EQ01','JG013',9
+EXEC sp_Insertar_Plantilla 'EQ01','JG014',9
+EXEC sp_Insertar_Plantilla 'EQ01','JG015',9
+EXEC sp_Insertar_Plantilla 'EQ01','JG018',9
+EXEC sp_Insertar_Plantilla 'EQ01','JG019',9
+
+--EQUIPO 8
+EXEC sp_Insertar_Plantilla 'EQ10','JG201',9
+EXEC sp_Insertar_Plantilla 'EQ10','JG202',9
+EXEC sp_Insertar_Plantilla 'EQ10','JG203',9
+EXEC sp_Insertar_Plantilla 'EQ10','JG204',9
+EXEC sp_Insertar_Plantilla 'EQ10','JG205',9
+EXEC sp_Insertar_Plantilla 'EQ10','JG208',9
+EXEC sp_Insertar_Plantilla 'EQ10','JG209',9
+EXEC sp_Insertar_Plantilla 'EQ10','JG218',9
+EXEC sp_Insertar_Plantilla 'EQ10','JG219',9
+EXEC sp_Insertar_Plantilla 'EQ10','JG210',9
+EXEC sp_Insertar_Plantilla 'EQ10','JG211',9
+
+/*-----------------------------  PARTIDO 10 ----------------------------------------------*/
+-- EQUIPO 1
+EXEC sp_Insertar_Plantilla 'EQ01','JG002',10
+EXEC sp_Insertar_Plantilla 'EQ01','JG007',10
+EXEC sp_Insertar_Plantilla 'EQ01','JG008',10
+EXEC sp_Insertar_Plantilla 'EQ01','JG009',10
+EXEC sp_Insertar_Plantilla 'EQ01','JG010',10
+EXEC sp_Insertar_Plantilla 'EQ01','JG016',10
+EXEC sp_Insertar_Plantilla 'EQ01','JG017',10
+EXEC sp_Insertar_Plantilla 'EQ01','JG020',10
+EXEC sp_Insertar_Plantilla 'EQ01','JG021',10
+EXEC sp_Insertar_Plantilla 'EQ01','JG022',10
+EXEC sp_Insertar_Plantilla 'EQ01','JG023',10
+
+--EQUIPO 2
+EXEC sp_Insertar_Plantilla 'EQ02','JG024',10
+EXEC sp_Insertar_Plantilla 'EQ02','JG026',10
+EXEC sp_Insertar_Plantilla 'EQ02','JG027',10
+EXEC sp_Insertar_Plantilla 'EQ02','JG028',10
+EXEC sp_Insertar_Plantilla 'EQ02','JG029',10
+EXEC sp_Insertar_Plantilla 'EQ02','JG033',10
+EXEC sp_Insertar_Plantilla 'EQ02','JG034',10
+EXEC sp_Insertar_Plantilla 'EQ02','JG035',10
+EXEC sp_Insertar_Plantilla 'EQ02','JG036',10
+EXEC sp_Insertar_Plantilla 'EQ02','JG040',10
+EXEC sp_Insertar_Plantilla 'EQ02','JG041',10
+
+/*-----------------------------  PARTIDO 11 ----------------------------------------------*/
+--EQUIPO 2
+EXEC sp_Insertar_Plantilla 'EQ02','JG025',11
+EXEC sp_Insertar_Plantilla 'EQ02','JG030',11
+EXEC sp_Insertar_Plantilla 'EQ02','JG031',11
+EXEC sp_Insertar_Plantilla 'EQ02','JG032',11
+EXEC sp_Insertar_Plantilla 'EQ02','JG037',11
+EXEC sp_Insertar_Plantilla 'EQ02','JG038',11
+EXEC sp_Insertar_Plantilla 'EQ02','JG039',11
+EXEC sp_Insertar_Plantilla 'EQ02','JG042',11
+EXEC sp_Insertar_Plantilla 'EQ02','JG043',11
+EXEC sp_Insertar_Plantilla 'EQ02','JG044',11
+EXEC sp_Insertar_Plantilla 'EQ02','JG046',11
+
+-- EQUIPO 3
+EXEC sp_Insertar_Plantilla 'EQ03','JG048',11
+EXEC sp_Insertar_Plantilla 'EQ03','JG053',11
+EXEC sp_Insertar_Plantilla 'EQ03','JG057',11
+EXEC sp_Insertar_Plantilla 'EQ03','JG058',11
+EXEC sp_Insertar_Plantilla 'EQ03','JG059',11
+EXEC sp_Insertar_Plantilla 'EQ03','JG060',11
+EXEC sp_Insertar_Plantilla 'EQ03','JG061',11
+EXEC sp_Insertar_Plantilla 'EQ03','JG067',11
+EXEC sp_Insertar_Plantilla 'EQ03','JG068',11
+EXEC sp_Insertar_Plantilla 'EQ03','JG069',11
+EXEC sp_Insertar_Plantilla 'EQ03','JG062',11
+
+/*-----------------------------  PARTIDO 12 ----------------------------------------------*/
+--EQUIPO 2
+EXEC sp_Insertar_Plantilla 'EQ02','JG024',12
+EXEC sp_Insertar_Plantilla 'EQ02','JG026',12
+EXEC sp_Insertar_Plantilla 'EQ02','JG027',12
+EXEC sp_Insertar_Plantilla 'EQ02','JG028',12
+EXEC sp_Insertar_Plantilla 'EQ02','JG029',12
+EXEC sp_Insertar_Plantilla 'EQ02','JG033',12
+EXEC sp_Insertar_Plantilla 'EQ02','JG034',12
+EXEC sp_Insertar_Plantilla 'EQ02','JG035',12
+EXEC sp_Insertar_Plantilla 'EQ02','JG036',12
+EXEC sp_Insertar_Plantilla 'EQ02','JG040',12
+EXEC sp_Insertar_Plantilla 'EQ02','JG041',12
+
+-- EQUIPO 4
+EXEC sp_Insertar_Plantilla 'EQ04','JG070',12
+EXEC sp_Insertar_Plantilla 'EQ04','JG075',12
+EXEC sp_Insertar_Plantilla 'EQ04','JG080',12
+EXEC sp_Insertar_Plantilla 'EQ04','JG081',12
+EXEC sp_Insertar_Plantilla 'EQ04','JG082',12
+EXEC sp_Insertar_Plantilla 'EQ04','JG083',12
+EXEC sp_Insertar_Plantilla 'EQ04','JG084',12
+EXEC sp_Insertar_Plantilla 'EQ04','JG088',12
+EXEC sp_Insertar_Plantilla 'EQ04','JG089',12
+EXEC sp_Insertar_Plantilla 'EQ04','JG090',12
+EXEC sp_Insertar_Plantilla 'EQ04','JG090',12
+
+/*-----------------------------  PARTIDO 13 ----------------------------------------------*/
+--EQUIPO 2
+EXEC sp_Insertar_Plantilla 'EQ02','JG025',13
+EXEC sp_Insertar_Plantilla 'EQ02','JG030',13
+EXEC sp_Insertar_Plantilla 'EQ02','JG031',13
+EXEC sp_Insertar_Plantilla 'EQ02','JG032',13
+EXEC sp_Insertar_Plantilla 'EQ02','JG037',13
+EXEC sp_Insertar_Plantilla 'EQ02','JG038',13
+EXEC sp_Insertar_Plantilla 'EQ02','JG039',13
+EXEC sp_Insertar_Plantilla 'EQ02','JG042',13
+EXEC sp_Insertar_Plantilla 'EQ02','JG043',13
+EXEC sp_Insertar_Plantilla 'EQ02','JG044',13
+EXEC sp_Insertar_Plantilla 'EQ02','JG045',13
+
+-- EQUIPO 5
+EXEC sp_Insertar_Plantilla 'EQ05','JG093',13
+EXEC sp_Insertar_Plantilla 'EQ05','JG098',13
+EXEC sp_Insertar_Plantilla 'EQ05','JG099',13
+EXEC sp_Insertar_Plantilla 'EQ05','JG100',13
+EXEC sp_Insertar_Plantilla 'EQ05','JG105',13
+EXEC sp_Insertar_Plantilla 'EQ05','JG106',13
+EXEC sp_Insertar_Plantilla 'EQ05','JG107',13
+EXEC sp_Insertar_Plantilla 'EQ05','JG108',13
+EXEC sp_Insertar_Plantilla 'EQ05','JG109',13
+EXEC sp_Insertar_Plantilla 'EQ05','JG113',13
+EXEC sp_Insertar_Plantilla 'EQ05','JG114',13
+
+/*-----------------------------  PARTIDO 14 ----------------------------------------------*/
+--EQUIPO 2
+EXEC sp_Insertar_Plantilla 'EQ02','JG024',14
+EXEC sp_Insertar_Plantilla 'EQ02','JG026',14
+EXEC sp_Insertar_Plantilla 'EQ02','JG027',14
+EXEC sp_Insertar_Plantilla 'EQ02','JG028',14
+EXEC sp_Insertar_Plantilla 'EQ02','JG029',14
+EXEC sp_Insertar_Plantilla 'EQ02','JG033',14
+EXEC sp_Insertar_Plantilla 'EQ02','JG034',14
+EXEC sp_Insertar_Plantilla 'EQ02','JG035',14
+EXEC sp_Insertar_Plantilla 'EQ02','JG036',14
+EXEC sp_Insertar_Plantilla 'EQ02','JG040',14
+EXEC sp_Insertar_Plantilla 'EQ02','JG041',14
+
+-- EQUIPO 6
+EXEC sp_Insertar_Plantilla 'EQ06','JG117',14
+EXEC sp_Insertar_Plantilla 'EQ06','JG122',14
+EXEC sp_Insertar_Plantilla 'EQ06','JG123',14
+EXEC sp_Insertar_Plantilla 'EQ06','JG124',14
+EXEC sp_Insertar_Plantilla 'EQ06','JG125',14
+EXEC sp_Insertar_Plantilla 'EQ06','JG126',14
+EXEC sp_Insertar_Plantilla 'EQ06','JG132',14
+EXEC sp_Insertar_Plantilla 'EQ06','JG133',14
+EXEC sp_Insertar_Plantilla 'EQ06','JG134',14
+EXEC sp_Insertar_Plantilla 'EQ06','JG135',14
+EXEC sp_Insertar_Plantilla 'EQ06','JG138',14
+
+/*-----------------------------  PARTIDO 15 ----------------------------------------------*/
+--EQUIPO 2
+EXEC sp_Insertar_Plantilla 'EQ02','JG025',15
+EXEC sp_Insertar_Plantilla 'EQ02','JG030',15
+EXEC sp_Insertar_Plantilla 'EQ02','JG031',15
+EXEC sp_Insertar_Plantilla 'EQ02','JG032',15
+EXEC sp_Insertar_Plantilla 'EQ02','JG037',15
+EXEC sp_Insertar_Plantilla 'EQ02','JG038',15
+EXEC sp_Insertar_Plantilla 'EQ02','JG039',15
+EXEC sp_Insertar_Plantilla 'EQ02','JG042',15
+EXEC sp_Insertar_Plantilla 'EQ02','JG043',15
+EXEC sp_Insertar_Plantilla 'EQ02','JG044',15
+EXEC sp_Insertar_Plantilla 'EQ02','JG046',15
+
+-- EQUIPO 7
+EXEC sp_Insertar_Plantilla 'EQ07','JG140',15
+EXEC sp_Insertar_Plantilla 'EQ07','JG145',15
+EXEC sp_Insertar_Plantilla 'EQ07','JG146',15
+EXEC sp_Insertar_Plantilla 'EQ07','JG151',15
+EXEC sp_Insertar_Plantilla 'EQ07','JG152',15
+EXEC sp_Insertar_Plantilla 'EQ07','JG153',15
+EXEC sp_Insertar_Plantilla 'EQ07','JG154',15
+EXEC sp_Insertar_Plantilla 'EQ07','JG155',15
+EXEC sp_Insertar_Plantilla 'EQ07','JG156',15
+EXEC sp_Insertar_Plantilla 'EQ07','JG159',15
+EXEC sp_Insertar_Plantilla 'EQ07','JG160',15
+
+/*-----------------------------  PARTIDO 16 ----------------------------------------------*/
+--EQUIPO 2
+EXEC sp_Insertar_Plantilla 'EQ02','JG024',16
+EXEC sp_Insertar_Plantilla 'EQ02','JG026',16
+EXEC sp_Insertar_Plantilla 'EQ02','JG027',16
+EXEC sp_Insertar_Plantilla 'EQ02','JG028',16
+EXEC sp_Insertar_Plantilla 'EQ02','JG029',16
+EXEC sp_Insertar_Plantilla 'EQ02','JG033',16
+EXEC sp_Insertar_Plantilla 'EQ02','JG034',16
+EXEC sp_Insertar_Plantilla 'EQ02','JG035',16
+EXEC sp_Insertar_Plantilla 'EQ02','JG036',16
+EXEC sp_Insertar_Plantilla 'EQ02','JG040',16
+EXEC sp_Insertar_Plantilla 'EQ02','JG041',16
+
+-- EQUIPO 8
+EXEC sp_Insertar_Plantilla 'EQ08','JG162',16
+EXEC sp_Insertar_Plantilla 'EQ08','JG165',16
+EXEC sp_Insertar_Plantilla 'EQ08','JG166',16
+EXEC sp_Insertar_Plantilla 'EQ08','JG171',16
+EXEC sp_Insertar_Plantilla 'EQ08','JG172',16
+EXEC sp_Insertar_Plantilla 'EQ08','JG173',16
+EXEC sp_Insertar_Plantilla 'EQ08','JG174',16
+EXEC sp_Insertar_Plantilla 'EQ08','JG175',16
+EXEC sp_Insertar_Plantilla 'EQ08','JG178',16
+EXEC sp_Insertar_Plantilla 'EQ08','JG179',16
+EXEC sp_Insertar_Plantilla 'EQ08','JG180',16
+
+/*-----------------------------  PARTIDO 17 ----------------------------------------------*/
+--EQUIPO 2
+EXEC sp_Insertar_Plantilla 'EQ02','JG025',17
+EXEC sp_Insertar_Plantilla 'EQ02','JG030',17
+EXEC sp_Insertar_Plantilla 'EQ02','JG031',17
+EXEC sp_Insertar_Plantilla 'EQ02','JG032',17
+EXEC sp_Insertar_Plantilla 'EQ02','JG037',17
+EXEC sp_Insertar_Plantilla 'EQ02','JG038',17
+EXEC sp_Insertar_Plantilla 'EQ02','JG039',17
+EXEC sp_Insertar_Plantilla 'EQ02','JG042',17
+EXEC sp_Insertar_Plantilla 'EQ02','JG043',17
+EXEC sp_Insertar_Plantilla 'EQ02','JG044',17
+EXEC sp_Insertar_Plantilla 'EQ02','JG045',17
+
+-- EQUIPO 9
+EXEC sp_Insertar_Plantilla 'EQ09','JG182',17
+EXEC sp_Insertar_Plantilla 'EQ09','JG183',17
+EXEC sp_Insertar_Plantilla 'EQ09','JG184',17
+EXEC sp_Insertar_Plantilla 'EQ09','JG191',17
+EXEC sp_Insertar_Plantilla 'EQ09','JG192',17
+EXEC sp_Insertar_Plantilla 'EQ09','JG193',17
+EXEC sp_Insertar_Plantilla 'EQ09','JG194',17
+EXEC sp_Insertar_Plantilla 'EQ09','JG195',17
+EXEC sp_Insertar_Plantilla 'EQ09','JG198',17
+EXEC sp_Insertar_Plantilla 'EQ09','JG199',17
+EXEC sp_Insertar_Plantilla 'EQ09','JG200',17
+
+/*-----------------------------  PARTIDO 18 ----------------------------------------------*/
+--EQUIPO 2
+EXEC sp_Insertar_Plantilla 'EQ02','JG024',18
+EXEC sp_Insertar_Plantilla 'EQ02','JG026',18
+EXEC sp_Insertar_Plantilla 'EQ02','JG027',18
+EXEC sp_Insertar_Plantilla 'EQ02','JG028',18
+EXEC sp_Insertar_Plantilla 'EQ02','JG029',18
+EXEC sp_Insertar_Plantilla 'EQ02','JG033',18
+EXEC sp_Insertar_Plantilla 'EQ02','JG034',18
+EXEC sp_Insertar_Plantilla 'EQ02','JG035',18
+EXEC sp_Insertar_Plantilla 'EQ02','JG036',18
+EXEC sp_Insertar_Plantilla 'EQ02','JG040',18
+EXEC sp_Insertar_Plantilla 'EQ02','JG041',18
+
+-- EQUIPO 10
+EXEC sp_Insertar_Plantilla 'EQ10','JG212',18
+EXEC sp_Insertar_Plantilla 'EQ10','JG206',18
+EXEC sp_Insertar_Plantilla 'EQ10','JG207',18
+EXEC sp_Insertar_Plantilla 'EQ10','JG216',18
+EXEC sp_Insertar_Plantilla 'EQ10','JG217',18
+EXEC sp_Insertar_Plantilla 'EQ10','JG220',18
+EXEC sp_Insertar_Plantilla 'EQ10','JG221',18
+EXEC sp_Insertar_Plantilla 'EQ10','JG222',18
+EXEC sp_Insertar_Plantilla 'EQ10','JG223',18
+EXEC sp_Insertar_Plantilla 'EQ10','JG214',18
+EXEC sp_Insertar_Plantilla 'EQ10','JG215',18
+
+/*-----------------------------  PARTIDO 19 ----------------------------------------------*/
+--EQUIPO 3
+EXEC sp_Insertar_Plantilla 'EQ03','JG047',19
+EXEC sp_Insertar_Plantilla 'EQ03','JG049',19
+EXEC sp_Insertar_Plantilla 'EQ03','JG050',19
+EXEC sp_Insertar_Plantilla 'EQ03','JG051',19
+EXEC sp_Insertar_Plantilla 'EQ03','JG052',19
+EXEC sp_Insertar_Plantilla 'EQ03','JG054',19
+EXEC sp_Insertar_Plantilla 'EQ03','JG055',19
+EXEC sp_Insertar_Plantilla 'EQ03','JG056',19
+EXEC sp_Insertar_Plantilla 'EQ03','JG057',19
+EXEC sp_Insertar_Plantilla 'EQ03','JG065',19
+EXEC sp_Insertar_Plantilla 'EQ03','JG066',19
+
+-- EQUIPO 1
+EXEC sp_Insertar_Plantilla 'EQ01','JG001',19
+EXEC sp_Insertar_Plantilla 'EQ01','JG003',19
+EXEC sp_Insertar_Plantilla 'EQ01','JG004',19
+EXEC sp_Insertar_Plantilla 'EQ01','JG005',19
+EXEC sp_Insertar_Plantilla 'EQ01','JG006',19
+EXEC sp_Insertar_Plantilla 'EQ01','JG012',19
+EXEC sp_Insertar_Plantilla 'EQ01','JG013',19
+EXEC sp_Insertar_Plantilla 'EQ01','JG014',19
+EXEC sp_Insertar_Plantilla 'EQ01','JG015',19
+EXEC sp_Insertar_Plantilla 'EQ01','JG018',19
+EXEC sp_Insertar_Plantilla 'EQ01','JG019',19
+
+/*-----------------------------  PARTIDO 20 ----------------------------------------------*/
+--EQUIPO 3
+EXEC sp_Insertar_Plantilla 'EQ03','JG048',20
+EXEC sp_Insertar_Plantilla 'EQ03','JG053',20
+EXEC sp_Insertar_Plantilla 'EQ03','JG057',20
+EXEC sp_Insertar_Plantilla 'EQ03','JG058',20
+EXEC sp_Insertar_Plantilla 'EQ03','JG059',20
+EXEC sp_Insertar_Plantilla 'EQ03','JG060',20
+EXEC sp_Insertar_Plantilla 'EQ03','JG061',20
+EXEC sp_Insertar_Plantilla 'EQ03','JG067',20
+EXEC sp_Insertar_Plantilla 'EQ03','JG068',20
+EXEC sp_Insertar_Plantilla 'EQ03','JG069',20
+EXEC sp_Insertar_Plantilla 'EQ03','JG063',20
+
+-- EQUIPO 2
+EXEC sp_Insertar_Plantilla 'EQ02','JG024',20
+EXEC sp_Insertar_Plantilla 'EQ02','JG026',20
+EXEC sp_Insertar_Plantilla 'EQ02','JG027',20
+EXEC sp_Insertar_Plantilla 'EQ02','JG028',20
+EXEC sp_Insertar_Plantilla 'EQ02','JG029',20
+EXEC sp_Insertar_Plantilla 'EQ02','JG033',20
+EXEC sp_Insertar_Plantilla 'EQ02','JG034',20
+EXEC sp_Insertar_Plantilla 'EQ02','JG035',20
+EXEC sp_Insertar_Plantilla 'EQ02','JG036',20
+EXEC sp_Insertar_Plantilla 'EQ02','JG040',20
+EXEC sp_Insertar_Plantilla 'EQ02','JG041',20
+
+/*-----------------------------  PARTIDO 21 ----------------------------------------------*/
+--EQUIPO 3
+EXEC sp_Insertar_Plantilla 'EQ03','JG047',21
+EXEC sp_Insertar_Plantilla 'EQ03','JG049',21
+EXEC sp_Insertar_Plantilla 'EQ03','JG050',21
+EXEC sp_Insertar_Plantilla 'EQ03','JG051',21
+EXEC sp_Insertar_Plantilla 'EQ03','JG052',21
+EXEC sp_Insertar_Plantilla 'EQ03','JG054',21
+EXEC sp_Insertar_Plantilla 'EQ03','JG055',21
+EXEC sp_Insertar_Plantilla 'EQ03','JG056',21
+EXEC sp_Insertar_Plantilla 'EQ03','JG057',21
+EXEC sp_Insertar_Plantilla 'EQ03','JG065',21
+EXEC sp_Insertar_Plantilla 'EQ03','JG066',21
+
+-- EQUIPO 4
+EXEC sp_Insertar_Plantilla 'EQ04','JG070',21
+EXEC sp_Insertar_Plantilla 'EQ04','JG071',21
+EXEC sp_Insertar_Plantilla 'EQ04','JG072',21
+EXEC sp_Insertar_Plantilla 'EQ04','JG073',21
+EXEC sp_Insertar_Plantilla 'EQ04','JG074',21
+EXEC sp_Insertar_Plantilla 'EQ04','JG076',21
+EXEC sp_Insertar_Plantilla 'EQ04','JG077',21
+EXEC sp_Insertar_Plantilla 'EQ04','JG078',21
+EXEC sp_Insertar_Plantilla 'EQ04','JG079',21
+EXEC sp_Insertar_Plantilla 'EQ04','JG086',21
+EXEC sp_Insertar_Plantilla 'EQ04','JG087',21
+
+/*-----------------------------  PARTIDO 22 ----------------------------------------------*/
+--EQUIPO 3
+EXEC sp_Insertar_Plantilla 'EQ03','JG048',22
+EXEC sp_Insertar_Plantilla 'EQ03','JG053',22
+EXEC sp_Insertar_Plantilla 'EQ03','JG057',22
+EXEC sp_Insertar_Plantilla 'EQ03','JG058',22
+EXEC sp_Insertar_Plantilla 'EQ03','JG059',22
+EXEC sp_Insertar_Plantilla 'EQ03','JG060',22
+EXEC sp_Insertar_Plantilla 'EQ03','JG061',22
+EXEC sp_Insertar_Plantilla 'EQ03','JG067',22
+EXEC sp_Insertar_Plantilla 'EQ03','JG068',22
+EXEC sp_Insertar_Plantilla 'EQ03','JG069',22
+EXEC sp_Insertar_Plantilla 'EQ03','JG064',22
+
+
+-- EQUIPO 5
+EXEC sp_Insertar_Plantilla 'EQ05','JG093',22
+EXEC sp_Insertar_Plantilla 'EQ05','JG094',22
+EXEC sp_Insertar_Plantilla 'EQ05','JG095',22
+EXEC sp_Insertar_Plantilla 'EQ05','JG096',22
+EXEC sp_Insertar_Plantilla 'EQ05','JG097',22
+EXEC sp_Insertar_Plantilla 'EQ05','JG101',22
+EXEC sp_Insertar_Plantilla 'EQ05','JG102',22
+EXEC sp_Insertar_Plantilla 'EQ05','JG103',22
+EXEC sp_Insertar_Plantilla 'EQ05','JG104',22
+EXEC sp_Insertar_Plantilla 'EQ05','JG111',22
+EXEC sp_Insertar_Plantilla 'EQ05','JG112',22
+
+/*-----------------------------  PARTIDO 23 ----------------------------------------------*/
+--EQUIPO 3
+EXEC sp_Insertar_Plantilla 'EQ03','JG047',23
+EXEC sp_Insertar_Plantilla 'EQ03','JG049',23
+EXEC sp_Insertar_Plantilla 'EQ03','JG050',23
+EXEC sp_Insertar_Plantilla 'EQ03','JG051',23
+EXEC sp_Insertar_Plantilla 'EQ03','JG052',23
+EXEC sp_Insertar_Plantilla 'EQ03','JG054',23
+EXEC sp_Insertar_Plantilla 'EQ03','JG055',23
+EXEC sp_Insertar_Plantilla 'EQ03','JG056',23
+EXEC sp_Insertar_Plantilla 'EQ03','JG057',23
+EXEC sp_Insertar_Plantilla 'EQ03','JG065',23
+EXEC sp_Insertar_Plantilla 'EQ03','JG066',23
+
+
+-- EQUIPO 6
+EXEC sp_Insertar_Plantilla 'EQ06','JG116',23
+EXEC sp_Insertar_Plantilla 'EQ06','JG118',23
+EXEC sp_Insertar_Plantilla 'EQ06','JG119',23
+EXEC sp_Insertar_Plantilla 'EQ06','JG120',23
+EXEC sp_Insertar_Plantilla 'EQ06','JG121',23
+EXEC sp_Insertar_Plantilla 'EQ06','JG128',23
+EXEC sp_Insertar_Plantilla 'EQ06','JG129',23
+EXEC sp_Insertar_Plantilla 'EQ06','JG130',23
+EXEC sp_Insertar_Plantilla 'EQ06','JG131',23
+EXEC sp_Insertar_Plantilla 'EQ06','JG136',23
+EXEC sp_Insertar_Plantilla 'EQ06','JG137',23
+
+/*-----------------------------  PARTIDO 24 ----------------------------------------------*/
+--EQUIPO 3
+EXEC sp_Insertar_Plantilla 'EQ03','JG048',24
+EXEC sp_Insertar_Plantilla 'EQ03','JG053',24
+EXEC sp_Insertar_Plantilla 'EQ03','JG057',24
+EXEC sp_Insertar_Plantilla 'EQ03','JG058',24
+EXEC sp_Insertar_Plantilla 'EQ03','JG059',24
+EXEC sp_Insertar_Plantilla 'EQ03','JG060',24
+EXEC sp_Insertar_Plantilla 'EQ03','JG061',24
+EXEC sp_Insertar_Plantilla 'EQ03','JG067',24
+EXEC sp_Insertar_Plantilla 'EQ03','JG068',24
+EXEC sp_Insertar_Plantilla 'EQ03','JG069',24
+EXEC sp_Insertar_Plantilla 'EQ03','JG062',24
+
+
+-- EQUIPO 7
+EXEC sp_Insertar_Plantilla 'EQ07','JG139',24
+EXEC sp_Insertar_Plantilla 'EQ07','JG141',24
+EXEC sp_Insertar_Plantilla 'EQ07','JG142',24
+EXEC sp_Insertar_Plantilla 'EQ07','JG143',24
+EXEC sp_Insertar_Plantilla 'EQ07','JG144',24
+EXEC sp_Insertar_Plantilla 'EQ07','JG147',24
+EXEC sp_Insertar_Plantilla 'EQ07','JG148',24
+EXEC sp_Insertar_Plantilla 'EQ07','JG149',24
+EXEC sp_Insertar_Plantilla 'EQ07','JG150',24
+EXEC sp_Insertar_Plantilla 'EQ07','JG157',24
+EXEC sp_Insertar_Plantilla 'EQ07','JG158',24
+
+/*-----------------------------  PARTIDO 25 ----------------------------------------------*/
+--EQUIPO 3
+EXEC sp_Insertar_Plantilla 'EQ03','JG047',25
+EXEC sp_Insertar_Plantilla 'EQ03','JG049',25
+EXEC sp_Insertar_Plantilla 'EQ03','JG050',25
+EXEC sp_Insertar_Plantilla 'EQ03','JG051',25
+EXEC sp_Insertar_Plantilla 'EQ03','JG052',25
+EXEC sp_Insertar_Plantilla 'EQ03','JG054',25
+EXEC sp_Insertar_Plantilla 'EQ03','JG055',25
+EXEC sp_Insertar_Plantilla 'EQ03','JG056',25
+EXEC sp_Insertar_Plantilla 'EQ03','JG057',25
+EXEC sp_Insertar_Plantilla 'EQ03','JG065',25
+EXEC sp_Insertar_Plantilla 'EQ03','JG066',25
+
+
+-- EQUIPO 8
+EXEC sp_Insertar_Plantilla 'EQ08','JG162',25
+EXEC sp_Insertar_Plantilla 'EQ08','JG163',25
+EXEC sp_Insertar_Plantilla 'EQ08','JG164',25
+EXEC sp_Insertar_Plantilla 'EQ08','JG165',25
+EXEC sp_Insertar_Plantilla 'EQ08','JG166',25
+EXEC sp_Insertar_Plantilla 'EQ08','JG167',25
+EXEC sp_Insertar_Plantilla 'EQ08','JG168',25
+EXEC sp_Insertar_Plantilla 'EQ08','JG169',25
+EXEC sp_Insertar_Plantilla 'EQ08','JG170',25
+EXEC sp_Insertar_Plantilla 'EQ08','JG176',25
+EXEC sp_Insertar_Plantilla 'EQ08','JG177',25
+
+/*-----------------------------  PARTIDO 26 ----------------------------------------------*/
+--EQUIPO 3
+EXEC sp_Insertar_Plantilla 'EQ03','JG048',26
+EXEC sp_Insertar_Plantilla 'EQ03','JG053',26
+EXEC sp_Insertar_Plantilla 'EQ03','JG057',26
+EXEC sp_Insertar_Plantilla 'EQ03','JG058',26
+EXEC sp_Insertar_Plantilla 'EQ03','JG059',26
+EXEC sp_Insertar_Plantilla 'EQ03','JG060',26
+EXEC sp_Insertar_Plantilla 'EQ03','JG061',26
+EXEC sp_Insertar_Plantilla 'EQ03','JG067',26
+EXEC sp_Insertar_Plantilla 'EQ03','JG068',26
+EXEC sp_Insertar_Plantilla 'EQ03','JG069',26
+EXEC sp_Insertar_Plantilla 'EQ03','JG063',26
+
+
+-- EQUIPO 9
+EXEC sp_Insertar_Plantilla 'EQ09','JG181',26
+EXEC sp_Insertar_Plantilla 'EQ09','JG183',26
+EXEC sp_Insertar_Plantilla 'EQ09','JG184',26
+EXEC sp_Insertar_Plantilla 'EQ09','JG185',26
+EXEC sp_Insertar_Plantilla 'EQ09','JG186',26
+EXEC sp_Insertar_Plantilla 'EQ09','JG187',26
+EXEC sp_Insertar_Plantilla 'EQ09','JG188',26
+EXEC sp_Insertar_Plantilla 'EQ09','JG189',26
+EXEC sp_Insertar_Plantilla 'EQ09','JG190',26
+EXEC sp_Insertar_Plantilla 'EQ09','JG196',26
+EXEC sp_Insertar_Plantilla 'EQ09','JG197',26
+
+/*-----------------------------  PARTIDO 27 ----------------------------------------------*/
+--EQUIPO 3
+EXEC sp_Insertar_Plantilla 'EQ03','JG047',27
+EXEC sp_Insertar_Plantilla 'EQ03','JG049',27
+EXEC sp_Insertar_Plantilla 'EQ03','JG050',27
+EXEC sp_Insertar_Plantilla 'EQ03','JG051',27
+EXEC sp_Insertar_Plantilla 'EQ03','JG052',27
+EXEC sp_Insertar_Plantilla 'EQ03','JG054',27
+EXEC sp_Insertar_Plantilla 'EQ03','JG055',27
+EXEC sp_Insertar_Plantilla 'EQ03','JG056',27
+EXEC sp_Insertar_Plantilla 'EQ03','JG057',27
+EXEC sp_Insertar_Plantilla 'EQ03','JG065',27
+EXEC sp_Insertar_Plantilla 'EQ03','JG066',27
+
+
+-- EQUIPO 10
+EXEC sp_Insertar_Plantilla 'EQ10','JG201',27
+EXEC sp_Insertar_Plantilla 'EQ10','JG202',27
+EXEC sp_Insertar_Plantilla 'EQ10','JG203',27
+EXEC sp_Insertar_Plantilla 'EQ10','JG204',27
+EXEC sp_Insertar_Plantilla 'EQ10','JG205',27
+EXEC sp_Insertar_Plantilla 'EQ10','JG208',27
+EXEC sp_Insertar_Plantilla 'EQ10','JG209',27
+EXEC sp_Insertar_Plantilla 'EQ10','JG210',27
+EXEC sp_Insertar_Plantilla 'EQ10','JG211',27
+EXEC sp_Insertar_Plantilla 'EQ10','JG218',27
+EXEC sp_Insertar_Plantilla 'EQ10','JG219',27
+
+/*-----------------------------  PARTIDO 28 ----------------------------------------------*/
+--EQUIPO 4
+EXEC sp_Insertar_Plantilla 'EQ04','JG070',28
+EXEC sp_Insertar_Plantilla 'EQ04','JG075',28
+EXEC sp_Insertar_Plantilla 'EQ04','JG080',28
+EXEC sp_Insertar_Plantilla 'EQ04','JG081',28
+EXEC sp_Insertar_Plantilla 'EQ04','JG082',28
+EXEC sp_Insertar_Plantilla 'EQ04','JG083',28
+EXEC sp_Insertar_Plantilla 'EQ04','JG084',28
+EXEC sp_Insertar_Plantilla 'EQ04','JG088',28
+EXEC sp_Insertar_Plantilla 'EQ04','JG089',28
+EXEC sp_Insertar_Plantilla 'EQ04','JG090',28
+EXEC sp_Insertar_Plantilla 'EQ04','JG092',28
+
+
+-- EQUIPO 1
+EXEC sp_Insertar_Plantilla 'EQ01','JG002',28
+EXEC sp_Insertar_Plantilla 'EQ01','JG007',28
+EXEC sp_Insertar_Plantilla 'EQ01','JG008',28
+EXEC sp_Insertar_Plantilla 'EQ01','JG009',28
+EXEC sp_Insertar_Plantilla 'EQ01','JG011',28
+EXEC sp_Insertar_Plantilla 'EQ01','JG016',28
+EXEC sp_Insertar_Plantilla 'EQ01','JG017',28
+EXEC sp_Insertar_Plantilla 'EQ01','JG020',28
+EXEC sp_Insertar_Plantilla 'EQ01','JG021',28
+EXEC sp_Insertar_Plantilla 'EQ01','JG022',28
+EXEC sp_Insertar_Plantilla 'EQ01','JG023',28
+
+/*-----------------------------  PARTIDO 29 ----------------------------------------------*/
+--EQUIPO 4
+EXEC sp_Insertar_Plantilla 'EQ04','JG070',29
+EXEC sp_Insertar_Plantilla 'EQ04','JG071',29
+EXEC sp_Insertar_Plantilla 'EQ04','JG072',29
+EXEC sp_Insertar_Plantilla 'EQ04','JG073',29
+EXEC sp_Insertar_Plantilla 'EQ04','JG074',29
+EXEC sp_Insertar_Plantilla 'EQ04','JG076',29
+EXEC sp_Insertar_Plantilla 'EQ04','JG077',29
+EXEC sp_Insertar_Plantilla 'EQ04','JG078',29
+EXEC sp_Insertar_Plantilla 'EQ04','JG079',29
+EXEC sp_Insertar_Plantilla 'EQ04','JG085',29
+EXEC sp_Insertar_Plantilla 'EQ04','JG086',29
+
+
+-- EQUIPO 2
+EXEC sp_Insertar_Plantilla 'EQ02','JG025',29
+EXEC sp_Insertar_Plantilla 'EQ02','JG030',29
+EXEC sp_Insertar_Plantilla 'EQ02','JG031',29
+EXEC sp_Insertar_Plantilla 'EQ02','JG032',29
+EXEC sp_Insertar_Plantilla 'EQ02','JG037',29
+EXEC sp_Insertar_Plantilla 'EQ02','JG038',29
+EXEC sp_Insertar_Plantilla 'EQ02','JG039',29
+EXEC sp_Insertar_Plantilla 'EQ02','JG042',29
+EXEC sp_Insertar_Plantilla 'EQ02','JG043',29
+EXEC sp_Insertar_Plantilla 'EQ02','JG044',29
+EXEC sp_Insertar_Plantilla 'EQ02','JG046',29
+
+/*-----------------------------  PARTIDO 30 ----------------------------------------------*/
+--EQUIPO 4
+EXEC sp_Insertar_Plantilla 'EQ04','JG070',30
+EXEC sp_Insertar_Plantilla 'EQ04','JG075',30
+EXEC sp_Insertar_Plantilla 'EQ04','JG080',30
+EXEC sp_Insertar_Plantilla 'EQ04','JG081',30
+EXEC sp_Insertar_Plantilla 'EQ04','JG082',30
+EXEC sp_Insertar_Plantilla 'EQ04','JG083',30
+EXEC sp_Insertar_Plantilla 'EQ04','JG084',30
+EXEC sp_Insertar_Plantilla 'EQ04','JG088',30
+EXEC sp_Insertar_Plantilla 'EQ04','JG089',30
+EXEC sp_Insertar_Plantilla 'EQ04','JG090',30
+EXEC sp_Insertar_Plantilla 'EQ04','JG091',30
+
+
+-- EQUIPO 3
+EXEC sp_Insertar_Plantilla 'EQ03','JG048',30
+EXEC sp_Insertar_Plantilla 'EQ03','JG053',30
+EXEC sp_Insertar_Plantilla 'EQ03','JG057',30
+EXEC sp_Insertar_Plantilla 'EQ03','JG058',30
+EXEC sp_Insertar_Plantilla 'EQ03','JG059',30
+EXEC sp_Insertar_Plantilla 'EQ03','JG060',30
+EXEC sp_Insertar_Plantilla 'EQ03','JG061',30
+EXEC sp_Insertar_Plantilla 'EQ03','JG067',30
+EXEC sp_Insertar_Plantilla 'EQ03','JG068',30
+EXEC sp_Insertar_Plantilla 'EQ03','JG069',30
+EXEC sp_Insertar_Plantilla 'EQ03','JG063',30
+
+/*-----------------------------  PARTIDO 31 ----------------------------------------------*/
+--EQUIPO 4
+EXEC sp_Insertar_Plantilla 'EQ04','JG070',31
+EXEC sp_Insertar_Plantilla 'EQ04','JG071',31
+EXEC sp_Insertar_Plantilla 'EQ04','JG072',31
+EXEC sp_Insertar_Plantilla 'EQ04','JG073',31
+EXEC sp_Insertar_Plantilla 'EQ04','JG074',31
+EXEC sp_Insertar_Plantilla 'EQ04','JG076',31
+EXEC sp_Insertar_Plantilla 'EQ04','JG077',31
+EXEC sp_Insertar_Plantilla 'EQ04','JG078',31
+EXEC sp_Insertar_Plantilla 'EQ04','JG079',31
+EXEC sp_Insertar_Plantilla 'EQ04','JG085',31
+EXEC sp_Insertar_Plantilla 'EQ04','JG087',31
+
+-- EQUIPO 5
+EXEC sp_Insertar_Plantilla 'EQ05','JG093',31
+EXEC sp_Insertar_Plantilla 'EQ05','JG098',31
+EXEC sp_Insertar_Plantilla 'EQ05','JG098',31
+EXEC sp_Insertar_Plantilla 'EQ05','JG100',31
+EXEC sp_Insertar_Plantilla 'EQ05','JG105',31
+EXEC sp_Insertar_Plantilla 'EQ05','JG106',31
+EXEC sp_Insertar_Plantilla 'EQ05','JG107',31
+EXEC sp_Insertar_Plantilla 'EQ05','JG108',31
+EXEC sp_Insertar_Plantilla 'EQ05','JG110',31
+EXEC sp_Insertar_Plantilla 'EQ05','JG113',31
+EXEC sp_Insertar_Plantilla 'EQ05','JG115',31
+
+
+/*-----------------------------  PARTIDO 32 ----------------------------------------------*/
+--EQUIPO 4
+EXEC sp_Insertar_Plantilla 'EQ04','JG070',32
+EXEC sp_Insertar_Plantilla 'EQ04','JG075',32
+EXEC sp_Insertar_Plantilla 'EQ04','JG080',32
+EXEC sp_Insertar_Plantilla 'EQ04','JG081',32
+EXEC sp_Insertar_Plantilla 'EQ04','JG082',32
+EXEC sp_Insertar_Plantilla 'EQ04','JG083',32
+EXEC sp_Insertar_Plantilla 'EQ04','JG084',32
+EXEC sp_Insertar_Plantilla 'EQ04','JG088',32
+EXEC sp_Insertar_Plantilla 'EQ04','JG089',32
+EXEC sp_Insertar_Plantilla 'EQ04','JG090',32
+EXEC sp_Insertar_Plantilla 'EQ04','JG092',32
+
+-- EQUIPO 6
+EXEC sp_Insertar_Plantilla 'EQ06','JG117',32
+EXEC sp_Insertar_Plantilla 'EQ06','JG122',32
+EXEC sp_Insertar_Plantilla 'EQ06','JG123',32
+EXEC sp_Insertar_Plantilla 'EQ06','JG124',32
+EXEC sp_Insertar_Plantilla 'EQ06','JG125',32
+EXEC sp_Insertar_Plantilla 'EQ06','JG127',32
+EXEC sp_Insertar_Plantilla 'EQ06','JG132',32
+EXEC sp_Insertar_Plantilla 'EQ06','JG133',32
+EXEC sp_Insertar_Plantilla 'EQ06','JG134',32
+EXEC sp_Insertar_Plantilla 'EQ06','JG135',32
+EXEC sp_Insertar_Plantilla 'EQ06','JG138',32
+
+/*-----------------------------  PARTIDO 33 ----------------------------------------------*/
+--EQUIPO 4
+EXEC sp_Insertar_Plantilla 'EQ04','JG070',33
+EXEC sp_Insertar_Plantilla 'EQ04','JG071',33
+EXEC sp_Insertar_Plantilla 'EQ04','JG072',33
+EXEC sp_Insertar_Plantilla 'EQ04','JG073',33
+EXEC sp_Insertar_Plantilla 'EQ04','JG074',33
+EXEC sp_Insertar_Plantilla 'EQ04','JG076',33
+EXEC sp_Insertar_Plantilla 'EQ04','JG077',33
+EXEC sp_Insertar_Plantilla 'EQ04','JG078',33
+EXEC sp_Insertar_Plantilla 'EQ04','JG079',33
+EXEC sp_Insertar_Plantilla 'EQ04','JG085',33
+EXEC sp_Insertar_Plantilla 'EQ04','JG086',33
+
+-- EQUIPO 7
+EXEC sp_Insertar_Plantilla 'EQ07','JG140',33
+EXEC sp_Insertar_Plantilla 'EQ07','JG145',33
+EXEC sp_Insertar_Plantilla 'EQ07','JG146',33
+EXEC sp_Insertar_Plantilla 'EQ07','JG151',33
+EXEC sp_Insertar_Plantilla 'EQ07','JG152',33
+EXEC sp_Insertar_Plantilla 'EQ07','JG153',33
+EXEC sp_Insertar_Plantilla 'EQ07','JG154',33
+EXEC sp_Insertar_Plantilla 'EQ07','JG155',33
+EXEC sp_Insertar_Plantilla 'EQ07','JG156',33
+EXEC sp_Insertar_Plantilla 'EQ07','JG159',33
+EXEC sp_Insertar_Plantilla 'EQ07','JG161',33
+
+
+/*-----------------------------  PARTIDO 34 ----------------------------------------------*/
+--EQUIPO 4
+EXEC sp_Insertar_Plantilla 'EQ04','JG070',34
+EXEC sp_Insertar_Plantilla 'EQ04','JG075',34
+EXEC sp_Insertar_Plantilla 'EQ04','JG080',34
+EXEC sp_Insertar_Plantilla 'EQ04','JG081',34
+EXEC sp_Insertar_Plantilla 'EQ04','JG082',34
+EXEC sp_Insertar_Plantilla 'EQ04','JG083',34
+EXEC sp_Insertar_Plantilla 'EQ04','JG084',34
+EXEC sp_Insertar_Plantilla 'EQ04','JG088',34
+EXEC sp_Insertar_Plantilla 'EQ04','JG089',34
+EXEC sp_Insertar_Plantilla 'EQ04','JG090',34
+EXEC sp_Insertar_Plantilla 'EQ04','JG091',34
+
+-- EQUIPO 8
+EXEC sp_Insertar_Plantilla 'EQ08','JG162',34
+EXEC sp_Insertar_Plantilla 'EQ08','JG165',34
+EXEC sp_Insertar_Plantilla 'EQ08','JG166',34
+EXEC sp_Insertar_Plantilla 'EQ08','JG171',34
+EXEC sp_Insertar_Plantilla 'EQ08','JG172',34
+EXEC sp_Insertar_Plantilla 'EQ08','JG173',34
+EXEC sp_Insertar_Plantilla 'EQ08','JG174',34
+EXEC sp_Insertar_Plantilla 'EQ08','JG175',34
+EXEC sp_Insertar_Plantilla 'EQ08','JG178',34
+EXEC sp_Insertar_Plantilla 'EQ08','JG179',34
+EXEC sp_Insertar_Plantilla 'EQ08','JG180',34
+
+
+/*-----------------------------  PARTIDO 35 ----------------------------------------------*/
+--EQUIPO 4
+EXEC sp_Insertar_Plantilla 'EQ04','JG070',35
+EXEC sp_Insertar_Plantilla 'EQ04','JG071',35
+EXEC sp_Insertar_Plantilla 'EQ04','JG072',35
+EXEC sp_Insertar_Plantilla 'EQ04','JG073',35
+EXEC sp_Insertar_Plantilla 'EQ04','JG074',35
+EXEC sp_Insertar_Plantilla 'EQ04','JG076',35
+EXEC sp_Insertar_Plantilla 'EQ04','JG077',35
+EXEC sp_Insertar_Plantilla 'EQ04','JG078',35
+EXEC sp_Insertar_Plantilla 'EQ04','JG079',35
+EXEC sp_Insertar_Plantilla 'EQ04','JG085',35
+EXEC sp_Insertar_Plantilla 'EQ04','JG087',35
+
+-- EQUIPO 9
+EXEC sp_Insertar_Plantilla 'EQ09','JG182',35
+EXEC sp_Insertar_Plantilla 'EQ09','JG183',35
+EXEC sp_Insertar_Plantilla 'EQ09','JG184',35
+EXEC sp_Insertar_Plantilla 'EQ09','JG191',35
+EXEC sp_Insertar_Plantilla 'EQ09','JG192',35
+EXEC sp_Insertar_Plantilla 'EQ09','JG193',35
+EXEC sp_Insertar_Plantilla 'EQ09','JG194',35
+EXEC sp_Insertar_Plantilla 'EQ09','JG195',35
+EXEC sp_Insertar_Plantilla 'EQ09','JG198',35
+EXEC sp_Insertar_Plantilla 'EQ09','JG199',35
+EXEC sp_Insertar_Plantilla 'EQ09','JG200',35
+
+
+/*-----------------------------  PARTIDO 36 ----------------------------------------------*/
+--EQUIPO 4
+EXEC sp_Insertar_Plantilla 'EQ04','JG070',36
+EXEC sp_Insertar_Plantilla 'EQ04','JG075',36
+EXEC sp_Insertar_Plantilla 'EQ04','JG080',36
+EXEC sp_Insertar_Plantilla 'EQ04','JG081',36
+EXEC sp_Insertar_Plantilla 'EQ04','JG082',36
+EXEC sp_Insertar_Plantilla 'EQ04','JG083',36
+EXEC sp_Insertar_Plantilla 'EQ04','JG084',36
+EXEC sp_Insertar_Plantilla 'EQ04','JG088',36
+EXEC sp_Insertar_Plantilla 'EQ04','JG089',36
+EXEC sp_Insertar_Plantilla 'EQ04','JG090',36
+EXEC sp_Insertar_Plantilla 'EQ04','JG092',36
+
+-- EQUIPO 10
+EXEC sp_Insertar_Plantilla 'EQ10','JG213',36
+EXEC sp_Insertar_Plantilla 'EQ10','JG206',36
+EXEC sp_Insertar_Plantilla 'EQ10','JG207',36
+EXEC sp_Insertar_Plantilla 'EQ10','JG216',36
+EXEC sp_Insertar_Plantilla 'EQ10','JG217',36
+EXEC sp_Insertar_Plantilla 'EQ10','JG220',36
+EXEC sp_Insertar_Plantilla 'EQ10','JG221',36
+EXEC sp_Insertar_Plantilla 'EQ10','JG222',36
+EXEC sp_Insertar_Plantilla 'EQ10','JG223',36
+EXEC sp_Insertar_Plantilla 'EQ10','JG214',36
+EXEC sp_Insertar_Plantilla 'EQ10','JG215',36
+
+
+/*-----------------------------  PARTIDO 37 ----------------------------------------------*/
+--EQUIPO 5
+EXEC sp_Insertar_Plantilla 'EQ05','JG093',37
+EXEC sp_Insertar_Plantilla 'EQ05','JG094',37
+EXEC sp_Insertar_Plantilla 'EQ05','JG095',37
+EXEC sp_Insertar_Plantilla 'EQ05','JG096',37
+EXEC sp_Insertar_Plantilla 'EQ05','JG097',37
+EXEC sp_Insertar_Plantilla 'EQ05','JG101',37
+EXEC sp_Insertar_Plantilla 'EQ05','JG102',37
+EXEC sp_Insertar_Plantilla 'EQ05','JG103',37
+EXEC sp_Insertar_Plantilla 'EQ05','JG104',37
+EXEC sp_Insertar_Plantilla 'EQ05','JG111',37
+EXEC sp_Insertar_Plantilla 'EQ05','JG112',37
+
+-- EQUIPO 1
+EXEC sp_Insertar_Plantilla 'EQ01','JG001',37
+EXEC sp_Insertar_Plantilla 'EQ01','JG003',37
+EXEC sp_Insertar_Plantilla 'EQ01','JG004',37
+EXEC sp_Insertar_Plantilla 'EQ01','JG005',37
+EXEC sp_Insertar_Plantilla 'EQ01','JG006',37
+EXEC sp_Insertar_Plantilla 'EQ01','JG012',37
+EXEC sp_Insertar_Plantilla 'EQ01','JG013',37
+EXEC sp_Insertar_Plantilla 'EQ01','JG014',37
+EXEC sp_Insertar_Plantilla 'EQ01','JG015',37
+EXEC sp_Insertar_Plantilla 'EQ01','JG018',37
+EXEC sp_Insertar_Plantilla 'EQ01','JG019',37
+
+
+/*-----------------------------  PARTIDO 38 ----------------------------------------------*/
+--EQUIPO 5
+EXEC sp_Insertar_Plantilla 'EQ05','JG093',38
+EXEC sp_Insertar_Plantilla 'EQ05','JG098',38
+EXEC sp_Insertar_Plantilla 'EQ05','JG099',38
+EXEC sp_Insertar_Plantilla 'EQ05','JG100',38
+EXEC sp_Insertar_Plantilla 'EQ05','JG105',38
+EXEC sp_Insertar_Plantilla 'EQ05','JG106',38
+EXEC sp_Insertar_Plantilla 'EQ05','JG107',38
+EXEC sp_Insertar_Plantilla 'EQ05','JG108',38
+EXEC sp_Insertar_Plantilla 'EQ05','JG109',38
+EXEC sp_Insertar_Plantilla 'EQ05','JG113',38
+EXEC sp_Insertar_Plantilla 'EQ05','JG114',38
+
+-- EQUIPO 2
+EXEC sp_Insertar_Plantilla 'EQ02','JG024',38
+EXEC sp_Insertar_Plantilla 'EQ02','JG026',38
+EXEC sp_Insertar_Plantilla 'EQ02','JG027',38
+EXEC sp_Insertar_Plantilla 'EQ02','JG028',38
+EXEC sp_Insertar_Plantilla 'EQ02','JG029',38
+EXEC sp_Insertar_Plantilla 'EQ02','JG033',38
+EXEC sp_Insertar_Plantilla 'EQ02','JG034',38
+EXEC sp_Insertar_Plantilla 'EQ02','JG035',38
+EXEC sp_Insertar_Plantilla 'EQ02','JG036',38
+EXEC sp_Insertar_Plantilla 'EQ02','JG040',38
+EXEC sp_Insertar_Plantilla 'EQ02','JG041',38
+
+
+/*-----------------------------  PARTIDO 39 ----------------------------------------------*/
+--EQUIPO 5
+EXEC sp_Insertar_Plantilla 'EQ05','JG093',39
+EXEC sp_Insertar_Plantilla 'EQ05','JG094',39
+EXEC sp_Insertar_Plantilla 'EQ05','JG095',39
+EXEC sp_Insertar_Plantilla 'EQ05','JG096',39
+EXEC sp_Insertar_Plantilla 'EQ05','JG097',39
+EXEC sp_Insertar_Plantilla 'EQ05','JG101',39
+EXEC sp_Insertar_Plantilla 'EQ05','JG102',39
+EXEC sp_Insertar_Plantilla 'EQ05','JG103',39
+EXEC sp_Insertar_Plantilla 'EQ05','JG104',39
+EXEC sp_Insertar_Plantilla 'EQ05','JG111',39
+EXEC sp_Insertar_Plantilla 'EQ05','JG112',39
+
+-- EQUIPO 3
+EXEC sp_Insertar_Plantilla 'EQ03','JG047',39
+EXEC sp_Insertar_Plantilla 'EQ03','JG049',39
+EXEC sp_Insertar_Plantilla 'EQ03','JG050',39
+EXEC sp_Insertar_Plantilla 'EQ03','JG051',39
+EXEC sp_Insertar_Plantilla 'EQ03','JG052',39
+EXEC sp_Insertar_Plantilla 'EQ03','JG054',39
+EXEC sp_Insertar_Plantilla 'EQ03','JG055',39
+EXEC sp_Insertar_Plantilla 'EQ03','JG056',39
+EXEC sp_Insertar_Plantilla 'EQ03','JG057',39
+EXEC sp_Insertar_Plantilla 'EQ03','JG065',39
+EXEC sp_Insertar_Plantilla 'EQ03','JG066',39
+
+
+/*-----------------------------  PARTIDO 40 ----------------------------------------------*/
+--EQUIPO 5
+EXEC sp_Insertar_Plantilla 'EQ05','JG093',40
+EXEC sp_Insertar_Plantilla 'EQ05','JG098',40
+EXEC sp_Insertar_Plantilla 'EQ05','JG099',40
+EXEC sp_Insertar_Plantilla 'EQ05','JG100',40
+EXEC sp_Insertar_Plantilla 'EQ05','JG105',40
+EXEC sp_Insertar_Plantilla 'EQ05','JG106',40
+EXEC sp_Insertar_Plantilla 'EQ05','JG107',40
+EXEC sp_Insertar_Plantilla 'EQ05','JG108',40
+EXEC sp_Insertar_Plantilla 'EQ05','JG110',40
+EXEC sp_Insertar_Plantilla 'EQ05','JG113',40
+EXEC sp_Insertar_Plantilla 'EQ05','JG115',40
+
+-- EQUIPO 4
+EXEC sp_Insertar_Plantilla 'EQ04','JG070',40
+EXEC sp_Insertar_Plantilla 'EQ04','JG071',40
+EXEC sp_Insertar_Plantilla 'EQ04','JG072',40
+EXEC sp_Insertar_Plantilla 'EQ04','JG073',40
+EXEC sp_Insertar_Plantilla 'EQ04','JG074',40
+EXEC sp_Insertar_Plantilla 'EQ04','JG076',40
+EXEC sp_Insertar_Plantilla 'EQ04','JG077',40
+EXEC sp_Insertar_Plantilla 'EQ04','JG078',40
+EXEC sp_Insertar_Plantilla 'EQ04','JG079',40
+EXEC sp_Insertar_Plantilla 'EQ04','JG085',40
+EXEC sp_Insertar_Plantilla 'EQ04','JG086',40
+
+
+/*-----------------------------  PARTIDO 41 ----------------------------------------------*/
+--EQUIPO 5
+EXEC sp_Insertar_Plantilla 'EQ05','JG093',41
+EXEC sp_Insertar_Plantilla 'EQ05','JG094',41
+EXEC sp_Insertar_Plantilla 'EQ05','JG095',41
+EXEC sp_Insertar_Plantilla 'EQ05','JG096',41
+EXEC sp_Insertar_Plantilla 'EQ05','JG097',41
+EXEC sp_Insertar_Plantilla 'EQ05','JG101',41
+EXEC sp_Insertar_Plantilla 'EQ05','JG102',41
+EXEC sp_Insertar_Plantilla 'EQ05','JG103',41
+EXEC sp_Insertar_Plantilla 'EQ05','JG104',41
+EXEC sp_Insertar_Plantilla 'EQ05','JG111',41
+EXEC sp_Insertar_Plantilla 'EQ05','JG112',41
+
+-- EQUIPO 6
+EXEC sp_Insertar_Plantilla 'EQ06','JG116',41
+EXEC sp_Insertar_Plantilla 'EQ06','JG118',41
+EXEC sp_Insertar_Plantilla 'EQ06','JG119',41
+EXEC sp_Insertar_Plantilla 'EQ06','JG120',41
+EXEC sp_Insertar_Plantilla 'EQ06','JG121',41
+EXEC sp_Insertar_Plantilla 'EQ06','JG128',41
+EXEC sp_Insertar_Plantilla 'EQ06','JG129',41
+EXEC sp_Insertar_Plantilla 'EQ06','JG130',41
+EXEC sp_Insertar_Plantilla 'EQ06','JG131',41
+EXEC sp_Insertar_Plantilla 'EQ06','JG136',41
+EXEC sp_Insertar_Plantilla 'EQ06','JG137',41
+
+
+/*-----------------------------  PARTIDO 42 ----------------------------------------------*/
+--EQUIPO 5
+EXEC sp_Insertar_Plantilla 'EQ05','JG093',42
+EXEC sp_Insertar_Plantilla 'EQ05','JG098',42
+EXEC sp_Insertar_Plantilla 'EQ05','JG099',42
+EXEC sp_Insertar_Plantilla 'EQ05','JG100',42
+EXEC sp_Insertar_Plantilla 'EQ05','JG105',42
+EXEC sp_Insertar_Plantilla 'EQ05','JG106',42
+EXEC sp_Insertar_Plantilla 'EQ05','JG107',42
+EXEC sp_Insertar_Plantilla 'EQ05','JG108',42
+EXEC sp_Insertar_Plantilla 'EQ05','JG110',42
+EXEC sp_Insertar_Plantilla 'EQ05','JG113',42
+EXEC sp_Insertar_Plantilla 'EQ05','JG115',42
+
+-- EQUIPO 7
+EXEC sp_Insertar_Plantilla 'EQ07','JG139',42
+EXEC sp_Insertar_Plantilla 'EQ07','JG141',42
+EXEC sp_Insertar_Plantilla 'EQ07','JG142',42
+EXEC sp_Insertar_Plantilla 'EQ07','JG143',42
+EXEC sp_Insertar_Plantilla 'EQ07','JG144',42
+EXEC sp_Insertar_Plantilla 'EQ07','JG147',42
+EXEC sp_Insertar_Plantilla 'EQ07','JG148',42
+EXEC sp_Insertar_Plantilla 'EQ07','JG149',42
+EXEC sp_Insertar_Plantilla 'EQ07','JG150',42
+EXEC sp_Insertar_Plantilla 'EQ07','JG157',42
+EXEC sp_Insertar_Plantilla 'EQ07','JG158',42
+
+
+/*-----------------------------  PARTIDO 43 ----------------------------------------------*/
+--EQUIPO 5
+EXEC sp_Insertar_Plantilla 'EQ05','JG093',43
+EXEC sp_Insertar_Plantilla 'EQ05','JG094',43
+EXEC sp_Insertar_Plantilla 'EQ05','JG095',43
+EXEC sp_Insertar_Plantilla 'EQ05','JG096',43
+EXEC sp_Insertar_Plantilla 'EQ05','JG097',43
+EXEC sp_Insertar_Plantilla 'EQ05','JG101',43
+EXEC sp_Insertar_Plantilla 'EQ05','JG102',43
+EXEC sp_Insertar_Plantilla 'EQ05','JG103',43
+EXEC sp_Insertar_Plantilla 'EQ05','JG104',43
+EXEC sp_Insertar_Plantilla 'EQ05','JG111',43
+EXEC sp_Insertar_Plantilla 'EQ05','JG112',43
+
+-- EQUIPO 8
+EXEC sp_Insertar_Plantilla 'EQ08','JG162',43
+EXEC sp_Insertar_Plantilla 'EQ08','JG163',43
+EXEC sp_Insertar_Plantilla 'EQ08','JG164',43
+EXEC sp_Insertar_Plantilla 'EQ08','JG165',43
+EXEC sp_Insertar_Plantilla 'EQ08','JG166',43
+EXEC sp_Insertar_Plantilla 'EQ08','JG167',43
+EXEC sp_Insertar_Plantilla 'EQ08','JG168',43
+EXEC sp_Insertar_Plantilla 'EQ08','JG169',43
+EXEC sp_Insertar_Plantilla 'EQ08','JG170',43
+EXEC sp_Insertar_Plantilla 'EQ08','JG176',43
+EXEC sp_Insertar_Plantilla 'EQ08','JG177',43
+
+
+/*-----------------------------  PARTIDO 44 ----------------------------------------------*/
+--EQUIPO 5
+EXEC sp_Insertar_Plantilla 'EQ05','JG093',44
+EXEC sp_Insertar_Plantilla 'EQ05','JG098',44
+EXEC sp_Insertar_Plantilla 'EQ05','JG099',44
+EXEC sp_Insertar_Plantilla 'EQ05','JG100',44
+EXEC sp_Insertar_Plantilla 'EQ05','JG105',44
+EXEC sp_Insertar_Plantilla 'EQ05','JG106',44
+EXEC sp_Insertar_Plantilla 'EQ05','JG107',44
+EXEC sp_Insertar_Plantilla 'EQ05','JG108',44
+EXEC sp_Insertar_Plantilla 'EQ05','JG109',44
+EXEC sp_Insertar_Plantilla 'EQ05','JG113',44
+EXEC sp_Insertar_Plantilla 'EQ05','JG114',44
+
+-- EQUIPO 9
+EXEC sp_Insertar_Plantilla 'EQ09','JG181',44
+EXEC sp_Insertar_Plantilla 'EQ09','JG183',44
+EXEC sp_Insertar_Plantilla 'EQ09','JG184',44
+EXEC sp_Insertar_Plantilla 'EQ09','JG185',44
+EXEC sp_Insertar_Plantilla 'EQ09','JG186',44
+EXEC sp_Insertar_Plantilla 'EQ09','JG187',44
+EXEC sp_Insertar_Plantilla 'EQ09','JG188',44
+EXEC sp_Insertar_Plantilla 'EQ09','JG189',44
+EXEC sp_Insertar_Plantilla 'EQ09','JG190',44
+EXEC sp_Insertar_Plantilla 'EQ09','JG196',44
+EXEC sp_Insertar_Plantilla 'EQ09','JG197',44
+
+
+/*-----------------------------  PARTIDO 45 ----------------------------------------------*/
+--EQUIPO 5
+EXEC sp_Insertar_Plantilla 'EQ05','JG093',45
+EXEC sp_Insertar_Plantilla 'EQ05','JG094',45
+EXEC sp_Insertar_Plantilla 'EQ05','JG095',45
+EXEC sp_Insertar_Plantilla 'EQ05','JG096',45
+EXEC sp_Insertar_Plantilla 'EQ05','JG097',45
+EXEC sp_Insertar_Plantilla 'EQ05','JG101',45
+EXEC sp_Insertar_Plantilla 'EQ05','JG102',45
+EXEC sp_Insertar_Plantilla 'EQ05','JG103',45
+EXEC sp_Insertar_Plantilla 'EQ05','JG104',45
+EXEC sp_Insertar_Plantilla 'EQ05','JG111',45
+EXEC sp_Insertar_Plantilla 'EQ05','JG112',45
+
+-- EQUIPO 10
+EXEC sp_Insertar_Plantilla 'EQ10','JG201',45
+EXEC sp_Insertar_Plantilla 'EQ10','JG202',45
+EXEC sp_Insertar_Plantilla 'EQ10','JG203',45
+EXEC sp_Insertar_Plantilla 'EQ10','JG204',45
+EXEC sp_Insertar_Plantilla 'EQ10','JG205',45
+EXEC sp_Insertar_Plantilla 'EQ10','JG208',45
+EXEC sp_Insertar_Plantilla 'EQ10','JG209',45
+EXEC sp_Insertar_Plantilla 'EQ10','JG218',45
+EXEC sp_Insertar_Plantilla 'EQ10','JG219',45
+EXEC sp_Insertar_Plantilla 'EQ10','JG210',45
+EXEC sp_Insertar_Plantilla 'EQ10','JG211',45
+
+
+/*-----------------------------  PARTIDO 46 ----------------------------------------------*/
+--EQUIPO 6
+EXEC sp_Insertar_Plantilla 'EQ06','JG117',46
+EXEC sp_Insertar_Plantilla 'EQ06','JG122',46
+EXEC sp_Insertar_Plantilla 'EQ06','JG123',46
+EXEC sp_Insertar_Plantilla 'EQ06','JG124',46
+EXEC sp_Insertar_Plantilla 'EQ06','JG125',46
+EXEC sp_Insertar_Plantilla 'EQ06','JG126',46
+EXEC sp_Insertar_Plantilla 'EQ06','JG132',46
+EXEC sp_Insertar_Plantilla 'EQ06','JG133',46
+EXEC sp_Insertar_Plantilla 'EQ06','JG134',46
+EXEC sp_Insertar_Plantilla 'EQ06','JG135',46
+EXEC sp_Insertar_Plantilla 'EQ06','JG138',46
+
+-- EQUIPO 1
+EXEC sp_Insertar_Plantilla 'EQ01','JG002',46
+EXEC sp_Insertar_Plantilla 'EQ01','JG007',46
+EXEC sp_Insertar_Plantilla 'EQ01','JG008',46
+EXEC sp_Insertar_Plantilla 'EQ01','JG009',46
+EXEC sp_Insertar_Plantilla 'EQ01','JG010',46
+EXEC sp_Insertar_Plantilla 'EQ01','JG016',46
+EXEC sp_Insertar_Plantilla 'EQ01','JG017',46
+EXEC sp_Insertar_Plantilla 'EQ01','JG020',46
+EXEC sp_Insertar_Plantilla 'EQ01','JG021',46
+EXEC sp_Insertar_Plantilla 'EQ01','JG022',46
+EXEC sp_Insertar_Plantilla 'EQ01','JG023',46
+
+
+/*-----------------------------  PARTIDO 47 ----------------------------------------------*/
+--EQUIPO 6
+EXEC sp_Insertar_Plantilla 'EQ06','JG117',47
+EXEC sp_Insertar_Plantilla 'EQ06','JG118',47
+EXEC sp_Insertar_Plantilla 'EQ06','JG119',47
+EXEC sp_Insertar_Plantilla 'EQ06','JG120',47
+EXEC sp_Insertar_Plantilla 'EQ06','JG121',47
+EXEC sp_Insertar_Plantilla 'EQ06','JG128',47
+EXEC sp_Insertar_Plantilla 'EQ06','JG139',47
+EXEC sp_Insertar_Plantilla 'EQ06','JG130',47
+EXEC sp_Insertar_Plantilla 'EQ06','JG131',47
+EXEC sp_Insertar_Plantilla 'EQ06','JG136',47
+EXEC sp_Insertar_Plantilla 'EQ06','JG137',47
+
+-- EQUIPO 2
+EXEC sp_Insertar_Plantilla 'EQ02','JG025',47
+EXEC sp_Insertar_Plantilla 'EQ02','JG030',47
+EXEC sp_Insertar_Plantilla 'EQ02','JG031',47
+EXEC sp_Insertar_Plantilla 'EQ02','JG032',47
+EXEC sp_Insertar_Plantilla 'EQ02','JG037',47
+EXEC sp_Insertar_Plantilla 'EQ02','JG038',47
+EXEC sp_Insertar_Plantilla 'EQ02','JG039',47
+EXEC sp_Insertar_Plantilla 'EQ02','JG042',47
+EXEC sp_Insertar_Plantilla 'EQ02','JG043',47
+EXEC sp_Insertar_Plantilla 'EQ02','JG044',47
+EXEC sp_Insertar_Plantilla 'EQ02','JG045',47
+
+
+/*-----------------------------  PARTIDO 48 ----------------------------------------------*/
+--EQUIPO 6
+EXEC sp_Insertar_Plantilla 'EQ06','JG117',48
+EXEC sp_Insertar_Plantilla 'EQ06','JG122',48
+EXEC sp_Insertar_Plantilla 'EQ06','JG123',48
+EXEC sp_Insertar_Plantilla 'EQ06','JG124',48
+EXEC sp_Insertar_Plantilla 'EQ06','JG125',48
+EXEC sp_Insertar_Plantilla 'EQ06','JG126',48
+EXEC sp_Insertar_Plantilla 'EQ06','JG132',48
+EXEC sp_Insertar_Plantilla 'EQ06','JG133',48
+EXEC sp_Insertar_Plantilla 'EQ06','JG134',48
+EXEC sp_Insertar_Plantilla 'EQ06','JG135',48
+EXEC sp_Insertar_Plantilla 'EQ06','JG138',48
+
+-- EQUIPO 3
+EXEC sp_Insertar_Plantilla 'EQ03','JG048',48
+EXEC sp_Insertar_Plantilla 'EQ03','JG053',48
+EXEC sp_Insertar_Plantilla 'EQ03','JG057',48
+EXEC sp_Insertar_Plantilla 'EQ03','JG058',48
+EXEC sp_Insertar_Plantilla 'EQ03','JG059',48
+EXEC sp_Insertar_Plantilla 'EQ03','JG060',48
+EXEC sp_Insertar_Plantilla 'EQ03','JG061',48
+EXEC sp_Insertar_Plantilla 'EQ03','JG067',48
+EXEC sp_Insertar_Plantilla 'EQ03','JG068',48
+EXEC sp_Insertar_Plantilla 'EQ03','JG069',48
+EXEC sp_Insertar_Plantilla 'EQ03','JG064',48
+
+
+/*-----------------------------  PARTIDO 49 ----------------------------------------------*/
+--EQUIPO 6
+EXEC sp_Insertar_Plantilla 'EQ06','JG117',49
+EXEC sp_Insertar_Plantilla 'EQ06','JG118',49
+EXEC sp_Insertar_Plantilla 'EQ06','JG119',49
+EXEC sp_Insertar_Plantilla 'EQ06','JG120',49
+EXEC sp_Insertar_Plantilla 'EQ06','JG121',49
+EXEC sp_Insertar_Plantilla 'EQ06','JG128',49
+EXEC sp_Insertar_Plantilla 'EQ06','JG139',49
+EXEC sp_Insertar_Plantilla 'EQ06','JG130',49
+EXEC sp_Insertar_Plantilla 'EQ06','JG131',49
+EXEC sp_Insertar_Plantilla 'EQ06','JG136',49
+EXEC sp_Insertar_Plantilla 'EQ06','JG137',49
+
+-- EQUIPO 4
+EXEC sp_Insertar_Plantilla 'EQ04','JG070',49
+EXEC sp_Insertar_Plantilla 'EQ04','JG075',49
+EXEC sp_Insertar_Plantilla 'EQ04','JG080',49
+EXEC sp_Insertar_Plantilla 'EQ04','JG081',49
+EXEC sp_Insertar_Plantilla 'EQ04','JG082',49
+EXEC sp_Insertar_Plantilla 'EQ04','JG083',49
+EXEC sp_Insertar_Plantilla 'EQ04','JG084',49
+EXEC sp_Insertar_Plantilla 'EQ04','JG088',49
+EXEC sp_Insertar_Plantilla 'EQ04','JG089',49
+EXEC sp_Insertar_Plantilla 'EQ04','JG090',49
+EXEC sp_Insertar_Plantilla 'EQ04','JG091',49
+
+
+/*-----------------------------  PARTIDO 50 ----------------------------------------------*/
+--EQUIPO 6
+EXEC sp_Insertar_Plantilla 'EQ06','JG117',50
+EXEC sp_Insertar_Plantilla 'EQ06','JG122',50
+EXEC sp_Insertar_Plantilla 'EQ06','JG123',50
+EXEC sp_Insertar_Plantilla 'EQ06','JG124',50
+EXEC sp_Insertar_Plantilla 'EQ06','JG125',50
+EXEC sp_Insertar_Plantilla 'EQ06','JG127',50
+EXEC sp_Insertar_Plantilla 'EQ06','JG132',50
+EXEC sp_Insertar_Plantilla 'EQ06','JG133',50
+EXEC sp_Insertar_Plantilla 'EQ06','JG134',50
+EXEC sp_Insertar_Plantilla 'EQ06','JG135',50
+EXEC sp_Insertar_Plantilla 'EQ06','JG138',50
+
+-- EQUIPO 5
+EXEC sp_Insertar_Plantilla 'EQ05','JG093',50
+EXEC sp_Insertar_Plantilla 'EQ05','JG098',50
+EXEC sp_Insertar_Plantilla 'EQ05','JG099',50
+EXEC sp_Insertar_Plantilla 'EQ05','JG100',50
+EXEC sp_Insertar_Plantilla 'EQ05','JG105',50
+EXEC sp_Insertar_Plantilla 'EQ05','JG106',50
+EXEC sp_Insertar_Plantilla 'EQ05','JG107',50
+EXEC sp_Insertar_Plantilla 'EQ05','JG108',50
+EXEC sp_Insertar_Plantilla 'EQ05','JG110',50
+EXEC sp_Insertar_Plantilla 'EQ05','JG113',50
+EXEC sp_Insertar_Plantilla 'EQ05','JG115',50
+
+
+/*-----------------------------  PARTIDO 51 ----------------------------------------------*/
+--EQUIPO 6
+EXEC sp_Insertar_Plantilla 'EQ06','JG117',51
+EXEC sp_Insertar_Plantilla 'EQ06','JG118',51
+EXEC sp_Insertar_Plantilla 'EQ06','JG119',51
+EXEC sp_Insertar_Plantilla 'EQ06','JG120',51
+EXEC sp_Insertar_Plantilla 'EQ06','JG121',51
+EXEC sp_Insertar_Plantilla 'EQ06','JG128',51
+EXEC sp_Insertar_Plantilla 'EQ06','JG139',51
+EXEC sp_Insertar_Plantilla 'EQ06','JG130',51
+EXEC sp_Insertar_Plantilla 'EQ06','JG131',51
+EXEC sp_Insertar_Plantilla 'EQ06','JG136',51
+EXEC sp_Insertar_Plantilla 'EQ06','JG137',51
+
+-- EQUIPO 7
+EXEC sp_Insertar_Plantilla 'EQ07','JG140',51
+EXEC sp_Insertar_Plantilla 'EQ07','JG145',51
+EXEC sp_Insertar_Plantilla 'EQ07','JG146',51
+EXEC sp_Insertar_Plantilla 'EQ07','JG151',51
+EXEC sp_Insertar_Plantilla 'EQ07','JG152',51
+EXEC sp_Insertar_Plantilla 'EQ07','JG153',51
+EXEC sp_Insertar_Plantilla 'EQ07','JG154',51
+EXEC sp_Insertar_Plantilla 'EQ07','JG155',51
+EXEC sp_Insertar_Plantilla 'EQ07','JG156',51
+EXEC sp_Insertar_Plantilla 'EQ07','JG119',51
+EXEC sp_Insertar_Plantilla 'EQ07','JG161',51
+
+
+/*-----------------------------  PARTIDO 52 ----------------------------------------------*/
+--EQUIPO 6
+EXEC sp_Insertar_Plantilla 'EQ06','JG117',52
+EXEC sp_Insertar_Plantilla 'EQ06','JG122',52
+EXEC sp_Insertar_Plantilla 'EQ06','JG123',52
+EXEC sp_Insertar_Plantilla 'EQ06','JG124',52
+EXEC sp_Insertar_Plantilla 'EQ06','JG125',52
+EXEC sp_Insertar_Plantilla 'EQ06','JG126',52
+EXEC sp_Insertar_Plantilla 'EQ06','JG132',52
+EXEC sp_Insertar_Plantilla 'EQ06','JG133',52
+EXEC sp_Insertar_Plantilla 'EQ06','JG134',52
+EXEC sp_Insertar_Plantilla 'EQ06','JG135',52
+EXEC sp_Insertar_Plantilla 'EQ06','JG138',52
+
+-- EQUIPO 8
+EXEC sp_Insertar_Plantilla 'EQ08','JG162',52
+EXEC sp_Insertar_Plantilla 'EQ08','JG165',52
+EXEC sp_Insertar_Plantilla 'EQ08','JG166',52
+EXEC sp_Insertar_Plantilla 'EQ08','JG171',52
+EXEC sp_Insertar_Plantilla 'EQ08','JG172',52
+EXEC sp_Insertar_Plantilla 'EQ08','JG173',52
+EXEC sp_Insertar_Plantilla 'EQ08','JG174',52
+EXEC sp_Insertar_Plantilla 'EQ08','JG175',52
+EXEC sp_Insertar_Plantilla 'EQ08','JG178',52
+EXEC sp_Insertar_Plantilla 'EQ08','JG179',52
+EXEC sp_Insertar_Plantilla 'EQ08','JG180',52
+
+
+/*-----------------------------  PARTIDO 53 ----------------------------------------------*/
+--EQUIPO 6
+EXEC sp_Insertar_Plantilla 'EQ06','JG117',53
+EXEC sp_Insertar_Plantilla 'EQ06','JG118',53
+EXEC sp_Insertar_Plantilla 'EQ06','JG119',53
+EXEC sp_Insertar_Plantilla 'EQ06','JG120',53
+EXEC sp_Insertar_Plantilla 'EQ06','JG121',53
+EXEC sp_Insertar_Plantilla 'EQ06','JG128',53
+EXEC sp_Insertar_Plantilla 'EQ06','JG139',53
+EXEC sp_Insertar_Plantilla 'EQ06','JG130',53
+EXEC sp_Insertar_Plantilla 'EQ06','JG131',53
+EXEC sp_Insertar_Plantilla 'EQ06','JG136',53
+EXEC sp_Insertar_Plantilla 'EQ06','JG137',53
+
+-- EQUIPO 9
+EXEC sp_Insertar_Plantilla 'EQ09','JG182',53
+EXEC sp_Insertar_Plantilla 'EQ09','JG183',53
+EXEC sp_Insertar_Plantilla 'EQ09','JG184',53
+EXEC sp_Insertar_Plantilla 'EQ09','JG191',53
+EXEC sp_Insertar_Plantilla 'EQ09','JG192',53
+EXEC sp_Insertar_Plantilla 'EQ09','JG193',53
+EXEC sp_Insertar_Plantilla 'EQ09','JG194',53
+EXEC sp_Insertar_Plantilla 'EQ09','JG195',53
+EXEC sp_Insertar_Plantilla 'EQ09','JG198',53
+EXEC sp_Insertar_Plantilla 'EQ09','JG199',53
+EXEC sp_Insertar_Plantilla 'EQ09','JG200',53
+
+
+/*-----------------------------  PARTIDO 54 ----------------------------------------------*/
+--EQUIPO 6
+EXEC sp_Insertar_Plantilla 'EQ06','JG117',54
+EXEC sp_Insertar_Plantilla 'EQ06','JG122',54
+EXEC sp_Insertar_Plantilla 'EQ06','JG123',54
+EXEC sp_Insertar_Plantilla 'EQ06','JG124',54
+EXEC sp_Insertar_Plantilla 'EQ06','JG125',54
+EXEC sp_Insertar_Plantilla 'EQ06','JG127',54
+EXEC sp_Insertar_Plantilla 'EQ06','JG132',54
+EXEC sp_Insertar_Plantilla 'EQ06','JG133',54
+EXEC sp_Insertar_Plantilla 'EQ06','JG134',54
+EXEC sp_Insertar_Plantilla 'EQ06','JG135',54
+EXEC sp_Insertar_Plantilla 'EQ06','JG138',54
+
+-- EQUIPO 10
+EXEC sp_Insertar_Plantilla 'EQ10','JG213',54
+EXEC sp_Insertar_Plantilla 'EQ10','JG206',54
+EXEC sp_Insertar_Plantilla 'EQ10','JG207',54
+EXEC sp_Insertar_Plantilla 'EQ10','JG216',54
+EXEC sp_Insertar_Plantilla 'EQ10','JG217',54
+EXEC sp_Insertar_Plantilla 'EQ10','JG220',54
+EXEC sp_Insertar_Plantilla 'EQ10','JG221',54
+EXEC sp_Insertar_Plantilla 'EQ10','JG222',54
+EXEC sp_Insertar_Plantilla 'EQ10','JG223',54
+EXEC sp_Insertar_Plantilla 'EQ10','JG214',54
+EXEC sp_Insertar_Plantilla 'EQ10','JG215',54
+
+
+/*-----------------------------  PARTIDO 55 ----------------------------------------------*/
+--EQUIPO 7
+EXEC sp_Insertar_Plantilla 'EQ07','JG139',55
+EXEC sp_Insertar_Plantilla 'EQ07','JG141',55
+EXEC sp_Insertar_Plantilla 'EQ07','JG142',55
+EXEC sp_Insertar_Plantilla 'EQ07','JG143',55
+EXEC sp_Insertar_Plantilla 'EQ07','JG144',55
+EXEC sp_Insertar_Plantilla 'EQ07','JG147',55
+EXEC sp_Insertar_Plantilla 'EQ07','JG148',55
+EXEC sp_Insertar_Plantilla 'EQ07','JG149',55
+EXEC sp_Insertar_Plantilla 'EQ07','JG150',55
+EXEC sp_Insertar_Plantilla 'EQ07','JG157',55
+EXEC sp_Insertar_Plantilla 'EQ07','JG158',55
+
+-- EQUIPO 1
+EXEC sp_Insertar_Plantilla 'EQ01','JG001',55
+EXEC sp_Insertar_Plantilla 'EQ01','JG003',55
+EXEC sp_Insertar_Plantilla 'EQ01','JG004',55
+EXEC sp_Insertar_Plantilla 'EQ01','JG005',55
+EXEC sp_Insertar_Plantilla 'EQ01','JG006',55
+EXEC sp_Insertar_Plantilla 'EQ01','JG012',55
+EXEC sp_Insertar_Plantilla 'EQ01','JG013',55
+EXEC sp_Insertar_Plantilla 'EQ01','JG014',55
+EXEC sp_Insertar_Plantilla 'EQ01','JG015',55
+EXEC sp_Insertar_Plantilla 'EQ01','JG018',55
+EXEC sp_Insertar_Plantilla 'EQ01','JG019',55
+
+
+/*-----------------------------  PARTIDO 56 ----------------------------------------------*/
+--EQUIPO 7
+EXEC sp_Insertar_Plantilla 'EQ07','JG140',56
+EXEC sp_Insertar_Plantilla 'EQ07','JG145',56
+EXEC sp_Insertar_Plantilla 'EQ07','JG146',56
+EXEC sp_Insertar_Plantilla 'EQ07','JG151',56
+EXEC sp_Insertar_Plantilla 'EQ07','JG152',56
+EXEC sp_Insertar_Plantilla 'EQ07','JG153',56
+EXEC sp_Insertar_Plantilla 'EQ07','JG154',56
+EXEC sp_Insertar_Plantilla 'EQ07','JG155',56
+EXEC sp_Insertar_Plantilla 'EQ07','JG156',56
+EXEC sp_Insertar_Plantilla 'EQ07','JG159',56
+EXEC sp_Insertar_Plantilla 'EQ07','JG160',56
+
+-- EQUIPO 2
+EXEC sp_Insertar_Plantilla 'EQ02','JG024',56
+EXEC sp_Insertar_Plantilla 'EQ02','JG026',56
+EXEC sp_Insertar_Plantilla 'EQ02','JG027',56
+EXEC sp_Insertar_Plantilla 'EQ02','JG028',56
+EXEC sp_Insertar_Plantilla 'EQ02','JG029',56
+EXEC sp_Insertar_Plantilla 'EQ02','JG033',56
+EXEC sp_Insertar_Plantilla 'EQ02','JG034',56
+EXEC sp_Insertar_Plantilla 'EQ02','JG035',56
+EXEC sp_Insertar_Plantilla 'EQ02','JG036',56
+EXEC sp_Insertar_Plantilla 'EQ02','JG040',56
+EXEC sp_Insertar_Plantilla 'EQ02','JG041',56
+
+
+/*-----------------------------  PARTIDO 57 ----------------------------------------------*/
+--EQUIPO 7
+EXEC sp_Insertar_Plantilla 'EQ07','JG139',57
+EXEC sp_Insertar_Plantilla 'EQ07','JG141',57
+EXEC sp_Insertar_Plantilla 'EQ07','JG142',57
+EXEC sp_Insertar_Plantilla 'EQ07','JG143',57
+EXEC sp_Insertar_Plantilla 'EQ07','JG144',57
+EXEC sp_Insertar_Plantilla 'EQ07','JG147',57
+EXEC sp_Insertar_Plantilla 'EQ07','JG148',57
+EXEC sp_Insertar_Plantilla 'EQ07','JG149',57
+EXEC sp_Insertar_Plantilla 'EQ07','JG150',57
+EXEC sp_Insertar_Plantilla 'EQ07','JG157',57
+EXEC sp_Insertar_Plantilla 'EQ07','JG158',57
+
+-- EQUIPO 3
+EXEC sp_Insertar_Plantilla 'EQ03','JG047',57
+EXEC sp_Insertar_Plantilla 'EQ03','JG049',57
+EXEC sp_Insertar_Plantilla 'EQ03','JG050',57
+EXEC sp_Insertar_Plantilla 'EQ03','JG051',57
+EXEC sp_Insertar_Plantilla 'EQ03','JG052',57
+EXEC sp_Insertar_Plantilla 'EQ03','JG054',57
+EXEC sp_Insertar_Plantilla 'EQ03','JG055',57
+EXEC sp_Insertar_Plantilla 'EQ03','JG056',57
+EXEC sp_Insertar_Plantilla 'EQ03','JG057',57
+EXEC sp_Insertar_Plantilla 'EQ03','JG065',57
+EXEC sp_Insertar_Plantilla 'EQ03','JG066',57
+
+
+/*-----------------------------  PARTIDO 58 ----------------------------------------------*/
+--EQUIPO 7
+EXEC sp_Insertar_Plantilla 'EQ07','JG140',58
+EXEC sp_Insertar_Plantilla 'EQ07','JG145',58
+EXEC sp_Insertar_Plantilla 'EQ07','JG146',58
+EXEC sp_Insertar_Plantilla 'EQ07','JG151',58
+EXEC sp_Insertar_Plantilla 'EQ07','JG152',58
+EXEC sp_Insertar_Plantilla 'EQ07','JG153',58
+EXEC sp_Insertar_Plantilla 'EQ07','JG154',58
+EXEC sp_Insertar_Plantilla 'EQ07','JG155',58
+EXEC sp_Insertar_Plantilla 'EQ07','JG156',58
+EXEC sp_Insertar_Plantilla 'EQ07','JG159',58
+EXEC sp_Insertar_Plantilla 'EQ07','JG161',58
+
+-- EQUIPO 4
+EXEC sp_Insertar_Plantilla 'EQ04','JG070',58
+EXEC sp_Insertar_Plantilla 'EQ04','JG071',58
+EXEC sp_Insertar_Plantilla 'EQ04','JG072',58
+EXEC sp_Insertar_Plantilla 'EQ04','JG073',58
+EXEC sp_Insertar_Plantilla 'EQ04','JG074',58
+EXEC sp_Insertar_Plantilla 'EQ04','JG076',58
+EXEC sp_Insertar_Plantilla 'EQ04','JG077',58
+EXEC sp_Insertar_Plantilla 'EQ04','JG078',58
+EXEC sp_Insertar_Plantilla 'EQ04','JG079',58
+EXEC sp_Insertar_Plantilla 'EQ04','JG085',58
+EXEC sp_Insertar_Plantilla 'EQ04','JG087',58
+
+
+/*-----------------------------  PARTIDO 59 ----------------------------------------------*/
+--EQUIPO 7
+EXEC sp_Insertar_Plantilla 'EQ07','JG139',59
+EXEC sp_Insertar_Plantilla 'EQ07','JG141',59
+EXEC sp_Insertar_Plantilla 'EQ07','JG142',59
+EXEC sp_Insertar_Plantilla 'EQ07','JG143',59
+EXEC sp_Insertar_Plantilla 'EQ07','JG144',59
+EXEC sp_Insertar_Plantilla 'EQ07','JG147',59
+EXEC sp_Insertar_Plantilla 'EQ07','JG148',59
+EXEC sp_Insertar_Plantilla 'EQ07','JG149',59
+EXEC sp_Insertar_Plantilla 'EQ07','JG150',59
+EXEC sp_Insertar_Plantilla 'EQ07','JG157',59
+EXEC sp_Insertar_Plantilla 'EQ07','JG158',59
+
+-- EQUIPO 5
+EXEC sp_Insertar_Plantilla 'EQ05','JG093',59
+EXEC sp_Insertar_Plantilla 'EQ05','JG094',59
+EXEC sp_Insertar_Plantilla 'EQ05','JG095',59
+EXEC sp_Insertar_Plantilla 'EQ05','JG096',59
+EXEC sp_Insertar_Plantilla 'EQ05','JG097',59
+EXEC sp_Insertar_Plantilla 'EQ05','JG101',59
+EXEC sp_Insertar_Plantilla 'EQ05','JG102',59
+EXEC sp_Insertar_Plantilla 'EQ05','JG103',59
+EXEC sp_Insertar_Plantilla 'EQ05','JG104',59
+EXEC sp_Insertar_Plantilla 'EQ05','JG111',59
+EXEC sp_Insertar_Plantilla 'EQ05','JG112',59
+
+
+/*-----------------------------  PARTIDO 60 ----------------------------------------------*/
+--EQUIPO 7
+EXEC sp_Insertar_Plantilla 'EQ07','JG140',60
+EXEC sp_Insertar_Plantilla 'EQ07','JG145',60
+EXEC sp_Insertar_Plantilla 'EQ07','JG146',60
+EXEC sp_Insertar_Plantilla 'EQ07','JG151',60
+EXEC sp_Insertar_Plantilla 'EQ07','JG152',60
+EXEC sp_Insertar_Plantilla 'EQ07','JG153',60
+EXEC sp_Insertar_Plantilla 'EQ07','JG154',60
+EXEC sp_Insertar_Plantilla 'EQ07','JG155',60
+EXEC sp_Insertar_Plantilla 'EQ07','JG156',60
+EXEC sp_Insertar_Plantilla 'EQ07','JG159',60
+EXEC sp_Insertar_Plantilla 'EQ07','JG160',60
+
+-- EQUIPO 6
+EXEC sp_Insertar_Plantilla 'EQ06','JG116',60
+EXEC sp_Insertar_Plantilla 'EQ06','JG118',60
+EXEC sp_Insertar_Plantilla 'EQ06','JG119',60
+EXEC sp_Insertar_Plantilla 'EQ06','JG120',60
+EXEC sp_Insertar_Plantilla 'EQ06','JG121',60
+EXEC sp_Insertar_Plantilla 'EQ06','JG128',60
+EXEC sp_Insertar_Plantilla 'EQ06','JG129',60
+EXEC sp_Insertar_Plantilla 'EQ06','JG130',60
+EXEC sp_Insertar_Plantilla 'EQ06','JG131',60
+EXEC sp_Insertar_Plantilla 'EQ06','JG136',60
+EXEC sp_Insertar_Plantilla 'EQ06','JG137',60
+
+
+/*-----------------------------  PARTIDO 61 ----------------------------------------------*/
+--EQUIPO 7
+EXEC sp_Insertar_Plantilla 'EQ07','JG139',61
+EXEC sp_Insertar_Plantilla 'EQ07','JG141',61
+EXEC sp_Insertar_Plantilla 'EQ07','JG142',61
+EXEC sp_Insertar_Plantilla 'EQ07','JG143',61
+EXEC sp_Insertar_Plantilla 'EQ07','JG144',61
+EXEC sp_Insertar_Plantilla 'EQ07','JG147',61
+EXEC sp_Insertar_Plantilla 'EQ07','JG148',61
+EXEC sp_Insertar_Plantilla 'EQ07','JG149',61
+EXEC sp_Insertar_Plantilla 'EQ07','JG150',61
+EXEC sp_Insertar_Plantilla 'EQ07','JG157',61
+EXEC sp_Insertar_Plantilla 'EQ07','JG158',61
+
+-- EQUIPO 8
+EXEC sp_Insertar_Plantilla 'EQ08','JG162',61
+EXEC sp_Insertar_Plantilla 'EQ08','JG163',61
+EXEC sp_Insertar_Plantilla 'EQ08','JG164',61
+EXEC sp_Insertar_Plantilla 'EQ08','JG165',61
+EXEC sp_Insertar_Plantilla 'EQ08','JG166',61
+EXEC sp_Insertar_Plantilla 'EQ08','JG167',61
+EXEC sp_Insertar_Plantilla 'EQ08','JG168',61
+EXEC sp_Insertar_Plantilla 'EQ08','JG169',61
+EXEC sp_Insertar_Plantilla 'EQ08','JG170',61
+EXEC sp_Insertar_Plantilla 'EQ08','JG176',61
+EXEC sp_Insertar_Plantilla 'EQ08','JG177',61
+
+
+/*-----------------------------  PARTIDO 62 ----------------------------------------------*/
+--EQUIPO 7
+EXEC sp_Insertar_Plantilla 'EQ07','JG140',62
+EXEC sp_Insertar_Plantilla 'EQ07','JG145',62
+EXEC sp_Insertar_Plantilla 'EQ07','JG146',62
+EXEC sp_Insertar_Plantilla 'EQ07','JG151',62
+EXEC sp_Insertar_Plantilla 'EQ07','JG152',62
+EXEC sp_Insertar_Plantilla 'EQ07','JG153',62
+EXEC sp_Insertar_Plantilla 'EQ07','JG154',62
+EXEC sp_Insertar_Plantilla 'EQ07','JG155',62
+EXEC sp_Insertar_Plantilla 'EQ07','JG156',62
+EXEC sp_Insertar_Plantilla 'EQ07','JG159',62
+EXEC sp_Insertar_Plantilla 'EQ07','JG161',62
+
+-- EQUIPO 9
+EXEC sp_Insertar_Plantilla 'EQ09','JG181',62
+EXEC sp_Insertar_Plantilla 'EQ09','JG183',62
+EXEC sp_Insertar_Plantilla 'EQ09','JG184',62
+EXEC sp_Insertar_Plantilla 'EQ09','JG185',62
+EXEC sp_Insertar_Plantilla 'EQ09','JG186',62
+EXEC sp_Insertar_Plantilla 'EQ09','JG187',62
+EXEC sp_Insertar_Plantilla 'EQ09','JG188',62
+EXEC sp_Insertar_Plantilla 'EQ09','JG189',62
+EXEC sp_Insertar_Plantilla 'EQ09','JG190',62
+EXEC sp_Insertar_Plantilla 'EQ09','JG196',62
+EXEC sp_Insertar_Plantilla 'EQ09','JG197',62
+
+
+/*-----------------------------  PARTIDO 63 ----------------------------------------------*/
+--EQUIPO 7
+EXEC sp_Insertar_Plantilla 'EQ07','JG139',63
+EXEC sp_Insertar_Plantilla 'EQ07','JG141',63
+EXEC sp_Insertar_Plantilla 'EQ07','JG142',63
+EXEC sp_Insertar_Plantilla 'EQ07','JG143',63
+EXEC sp_Insertar_Plantilla 'EQ07','JG144',63
+EXEC sp_Insertar_Plantilla 'EQ07','JG147',63
+EXEC sp_Insertar_Plantilla 'EQ07','JG148',63
+EXEC sp_Insertar_Plantilla 'EQ07','JG149',63
+EXEC sp_Insertar_Plantilla 'EQ07','JG150',63
+EXEC sp_Insertar_Plantilla 'EQ07','JG157',63
+EXEC sp_Insertar_Plantilla 'EQ07','JG158',63
+
+-- EQUIPO 10
+EXEC sp_Insertar_Plantilla 'EQ10','JG201',63
+EXEC sp_Insertar_Plantilla 'EQ10','JG202',63
+EXEC sp_Insertar_Plantilla 'EQ10','JG203',63
+EXEC sp_Insertar_Plantilla 'EQ10','JG204',63
+EXEC sp_Insertar_Plantilla 'EQ10','JG205',63
+EXEC sp_Insertar_Plantilla 'EQ10','JG208',63
+EXEC sp_Insertar_Plantilla 'EQ10','JG209',63
+EXEC sp_Insertar_Plantilla 'EQ10','JG218',63
+EXEC sp_Insertar_Plantilla 'EQ10','JG219',63
+EXEC sp_Insertar_Plantilla 'EQ10','JG210',63
+EXEC sp_Insertar_Plantilla 'EQ10','JG211',63
+
+
+/*-----------------------------  PARTIDO 64 ----------------------------------------------*/
+--EQUIPO 8
+EXEC sp_Insertar_Plantilla 'EQ08','JG162',64
+EXEC sp_Insertar_Plantilla 'EQ08','JG165',64
+EXEC sp_Insertar_Plantilla 'EQ08','JG166',64
+EXEC sp_Insertar_Plantilla 'EQ08','JG171',64
+EXEC sp_Insertar_Plantilla 'EQ08','JG172',64
+EXEC sp_Insertar_Plantilla 'EQ08','JG173',64
+EXEC sp_Insertar_Plantilla 'EQ08','JG174',64
+EXEC sp_Insertar_Plantilla 'EQ08','JG175',64
+EXEC sp_Insertar_Plantilla 'EQ08','JG178',64
+EXEC sp_Insertar_Plantilla 'EQ08','JG179',64
+EXEC sp_Insertar_Plantilla 'EQ08','JG180',64
+
+-- EQUIPO 1
+EXEC sp_Insertar_Plantilla 'EQ01','JG002',64
+EXEC sp_Insertar_Plantilla 'EQ01','JG007',64
+EXEC sp_Insertar_Plantilla 'EQ01','JG008',64
+EXEC sp_Insertar_Plantilla 'EQ01','JG009',64
+EXEC sp_Insertar_Plantilla 'EQ01','JG010',64
+EXEC sp_Insertar_Plantilla 'EQ01','JG016',64
+EXEC sp_Insertar_Plantilla 'EQ01','JG017',64
+EXEC sp_Insertar_Plantilla 'EQ01','JG020',64
+EXEC sp_Insertar_Plantilla 'EQ01','JG021',64
+EXEC sp_Insertar_Plantilla 'EQ01','JG022',64
+EXEC sp_Insertar_Plantilla 'EQ01','JG023',64
+
+
+/*-----------------------------  PARTIDO 65 ----------------------------------------------*/
+--EQUIPO 8
+EXEC sp_Insertar_Plantilla 'EQ08','JG162',65
+EXEC sp_Insertar_Plantilla 'EQ08','JG163',65
+EXEC sp_Insertar_Plantilla 'EQ08','JG164',65
+EXEC sp_Insertar_Plantilla 'EQ08','JG165',65
+EXEC sp_Insertar_Plantilla 'EQ08','JG166',65
+EXEC sp_Insertar_Plantilla 'EQ08','JG167',65
+EXEC sp_Insertar_Plantilla 'EQ08','JG168',65
+EXEC sp_Insertar_Plantilla 'EQ08','JG169',65
+EXEC sp_Insertar_Plantilla 'EQ08','JG170',65
+EXEC sp_Insertar_Plantilla 'EQ08','JG176',65
+EXEC sp_Insertar_Plantilla 'EQ08','JG177',65
+
+-- EQUIPO 2
+EXEC sp_Insertar_Plantilla 'EQ02','JG025',65
+EXEC sp_Insertar_Plantilla 'EQ02','JG030',65
+EXEC sp_Insertar_Plantilla 'EQ02','JG031',65
+EXEC sp_Insertar_Plantilla 'EQ02','JG032',65
+EXEC sp_Insertar_Plantilla 'EQ02','JG037',65
+EXEC sp_Insertar_Plantilla 'EQ02','JG038',65
+EXEC sp_Insertar_Plantilla 'EQ02','JG039',65
+EXEC sp_Insertar_Plantilla 'EQ02','JG042',65
+EXEC sp_Insertar_Plantilla 'EQ02','JG043',65
+EXEC sp_Insertar_Plantilla 'EQ02','JG044',65
+EXEC sp_Insertar_Plantilla 'EQ02','JG046',65
+
+
+/*-----------------------------  PARTIDO 66 ----------------------------------------------*/
+--EQUIPO 8
+EXEC sp_Insertar_Plantilla 'EQ08','JG162',66
+EXEC sp_Insertar_Plantilla 'EQ08','JG165',66
+EXEC sp_Insertar_Plantilla 'EQ08','JG166',66
+EXEC sp_Insertar_Plantilla 'EQ08','JG171',66
+EXEC sp_Insertar_Plantilla 'EQ08','JG172',66
+EXEC sp_Insertar_Plantilla 'EQ08','JG173',66
+EXEC sp_Insertar_Plantilla 'EQ08','JG174',66
+EXEC sp_Insertar_Plantilla 'EQ08','JG175',66
+EXEC sp_Insertar_Plantilla 'EQ08','JG178',66
+EXEC sp_Insertar_Plantilla 'EQ08','JG179',66
+EXEC sp_Insertar_Plantilla 'EQ08','JG180',66
+
+-- EQUIPO 3
+EXEC sp_Insertar_Plantilla 'EQ03','JG048',66
+EXEC sp_Insertar_Plantilla 'EQ03','JG053',66
+EXEC sp_Insertar_Plantilla 'EQ03','JG057',66
+EXEC sp_Insertar_Plantilla 'EQ03','JG058',66
+EXEC sp_Insertar_Plantilla 'EQ03','JG059',66
+EXEC sp_Insertar_Plantilla 'EQ03','JG060',66
+EXEC sp_Insertar_Plantilla 'EQ03','JG061',66
+EXEC sp_Insertar_Plantilla 'EQ03','JG067',66
+EXEC sp_Insertar_Plantilla 'EQ03','JG068',66
+EXEC sp_Insertar_Plantilla 'EQ03','JG069',66
+EXEC sp_Insertar_Plantilla 'EQ03','JG063',66
+
+
+/*-----------------------------  PARTIDO 67 ----------------------------------------------*/
+--EQUIPO 8
+EXEC sp_Insertar_Plantilla 'EQ08','JG162',67
+EXEC sp_Insertar_Plantilla 'EQ08','JG163',67
+EXEC sp_Insertar_Plantilla 'EQ08','JG164',67
+EXEC sp_Insertar_Plantilla 'EQ08','JG165',67
+EXEC sp_Insertar_Plantilla 'EQ08','JG166',67
+EXEC sp_Insertar_Plantilla 'EQ08','JG167',67
+EXEC sp_Insertar_Plantilla 'EQ08','JG168',67
+EXEC sp_Insertar_Plantilla 'EQ08','JG169',67
+EXEC sp_Insertar_Plantilla 'EQ08','JG170',67
+EXEC sp_Insertar_Plantilla 'EQ08','JG176',67
+EXEC sp_Insertar_Plantilla 'EQ08','JG177',67
+
+-- EQUIPO 4
+EXEC sp_Insertar_Plantilla 'EQ04','JG070',67
+EXEC sp_Insertar_Plantilla 'EQ04','JG075',67
+EXEC sp_Insertar_Plantilla 'EQ04','JG080',67
+EXEC sp_Insertar_Plantilla 'EQ04','JG081',67
+EXEC sp_Insertar_Plantilla 'EQ04','JG082',67
+EXEC sp_Insertar_Plantilla 'EQ04','JG083',67
+EXEC sp_Insertar_Plantilla 'EQ04','JG084',67
+EXEC sp_Insertar_Plantilla 'EQ04','JG088',67
+EXEC sp_Insertar_Plantilla 'EQ04','JG089',67
+EXEC sp_Insertar_Plantilla 'EQ04','JG090',67
+EXEC sp_Insertar_Plantilla 'EQ04','JG092',67
+
+
+/*-----------------------------  PARTIDO 68 ----------------------------------------------*/
+--EQUIPO 8
+EXEC sp_Insertar_Plantilla 'EQ08','JG162',68
+EXEC sp_Insertar_Plantilla 'EQ08','JG165',68
+EXEC sp_Insertar_Plantilla 'EQ08','JG166',68
+EXEC sp_Insertar_Plantilla 'EQ08','JG171',68
+EXEC sp_Insertar_Plantilla 'EQ08','JG172',68
+EXEC sp_Insertar_Plantilla 'EQ08','JG173',68
+EXEC sp_Insertar_Plantilla 'EQ08','JG174',68
+EXEC sp_Insertar_Plantilla 'EQ08','JG175',68
+EXEC sp_Insertar_Plantilla 'EQ08','JG178',68
+EXEC sp_Insertar_Plantilla 'EQ08','JG179',68
+EXEC sp_Insertar_Plantilla 'EQ08','JG180',68
+
+-- EQUIPO 5
+EXEC sp_Insertar_Plantilla 'EQ05','JG093',68
+EXEC sp_Insertar_Plantilla 'EQ05','JG098',68
+EXEC sp_Insertar_Plantilla 'EQ05','JG099',68
+EXEC sp_Insertar_Plantilla 'EQ05','JG100',68
+EXEC sp_Insertar_Plantilla 'EQ05','JG105',68
+EXEC sp_Insertar_Plantilla 'EQ05','JG106',68
+EXEC sp_Insertar_Plantilla 'EQ05','JG107',68
+EXEC sp_Insertar_Plantilla 'EQ05','JG108',68
+EXEC sp_Insertar_Plantilla 'EQ05','JG110',68
+EXEC sp_Insertar_Plantilla 'EQ05','JG113',68
+EXEC sp_Insertar_Plantilla 'EQ05','JG115',68
+
+
+/*-----------------------------  PARTIDO 69 ----------------------------------------------*/
+--EQUIPO 8
+EXEC sp_Insertar_Plantilla 'EQ08','JG162',69
+EXEC sp_Insertar_Plantilla 'EQ08','JG163',69
+EXEC sp_Insertar_Plantilla 'EQ08','JG164',69
+EXEC sp_Insertar_Plantilla 'EQ08','JG165',69
+EXEC sp_Insertar_Plantilla 'EQ08','JG166',69
+EXEC sp_Insertar_Plantilla 'EQ08','JG167',69
+EXEC sp_Insertar_Plantilla 'EQ08','JG168',69
+EXEC sp_Insertar_Plantilla 'EQ08','JG169',69
+EXEC sp_Insertar_Plantilla 'EQ08','JG170',69
+EXEC sp_Insertar_Plantilla 'EQ08','JG176',69
+EXEC sp_Insertar_Plantilla 'EQ08','JG177',69
+
+-- EQUIPO 6
+EXEC sp_Insertar_Plantilla 'EQ06','JG117',69
+EXEC sp_Insertar_Plantilla 'EQ06','JG122',69
+EXEC sp_Insertar_Plantilla 'EQ06','JG123',69
+EXEC sp_Insertar_Plantilla 'EQ06','JG124',69
+EXEC sp_Insertar_Plantilla 'EQ06','JG125',69
+EXEC sp_Insertar_Plantilla 'EQ06','JG127',69
+EXEC sp_Insertar_Plantilla 'EQ06','JG132',69
+EXEC sp_Insertar_Plantilla 'EQ06','JG133',69
+EXEC sp_Insertar_Plantilla 'EQ06','JG134',69
+EXEC sp_Insertar_Plantilla 'EQ06','JG135',69
+EXEC sp_Insertar_Plantilla 'EQ06','JG138',69
+
+
+/*-----------------------------  PARTIDO 70 ----------------------------------------------*/
+--EQUIPO 8
+EXEC sp_Insertar_Plantilla 'EQ08','JG162',70
+EXEC sp_Insertar_Plantilla 'EQ08','JG165',70
+EXEC sp_Insertar_Plantilla 'EQ08','JG166',70
+EXEC sp_Insertar_Plantilla 'EQ08','JG171',70
+EXEC sp_Insertar_Plantilla 'EQ08','JG172',70
+EXEC sp_Insertar_Plantilla 'EQ08','JG173',70
+EXEC sp_Insertar_Plantilla 'EQ08','JG174',70
+EXEC sp_Insertar_Plantilla 'EQ08','JG175',70
+EXEC sp_Insertar_Plantilla 'EQ08','JG178',70
+EXEC sp_Insertar_Plantilla 'EQ08','JG179',70
+EXEC sp_Insertar_Plantilla 'EQ08','JG180',70
+
+-- EQUIPO 7
+EXEC sp_Insertar_Plantilla 'EQ07','JG140',70
+EXEC sp_Insertar_Plantilla 'EQ07','JG141',70
+EXEC sp_Insertar_Plantilla 'EQ07','JG142',70
+EXEC sp_Insertar_Plantilla 'EQ07','JG143',70
+EXEC sp_Insertar_Plantilla 'EQ07','JG144',70
+EXEC sp_Insertar_Plantilla 'EQ07','JG147',70
+EXEC sp_Insertar_Plantilla 'EQ07','JG148',70
+EXEC sp_Insertar_Plantilla 'EQ07','JG149',70
+EXEC sp_Insertar_Plantilla 'EQ07','JG150',70
+EXEC sp_Insertar_Plantilla 'EQ07','JG157',70
+EXEC sp_Insertar_Plantilla 'EQ07','JG158',70
+
+
+/*-----------------------------  PARTIDO 71 ----------------------------------------------*/
+--EQUIPO 8
+EXEC sp_Insertar_Plantilla 'EQ08','JG162',71
+EXEC sp_Insertar_Plantilla 'EQ08','JG163',71
+EXEC sp_Insertar_Plantilla 'EQ08','JG164',71
+EXEC sp_Insertar_Plantilla 'EQ08','JG165',71
+EXEC sp_Insertar_Plantilla 'EQ08','JG166',71
+EXEC sp_Insertar_Plantilla 'EQ08','JG167',71
+EXEC sp_Insertar_Plantilla 'EQ08','JG168',71
+EXEC sp_Insertar_Plantilla 'EQ08','JG169',71
+EXEC sp_Insertar_Plantilla 'EQ08','JG170',71
+EXEC sp_Insertar_Plantilla 'EQ08','JG176',71
+EXEC sp_Insertar_Plantilla 'EQ08','JG177',71
+
+-- EQUIPO 9
+EXEC sp_Insertar_Plantilla 'EQ09','JG182',71
+EXEC sp_Insertar_Plantilla 'EQ09','JG183',71
+EXEC sp_Insertar_Plantilla 'EQ09','JG184',71
+EXEC sp_Insertar_Plantilla 'EQ09','JG185',71
+EXEC sp_Insertar_Plantilla 'EQ09','JG186',71
+EXEC sp_Insertar_Plantilla 'EQ09','JG187',71
+EXEC sp_Insertar_Plantilla 'EQ09','JG188',71
+EXEC sp_Insertar_Plantilla 'EQ09','JG189',71
+EXEC sp_Insertar_Plantilla 'EQ09','JG190',71
+EXEC sp_Insertar_Plantilla 'EQ09','JG196',71
+EXEC sp_Insertar_Plantilla 'EQ09','JG197',71
+
+
+/*-----------------------------  PARTIDO 72 ----------------------------------------------*/
+--EQUIPO 8
+EXEC sp_Insertar_Plantilla 'EQ08','JG162',72
+EXEC sp_Insertar_Plantilla 'EQ08','JG165',72
+EXEC sp_Insertar_Plantilla 'EQ08','JG166',72
+EXEC sp_Insertar_Plantilla 'EQ08','JG171',72
+EXEC sp_Insertar_Plantilla 'EQ08','JG172',72
+EXEC sp_Insertar_Plantilla 'EQ08','JG173',72
+EXEC sp_Insertar_Plantilla 'EQ08','JG174',72
+EXEC sp_Insertar_Plantilla 'EQ08','JG175',72
+EXEC sp_Insertar_Plantilla 'EQ08','JG178',72
+EXEC sp_Insertar_Plantilla 'EQ08','JG179',72
+EXEC sp_Insertar_Plantilla 'EQ08','JG180',72
+
+-- EQUIPO 10
+EXEC sp_Insertar_Plantilla 'EQ10','JG212',72
+EXEC sp_Insertar_Plantilla 'EQ10','JG206',72
+EXEC sp_Insertar_Plantilla 'EQ10','JG207',72
+EXEC sp_Insertar_Plantilla 'EQ10','JG216',72
+EXEC sp_Insertar_Plantilla 'EQ10','JG217',72
+EXEC sp_Insertar_Plantilla 'EQ10','JG220',72
+EXEC sp_Insertar_Plantilla 'EQ10','JG221',72
+EXEC sp_Insertar_Plantilla 'EQ10','JG222',72
+EXEC sp_Insertar_Plantilla 'EQ10','JG223',72
+EXEC sp_Insertar_Plantilla 'EQ10','JG214',72
+EXEC sp_Insertar_Plantilla 'EQ10','JG215',72
+
+
+/*-----------------------------  PARTIDO 73 ----------------------------------------------*/
+--EQUIPO 9
+EXEC sp_Insertar_Plantilla 'EQ09','JG181',73
+EXEC sp_Insertar_Plantilla 'EQ09','JG183',73
+EXEC sp_Insertar_Plantilla 'EQ09','JG184',73
+EXEC sp_Insertar_Plantilla 'EQ09','JG185',73
+EXEC sp_Insertar_Plantilla 'EQ09','JG186',73
+EXEC sp_Insertar_Plantilla 'EQ09','JG187',73
+EXEC sp_Insertar_Plantilla 'EQ09','JG188',73
+EXEC sp_Insertar_Plantilla 'EQ09','JG189',73
+EXEC sp_Insertar_Plantilla 'EQ09','JG190',73
+EXEC sp_Insertar_Plantilla 'EQ09','JG196',73
+EXEC sp_Insertar_Plantilla 'EQ09','JG197',73
+
+-- EQUIPO 1
+EXEC sp_Insertar_Plantilla 'EQ01','JG001',73
+EXEC sp_Insertar_Plantilla 'EQ01','JG003',73
+EXEC sp_Insertar_Plantilla 'EQ01','JG004',73
+EXEC sp_Insertar_Plantilla 'EQ01','JG005',73
+EXEC sp_Insertar_Plantilla 'EQ01','JG006',73
+EXEC sp_Insertar_Plantilla 'EQ01','JG012',73
+EXEC sp_Insertar_Plantilla 'EQ01','JG013',73
+EXEC sp_Insertar_Plantilla 'EQ01','JG014',73
+EXEC sp_Insertar_Plantilla 'EQ01','JG015',73
+EXEC sp_Insertar_Plantilla 'EQ01','JG018',73
+EXEC sp_Insertar_Plantilla 'EQ01','JG019',73
+
+
+/*-----------------------------  PARTIDO 74 ----------------------------------------------*/
+--EQUIPO 9
+EXEC sp_Insertar_Plantilla 'EQ09','JG182',74
+EXEC sp_Insertar_Plantilla 'EQ09','JG183',74
+EXEC sp_Insertar_Plantilla 'EQ09','JG184',74
+EXEC sp_Insertar_Plantilla 'EQ09','JG191',74
+EXEC sp_Insertar_Plantilla 'EQ09','JG192',74
+EXEC sp_Insertar_Plantilla 'EQ09','JG193',74
+EXEC sp_Insertar_Plantilla 'EQ09','JG194',74
+EXEC sp_Insertar_Plantilla 'EQ08','JG195',74
+EXEC sp_Insertar_Plantilla 'EQ09','JG198',74
+EXEC sp_Insertar_Plantilla 'EQ09','JG199',74
+EXEC sp_Insertar_Plantilla 'EQ09','JG200',74
+
+-- EQUIPO 2
+EXEC sp_Insertar_Plantilla 'EQ02','JG024',74
+EXEC sp_Insertar_Plantilla 'EQ02','JG026',74
+EXEC sp_Insertar_Plantilla 'EQ02','JG027',74
+EXEC sp_Insertar_Plantilla 'EQ02','JG028',74
+EXEC sp_Insertar_Plantilla 'EQ02','JG029',74
+EXEC sp_Insertar_Plantilla 'EQ02','JG033',74
+EXEC sp_Insertar_Plantilla 'EQ02','JG034',74
+EXEC sp_Insertar_Plantilla 'EQ02','JG035',74
+EXEC sp_Insertar_Plantilla 'EQ02','JG036',74
+EXEC sp_Insertar_Plantilla 'EQ02','JG040',74
+EXEC sp_Insertar_Plantilla 'EQ02','JG041',74
+
+
+/*-----------------------------  PARTIDO 75 ----------------------------------------------*/
+--EQUIPO 9
+EXEC sp_Insertar_Plantilla 'EQ09','JG181',75
+EXEC sp_Insertar_Plantilla 'EQ09','JG183',75
+EXEC sp_Insertar_Plantilla 'EQ09','JG184',75
+EXEC sp_Insertar_Plantilla 'EQ09','JG185',75
+EXEC sp_Insertar_Plantilla 'EQ09','JG186',75
+EXEC sp_Insertar_Plantilla 'EQ09','JG187',75
+EXEC sp_Insertar_Plantilla 'EQ09','JG188',75
+EXEC sp_Insertar_Plantilla 'EQ09','JG189',75
+EXEC sp_Insertar_Plantilla 'EQ09','JG190',75
+EXEC sp_Insertar_Plantilla 'EQ09','JG196',75
+EXEC sp_Insertar_Plantilla 'EQ09','JG197',75
+
+-- EQUIPO 3
+EXEC sp_Insertar_Plantilla 'EQ03','JG047',75
+EXEC sp_Insertar_Plantilla 'EQ03','JG049',75
+EXEC sp_Insertar_Plantilla 'EQ03','JG050',75
+EXEC sp_Insertar_Plantilla 'EQ03','JG051',75
+EXEC sp_Insertar_Plantilla 'EQ03','JG052',75
+EXEC sp_Insertar_Plantilla 'EQ03','JG054',75
+EXEC sp_Insertar_Plantilla 'EQ03','JG055',75
+EXEC sp_Insertar_Plantilla 'EQ03','JG056',75
+EXEC sp_Insertar_Plantilla 'EQ03','JG057',75
+EXEC sp_Insertar_Plantilla 'EQ03','JG065',75
+EXEC sp_Insertar_Plantilla 'EQ03','JG066',75
+
+
+/*-----------------------------  PARTIDO 76 ----------------------------------------------*/
+--EQUIPO 9
+EXEC sp_Insertar_Plantilla 'EQ09','JG182',76
+EXEC sp_Insertar_Plantilla 'EQ09','JG183',76
+EXEC sp_Insertar_Plantilla 'EQ09','JG184',76
+EXEC sp_Insertar_Plantilla 'EQ09','JG191',76
+EXEC sp_Insertar_Plantilla 'EQ09','JG192',76
+EXEC sp_Insertar_Plantilla 'EQ09','JG193',76
+EXEC sp_Insertar_Plantilla 'EQ09','JG194',76
+EXEC sp_Insertar_Plantilla 'EQ09','JG195',76
+EXEC sp_Insertar_Plantilla 'EQ09','JG198',76
+EXEC sp_Insertar_Plantilla 'EQ09','JG199',76
+EXEC sp_Insertar_Plantilla 'EQ09','JG200',76
+
+-- EQUIPO 4
+EXEC sp_Insertar_Plantilla 'EQ04','JG070',76
+EXEC sp_Insertar_Plantilla 'EQ04','JG071',76
+EXEC sp_Insertar_Plantilla 'EQ04','JG072',76
+EXEC sp_Insertar_Plantilla 'EQ04','JG073',76
+EXEC sp_Insertar_Plantilla 'EQ04','JG074',76
+EXEC sp_Insertar_Plantilla 'EQ04','JG076',76
+EXEC sp_Insertar_Plantilla 'EQ04','JG077',76
+EXEC sp_Insertar_Plantilla 'EQ04','JG078',76
+EXEC sp_Insertar_Plantilla 'EQ04','JG079',76
+EXEC sp_Insertar_Plantilla 'EQ04','JG085',76
+EXEC sp_Insertar_Plantilla 'EQ04','JG087',76
+
+
+/*-----------------------------  PARTIDO 77 ----------------------------------------------*/
+--EQUIPO 9
+EXEC sp_Insertar_Plantilla 'EQ09','JG181',77
+EXEC sp_Insertar_Plantilla 'EQ09','JG183',77
+EXEC sp_Insertar_Plantilla 'EQ09','JG184',77
+EXEC sp_Insertar_Plantilla 'EQ09','JG185',77
+EXEC sp_Insertar_Plantilla 'EQ09','JG186',77
+EXEC sp_Insertar_Plantilla 'EQ09','JG187',77
+EXEC sp_Insertar_Plantilla 'EQ09','JG188',77
+EXEC sp_Insertar_Plantilla 'EQ09','JG189',77
+EXEC sp_Insertar_Plantilla 'EQ09','JG190',77
+EXEC sp_Insertar_Plantilla 'EQ09','JG196',77
+EXEC sp_Insertar_Plantilla 'EQ09','JG197',77
+
+-- EQUIPO 5
+EXEC sp_Insertar_Plantilla 'EQ05','JG093',77
+EXEC sp_Insertar_Plantilla 'EQ05','JG094',77
+EXEC sp_Insertar_Plantilla 'EQ05','JG095',77
+EXEC sp_Insertar_Plantilla 'EQ05','JG096',77
+EXEC sp_Insertar_Plantilla 'EQ05','JG097',77
+EXEC sp_Insertar_Plantilla 'EQ05','JG101',77
+EXEC sp_Insertar_Plantilla 'EQ05','JG102',77
+EXEC sp_Insertar_Plantilla 'EQ05','JG103',77
+EXEC sp_Insertar_Plantilla 'EQ05','JG104',77
+EXEC sp_Insertar_Plantilla 'EQ05','JG111',77
+EXEC sp_Insertar_Plantilla 'EQ05','JG112',77
+
+
+/*-----------------------------  PARTIDO 78 ----------------------------------------------*/
+--EQUIPO 9
+EXEC sp_Insertar_Plantilla 'EQ09','JG182',78
+EXEC sp_Insertar_Plantilla 'EQ09','JG183',78
+EXEC sp_Insertar_Plantilla 'EQ09','JG184',78
+EXEC sp_Insertar_Plantilla 'EQ09','JG191',78
+EXEC sp_Insertar_Plantilla 'EQ09','JG192',78
+EXEC sp_Insertar_Plantilla 'EQ09','JG193',78
+EXEC sp_Insertar_Plantilla 'EQ09','JG194',78
+EXEC sp_Insertar_Plantilla 'EQ09','JG195',78
+EXEC sp_Insertar_Plantilla 'EQ09','JG198',78
+EXEC sp_Insertar_Plantilla 'EQ09','JG199',78
+EXEC sp_Insertar_Plantilla 'EQ09','JG200',78
+
+-- EQUIPO 6
+EXEC sp_Insertar_Plantilla 'EQ06','JG116',78
+EXEC sp_Insertar_Plantilla 'EQ06','JG118',78
+EXEC sp_Insertar_Plantilla 'EQ06','JG119',78
+EXEC sp_Insertar_Plantilla 'EQ06','JG120',78
+EXEC sp_Insertar_Plantilla 'EQ06','JG121',78
+EXEC sp_Insertar_Plantilla 'EQ06','JG128',78
+EXEC sp_Insertar_Plantilla 'EQ06','JG129',78
+EXEC sp_Insertar_Plantilla 'EQ06','JG130',78
+EXEC sp_Insertar_Plantilla 'EQ06','JG131',78
+EXEC sp_Insertar_Plantilla 'EQ06','JG136',78
+EXEC sp_Insertar_Plantilla 'EQ06','JG137',78
+
+
+/*-----------------------------  PARTIDO 79 ----------------------------------------------*/
+--EQUIPO 9
+EXEC sp_Insertar_Plantilla 'EQ09','JG181',79
+EXEC sp_Insertar_Plantilla 'EQ09','JG183',79
+EXEC sp_Insertar_Plantilla 'EQ09','JG184',79
+EXEC sp_Insertar_Plantilla 'EQ09','JG185',79
+EXEC sp_Insertar_Plantilla 'EQ09','JG186',79
+EXEC sp_Insertar_Plantilla 'EQ09','JG187',79
+EXEC sp_Insertar_Plantilla 'EQ09','JG188',79
+EXEC sp_Insertar_Plantilla 'EQ09','JG189',79
+EXEC sp_Insertar_Plantilla 'EQ09','JG190',79
+EXEC sp_Insertar_Plantilla 'EQ09','JG196',79
+EXEC sp_Insertar_Plantilla 'EQ09','JG197',79
+
+-- EQUIPO 7
+EXEC sp_Insertar_Plantilla 'EQ07','JG139',79
+EXEC sp_Insertar_Plantilla 'EQ07','JG141',79
+EXEC sp_Insertar_Plantilla 'EQ07','JG142',79
+EXEC sp_Insertar_Plantilla 'EQ07','JG143',79
+EXEC sp_Insertar_Plantilla 'EQ07','JG144',79
+EXEC sp_Insertar_Plantilla 'EQ07','JG147',79
+EXEC sp_Insertar_Plantilla 'EQ07','JG148',79
+EXEC sp_Insertar_Plantilla 'EQ07','JG149',79
+EXEC sp_Insertar_Plantilla 'EQ07','JG150',79
+EXEC sp_Insertar_Plantilla 'EQ07','JG157',79
+EXEC sp_Insertar_Plantilla 'EQ07','JG158',79
+
+
+/*-----------------------------  PARTIDO 80 ----------------------------------------------*/
+--EQUIPO 9
+EXEC sp_Insertar_Plantilla 'EQ09','JG182',80
+EXEC sp_Insertar_Plantilla 'EQ09','JG183',80
+EXEC sp_Insertar_Plantilla 'EQ09','JG184',80
+EXEC sp_Insertar_Plantilla 'EQ09','JG191',80
+EXEC sp_Insertar_Plantilla 'EQ09','JG192',80
+EXEC sp_Insertar_Plantilla 'EQ09','JG193',80
+EXEC sp_Insertar_Plantilla 'EQ09','JG194',80
+EXEC sp_Insertar_Plantilla 'EQ09','JG195',80
+EXEC sp_Insertar_Plantilla 'EQ09','JG198',80
+EXEC sp_Insertar_Plantilla 'EQ09','JG199',80
+EXEC sp_Insertar_Plantilla 'EQ09','JG200',80
+
+-- EQUIPO 8
+EXEC sp_Insertar_Plantilla 'EQ08','JG162',80
+EXEC sp_Insertar_Plantilla 'EQ08','JG163',80
+EXEC sp_Insertar_Plantilla 'EQ08','JG164',80
+EXEC sp_Insertar_Plantilla 'EQ08','JG165',80
+EXEC sp_Insertar_Plantilla 'EQ08','JG166',80
+EXEC sp_Insertar_Plantilla 'EQ08','JG167',80
+EXEC sp_Insertar_Plantilla 'EQ08','JG168',80
+EXEC sp_Insertar_Plantilla 'EQ08','JG169',80
+EXEC sp_Insertar_Plantilla 'EQ08','JG170',80
+EXEC sp_Insertar_Plantilla 'EQ08','JG176',80
+EXEC sp_Insertar_Plantilla 'EQ08','JG177',80
+
+
+/*-----------------------------  PARTIDO 81 ----------------------------------------------*/
+--EQUIPO 9
+EXEC sp_Insertar_Plantilla 'EQ09','JG181',81
+EXEC sp_Insertar_Plantilla 'EQ09','JG183',81
+EXEC sp_Insertar_Plantilla 'EQ09','JG184',81
+EXEC sp_Insertar_Plantilla 'EQ09','JG185',81
+EXEC sp_Insertar_Plantilla 'EQ09','JG186',81
+EXEC sp_Insertar_Plantilla 'EQ09','JG187',81
+EXEC sp_Insertar_Plantilla 'EQ09','JG188',81
+EXEC sp_Insertar_Plantilla 'EQ09','JG189',81
+EXEC sp_Insertar_Plantilla 'EQ09','JG190',81
+EXEC sp_Insertar_Plantilla 'EQ09','JG196',81
+EXEC sp_Insertar_Plantilla 'EQ09','JG197',81
+
+-- EQUIPO 10
+EXEC sp_Insertar_Plantilla 'EQ10','JG201',81
+EXEC sp_Insertar_Plantilla 'EQ10','JG202',81
+EXEC sp_Insertar_Plantilla 'EQ10','JG203',81
+EXEC sp_Insertar_Plantilla 'EQ10','JG204',81
+EXEC sp_Insertar_Plantilla 'EQ10','JG205',81
+EXEC sp_Insertar_Plantilla 'EQ10','JG208',81
+EXEC sp_Insertar_Plantilla 'EQ10','JG209',81
+EXEC sp_Insertar_Plantilla 'EQ10','JG218',81
+EXEC sp_Insertar_Plantilla 'EQ10','JG219',81
+EXEC sp_Insertar_Plantilla 'EQ10','JG210',81
+EXEC sp_Insertar_Plantilla 'EQ10','JG211',81
+
+
+/*-----------------------------  PARTIDO 82 ----------------------------------------------*/
+--EQUIPO 10
+EXEC sp_Insertar_Plantilla 'EQ10','JG213',82
+EXEC sp_Insertar_Plantilla 'EQ10','JG206',82
+EXEC sp_Insertar_Plantilla 'EQ10','JG207',82
+EXEC sp_Insertar_Plantilla 'EQ10','JG216',82
+EXEC sp_Insertar_Plantilla 'EQ10','JG217',82
+EXEC sp_Insertar_Plantilla 'EQ10','JG220',82
+EXEC sp_Insertar_Plantilla 'EQ10','JG221',82
+EXEC sp_Insertar_Plantilla 'EQ10','JG222',82
+EXEC sp_Insertar_Plantilla 'EQ10','JG223',82
+EXEC sp_Insertar_Plantilla 'EQ10','JG214',82
+EXEC sp_Insertar_Plantilla 'EQ10','JG215',82
+
+-- EQUIPO 1
+EXEC sp_Insertar_Plantilla 'EQ01','JG002',82
+EXEC sp_Insertar_Plantilla 'EQ01','JG007',82
+EXEC sp_Insertar_Plantilla 'EQ01','JG008',82
+EXEC sp_Insertar_Plantilla 'EQ01','JG009',82
+EXEC sp_Insertar_Plantilla 'EQ01','JG011',82
+EXEC sp_Insertar_Plantilla 'EQ01','JG016',82
+EXEC sp_Insertar_Plantilla 'EQ01','JG017',82
+EXEC sp_Insertar_Plantilla 'EQ01','JG020',82
+EXEC sp_Insertar_Plantilla 'EQ01','JG021',82
+EXEC sp_Insertar_Plantilla 'EQ01','JG022',82
+EXEC sp_Insertar_Plantilla 'EQ01','JG023',82
+
+
+/*-----------------------------  PARTIDO 83 ----------------------------------------------*/
+--EQUIPO 10
+EXEC sp_Insertar_Plantilla 'EQ10','JG201',83
+EXEC sp_Insertar_Plantilla 'EQ10','JG202',83
+EXEC sp_Insertar_Plantilla 'EQ10','JG203',83
+EXEC sp_Insertar_Plantilla 'EQ10','JG204',83
+EXEC sp_Insertar_Plantilla 'EQ10','JG205',83
+EXEC sp_Insertar_Plantilla 'EQ10','JG208',83
+EXEC sp_Insertar_Plantilla 'EQ10','JG209',83
+EXEC sp_Insertar_Plantilla 'EQ10','JG218',83
+EXEC sp_Insertar_Plantilla 'EQ10','JG219',83
+EXEC sp_Insertar_Plantilla 'EQ10','JG210',83
+EXEC sp_Insertar_Plantilla 'EQ10','JG211',83
+
+-- EQUIPO 2
+EXEC sp_Insertar_Plantilla 'EQ02','JG025',83
+EXEC sp_Insertar_Plantilla 'EQ02','JG030',83
+EXEC sp_Insertar_Plantilla 'EQ02','JG031',83
+EXEC sp_Insertar_Plantilla 'EQ02','JG032',83
+EXEC sp_Insertar_Plantilla 'EQ02','JG037',83
+EXEC sp_Insertar_Plantilla 'EQ02','JG038',83
+EXEC sp_Insertar_Plantilla 'EQ02','JG039',83
+EXEC sp_Insertar_Plantilla 'EQ02','JG042',83
+EXEC sp_Insertar_Plantilla 'EQ02','JG043',83
+EXEC sp_Insertar_Plantilla 'EQ02','JG044',83
+EXEC sp_Insertar_Plantilla 'EQ02','JG046',83
+
+
+/*-----------------------------  PARTIDO 84 ----------------------------------------------*/
+--EQUIPO 10
+EXEC sp_Insertar_Plantilla 'EQ10','JG212',84
+EXEC sp_Insertar_Plantilla 'EQ10','JG206',84
+EXEC sp_Insertar_Plantilla 'EQ10','JG207',84
+EXEC sp_Insertar_Plantilla 'EQ10','JG216',84
+EXEC sp_Insertar_Plantilla 'EQ10','JG217',84
+EXEC sp_Insertar_Plantilla 'EQ10','JG220',84
+EXEC sp_Insertar_Plantilla 'EQ10','JG221',84
+EXEC sp_Insertar_Plantilla 'EQ10','JG222',84
+EXEC sp_Insertar_Plantilla 'EQ10','JG223',84
+EXEC sp_Insertar_Plantilla 'EQ10','JG214',84
+EXEC sp_Insertar_Plantilla 'EQ10','JG215',84
+
+-- EQUIPO 3
+EXEC sp_Insertar_Plantilla 'EQ03','JG048',84
+EXEC sp_Insertar_Plantilla 'EQ03','JG053',84
+EXEC sp_Insertar_Plantilla 'EQ03','JG057',84
+EXEC sp_Insertar_Plantilla 'EQ03','JG058',84
+EXEC sp_Insertar_Plantilla 'EQ03','JG059',84
+EXEC sp_Insertar_Plantilla 'EQ03','JG060',84
+EXEC sp_Insertar_Plantilla 'EQ03','JG061',84
+EXEC sp_Insertar_Plantilla 'EQ03','JG067',84
+EXEC sp_Insertar_Plantilla 'EQ03','JG068',84
+EXEC sp_Insertar_Plantilla 'EQ03','JG069',84
+EXEC sp_Insertar_Plantilla 'EQ03','JG064',84
+
+
+/*-----------------------------  PARTIDO 85 ----------------------------------------------*/
+--EQUIPO 10
+EXEC sp_Insertar_Plantilla 'EQ10','JG201',85
+EXEC sp_Insertar_Plantilla 'EQ10','JG202',85
+EXEC sp_Insertar_Plantilla 'EQ10','JG203',85
+EXEC sp_Insertar_Plantilla 'EQ10','JG204',85
+EXEC sp_Insertar_Plantilla 'EQ10','JG205',85
+EXEC sp_Insertar_Plantilla 'EQ10','JG208',85
+EXEC sp_Insertar_Plantilla 'EQ10','JG209',85
+EXEC sp_Insertar_Plantilla 'EQ10','JG218',85
+EXEC sp_Insertar_Plantilla 'EQ10','JG219',85
+EXEC sp_Insertar_Plantilla 'EQ10','JG210',85
+EXEC sp_Insertar_Plantilla 'EQ10','JG211',85
+
+-- EQUIPO 4
+EXEC sp_Insertar_Plantilla 'EQ04','JG070',85
+EXEC sp_Insertar_Plantilla 'EQ04','JG075',85
+EXEC sp_Insertar_Plantilla 'EQ04','JG080',85
+EXEC sp_Insertar_Plantilla 'EQ04','JG081',85
+EXEC sp_Insertar_Plantilla 'EQ04','JG082',85
+EXEC sp_Insertar_Plantilla 'EQ04','JG083',85
+EXEC sp_Insertar_Plantilla 'EQ04','JG084',85
+EXEC sp_Insertar_Plantilla 'EQ04','JG088',85
+EXEC sp_Insertar_Plantilla 'EQ04','JG089',85
+EXEC sp_Insertar_Plantilla 'EQ04','JG090',85
+EXEC sp_Insertar_Plantilla 'EQ04','JG092',85
+
+
+/*-----------------------------  PARTIDO 86 ----------------------------------------------*/
+--EQUIPO 10
+EXEC sp_Insertar_Plantilla 'EQ10','JG213',86
+EXEC sp_Insertar_Plantilla 'EQ10','JG206',86
+EXEC sp_Insertar_Plantilla 'EQ10','JG207',86
+EXEC sp_Insertar_Plantilla 'EQ10','JG216',86
+EXEC sp_Insertar_Plantilla 'EQ10','JG217',86
+EXEC sp_Insertar_Plantilla 'EQ10','JG220',86
+EXEC sp_Insertar_Plantilla 'EQ10','JG221',86
+EXEC sp_Insertar_Plantilla 'EQ10','JG222',86
+EXEC sp_Insertar_Plantilla 'EQ10','JG223',86
+EXEC sp_Insertar_Plantilla 'EQ10','JG214',86
+EXEC sp_Insertar_Plantilla 'EQ10','JG215',86
+
+-- EQUIPO 5
+EXEC sp_Insertar_Plantilla 'EQ05','JG093',86
+EXEC sp_Insertar_Plantilla 'EQ05','JG098',86
+EXEC sp_Insertar_Plantilla 'EQ05','JG099',86
+EXEC sp_Insertar_Plantilla 'EQ05','JG100',86
+EXEC sp_Insertar_Plantilla 'EQ05','JG105',86
+EXEC sp_Insertar_Plantilla 'EQ05','JG106',86
+EXEC sp_Insertar_Plantilla 'EQ05','JG107',86
+EXEC sp_Insertar_Plantilla 'EQ05','JG108',86
+EXEC sp_Insertar_Plantilla 'EQ05','JG110',86
+EXEC sp_Insertar_Plantilla 'EQ05','JG113',86
+EXEC sp_Insertar_Plantilla 'EQ05','JG115',86
+
+
+/*-----------------------------  PARTIDO 87 ----------------------------------------------*/
+--EQUIPO 10
+EXEC sp_Insertar_Plantilla 'EQ10','JG201',87
+EXEC sp_Insertar_Plantilla 'EQ10','JG202',87
+EXEC sp_Insertar_Plantilla 'EQ10','JG203',87
+EXEC sp_Insertar_Plantilla 'EQ10','JG204',87
+EXEC sp_Insertar_Plantilla 'EQ10','JG205',87
+EXEC sp_Insertar_Plantilla 'EQ10','JG208',87
+EXEC sp_Insertar_Plantilla 'EQ10','JG209',87
+EXEC sp_Insertar_Plantilla 'EQ10','JG218',87
+EXEC sp_Insertar_Plantilla 'EQ10','JG219',87
+EXEC sp_Insertar_Plantilla 'EQ10','JG210',87
+EXEC sp_Insertar_Plantilla 'EQ10','JG211',87
+
+-- EQUIPO 6
+EXEC sp_Insertar_Plantilla 'EQ06','JG117',87
+EXEC sp_Insertar_Plantilla 'EQ06','JG122',87
+EXEC sp_Insertar_Plantilla 'EQ06','JG123',87
+EXEC sp_Insertar_Plantilla 'EQ06','JG124',87
+EXEC sp_Insertar_Plantilla 'EQ06','JG125',87
+EXEC sp_Insertar_Plantilla 'EQ06','JG127',87
+EXEC sp_Insertar_Plantilla 'EQ06','JG132',87
+EXEC sp_Insertar_Plantilla 'EQ06','JG133',87
+EXEC sp_Insertar_Plantilla 'EQ06','JG134',87
+EXEC sp_Insertar_Plantilla 'EQ06','JG135',87
+EXEC sp_Insertar_Plantilla 'EQ06','JG138',87
+
+
+/*-----------------------------  PARTIDO 88 ----------------------------------------------*/
+--EQUIPO 10
+EXEC sp_Insertar_Plantilla 'EQ10','JG212',88
+EXEC sp_Insertar_Plantilla 'EQ10','JG206',88
+EXEC sp_Insertar_Plantilla 'EQ10','JG207',88
+EXEC sp_Insertar_Plantilla 'EQ10','JG216',88
+EXEC sp_Insertar_Plantilla 'EQ10','JG217',88
+EXEC sp_Insertar_Plantilla 'EQ10','JG220',88
+EXEC sp_Insertar_Plantilla 'EQ10','JG221',88
+EXEC sp_Insertar_Plantilla 'EQ10','JG222',88
+EXEC sp_Insertar_Plantilla 'EQ10','JG223',88
+EXEC sp_Insertar_Plantilla 'EQ10','JG214',88
+EXEC sp_Insertar_Plantilla 'EQ10','JG215',88
+
+-- EQUIPO 7
+EXEC sp_Insertar_Plantilla 'EQ07','JG140',88
+EXEC sp_Insertar_Plantilla 'EQ07','JG145',88
+EXEC sp_Insertar_Plantilla 'EQ07','JG146',88
+EXEC sp_Insertar_Plantilla 'EQ07','JG151',88
+EXEC sp_Insertar_Plantilla 'EQ07','JG152',88
+EXEC sp_Insertar_Plantilla 'EQ07','JG153',88
+EXEC sp_Insertar_Plantilla 'EQ07','JG154',88
+EXEC sp_Insertar_Plantilla 'EQ07','JG155',88
+EXEC sp_Insertar_Plantilla 'EQ07','JG156',88
+EXEC sp_Insertar_Plantilla 'EQ07','JG159',88
+EXEC sp_Insertar_Plantilla 'EQ07','JG160',88
+
+
+/*-----------------------------  PARTIDO 89 ----------------------------------------------*/
+--EQUIPO 10
+EXEC sp_Insertar_Plantilla 'EQ10','JG201',89
+EXEC sp_Insertar_Plantilla 'EQ10','JG202',89
+EXEC sp_Insertar_Plantilla 'EQ10','JG203',89
+EXEC sp_Insertar_Plantilla 'EQ10','JG204',89
+EXEC sp_Insertar_Plantilla 'EQ10','JG205',89
+EXEC sp_Insertar_Plantilla 'EQ10','JG208',89
+EXEC sp_Insertar_Plantilla 'EQ10','JG209',89
+EXEC sp_Insertar_Plantilla 'EQ10','JG218',89
+EXEC sp_Insertar_Plantilla 'EQ10','JG219',89
+EXEC sp_Insertar_Plantilla 'EQ10','JG210',89
+EXEC sp_Insertar_Plantilla 'EQ10','JG211',89
+
+-- EQUIPO 8
+EXEC sp_Insertar_Plantilla 'EQ08','JG162',89
+EXEC sp_Insertar_Plantilla 'EQ08','JG165',89
+EXEC sp_Insertar_Plantilla 'EQ08','JG166',89
+EXEC sp_Insertar_Plantilla 'EQ08','JG171',89
+EXEC sp_Insertar_Plantilla 'EQ08','JG172',89
+EXEC sp_Insertar_Plantilla 'EQ08','JG173',89
+EXEC sp_Insertar_Plantilla 'EQ08','JG174',89
+EXEC sp_Insertar_Plantilla 'EQ08','JG175',89
+EXEC sp_Insertar_Plantilla 'EQ08','JG178',89
+EXEC sp_Insertar_Plantilla 'EQ08','JG179',89
+EXEC sp_Insertar_Plantilla 'EQ08','JG180',89
+
+
+/*-----------------------------  PARTIDO 90 ----------------------------------------------*/
+--EQUIPO 10
+EXEC sp_Insertar_Plantilla 'EQ10','JG213',90
+EXEC sp_Insertar_Plantilla 'EQ10','JG206',90
+EXEC sp_Insertar_Plantilla 'EQ10','JG207',90
+EXEC sp_Insertar_Plantilla 'EQ10','JG216',90
+EXEC sp_Insertar_Plantilla 'EQ10','JG217',90
+EXEC sp_Insertar_Plantilla 'EQ10','JG220',90
+EXEC sp_Insertar_Plantilla 'EQ10','JG221',90
+EXEC sp_Insertar_Plantilla 'EQ10','JG222',90
+EXEC sp_Insertar_Plantilla 'EQ10','JG223',90
+EXEC sp_Insertar_Plantilla 'EQ10','JG214',90
+EXEC sp_Insertar_Plantilla 'EQ10','JG215',90
+
+-- EQUIPO 9
+EXEC sp_Insertar_Plantilla 'EQ09','JG182',90
+EXEC sp_Insertar_Plantilla 'EQ09','JG183',90
+EXEC sp_Insertar_Plantilla 'EQ09','JG184',90
+EXEC sp_Insertar_Plantilla 'EQ09','JG191',90
+EXEC sp_Insertar_Plantilla 'EQ09','JG192',90
+EXEC sp_Insertar_Plantilla 'EQ09','JG193',90
+EXEC sp_Insertar_Plantilla 'EQ09','JG194',90
+EXEC sp_Insertar_Plantilla 'EQ09','JG195',90
+EXEC sp_Insertar_Plantilla 'EQ09','JG198',90
+EXEC sp_Insertar_Plantilla 'EQ09','JG199',90
+EXEC sp_Insertar_Plantilla 'EQ09','JG200',90
 
 --Esto se debe hacer para los 90 partidos
 
