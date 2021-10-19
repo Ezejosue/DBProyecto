@@ -1811,6 +1811,8 @@ INSERT INTO employee VALUES('Angela','Knight','1964-06-11 17:25:10',6,1.97947747
 INSERT INTO employee VALUES('Eduardo','Hood','1997-05-02 19:25:21',3,1.68200395884086,27.2922517942694,'Apricot',5,4,8,1,1,'0usOzusVxp',1,'Eduardo_Hood5248@vetan.org',1958.70641380302,905.120721680634,92.0878740959279);
 INSERT INTO employee VALUES('Martin','Morgan','1987-09-01 13:02:42',4,2.03367421442348,197.098105602478,'Pink',1,2,219,3,2,'IpKksqEW0e',1,'Martin_Morgan2855@famism.biz',862.276783744468,950.932593797768,83.2234922983793);
 
+
+
 --TABLA CONSULTING ROOM
 ALTER TABLE consulting_room
 DROP COLUMN creation_date
@@ -1869,5 +1871,82 @@ INSERT INTO consulting_room VALUES(8,4);
 INSERT INTO consulting_room VALUES(27,4);
 INSERT INTO consulting_room VALUES(97,1);
 
+--TABLA 
+select * from schedule
+
+ALTER TABLE schedule
+DROP COLUMN creation_date
+
+ALTER TABLE schedule
+DROP COLUMN update_date
+
+INSERT INTO schedule VALUES(10,3);
+INSERT INTO schedule VALUES(8,3);
+INSERT INTO schedule VALUES(11,2);
+INSERT INTO schedule VALUES(6,1);
+INSERT INTO schedule VALUES(8,4);
+INSERT INTO schedule VALUES(8,4);
+INSERT INTO schedule VALUES(11,5);
+INSERT INTO schedule VALUES(10,3);
+INSERT INTO schedule VALUES(11,3);
+INSERT INTO schedule VALUES(8,5);
+INSERT INTO schedule VALUES(8,3);
+INSERT INTO schedule VALUES(7,7);
+INSERT INTO schedule VALUES(8,1);
+INSERT INTO schedule VALUES(10,4);
+INSERT INTO schedule VALUES(7,1);
+INSERT INTO schedule VALUES(8,6);
+INSERT INTO schedule VALUES(11,7);
+INSERT INTO schedule VALUES(10,4);
+INSERT INTO schedule VALUES(9,6);
+INSERT INTO schedule VALUES(9,5);
+INSERT INTO schedule VALUES(9,7);
+INSERT INTO schedule VALUES(6,1);
+INSERT INTO schedule VALUES(7,6);
+INSERT INTO schedule VALUES(10,4);
+INSERT INTO schedule VALUES(10,1);
+INSERT INTO schedule VALUES(10,2);
+INSERT INTO schedule VALUES(8,1);
+INSERT INTO schedule VALUES(8,3);
+INSERT INTO schedule VALUES(7,4);
+INSERT INTO schedule VALUES(11,6);
+INSERT INTO schedule VALUES(8,4);
+INSERT INTO schedule VALUES(10,3);
+INSERT INTO schedule VALUES(7,5);
+INSERT INTO schedule VALUES(10,7);
+INSERT INTO schedule VALUES(11,2);
+
+--TABLA SCHEDULE_FREQ_TYPE
+select * from schedule_freq_type
+
+ALTER TABLE schedule_freq_type
+DROP COLUMN creation_date
+
+ALTER TABLE schedule_freq_type
+DROP COLUMN update_date
+
+INSERT INTO schedule_freq_type VALUES('2 veces a la semana')
+INSERT INTO schedule_freq_type VALUES('1 vez a la semana')
+INSERT INTO schedule_freq_type VALUES('3 veces a la semana')
+INSERT INTO schedule_freq_type VALUES('4 veces a la semana')
+INSERT INTO schedule_freq_type VALUES('Todos los días de la semana')
+INSERT INTO schedule_freq_type VALUES('Sábados')
+--TABLA SCHEDULE_EMPLOYEE
+select * from schedule_employee
+
+ALTER TABLE schedule_employee
+DROP COLUMN creation_date
+
+ALTER TABLE schedule_employee
+DROP COLUMN update_date
+
+
+
 --TABLA EMPLOYEE_CONSULTING_ROOM
 select * from employee
+
+ALTER TABLE employee_consulting_room
+DROP COLUMN creation_date
+
+ALTER TABLE employee_consulting_room
+DROP COLUMN update_date
