@@ -1624,6 +1624,114 @@ INSERT INTO hospital VALUES('Harvey','Abbey   Boulevard, 3655',9,239);
 INSERT INTO hospital VALUES('Rocco','Durnford  Crossroad, 184',9,290);
 INSERT INTO hospital VALUES('Clint','Cleaver Crossroad, 7465',9,235);
 
+--TABLA LEVEL
+
+alter table level
+drop column creation_date
+
+alter table level
+drop column update_date 
+
+INSERT INTO level VALUES('Nivel Otawa',34);
+INSERT INTO level VALUES('Nivel Fremont',69);
+INSERT INTO level VALUES('Nivel Rome',99);
+INSERT INTO level VALUES('Nivel Omaha',87);
+INSERT INTO level VALUES('Nivel Quebec',56);
+INSERT INTO level VALUES('Nivel Hollywood',97);
+INSERT INTO level VALUES('Nivel Boston',58);
+INSERT INTO level VALUES('Nivel El Paso',39);
+INSERT INTO level VALUES('Nivel Chicago',90);
+INSERT INTO level VALUES('Nivel Colorado Springs',78);
+INSERT INTO level VALUES('Nivel Salt Lake City',5);
+INSERT INTO level VALUES('Nivel Wien',22);
+INSERT INTO level VALUES('Nivel Los Angeles',74);
+INSERT INTO level VALUES('Nivel Garland',29);
+INSERT INTO level VALUES('Nivel Lancaster',80);
+INSERT INTO level VALUES('Nivel Oklahoma City',10);
+INSERT INTO level VALUES('Nivel Quebec',22);
+INSERT INTO level VALUES('Nivel Bridgeport',72);
+INSERT INTO level VALUES('Nivel Jersey City',60);
+INSERT INTO level VALUES('Nivel San Jose',29);
+INSERT INTO level VALUES('Nivel Lakewood',14);
+INSERT INTO level VALUES('Nivel Garland',4);
+INSERT INTO level VALUES('Nivel Nashville',52);
+INSERT INTO level VALUES('Nivel Omaha',44);
+INSERT INTO level VALUES('Nivel Rome',78);
+INSERT INTO level VALUES('Nivel Henderson',52);
+INSERT INTO level VALUES('Nivel Glendale',40);
+INSERT INTO level VALUES('Nivel Bellevue',65);
+INSERT INTO level VALUES('Nivel Tallahassee',41);
+INSERT INTO level VALUES('Nivel Fullerton',78);
+INSERT INTO level VALUES('Nivel Otawa',28);
+INSERT INTO level VALUES('Nivel Arlington',21);
+INSERT INTO level VALUES('Nivel Lincoln',88);
+INSERT INTO level VALUES('Nivel Norfolk',98);
+INSERT INTO level VALUES('Nivel Huntsville',16);
+INSERT INTO level VALUES('Nivel Denver',88);
+INSERT INTO level VALUES('Nivel Atlanta',50);
+INSERT INTO level VALUES('Nivel Berlin',97);
+INSERT INTO level VALUES('Nivel Moreno Valley',3);
+INSERT INTO level VALUES('Nivel Berlin',22);
+INSERT INTO level VALUES('Nivel Laredo',86);
+INSERT INTO level VALUES('Nivel Moreno Valley',83);
+INSERT INTO level VALUES('Nivel Phoenix',99);
+INSERT INTO level VALUES('Nivel Arlington',60);
+INSERT INTO level VALUES('Nivel Wien',99);
+INSERT INTO level VALUES('Nivel Miami',83);
+INSERT INTO level VALUES('Nivel Dallas',61);
+INSERT INTO level VALUES('Nivel Saint Paul',60);
+INSERT INTO level VALUES('Nivel Lakewood',10);
+INSERT INTO level VALUES('Nivel Hollywood',43);
+INSERT INTO level VALUES('Nivel Tulsa',58);
+INSERT INTO level VALUES('Nivel Atlanta',38);
+INSERT INTO level VALUES('Nivel Fremont',25);
+INSERT INTO level VALUES('Nivel Lyon',34);
+INSERT INTO level VALUES('Nivel Milano',20);
+INSERT INTO level VALUES('Nivel New York',26);
+INSERT INTO level VALUES('Nivel Atlanta',75);
+INSERT INTO level VALUES('Nivel Lancaster',83);
+INSERT INTO level VALUES('Nivel Murfreesboro',43);
+INSERT INTO level VALUES('Nivel Rome',7);
+INSERT INTO level VALUES('Nivel Anaheim',37);
+INSERT INTO level VALUES('Nivel Huntsville',94);
+INSERT INTO level VALUES('Nivel Oakland',31);
+INSERT INTO level VALUES('Nivel Innsbruck',88);
+INSERT INTO level VALUES('Nivel New York',31);
+INSERT INTO level VALUES('Nivel Bakersfield',66);
+INSERT INTO level VALUES('Nivel Tokyo',49);
+INSERT INTO level VALUES('Nivel Irving',59);
+INSERT INTO level VALUES('Nivel San Francisco',38);
+INSERT INTO level VALUES('Nivel Kansas City',43);
+INSERT INTO level VALUES('Nivel Norfolk',92);
+INSERT INTO level VALUES('Nivel Stockton',86);
+INSERT INTO level VALUES('Nivel Toledo',20);
+INSERT INTO level VALUES('Nivel Long Beach',89);
+INSERT INTO level VALUES('Nivel Quebec',75);
+INSERT INTO level VALUES('Nivel Ontario',45);
+INSERT INTO level VALUES('Nivel Omaha',92);
+INSERT INTO level VALUES('Nivel San Antonio',18);
+INSERT INTO level VALUES('Nivel Bridgeport',56);
+INSERT INTO level VALUES('Nivel Phoenix',33);
+INSERT INTO level VALUES('Nivel Quebec',13);
+INSERT INTO level VALUES('Nivel Indianapolis',18);
+INSERT INTO level VALUES('Nivel Bakersfield',25);
+INSERT INTO level VALUES('Nivel Albuquerque',2);
+INSERT INTO level VALUES('Nivel Ontario',2);
+INSERT INTO level VALUES('Nivel Chicago',15);
+INSERT INTO level VALUES('Nivel Salem',10);
+INSERT INTO level VALUES('Nivel Toledo',69);
+INSERT INTO level VALUES('Nivel Memphis',7);
+INSERT INTO level VALUES('Nivel San Bernardino',51);
+INSERT INTO level VALUES('Nivel Norfolk',35);
+INSERT INTO level VALUES('Nivel El Paso',15);
+INSERT INTO level VALUES('Nivel Salem',65);
+INSERT INTO level VALUES('Nivel Bakersfield',12);
+INSERT INTO level VALUES('Nivel Phoenix',49);
+INSERT INTO level VALUES('Nivel Amarillo',79);
+INSERT INTO level VALUES('Nivel Oakland',87);
+INSERT INTO level VALUES('Nivel Springfield',84);
+INSERT INTO level VALUES('Nivel Atlanta',93);
+INSERT INTO level VALUES('Nivel Jacksonville',84);
 --TABLA EMPLOYEE
 ALTER TABLE employee
 DROP COLUMN creation_date
