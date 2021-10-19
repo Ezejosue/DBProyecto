@@ -2151,3 +2151,83 @@ INSERT INTO employee_consulting_room VALUES(41,68,93);
 INSERT INTO employee_consulting_room VALUES(34,55,69);
 INSERT INTO employee_consulting_room VALUES(4,52,53);
 INSERT INTO employee_consulting_room VALUES(38,68,65);
+
+--TABLA EMPLOYEE_DIRECTION
+
+select * from employee_direction
+
+ALTER TABLE employee_direction
+DROP COLUMN creation_date
+
+ALTER TABLE employee_direction
+DROP COLUMN update_date
+
+insert into employee_direction (direction, employee_id) values ('89394 American Ash Pass', 1);
+insert into employee_direction (direction, employee_id) values ('35 Killdeer Place', 2);
+insert into employee_direction (direction, employee_id) values ('195 Mesta Street', 3);
+insert into employee_direction (direction, employee_id) values ('68 Glendale Point', 4);
+insert into employee_direction (direction, employee_id) values ('6040 Norway Maple Avenue', 5);
+insert into employee_direction (direction, employee_id) values ('689 Oakridge Crossing', 6);
+insert into employee_direction (direction, employee_id) values ('5 Ridgeview Road', 7);
+insert into employee_direction (direction, employee_id) values ('5 Eastwood Center', 8);
+insert into employee_direction (direction, employee_id) values ('417 Waywood Parkway', 9);
+insert into employee_direction (direction, employee_id) values ('89 Ilene Point', 10);
+insert into employee_direction (direction, employee_id) values ('9 Ridgeview Center', 11);
+insert into employee_direction (direction, employee_id) values ('5557 Rieder Plaza', 12);
+insert into employee_direction (direction, employee_id) values ('3 Eastwood Junction', 13);
+insert into employee_direction (direction, employee_id) values ('9430 Sunfield Avenue', 14);
+insert into employee_direction (direction, employee_id) values ('42154 Longview Circle', 15);
+insert into employee_direction (direction, employee_id) values ('74 Burrows Terrace', 16);
+insert into employee_direction (direction, employee_id) values ('2044 Macpherson Lane', 17);
+insert into employee_direction (direction, employee_id) values ('2 Glacier Hill Circle', 18);
+insert into employee_direction (direction, employee_id) values ('36 Kings Drive', 19);
+insert into employee_direction (direction, employee_id) values ('671 Hollow Ridge Road', 20);
+insert into employee_direction (direction, employee_id) values ('75231 7th Avenue', 21);
+insert into employee_direction (direction, employee_id) values ('1 Porter Crossing', 22);
+insert into employee_direction (direction, employee_id) values ('0726 Buena Vista Circle', 23);
+insert into employee_direction (direction, employee_id) values ('6224 Butternut Alley', 24);
+insert into employee_direction (direction, employee_id) values ('78 Ridge Oak Street', 25);
+insert into employee_direction (direction, employee_id) values ('23087 Little Fleur Drive', 26);
+insert into employee_direction (direction, employee_id) values ('13 Lerdahl Street', 27);
+insert into employee_direction (direction, employee_id) values ('35889 Hallows Place', 28);
+insert into employee_direction (direction, employee_id) values ('94145 Shelley Crossing', 29);
+insert into employee_direction (direction, employee_id) values ('36 Mcguire Trail',29);
+insert into employee_direction (direction, employee_id) values ('7620 Cardinal Circle', 31);
+insert into employee_direction (direction, employee_id) values ('6258 Nelson Court', 32);
+insert into employee_direction (direction, employee_id) values ('43 Meadow Valley Hill', 33);
+insert into employee_direction (direction, employee_id) values ('41806 Birchwood Trail', 34);
+insert into employee_direction (direction, employee_id) values ('9 Golf Course Drive', 35);
+insert into employee_direction (direction, employee_id) values ('92859 Cardinal Plaza', 36);
+insert into employee_direction (direction, employee_id) values ('8222 Holmberg Alley', 37);
+insert into employee_direction (direction, employee_id) values ('182 Loomis Street', 38);
+insert into employee_direction (direction, employee_id) values ('947 Tomscot Street', 39);
+insert into employee_direction (direction, employee_id) values ('36179 Porter Court', 40);
+insert into employee_direction (direction, employee_id) values ('23 Tony Street', 41);
+insert into employee_direction (direction, employee_id) values ('26523 Toban Hill', 42);
+insert into employee_direction (direction, employee_id) values ('119 Katie Terrace', 43);
+insert into employee_direction (direction, employee_id) values ('7 Orin Center', 44);
+insert into employee_direction (direction, employee_id) values ('031 Hallows Point', 45);
+insert into employee_direction (direction, employee_id) values ('144 Sugar Avenue', 46);
+insert into employee_direction (direction, employee_id) values ('28304 Westport Center', 47);
+insert into employee_direction (direction, employee_id) values ('4721 Hintze Road', 48);
+insert into employee_direction (direction, employee_id) values ('0 Sugar Street', 49);
+insert into employee_direction (direction, employee_id) values ('7693 Nelson Point', 50);
+insert into employee_direction (direction, employee_id) values ('67 Green Ridge Hill', 51);
+insert into employee_direction (direction, employee_id) values ('802 Cottonwood Plaza', 52);
+insert into employee_direction (direction, employee_id) values ('5562 Crest Line Center', 53);
+insert into employee_direction (direction, employee_id) values ('5608 Huxley Point', 55);
+insert into employee_direction (direction, employee_id) values ('03 Park Meadow Center', 55);
+insert into employee_direction (direction, employee_id) values ('9155 Vera Point', 56);
+insert into employee_direction (direction, employee_id) values ('0 Messerschmidt Place', 57);
+insert into employee_direction (direction, employee_id) values ('57 Brown Trail', 58);
+insert into employee_direction (direction, employee_id) values ('79516 Harper Drive', 59);
+insert into employee_direction (direction, employee_id) values ('2508 Hudson Crossing', 60);
+insert into employee_direction (direction, employee_id) values ('64145 Colorado Junction', 61);
+insert into employee_direction (direction, employee_id) values ('77 Brentwood Terrace', 62);
+insert into employee_direction (direction, employee_id) values ('59 Talisman Drive', 63);
+insert into employee_direction (direction, employee_id) values ('850 Dennis Center', 64);
+insert into employee_direction (direction, employee_id) values ('297 Nevada Hill', 65);
+insert into employee_direction (direction, employee_id) values ('03 Ridge Oak Center', 66);
+insert into employee_direction (direction, employee_id) values ('79 Maple Wood Center', 67);
+insert into employee_direction (direction, employee_id) values ('1229 Messerschmidt Terrace', 68);
+insert into employee_direction (direction, employee_id) values ('62999 Sloan Terrace', 69);
