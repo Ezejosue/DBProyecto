@@ -1705,3 +1705,140 @@ INSERT INTO employee VALUES('Martin','Morgan','1987-09-01 13:02:42',4,2.03367421
 
 
 
+--TABLA CONSULTING ROOM
+ALTER TABLE consulting_room
+DROP COLUMN creation_date
+
+ALTER TABLE consulting_room
+DROP COLUMN update_date
+
+INSERT INTO consulting_room VALUES(56,3);
+INSERT INTO consulting_room VALUES(36,4);
+INSERT INTO consulting_room VALUES(25,9);
+INSERT INTO consulting_room VALUES(98,2);
+INSERT INTO consulting_room VALUES(49,2);
+INSERT INTO consulting_room VALUES(89,1);
+INSERT INTO consulting_room VALUES(69,9);
+INSERT INTO consulting_room VALUES(47,9);
+INSERT INTO consulting_room VALUES(22,4);
+INSERT INTO consulting_room VALUES(36,9);
+INSERT INTO consulting_room VALUES(31,7);
+INSERT INTO consulting_room VALUES(80,8);
+INSERT INTO consulting_room VALUES(67,9);
+INSERT INTO consulting_room VALUES(4,7);
+INSERT INTO consulting_room VALUES(79,8);
+INSERT INTO consulting_room VALUES(72,7);
+INSERT INTO consulting_room VALUES(44,3);
+INSERT INTO consulting_room VALUES(58,6);
+INSERT INTO consulting_room VALUES(24,2);
+INSERT INTO consulting_room VALUES(74,6);
+INSERT INTO consulting_room VALUES(22,8);
+INSERT INTO consulting_room VALUES(10,3);
+INSERT INTO consulting_room VALUES(46,8);
+INSERT INTO consulting_room VALUES(39,8);
+INSERT INTO consulting_room VALUES(16,8);
+INSERT INTO consulting_room VALUES(52,5);
+INSERT INTO consulting_room VALUES(41,7);
+INSERT INTO consulting_room VALUES(96,5);
+INSERT INTO consulting_room VALUES(28,1);
+INSERT INTO consulting_room VALUES(98,5);
+INSERT INTO consulting_room VALUES(40,2 );
+INSERT INTO consulting_room VALUES(15,6);
+INSERT INTO consulting_room VALUES(62,6);
+INSERT INTO consulting_room VALUES(18,5);
+INSERT INTO consulting_room VALUES(47,1);
+INSERT INTO consulting_room VALUES(54,7);
+INSERT INTO consulting_room VALUES(47,5);
+INSERT INTO consulting_room VALUES(48,7);
+INSERT INTO consulting_room VALUES(10,2);
+INSERT INTO consulting_room VALUES(64,7);
+INSERT INTO consulting_room VALUES(22,1);
+INSERT INTO consulting_room VALUES(36,8);
+INSERT INTO consulting_room VALUES(26,2);
+INSERT INTO consulting_room VALUES(90,3);
+INSERT INTO consulting_room VALUES(50,5);
+INSERT INTO consulting_room VALUES(32,6);
+INSERT INTO consulting_room VALUES(76,7);
+INSERT INTO consulting_room VALUES(8,4);
+INSERT INTO consulting_room VALUES(27,4);
+INSERT INTO consulting_room VALUES(97,1);
+
+--TABLA 
+select * from schedule
+
+ALTER TABLE schedule
+DROP COLUMN creation_date
+
+ALTER TABLE schedule
+DROP COLUMN update_date
+
+INSERT INTO schedule VALUES(10,3);
+INSERT INTO schedule VALUES(8,3);
+INSERT INTO schedule VALUES(11,2);
+INSERT INTO schedule VALUES(6,1);
+INSERT INTO schedule VALUES(8,4);
+INSERT INTO schedule VALUES(8,4);
+INSERT INTO schedule VALUES(11,5);
+INSERT INTO schedule VALUES(10,3);
+INSERT INTO schedule VALUES(11,3);
+INSERT INTO schedule VALUES(8,5);
+INSERT INTO schedule VALUES(8,3);
+INSERT INTO schedule VALUES(7,7);
+INSERT INTO schedule VALUES(8,1);
+INSERT INTO schedule VALUES(10,4);
+INSERT INTO schedule VALUES(7,1);
+INSERT INTO schedule VALUES(8,6);
+INSERT INTO schedule VALUES(11,7);
+INSERT INTO schedule VALUES(10,4);
+INSERT INTO schedule VALUES(9,6);
+INSERT INTO schedule VALUES(9,5);
+INSERT INTO schedule VALUES(9,7);
+INSERT INTO schedule VALUES(6,1);
+INSERT INTO schedule VALUES(7,6);
+INSERT INTO schedule VALUES(10,4);
+INSERT INTO schedule VALUES(10,1);
+INSERT INTO schedule VALUES(10,2);
+INSERT INTO schedule VALUES(8,1);
+INSERT INTO schedule VALUES(8,3);
+INSERT INTO schedule VALUES(7,4);
+INSERT INTO schedule VALUES(11,6);
+INSERT INTO schedule VALUES(8,4);
+INSERT INTO schedule VALUES(10,3);
+INSERT INTO schedule VALUES(7,5);
+INSERT INTO schedule VALUES(10,7);
+INSERT INTO schedule VALUES(11,2);
+
+--TABLA SCHEDULE_FREQ_TYPE
+select * from schedule_freq_type
+
+ALTER TABLE schedule_freq_type
+DROP COLUMN creation_date
+
+ALTER TABLE schedule_freq_type
+DROP COLUMN update_date
+
+INSERT INTO schedule_freq_type VALUES('2 veces a la semana')
+INSERT INTO schedule_freq_type VALUES('1 vez a la semana')
+INSERT INTO schedule_freq_type VALUES('3 veces a la semana')
+INSERT INTO schedule_freq_type VALUES('4 veces a la semana')
+INSERT INTO schedule_freq_type VALUES('Todos los días de la semana')
+INSERT INTO schedule_freq_type VALUES('Sábados')
+--TABLA SCHEDULE_EMPLOYEE
+select * from schedule_employee
+
+ALTER TABLE schedule_employee
+DROP COLUMN creation_date
+
+ALTER TABLE schedule_employee
+DROP COLUMN update_date
+
+
+
+--TABLA EMPLOYEE_CONSULTING_ROOM
+select * from employee
+
+ALTER TABLE employee_consulting_room
+DROP COLUMN creation_date
+
+ALTER TABLE employee_consulting_room
+DROP COLUMN update_date
