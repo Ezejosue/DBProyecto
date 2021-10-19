@@ -1823,6 +1823,7 @@ INSERT INTO schedule_freq_type VALUES('3 veces a la semana')
 INSERT INTO schedule_freq_type VALUES('4 veces a la semana')
 INSERT INTO schedule_freq_type VALUES('Todos los días de la semana')
 INSERT INTO schedule_freq_type VALUES('Sábados')
+
 --TABLA SCHEDULE_EMPLOYEE
 select * from schedule_employee
 
@@ -1832,7 +1833,106 @@ DROP COLUMN creation_date
 ALTER TABLE schedule_employee
 DROP COLUMN update_date
 
-
+INSERT INTO schedule_employee VALUES(29,10,5);
+INSERT INTO schedule_employee VALUES(34,47,2);
+INSERT INTO schedule_employee VALUES(11,5,3);
+INSERT INTO schedule_employee VALUES(33,30,3);
+INSERT INTO schedule_employee VALUES(26,24,2);
+INSERT INTO schedule_employee VALUES(30,28,4);
+INSERT INTO schedule_employee VALUES(19,4,4);
+INSERT INTO schedule_employee VALUES(17,64,4);
+INSERT INTO schedule_employee VALUES(27,38,2);
+INSERT INTO schedule_employee VALUES(1,52,1);
+INSERT INTO schedule_employee VALUES(4,32,2);
+INSERT INTO schedule_employee VALUES(1,42,4);
+INSERT INTO schedule_employee VALUES(32,2,2);
+INSERT INTO schedule_employee VALUES(20,66,1);
+INSERT INTO schedule_employee VALUES(22,69,5);
+INSERT INTO schedule_employee VALUES(11,61,4);
+INSERT INTO schedule_employee VALUES(33,33,1);
+INSERT INTO schedule_employee VALUES(14,38,3);
+INSERT INTO schedule_employee VALUES(4,28,2);
+INSERT INTO schedule_employee VALUES(2,16,1);
+INSERT INTO schedule_employee VALUES(34,24,2);
+INSERT INTO schedule_employee VALUES(12,65,5);
+INSERT INTO schedule_employee VALUES(6,54,4);
+INSERT INTO schedule_employee VALUES(18,70,2);
+INSERT INTO schedule_employee VALUES(9,72,1);
+INSERT INTO schedule_employee VALUES(20,62,5);
+INSERT INTO schedule_employee VALUES(32,36,4);
+INSERT INTO schedule_employee VALUES(26,5,2);
+INSERT INTO schedule_employee VALUES(1,52,5);
+INSERT INTO schedule_employee VALUES(24,69,1);
+INSERT INTO schedule_employee VALUES(15,65,5);
+INSERT INTO schedule_employee VALUES(8,45,3);
+INSERT INTO schedule_employee VALUES(26,23,1);
+INSERT INTO schedule_employee VALUES(31,11,1);
+INSERT INTO schedule_employee VALUES(30,32,3);
+INSERT INTO schedule_employee VALUES(26,11,3);
+INSERT INTO schedule_employee VALUES(15,39,3);
+INSERT INTO schedule_employee VALUES(12,10,4);
+INSERT INTO schedule_employee VALUES(15,17,2);
+INSERT INTO schedule_employee VALUES(4,26,1);
+INSERT INTO schedule_employee VALUES(2,35,4);
+INSERT INTO schedule_employee VALUES(20,7,1);
+INSERT INTO schedule_employee VALUES(18,4,2);
+INSERT INTO schedule_employee VALUES(21,62,3);
+INSERT INTO schedule_employee VALUES(30,3,2);
+INSERT INTO schedule_employee VALUES(20,67,4);
+INSERT INTO schedule_employee VALUES(26,20,3);
+INSERT INTO schedule_employee VALUES(13,21,3);
+INSERT INTO schedule_employee VALUES(22,7,4);
+INSERT INTO schedule_employee VALUES(3,58,2);
+INSERT INTO schedule_employee VALUES(11,49,5);
+INSERT INTO schedule_employee VALUES(31,62,4);
+INSERT INTO schedule_employee VALUES(11,22,2);
+INSERT INTO schedule_employee VALUES(15,16,1);
+INSERT INTO schedule_employee VALUES(7,61,4);
+INSERT INTO schedule_employee VALUES(1,35,1);
+INSERT INTO schedule_employee VALUES(14,65,2);
+INSERT INTO schedule_employee VALUES(21,25,1);
+INSERT INTO schedule_employee VALUES(21,52,1);
+INSERT INTO schedule_employee VALUES(13,71,1);
+INSERT INTO schedule_employee VALUES(12,33,2);
+INSERT INTO schedule_employee VALUES(34,22,1);
+INSERT INTO schedule_employee VALUES(20,73,2);
+INSERT INTO schedule_employee VALUES(23,19,4);
+INSERT INTO schedule_employee VALUES(11,24,1);
+INSERT INTO schedule_employee VALUES(16,14,3);
+INSERT INTO schedule_employee VALUES(25,47,4);
+INSERT INTO schedule_employee VALUES(22,51,5);
+INSERT INTO schedule_employee VALUES(2,53,2);
+INSERT INTO schedule_employee VALUES(30,22,1);
+INSERT INTO schedule_employee VALUES(17,71,2);
+INSERT INTO schedule_employee VALUES(11,8,4);
+INSERT INTO schedule_employee VALUES(29,14,3);
+INSERT INTO schedule_employee VALUES(18,33,3);
+INSERT INTO schedule_employee VALUES(31,56,4);
+INSERT INTO schedule_employee VALUES(25,23,1);
+INSERT INTO schedule_employee VALUES(1,11,3);
+INSERT INTO schedule_employee VALUES(25,48,2);
+INSERT INTO schedule_employee VALUES(14,51,4);
+INSERT INTO schedule_employee VALUES(12,70,3);
+INSERT INTO schedule_employee VALUES(30,52,4);
+INSERT INTO schedule_employee VALUES(3,12,2);
+INSERT INTO schedule_employee VALUES(10,73,2);
+INSERT INTO schedule_employee VALUES(10,47,5);
+INSERT INTO schedule_employee VALUES(32,17,1);
+INSERT INTO schedule_employee VALUES(5,56,5);
+INSERT INTO schedule_employee VALUES(11,25,2);
+INSERT INTO schedule_employee VALUES(11,64,1);
+INSERT INTO schedule_employee VALUES(22,57,2);
+INSERT INTO schedule_employee VALUES(1,69,3);
+INSERT INTO schedule_employee VALUES(1,36,2);
+INSERT INTO schedule_employee VALUES(32,48,4);
+INSERT INTO schedule_employee VALUES(28,61,3);
+INSERT INTO schedule_employee VALUES(11,34,2);
+INSERT INTO schedule_employee VALUES(28,56,3);
+INSERT INTO schedule_employee VALUES(18,59,3);
+INSERT INTO schedule_employee VALUES(5,21,5);
+INSERT INTO schedule_employee VALUES(28,5,4);
+INSERT INTO schedule_employee VALUES(7,42,5);
+INSERT INTO schedule_employee VALUES(19,33,2);
 
 --TABLA EMPLOYEE_CONSULTING_ROOM
 select * from employee
