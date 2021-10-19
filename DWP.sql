@@ -1814,6 +1814,7 @@ INSERT INTO employee VALUES('Martin','Morgan','1987-09-01 13:02:42',4,2.03367421
 
 
 --TABLA CONSULTING ROOM
+select * from consulting_room
 ALTER TABLE consulting_room
 DROP COLUMN creation_date
 
@@ -2043,10 +2044,110 @@ INSERT INTO schedule_employee VALUES(7,42,5);
 INSERT INTO schedule_employee VALUES(19,33,2);
 
 --TABLA EMPLOYEE_CONSULTING_ROOM
-select * from employee
+select * from employee_consulting_room
 
 ALTER TABLE employee_consulting_room
 DROP COLUMN creation_date
 
 ALTER TABLE employee_consulting_room
 DROP COLUMN update_date
+
+INSERT INTO employee_consulting_room VALUES(7,41,13);
+INSERT INTO employee_consulting_room VALUES(22,26,16);
+INSERT INTO employee_consulting_room VALUES(4,40,52);
+INSERT INTO employee_consulting_room VALUES(38,2,50);
+INSERT INTO employee_consulting_room VALUES(30,58,25);
+INSERT INTO employee_consulting_room VALUES(47,70,55);
+INSERT INTO employee_consulting_room VALUES(45,5,81);
+INSERT INTO employee_consulting_room VALUES(43,14,93);
+INSERT INTO employee_consulting_room VALUES(27,40,57);
+INSERT INTO employee_consulting_room VALUES(10,48,30);
+INSERT INTO employee_consulting_room VALUES(43,18,86);
+INSERT INTO employee_consulting_room VALUES(2,2,61);
+INSERT INTO employee_consulting_room VALUES(23,2,80);
+INSERT INTO employee_consulting_room VALUES(20,67,66);
+INSERT INTO employee_consulting_room VALUES(14,8,42);
+INSERT INTO employee_consulting_room VALUES(37,21,57);
+INSERT INTO employee_consulting_room VALUES(27,41,69);
+INSERT INTO employee_consulting_room VALUES(43,15,86);
+INSERT INTO employee_consulting_room VALUES(18,19,35);
+INSERT INTO employee_consulting_room VALUES(10,67,80);
+INSERT INTO employee_consulting_room VALUES(29,66,89);
+INSERT INTO employee_consulting_room VALUES(11,68,78);
+INSERT INTO employee_consulting_room VALUES(32,42,77);
+INSERT INTO employee_consulting_room VALUES(32,36,53);
+INSERT INTO employee_consulting_room VALUES(37,39,16);
+INSERT INTO employee_consulting_room VALUES(8,45,9);
+INSERT INTO employee_consulting_room VALUES(26,60,26);
+INSERT INTO employee_consulting_room VALUES(1,48,9);
+INSERT INTO employee_consulting_room VALUES(30,74,5);
+INSERT INTO employee_consulting_room VALUES(49,51,76);
+INSERT INTO employee_consulting_room VALUES(13,51,52);
+INSERT INTO employee_consulting_room VALUES(49,60,2);
+INSERT INTO employee_consulting_room VALUES(38,4,20);
+INSERT INTO employee_consulting_room VALUES(32,8,72);
+INSERT INTO employee_consulting_room VALUES(40,68,7);
+INSERT INTO employee_consulting_room VALUES(9,9,67);
+INSERT INTO employee_consulting_room VALUES(35,15,65);
+INSERT INTO employee_consulting_room VALUES(14,51,10);
+INSERT INTO employee_consulting_room VALUES(27,43,24);
+INSERT INTO employee_consulting_room VALUES(40,46,92);
+INSERT INTO employee_consulting_room VALUES(37,48,87);
+INSERT INTO employee_consulting_room VALUES(1,28,22);
+INSERT INTO employee_consulting_room VALUES(1,56,71);
+INSERT INTO employee_consulting_room VALUES(7,29,56);
+INSERT INTO employee_consulting_room VALUES(44,65,69);
+INSERT INTO employee_consulting_room VALUES(27,16,74);
+INSERT INTO employee_consulting_room VALUES(1,33,87);
+INSERT INTO employee_consulting_room VALUES(18,22,49);
+INSERT INTO employee_consulting_room VALUES(21,34,24);
+INSERT INTO employee_consulting_room VALUES(39,71,43);
+INSERT INTO employee_consulting_room VALUES(13,67,46);
+INSERT INTO employee_consulting_room VALUES(42,59,53);
+INSERT INTO employee_consulting_room VALUES(42,12,36);
+INSERT INTO employee_consulting_room VALUES(48,43,80);
+INSERT INTO employee_consulting_room VALUES(5,29,81);
+INSERT INTO employee_consulting_room VALUES(20,1,37);
+INSERT INTO employee_consulting_room VALUES(25,59,18);
+INSERT INTO employee_consulting_room VALUES(3,28,35);
+INSERT INTO employee_consulting_room VALUES(20,67,38);
+INSERT INTO employee_consulting_room VALUES(32,43,30);
+INSERT INTO employee_consulting_room VALUES(24,27,43);
+INSERT INTO employee_consulting_room VALUES(7,47,97);
+INSERT INTO employee_consulting_room VALUES(12,52,42);
+INSERT INTO employee_consulting_room VALUES(11,13,28);
+INSERT INTO employee_consulting_room VALUES(25,30,71);
+INSERT INTO employee_consulting_room VALUES(34,2,61);
+INSERT INTO employee_consulting_room VALUES(38,3,44);
+INSERT INTO employee_consulting_room VALUES(43,22,18);
+INSERT INTO employee_consulting_room VALUES(13,16,52);
+INSERT INTO employee_consulting_room VALUES(6,34,89);
+INSERT INTO employee_consulting_room VALUES(8,16,58);
+INSERT INTO employee_consulting_room VALUES(4,36,22);
+INSERT INTO employee_consulting_room VALUES(19,72,75);
+INSERT INTO employee_consulting_room VALUES(42,13,32);
+INSERT INTO employee_consulting_room VALUES(47,22,62);
+INSERT INTO employee_consulting_room VALUES(44,41,97);
+INSERT INTO employee_consulting_room VALUES(32,53,87);
+INSERT INTO employee_consulting_room VALUES(38,65,55);
+INSERT INTO employee_consulting_room VALUES(43,46,7);
+INSERT INTO employee_consulting_room VALUES(13,66,42);
+INSERT INTO employee_consulting_room VALUES(23,9,24);
+INSERT INTO employee_consulting_room VALUES(26,5,95);
+INSERT INTO employee_consulting_room VALUES(35,33,91);
+INSERT INTO employee_consulting_room VALUES(25,23,6);
+INSERT INTO employee_consulting_room VALUES(42,69,86);
+INSERT INTO employee_consulting_room VALUES(7,68,99);
+INSERT INTO employee_consulting_room VALUES(28,26,66);
+INSERT INTO employee_consulting_room VALUES(27,35,75);
+INSERT INTO employee_consulting_room VALUES(1,28,35);
+INSERT INTO employee_consulting_room VALUES(2,16,87);
+INSERT INTO employee_consulting_room VALUES(8,9,8);
+INSERT INTO employee_consulting_room VALUES(17,29,5);
+INSERT INTO employee_consulting_room VALUES(5,29,6);
+INSERT INTO employee_consulting_room VALUES(33,15,11);
+INSERT INTO employee_consulting_room VALUES(3,12,40);
+INSERT INTO employee_consulting_room VALUES(41,68,93);
+INSERT INTO employee_consulting_room VALUES(34,55,69);
+INSERT INTO employee_consulting_room VALUES(4,52,53);
+INSERT INTO employee_consulting_room VALUES(38,68,65);
