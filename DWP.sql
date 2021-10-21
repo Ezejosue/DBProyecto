@@ -4587,6 +4587,9 @@ INSERT INTO patient VALUES('Carl','Varndell','11/21/2004',2,1.49909369857008,2,1
 INSERT INTO patient VALUES('Violet','Saunders','8/16/2001',4,1.26091587835034,5,1,152.215931412864,'Blue',7,'Violet_Saunders6929@cispeto.com',3);
 INSERT INTO patient VALUES('Alison','Wren','11/22/2003',1,1.25631653901949,3,2,255.915243670305,'Brown',8,'Alison_Wren2862@eirey.tech',9);
 INSERT INTO patient VALUES('Danny','Ebbs','3/9/2004',4,1.76339646930033,3,2,192.065863708065,'Pink',1,'Danny_Ebbs4471@deons.tech',3);
+INSERT INTO patient VALUES('Abbey','London','3/8/2004',3,1.77339646930033,3,2,192.065863708065,'blue',1,'Abby_london11@deons.tech',3);
+INSERT INTO patient VALUES('Kath','Jones','3/7/2004',2,1.78339646930033,2,4,197.065863708065,'black',5,'jones_kath55@deons.tech',1);
+INSERT INTO patient VALUES('Lola','Style','3/10/2004',1,1.79339646930033,1,5,174.065863708065,'green',4,'lolstyle45@deons.tech',2);
 
 --llenando tabla  patient direction--
 ALTER TABLE patient_direction
@@ -4699,6 +4702,7 @@ INSERT INTO patient_direction VALUES('Walnut Street, 7277',98);
 INSERT INTO patient_direction VALUES('Catherine  Drive, 2632',24);
 INSERT INTO patient_direction VALUES('Monroe Crossroad, 7664',6);
 
+
 --llenando tabla patient_disease--
 ALTER TABLE patient_disease
 DROP COLUMN creation_date
@@ -4727,49 +4731,86 @@ insert into patient_disease values('Coughinge','syrup, tea and rest',36);
 insert into patient_disease values('Runny Nose','flu and rest',64);
 insert into patient_disease values('Coughinge','syrup, tea and rest',27);
 insert into patient_disease values('Coughinge','syrup, tea and rest',16);
+insert into patient_disease values(' glaucoma','eye drops',68);
+insert into patient_disease values(' glaucoma','eye drops',69);
 insert into patient_disease values('Coughinge','syrup, tea and rest',23);
 insert into patient_disease values('Coughinge','syrup, tea and rest',21);
+insert into patient_disease values(' anemia','Corticosteroids and good diet',82);
+insert into patient_disease values(' anemia','Corticosteroids and good diet',83);
 insert into patient_disease values('Coughinge','syrup, tea and rest',76);
 insert into patient_disease values(' Sore Throat','syrup, tea',96);
 insert into patient_disease values(' Sore Throat','syrup, tea',99);
+insert into patient_disease values(' hypertension','benazepril',80);
+insert into patient_disease values(' hypertension','benazepril',81);
 insert into patient_disease values(' Sore Throat','syrup, tea',52);
 insert into patient_disease values(' Sore Throat','syrup, tea',22);
 insert into patient_disease values('Headache','pill and rest',87);
+insert into patient_disease values(' anemia','Corticosteroids and good diet',86);
+insert into patient_disease values(' anemia','Corticosteroids and good diet',87);
 insert into patient_disease values('Headache','pill and rest',92);
 insert into patient_disease values('Headache','pill and rest',91);
 insert into patient_disease values('Headache','pill and rest',90);
+insert into patient_disease values(' anemia','Corticosteroids and good diet',90);
+insert into patient_disease values(' anemia','Corticosteroids and good diet',91);
 insert into patient_disease values('Headache','pill and rest',33);
 insert into patient_disease values('Stomach Ache','serums, gastric and good nutrition',80);
+insert into patient_disease values(' epilepsy','Phenytoin',64);
+insert into patient_disease values(' epilepsy','Phenytoin',65);
 insert into patient_disease values('Stomach Ache','serums, gastric and good nutrition',77);
 insert into patient_disease values('Stomach Ache','serums, gastric and good nutrition',14);
+insert into patient_disease values(' epilepsy','Phenytoin',66);
+insert into patient_disease values(' glaucoma','eye drops',67);
 insert into patient_disease values('Stomach Ache','serums, gastric and good nutrition',13);
 insert into patient_disease values('Stomach Ache','serums, gastric and good nutrition',5);
 insert into patient_disease values('Chickenpox','distancing and rest',3);
+insert into patient_disease values(' glaucoma','eye drops',70);
+insert into patient_disease values(' glaucoma','eye drops',71);
 insert into patient_disease values('Chickenpox','distancing and rest',17);
+insert into patient_disease values(' glaucoma','eye drops',72);
+insert into patient_disease values(' hypertension','benazepril',78);
+insert into patient_disease values(' hypertension','benazepril',79);
+insert into patient_disease values(' glaucoma','eye drops',73);
 insert into patient_disease values('Chickenpox','distancing and rest',57);
+insert into patient_disease values(' hypertension','benazepril',76);
+insert into patient_disease values(' hypertension','benazepril',77);
 insert into patient_disease values('Chickenpox','distancing and rest',51);
 insert into patient_disease values('Sneeze','mask, anti-flu, anti-allergy',29);
+insert into patient_disease values(' diabetes','insulin',55);
+insert into patient_disease values(' diabetes','insulin',54);
 insert into patient_disease values('Sneeze','mask, anti-flu, anti-allergy',74);
 insert into patient_disease values('Sneeze','mask, anti-flu, anti-allergy',41);
+insert into patient_disease values(' epilepsy','Phenytoin',62);
+insert into patient_disease values(' epilepsy','Phenytoin',63);
 insert into patient_disease values('Stomach Ache','serums, gastric and good nutrition',58);
+insert into patient_disease values(' anemia','Corticosteroids and good diet',88);
+insert into patient_disease values(' anemia','Corticosteroids and good diet',89);
 insert into patient_disease values('Stomach Ache','serums, gastric and good nutrition',94);
 insert into patient_disease values('Sneeze','mask, anti-flu, anti-allergy',42);
 insert into patient_disease values('Sneeze','mask, anti-flu, anti-allergy',29);
 insert into patient_disease values('Coughinge','syrup, tea and rest',76);
+insert into patient_disease values(' diabetes','insulin',58);
+insert into patient_disease values(' diabetes','insulint',59);
 insert into patient_disease values('Coughinge','syrup, tea and rest',22);
 insert into patient_disease values('Sneeze','mask, anti-flu, anti-allergy',74);
 insert into patient_disease values('Sneeze','mask, anti-flu, anti-allergy',41);
 insert into patient_disease values(' Fever','acetaminophen and rest',71);
 insert into patient_disease values('Sneeze','mask, anti-flu, anti-allergy',42);
 insert into patient_disease values('Stomach Ache','serums, gastric and good nutrition',35);
+insert into patient_disease values(' anemia','Corticosteroids and good diet',84);
+insert into patient_disease values(' anemia','Corticosteroids and good diet',85);
 insert into patient_disease values('Stomach Ache','serums, gastric and good nutrition',34);
 insert into patient_disease values('Chickenpox','distancing and rest',83);
 insert into patient_disease values('Coughinge','syrup, tea and rest',78);
 insert into patient_disease values('Coughinge','syrup, tea and rest',76);
 insert into patient_disease values(' Sore Throat','syrup, tea',12);
 insert into patient_disease values(' Fever','acetaminophen and rest',55);
+insert into patient_disease values(' diabetes','insulint',56);
+insert into patient_disease values(' epilepsy','Phenytoin',60);
+insert into patient_disease values(' epilepsy','Phenytoin',61);
+insert into patient_disease values(' hypertension','benazepril',74);
+insert into patient_disease values(' hypertension','benazepril',75);
+insert into patient_disease values(' diabetes','insulin',57);
 insert into patient_disease values(' Fever','acetaminophen and rest',54);
-
 
 --llenando tabla patiente_record--
 	
@@ -4780,6 +4821,8 @@ ALTER TABLE patient_record
 DROP COLUMN update_date
 
 insert into patient_record values(' discomfort and fever',' Fever','gradual improvement, requires rest','10/5/2010','0011222547',1,2,5);
+insert into patient_record values(' hypertension	',' care, stress management','taking medications, constant appointments','7/8/2013','001129795577',5,9,3);
+insert into patient_record values(' hypertension	',' care, stress management','taking medications, constant appointments','11/28/2004','0000859795577',6,10,8);
 insert into patient_record values(' discomfort and fever',' Fever','gradual improvement, requires rest','10/5/2010','0011222547',1,2,5);
 insert into patient_record values(' Chickenpox',' Fever and Chickenpox ','gradual improvement, requires rest','11/5/2002','00222225477',20,5,4);
 insert into patient_record values(' Chickenpox',' Fever','no gradual improvement, requires rest','8/5/2001','00112225237',11,2,7);
@@ -4799,6 +4842,8 @@ insert into patient_record values(' discomfort and fever',' Fever','gradual impr
 insert into patient_record values(' Runny Nose',' Runny Nose','no gradual improvement, requires rest','10/7/2006','00112224477',71,28,53);
 insert into patient_record values(' discomfort and fever',' Fever','gradual improvement, requires rest','10/8/2020','001123225477',70,21,1);
 insert into patient_record values(' Stomach Ache',' Stomach Ache','gradual improvement, requires rest','5/5/2001','00112785477',10,23,2);
+insert into patient_record values(' hypertension	','care, stress management','taking medications, constant appointments','7/13/2011','001859797575',11,15,3);
+insert into patient_record values(' hypertension	',' care, stress management','taking medications, constant appointments','8/14/2012','001859775877',12,16,7);
 insert into patient_record values(' Stomach Ache',' Stomach Ache','no gradual improvement, requires rest','10/4/2008','00112415477',94,23,6);
 insert into patient_record values(' Sneeze',' Fever','gradual improvement, requires rest','10/5/2007','00112287477',17,28,4);
 insert into patient_record values(' Sneeze',' Fever','gradual improvement, requires rest','10/8/2001','00112274477',18,23,6);
@@ -4813,17 +4858,27 @@ insert into patient_record values(' Sore Throat',' Sore Throat','gradual improve
 insert into patient_record values(' Sore Throat',' Sore Throat','gradual improvement, requires rest','10/5/2008','00112287477',74,2,5);
 insert into patient_record values(' discomfort and fever',' Fever','gradual improvement, requires rest','10/15/2007','00111125477',40,2,3);
 insert into patient_record values(' discomfort and fever',' Fever','gradual improvement, requires rest','4/5/2008','00133225477',12,28,9);
+insert into patient_record values(' hypertension	',' care, stress management','taking medications, constant appointments','5/11/2009','001887795577',9,13,3);
+insert into patient_record values(' hypertension	',' care, stress management','taking medications, constant appointments','6/12/2010','001239795577',10,14,4);
 insert into patient_record values(' discomfort and fever',' Fever','gradual improvement, requires rest','10/5/2008','00117725477',96,21,5);
 insert into patient_record values(' discomfort and fever',' Fever','gradual improvement, requires rest','10/5/2007','00112225997',95,2,5);
+insert into patient_record values(' gastritis	',' correct feeding','constant appointments','10/8/2021','001899961577',21,25,4);
+insert into patient_record values(' gastritis	',' correct feeding',' constant appointments','11/9/2020','001840701577',22,26,5);
 insert into patient_record values(' discomfort and fever',' Fever','gradual improvement, requires rest','10/25/2000','00113325477',45,8,3);
 insert into patient_record values(' Coughinge',' Coughinge','gradual improvement, requires rest','7/1/2010','001122255277',87,25,7);
 insert into patient_record values(' Coughinge',' Coughinge','no gradual improvement, requires rest','8/5/2003','00112229977',86,77,7);
 insert into patient_record values(' pregnancy',' control vitamins','pending appointment scheduling','11/4/2007','00178415477',19,4,6);
+insert into patient_record values(' diabetes	',' good diet and insulin','dont forget pills','2/8/2006','001859795577',5,9,3);
 insert into patient_record values(' Chagas disease',' intensive treatment','pending appointment scheduling','10/4/2005','00187715577',15,4,9);
 insert into patient_record values(' Runny Nose',' Runny Nose','gradual improvement, requires rest','10/5/2007','00112228877',14,71,9);
 insert into patient_record values(' discomfort and fever',' Fever','gradual improvement, requires rest','4/5/2008','00133225477',12,28,9);
+insert into patient_record values(' epilepsy	',' care and pills','taking medications, constant appointments','12/20/2011','001109791577',15,19,7);
+insert into patient_record values(' epilepsy	',' care and pills','taking medications, constant appointments','9/1/2013','001749791577',16,20,8);
 insert into patient_record values(' discomfort and fever',' Fever','no gradual improvement, requires rest','10/5/2008','00117725477',96,21,5);
+insert into patient_record values(' gastritis	',' correct feeding',' constant appointments','12/5/2020','001890701577',23,27,6);
 insert into patient_record values(' discomfort and fever',' Fever','gradual improvement, requires rest','10/5/2007','00112225997',95,2,5);
+insert into patient_record values(' gastritis	',' correct feeding',' constant appointments','8/6/2020','001899031577',19,23,2);
+insert into patient_record values(' gastritis	',' correct feeding',' constant appointments','9/7/2020','001899781577',20,24,3);
 insert into patient_record values(' discomfort and fever',' Fever','no gradual improvement, requires rest','10/15/2007','00111125477',40,2,3);
 insert into patient_record values(' depression and anxiety	',' appointment with a psychologist or psychiatrist','pending appointment scheduling','7/12/2021','001668695577',82,8,3);
 insert into patient_record values(' discomfort and fever',' Fever','gradual improvement, requires rest','4/5/2008','00133225477',12,28,9);
@@ -4831,27 +4886,40 @@ insert into patient_record values(' Cancer',' chemotherapy and protocol','gradua
 insert into patient_record values(' virus	','distancing and medication','gradual improvement, requires rest','10/5/2007','00112225997',95,2,5);
 insert into patient_record values(' Cancer',' chemotherapy and protocol','no gradual improvement, requires rest','10/15/2007','00111125477',40,2,3);
 insert into patient_record values(' Cancer',' Cancer','gradual improvement, requires rest','4/5/2008','00133225477',12,28,9);
+insert into patient_record values(' diabetes	',' good diet and insulin','dont forget pills','2/4/2003','001830695577',1,8,9);
+insert into patient_record values(' diabetes	',' good diet and insulin','dont forget pills','2/8/2006','001859795577',5,9,3);
 insert into patient_record values(' pregnancy',' control vitamins','pending appointment scheduling','10/4/2007','00178415477',19,4,6);
 insert into patient_record values(' depression and anxiety	',' appointment with a psychologist or psychiatrist','pending appointment scheduling','7/12/2021','001668695577',82,8,3);
 insert into patient_record values(' Chickenpox',' Fever','gradual improvement, requires rest','5/5/2005','00112220077',11,3,8);
 insert into patient_record values(' pregnancy',' control vitamins','pending appointment scheduling','10/4/2007','0017875477',19,4,6);
 insert into patient_record values(' discomfort and fever',' Fever','gradual improvement, requires rest','10/5/2007','00112200997',95,2,5);
+insert into patient_record values(' diabetes	',' good diet and insulin','dont forget pills','8/4/2017','001858995577',3,5,6);
+insert into patient_record values(' diabetes	',' good diet and insulin','dont forget pills','2/10/2013','001856695577',20,8,5);
 insert into patient_record values(' discomfort and fever',' Fever','no gradual improvement, requires rest','10/5/2008','00118725477',96,21,5);
 insert into patient_record values(' virus	','distancing and medication','gradual improvement, requires rest','10/5/2007','00512225997',95,2,5);
 insert into patient_record values(' discomfort and fever',' Fever','gradual improvement, requires rest','4/15/2007','00133228477',12,28,9);
+insert into patient_record values(' broken arm	',' orthopedic appointment','dont forget pills','1/4/2019','001811695577',8,70,3);
+insert into patient_record values(' broken arm	',' orthopedic appointment','dont forget pills','2/10/2020','001128695577',18,69,4);
 insert into patient_record values(' Coughinge',' Coughinge','gradual improvement, requires rest','7/1/2003','001122277277',87,25,7);
 insert into patient_record values(' discomfort and fever',' Fever','gradual improvement, requires rest','10/25/2005','04113325477',45,8,3);
 insert into patient_record values(' Sore Throat',' Sore Throat','gradual improvement, requires rest','10/5/2004','00112587477',74,2,5);
 insert into patient_record values(' Sneeze',' Fever','gradual improvement, requires rest','10/8/2002','00112279477',18,23,6);
 insert into patient_record values(' Runny Nose',' Runny Nose','gradual improvement, requires rest','1/3/2004','00188775477',19,4,6);
+insert into patient_record values(' epilepsy	',' care and pills','taking medications, constant appointments','10/15/2014','001779791577',13,17,5);
+insert into patient_record values(' epilepsy	',' care and pills','taking medications, constant appointments','11/15/2013','011899791577',14,18,6);
 insert into patient_record values(' Runny Nose',' Runny Nose','gradual improvement, requires rest','1/4/2008','00188415477',19,4,6);
 insert into patient_record values(' pregnancy',' control vitamins','pending appointment scheduling','10/4/2007','00177715477',19,4,6);
+insert into patient_record values(' hypertension	',' care, stress management','taking medications, constant appointments','3/9/2006','0018419795577',7,11,9);
+insert into patient_record values(' epilepsy	',' care and pills','taking medications, constant appointments','7/15/2007','003399791577',17,21,9);
+insert into patient_record values(' gastritis	',' correct feeding',' constant appointments','7/5/2019','001009701577',18,22,1);
+insert into patient_record values(' hypertension	',' care, stress management','taking medications, constant appointments','4/10/2008','001859775577',8,12,9);
 insert into patient_record values(' Chagas disease',' intensive treatment','pending appointment scheduling','10/4/2005','00187715477',20,4,8);
+insert into patient_record values(' diabetes	',' good diet and insulin','dont forget pills','5/4/2018','001858696677',10,60,1);
+insert into patient_record values(' diabetes	',' good diet and insulin','dont forget pills','1/4/2017','001858678577',20,9,8);
 insert into patient_record values(' Chagas disease',' intensive treatment','pending appointment scheduling','10/4/2005','00187715577',15,4,9);
 insert into patient_record values(' depression and anxiety	',' appointment with a psychologist or psychiatrist','pending appointment scheduling','1/20/2020','001878695577',72,48,3);
 insert into patient_record values(' depression and anxiety	',' appointment with a psychologist or psychiatrist','pending appointment scheduling','2/4/2020','001858695577',78,87,3);
-insert into patient_record values(' broken arm	',' appointment with a psychologist or psychiatrist','pending appointment scheduling','2/4/2020','001858695577',78,70,3);
-insert into patient_record values(' broken arm	',' appointment with a psychologist or psychiatrist','pending appointment scheduling','2/4/2020','001858695577',78,69,3);
+
 
 --llenando table patiente_record_medicine--
 
@@ -4967,6 +5035,404 @@ INSERT INTO patient_record_medicine VALUES(57,10);
 INSERT INTO patient_record_medicine VALUES(58,1);
 INSERT INTO patient_record_medicine VALUES(52,8);
 INSERT INTO patient_record_medicine VALUES(51,7);
+
+--llenando tabla surgery--
+ALTER TABLE surgery
+DROP COLUMN creation_date
+
+ALTER TABLE surgery
+DROP COLUMN update_date
+
+insert into surgery values('heart surgery','fix heart problems',8000,1)
+insert into surgery values('brain surgery','fix brain problems',10000,2)
+insert into surgery values('Appendix surgery','remove the appendix',2000,5)
+insert into surgery values('orthopedic surgery','fix damaged bone',4000,3)
+insert into surgery values('General Surgery','fix livers, etc',3000,4)
+insert into surgery values('Eye surgery','fix eye problems',5000,6)
+insert into surgery values('pediatric surgery','fix problems in children',3500,7)
+insert into surgery values('transplants','place transplant',12000,8)
+insert into surgery values('amputation','remove part of the body',8000,9)
+insert into surgery values('plastic surgery','detail, remove, fix body parts',8000,10)
+
+--llenando tabla bank--
+ALTER TABLE bank
+DROP COLUMN creation_date
+
+ALTER TABLE bank
+DROP COLUMN update_date
+
+
+insert into bank values('Capital One');
+insert into bank values('The Bank of New York Mellon');
+insert into bank values('Bank of America');
+insert into bank values('Citigroup');
+insert into bank values('U.S. Bancorp');
+insert into bank values('Charles Schwab');
+insert into bank values('PNC Financial Services');
+insert into bank values('M&T Bank');
+insert into bank values('Wells Fargo');
+insert into bank values('Goldman Sachs');
+
+--llenando tabla card type--
+ALTER TABLE card_type
+DROP COLUMN creation_date
+
+ALTER TABLE card_type
+DROP COLUMN update_date
+
+insert into card_type values('Credit card');
+insert into card_type values('Debit card');
+
+
+--llenando tabla payment type--
+ALTER TABLE payment_type
+DROP COLUMN creation_date
+
+ALTER TABLE payment_type
+DROP COLUMN update_date
+
+insert into payment_type values('Cash payment');
+insert into payment_type values('Payment in installments');
+
+
+--llenando tabla patiente_relationship--
+
+ALTER TABLE patient_relationship
+DROP COLUMN creation_date
+
+ALTER TABLE patient_relationship
+DROP COLUMN update_date
+
+INSERT INTO patient_relationship VALUES('David','Harrison','5/19/1999','Executive Director',1.52990639434657,2.22054215717155,205.132212258006,'Rosegold',8,'David_Harrison687@brety.org',88);
+INSERT INTO patient_relationship VALUES('Taylor','Russel','1/30/1996','Audiologist',1.25676719451173,5.19254820663135,134.972788428875,'Cadet blue',6,'Taylor_Russel9653@hourpy.biz',81);
+INSERT INTO patient_relationship VALUES('Liv','Knight','1/16/1983','Auditor',1.35408803478539,3.94343411826689,139.281852137894,'Camel',2,'Liv_Knight1180@vetan.org',48);
+INSERT INTO patient_relationship VALUES('Dani','Alexander','11/6/1982','Physician',1.89895967543077,2.70198450316767,43.0011198581202,'White',7,'Dani_Alexander2196@nanoff.biz',11);
+INSERT INTO patient_relationship VALUES('Nathan','Goodman','4/7/1994','Paramedic',1.1243895815799,5.35918280033357,105.476107449027,'Lime',9,'Nathan_Goodman539@cispeto.com',81);
+INSERT INTO patient_relationship VALUES('Anais','Bailey','7/27/1995','Paramedic',1.66990149206012,1.50791672547716,255.41763530272,'Peach',9,'Anais_Bailey4911@acrit.org',98);
+INSERT INTO patient_relationship VALUES('Sonya','Walton','9/2/1973','Global Logistics Supervisor',1.41531652012622,2.98902770596977,135.564590503725,'Azure',1,'Sonya_Walton2702@zorer.org',46);
+INSERT INTO patient_relationship VALUES('Liam','Mould','3/1/1978','Treasurer',1.73770628172797,5.55533588144711,140.996656377333,'Azure',5,'Liam_Mould9931@typill.biz',18);
+INSERT INTO patient_relationship VALUES('Gemma','Shepherd','5/19/1973','Project Manager',1.67205774736221,2.15304327763293,299.564829350712,'Red',9,'Gemma_Shepherd1529@brety.org',63);
+INSERT INTO patient_relationship VALUES('Fiona','Hamilton','5/15/1987','HR Coordinator',1.07869500125698,1.81405454818814,169.145322606967,'Champagne',8,'Fiona_Hamilton8429@mafthy.com',36);
+INSERT INTO patient_relationship VALUES('Jack','Tyler','7/16/1994','Software Engineer',1.68220766819185,5.02534583957183,56.1994796801356,'Mauve',8,'Jack_Tyler3252@gompie.com',74);
+INSERT INTO patient_relationship VALUES('Percy','Foxley','4/4/1973','Auditor',1.00647987812128,4.45375674797863,200.033118890614,'Gray',1,'Percy_Foxley2246@gmail.com',42);
+INSERT INTO patient_relationship VALUES('Ron','Clark','11/19/1973','Physician',1.33624982630659,2.145699107156,284.64900273534,'Capri',2,'Ron_Clark8505@deons.tech',66);
+INSERT INTO patient_relationship VALUES('Rosie','Glass','12/2/1973','Stockbroker',1.65833279348832,5.08200926896278,159.697508662333,'Peach',8,'Rosie_Glass7803@brety.org',96);
+INSERT INTO patient_relationship VALUES('Chloe','Varley','8/18/1973','Designer',1.89341331654853,3.19623166099015,63.4674142177531,'Apricot',2,'Chloe_Varley2719@elnee.tech',62);
+INSERT INTO patient_relationship VALUES('Gemma','Veale','1/21/1978','Bookkeeper',1.74873503113572,2.19908507689791,193.510818406246,' Pink',2,'Gemma_Veale1012@joiniaa.com',33);
+INSERT INTO patient_relationship VALUES('Kaylee','Crawford','9/4/1984','Ambulatory Nurse',1.77198589223995,5.32471826873939,58.2569642617632,'Gold',5,'Kaylee_Crawford6030@twipet.com',84);
+INSERT INTO patient_relationship VALUES('Peter','Allcott','3/9/1978','Doctor',1.17450037853536,1.32839542549494,270.753781273846,'Lavender',1,'Peter_Allcott915@ubusive.com',33);
+INSERT INTO patient_relationship VALUES('Rosalee','Ballard','12/1/1995','Physician',1.25860364714572,4.24324601806851,182.658683511735,'Camel',5,'Rosalee_Ballard5368@twace.org',99);
+INSERT INTO patient_relationship VALUES('Daniel','Janes','11/29/1992','Laboratory Technician',1.28973424182727,5.96304869650074,66.3014106127906,'Blue',6,'Daniel_Janes4267@yahoo.com',2);
+INSERT INTO patient_relationship VALUES('Owen','Roberts','5/24/1981','Retail Trainee',1.6866962783908,5.67369635061999,281.054038782629,'Red',9,'Owen_Roberts7985@twipet.com',68);
+INSERT INTO patient_relationship VALUES('Irene','Pratt','1/31/1999','Call Center Representative',0.907062036081712,5.05752586529475,282.357532201967,'Camel',8,'Irene_Pratt5691@atink.com',28);
+INSERT INTO patient_relationship VALUES('Shelby','Plant','3/13/1991','Bookkeeper',1.83697856922493,2.27461092978465,120.008980237417,'Amethyst',9,'Shelby_Plant2974@zorer.org',12);
+INSERT INTO patient_relationship VALUES('Cynthia','Coates','2/13/1991','Ambulatory Nurse',1.89496920965378,1.5928714529578,35.1216562428147,'Sepia',7,'Cynthia_Coates6366@twipet.com',40);
+INSERT INTO patient_relationship VALUES('Paula','James','6/13/1991','HR Specialist',0.914966342139508,1.7827230341652,125.439103666432,'Capri',6,'Paula_James3235@dionrab.com',84);
+INSERT INTO patient_relationship VALUES('Matt','Strong','11/5/1991','Design Engineer',1.54889378689644,3.1702134093131,69.2756055236215,'Blue',7,'Matt_Strong1066@famism.biz',31);
+INSERT INTO patient_relationship VALUES('Doug','Vollans','2/2/1991','Laboratory Technician',1.07894504972684,5.01118665794432,262.989954934916,'Dark red',3,'Doug_Vollans8411@bungar.biz',83);
+INSERT INTO patient_relationship VALUES('Helen','Alexander','1/20/1992','Cashier',1.68594754952283,2.96093979615762,201.936244110547,'Silver',7,'Helen_Alexander1175@nickia.com',54);
+INSERT INTO patient_relationship VALUES('Henry','Connell','11/12/1986','Pharmacist',1.48965701171647,3.15974477080616,271.860697052377,'Dark Red',2,'Henry_Connell9469@womeona.net',35);
+INSERT INTO patient_relationship VALUES('Bob','Morley','7/19/1992','Physician',1.49292600936858,3.00120500987452,103.939868994029,'Blue',3,'Bob_Morley9370@dionrab.com',47);
+INSERT INTO patient_relationship VALUES('Johnny','John','5/8/1992','Inspector',1.23231879832797,2.36320307402089,122.381788537084,'Cadet blue',1,'Johnny_John8853@vetan.org',95);
+INSERT INTO patient_relationship VALUES('Rosa','Irving','2/8/1987','Stockbroker',1.60869112932528,2.77521472693198,48.0971674276968,'Gray',8,'Rosa_Irving5361@deavo.com',15);
+INSERT INTO patient_relationship VALUES('Eryn','Powell','11/8/1992','Stockbroker',1.12442338113879,2.02771879361371,84.0744632515472,'Aquamarine',2,'Eryn_Powell9567@infotech44.tech',30);
+INSERT INTO patient_relationship VALUES('Rocco','Hamilton','7/2/1983','Audiologist',1.62656941028618,3.53289185163234,127.242101241947,'Black',3,'Rocco_Hamilton3768@famism.biz',13);
+INSERT INTO patient_relationship VALUES('Gemma','Jenkins','9/10/1995','Executive Director',1.71726138192101,2.34881742687375,134.750794747728,'Dark red',6,'Gemma_Jenkins5383@supunk.biz',22);
+INSERT INTO patient_relationship VALUES('Jessica','John','12/17/1975','Front Desk Coordinator',1.75718869550954,2.42904254953798,296.64916626953,'marine',1,'Jessica_John4523@grannar.com',28);
+INSERT INTO patient_relationship VALUES('Chester','Grey','11/18/1983','Health Educator',1.1318571862913,3.95459887848916,69.0921956575905,'Lavender',4,'Chester_Grey2992@iatim.tech',48);
+INSERT INTO patient_relationship VALUES('Percy','Quinn','9/23/1983','Production Painter',1.71265960299068,5.10904830513012,81.7611818764178,'Cerise',6,'Percy_Quinn5634@gompie.com',98);
+INSERT INTO patient_relationship VALUES('Mason','Michael','1/28/1992','Mobile Developer',1.80616503865745,2.02300622594683,70.7178738837679,'Mauve',2,'Mason_Michael3814@fuliss.net',82);
+INSERT INTO patient_relationship VALUES('Lauren','Brock','5/23/1978','Systems Administrator',1.70235159620752,3.46987244043028,227.387937664235,'Sepia',9,'Lauren_Brock1439@yahoo.com',94);
+INSERT INTO patient_relationship VALUES('Carter','Cobb','3/2/1975','Bookkeeper',1.19139597913781,5.70225710733899,223.250738350326,'Turquoise',9,'Carter_Cobb5993@typill.biz',87);
+INSERT INTO patient_relationship VALUES('Jackeline','Emmott','3/31/1975','Biologist',1.31419897853127,4.03417087767002,237.575945478201,'Purple',9,'Jackeline_Emmott6793@typill.biz',63);
+INSERT INTO patient_relationship VALUES('Hank','Rivers','7/18/1975','Physician',1.7268991051367,2.95366516055244,222.920166293122,'Pink',1,'Hank_Rivers7021@iatim.tech',56);
+INSERT INTO patient_relationship VALUES('Harry','Rossi','9/12/1998','Cashier',1.3541332663289,2.1202489901894,198.172717348753,'Magenta',2,'Harry_Rossi3944@guentu.biz',50);
+INSERT INTO patient_relationship VALUES('Penelope','Glass','9/8/1978','Inspector',0.986382841265939,3.80800990378857,296.537244700146,'Capri',2,'Penelope_Glass3642@sheye.org',1);
+INSERT INTO patient_relationship VALUES('Sofie','Reading','10/3/1991','Budget Analyst',1.19432865571898,4.18220242633587,123.299316142359,'Gold',6,'Sofie_Reading9060@qater.org',63);
+INSERT INTO patient_relationship VALUES('Leanne','Allcott','6/29/1974','Steward',1.6859256732212,1.63833850512204,177.070041171773,'Salmon',6,'Leanne_Allcott635@hourpy.biz',32);
+INSERT INTO patient_relationship VALUES('George','Dwyer','1/3/1993','Auditor',1.05911233898211,3.41431956059035,189.864526894812,'Emerald',7,'George_Dwyer7704@bretoux.com',50);
+INSERT INTO patient_relationship VALUES('Owen','Dickson','3/5/1976','Budget Analyst',0.919522374504955,1.5484195046818,297.939317483427,'Peach',6,'Owen_Dickson4051@nanoff.biz',37);
+INSERT INTO patient_relationship VALUES('Harriet','Reid','6/11/1997','Investment  Advisor',1.4255752967324,4.87035800696833,215.042050279231,'Brown',8,'Harriet_Reid5935@nickia.com',6);
+INSERT INTO patient_relationship VALUES('Raquel','Seymour','1/24/1978','Baker',1.12071011095341,1.9717793310861,247.237839775736,'White',6,'Raquel_Seymour1772@hourpy.biz',45);
+INSERT INTO patient_relationship VALUES('Faith','Quinton','5/16/1978','Front Desk Coordinator',1.46542970732107,3.02868361819009,242.850875857217,'Maroon',9,'Faith_Quinton1322@womeona.net',24);
+INSERT INTO patient_relationship VALUES('Luke','Roberts','6/24/1977','CNC Operator',1.8365708743858,2.97705719292958,286.312536314741,'Red',1,'Luke_Roberts6265@deavo.com',18);
+INSERT INTO patient_relationship VALUES('Harvey','Overson','2/4/1978','Banker',1.87363259362692,3.5366033695343,58.5551362845838,'Fuchsia',9,'Harvey_Overson2862@famism.biz',47);
+INSERT INTO patient_relationship VALUES('Caleb','Upsdell','10/24/1977','Baker',0.95050328096864,3.98896057204761,273.225991687843,'Olive',5,'Caleb_Upsdell7319@sveldo.biz',6);
+INSERT INTO patient_relationship VALUES('Bryce','Cavanagh','4/11/1977','Audiologist',1.78648260938306,1.51091702771881,181.74579313339,'Purple',3,'Bryce_Cavanagh9357@extex.org',23);
+INSERT INTO patient_relationship VALUES('Daphne','Robertson','7/18/1991','Service Supervisor',1.42546151519076,4.7991164642382,209.580507680578,'Lavender',9,'Daphne_Robertson1974@atink.com',15);
+INSERT INTO patient_relationship VALUES('Domenic','Ogilvy','6/25/1991','Restaurant Manager',1.03207902858596,3.24713186698367,76.4536834957328,'Amethyst',9,'Domenic_Ogilvy9877@corti.com',52);
+INSERT INTO patient_relationship VALUES('Blake','Stewart','4/14/1988','Investment  Advisor',1.17382429236259,4.94181862610477,185.427606293199,'Pink',2,'Blake_Stewart2741@dionrab.com',13);
+INSERT INTO patient_relationship VALUES('Hayden','Jones','3/22/1974','Accountant',1.30606982605814,1.16842568068226,260.700967267948,'Green',9,'Hayden_Jones495@twipet.com',83);
+INSERT INTO patient_relationship VALUES('Sofie','Skinner','10/11/1992','Mobile Developer',1.4953705048167,4.13440566097126,268.542005985296,'Black',8,'Sofie_Skinner558@yahoo.com',64);
+INSERT INTO patient_relationship VALUES('Leanne','Harrington','2/24/1988','Physician',1.11744163717024,4.63231849653289,52.3801481339057,'Yellow',7,'Leanne_Harrington631@qater.org',8);
+INSERT INTO patient_relationship VALUES('Johnny','Farrow','3/21/1988','Project Manager',1.76181000287729,3.29961975258757,160.471264346722,'White',9,'Johnny_Farrow8180@fuliss.net',54);
+INSERT INTO patient_relationship VALUES('Livia','Thomson','6/9/1988','Food Technologist',1.18541523138313,3.45908822745974,48.1876059096249,'Gray',1,'Livia_Thomson8977@vetan.org',23);
+INSERT INTO patient_relationship VALUES('Sienna','Hewitt','3/20/1985','Software Engineer',1.08707837638775,4.76520895248522,74.0696182730932,'White',9,'Sienna_Hewitt6464@bungar.biz',61);
+INSERT INTO patient_relationship VALUES('Danielle','Bloom','9/11/1988','Machine Operator',1.32160248729475,4.80609950134815,182.562459946406,'Olive',3,'Danielle_Bloom9250@twace.org',24);
+INSERT INTO patient_relationship VALUES('Chuck','Webster','5/10/1985','Inspector',1.39177767452401,2.60073436079581,254.767177067123,'Sky blue',9,'Chuck_Webster4550@elnee.tech',30);
+INSERT INTO patient_relationship VALUES('Rosie','Hunt','5/27/1980','Electrician',1.71484446014038,2.63318008400182,79.4710347952652,'Sepia',3,'Rosie_Hunt5004@guentu.biz',95);
+INSERT INTO patient_relationship VALUES('Owen','Eaton','11/28/1985','Web Developer',1.38270489717028,1.98486153641011,147.288599757612,'Mauve',8,'Owen_Eaton3233@atink.com',31);
+INSERT INTO patient_relationship VALUES('Nicholas','King','12/31/1987','Loan Officer',1.8163253642229,3.35919365117289,116.913463037421,'Blue',8,'Nicholas_King6045@liret.org',42);
+INSERT INTO patient_relationship VALUES('Hazel','Lakey','11/19/1990','Clerk',0.955847227599401,4.35635700465942,288.290493314755,'Gold',2,'Hazel_Lakey5603@zorer.org',77);
+INSERT INTO patient_relationship VALUES('Gwen','Talbot','8/22/1985','Retail Trainee',1.11767663686428,2.5192612588961,293.369022418917,'Gray',3,'Gwen_Talbot6158@zorer.org',31);
+INSERT INTO patient_relationship VALUES('Remy','Purvis','9/13/1983','Audiologist',1.05734875442337,2.19711161926254,54.5606238267201,'Lime',4,'Remy_Purvis2180@jiman.org',83);
+INSERT INTO patient_relationship VALUES('Sara','Price','7/27/1996','Stockbroker',0.910429614228397,3.44729034763169,32.0927374000162,'Capri',5,'Sara_Price2722@nickia.com',80);
+INSERT INTO patient_relationship VALUES('Josh','Brett','4/20/1985','Dentist',0.984286737295001,4.69986854293378,222.558845364749,'Black',1,'Josh_Brett7597@vetan.org',80);
+INSERT INTO patient_relationship VALUES('Deborah','Stewart','3/15/1983','Biologist',1.22055920796495,3.87781724188375,261.734925323043,'Emerald',7,'Deborah_Stewart4770@infotech44.tech',41);
+INSERT INTO patient_relationship VALUES('George','James','11/18/1983','Software Engineer',1.4631678805515,2.70850701663108,80.1351777357679,'Gold',1,'George_James234@womeona.net',65);
+INSERT INTO patient_relationship VALUES('Eileen','Turner','1/15/1983','HR Specialist',1.6886841845646,5.62483799998874,123.309125579572,'Amethyst',1,'Eileen_Turner3121@muall.tech',73);
+INSERT INTO patient_relationship VALUES('Julian','Squire','10/3/1975','Stockbroker',1.80134347784395,3.08245433870817,41.5211901126994,'Black',8,'Julian_Squire5482@infotech44.tech',64);
+INSERT INTO patient_relationship VALUES('Cassandra','Ventura','3/9/1983','Production Painter',1.68359765269961,4.43651632519277,79.5796252403313,'Sienna',2,'Cassandra_Ventura840@deons.tech',65);
+INSERT INTO patient_relationship VALUES('Adina','Howard','9/5/1990','Clerk',1.26571413388742,1.01462683641102,200.220588345183,'Turquoise',9,'Adina_Howard1261@deavo.com',18);
+INSERT INTO patient_relationship VALUES('Hayden','Powell','7/13/1988','Pharmacist',1.23810740864748,3.54681700493527,263.973197028494,'Turquoise',5,'Hayden_Powell7107@gompie.com',80);
+INSERT INTO patient_relationship VALUES('Callie','Richards','6/2/1990','Systems Administrator',1.21960956767183,2.14118604601416,191.45336798134,'Black',3,'Callie_Richards35@elnee.tech',83);
+INSERT INTO patient_relationship VALUES('Robyn','Porter','6/10/1990','Banker',1.17266331635074,1.73689827357274,232.235315158141,'Rosegold',7,'Robyn_Porter9982@joiniaa.com',86);
+INSERT INTO patient_relationship VALUES('Tiffany','Craig','6/17/1990','Treasurer',1.63818345588547,1.23618169558988,137.886266782361,'Aqua',3,'Tiffany_Craig5342@sheye.org',2);
+INSERT INTO patient_relationship VALUES('Ellen','Connor','2/20/1984','Retail Trainee',1.80833992879295,4.99594465689545,109.653674796062,'Aqua',6,'Ellen_Connor1947@deons.tech',13);
+INSERT INTO patient_relationship VALUES('Josh','Skinner','6/8/1984','Banker',0.974025686399092,3.12710041838097,219.699926762702,'Emerald',6,'Josh_Skinner3761@qater.org',45);
+INSERT INTO patient_relationship VALUES('Lara','Heaton','3/30/1990','Health Educator',1.89472265131526,3.07128946765852,164.261895235284,'Gold',3,'Lara_Heaton5548@brety.org',29);
+INSERT INTO patient_relationship VALUES('Tyler','Blythe','4/19/1984','Dentist',1.72084997735026,2.69869595286376,217.50007967907,'Rosewood',3,'Tyler_Blythe96@naiker.biz',28);
+INSERT INTO patient_relationship VALUES('Cristal','Lloyd','11/18/1977','Budget Analyst',1.26009037045766,1.93694835851758,54.5615308780975,'Red',4,'Cristal_Lloyd166@twipet.com',51);
+INSERT INTO patient_relationship VALUES('Samara','Lambert','11/18/1977','Restaurant Manager',1.20767938369311,3.3699076168099,36.1282026903369,'Cyan',7,'Samara_Lambert2203@gembat.biz',98);
+INSERT INTO patient_relationship VALUES('Enoch','Ellis','4/11/1977','CNC Operator',1.01239409265686,4.28592716263883,130.105937450242,'Lime',9,'Enoch_Ellis5521@hourpy.biz',62);
+INSERT INTO patient_relationship VALUES('William','Mason','2/6/1991','Designer',1.26345918586639,1.3606553959477,158.707557122087,'Turquoise',7,'William_Mason4184@cispeto.com',58);
+INSERT INTO patient_relationship VALUES('Maggie','Wilkinson','11/3/1977','Business Broker',1.35761617992894,3.51136505906999,76.7417205249619,'Orange',4,'Maggie_Wilkinson7380@grannar.com',69);
+INSERT INTO patient_relationship VALUES('Madison','Dixon','5/10/1992','Doctor',1.75215713589087,3.50300991465478,258.863297458674,'Magenta',3,'Madison_Dixon848@typill.biz',77);
+INSERT INTO patient_relationship VALUES('Zara','Knight','9/15/1991','Associate Professor',1.55115820274277,5.76654608024589,129.212425283721,'Black',8,'Zara_Knight4458@ovock.tech',31);
+INSERT INTO patient_relationship VALUES('Benny','Spencer','3/23/1988','Machine Operator',1.31806519423521,3.32598657455574,209.06132888238,'Magenta',2,'Benny_Spencer921@corti.com',49);
+INSERT INTO patient_relationship VALUES('Teagan','Kennedy','9/19/1974','Physician',1.42517605178299,1.60056325402137,273.836631636525,'Fuchsia',4,'Teagan_Kennedy5317@bungar.biz',23);
+INSERT INTO patient_relationship VALUES('Ryan','Larsen','7/24/1974','Doctor',1.85338247248595,3.12184164213102,134.257212423374,'Cerise',6,'Ryan_Larsen6466@mafthy.com',2);
+INSERT INTO patient_relationship VALUES('Paige','Morrow','8/17/1979','Food Technologist',1.45330284384699,2.95824861990206,142.132608250777,'Cyan',7,'Paige_Morrow8344@brety.org',59);
+
+--llenando tabla patient_record_surgery--
+ALTER TABLE patient_record_surgery
+DROP COLUMN creation_date
+
+ALTER TABLE patient_record_surgery
+DROP COLUMN update_date
+
+INSERT INTO patient_record_surgery VALUES(61,5,'1/18/1999',46);
+INSERT INTO patient_record_surgery VALUES(17,6,'10/24/2004',34);
+INSERT INTO patient_record_surgery VALUES(4,2,'4/27/2010',61);
+INSERT INTO patient_record_surgery VALUES(4,4,'10/28/2001',1);
+INSERT INTO patient_record_surgery VALUES(9,5,'1/3/2004',24);
+INSERT INTO patient_record_surgery VALUES(42,4,'2/8/2019',27);
+INSERT INTO patient_record_surgery VALUES(75,9,'2/20/2016',1);
+INSERT INTO patient_record_surgery VALUES(47,4,'8/22/2006',76);
+INSERT INTO patient_record_surgery VALUES(83,6,'9/2/2003',62);
+INSERT INTO patient_record_surgery VALUES(55,9,'2/5/2002',29);
+INSERT INTO patient_record_surgery VALUES(58,6,'2/28/2015',48);
+INSERT INTO patient_record_surgery VALUES(9,1,'9/9/2006',13);
+INSERT INTO patient_record_surgery VALUES(15,4,'7/21/2003',30);
+INSERT INTO patient_record_surgery VALUES(13,6,'12/27/2010',78);
+INSERT INTO patient_record_surgery VALUES(29,8,'5/18/2004',52);
+INSERT INTO patient_record_surgery VALUES(11,5,'10/12/2013',2);
+INSERT INTO patient_record_surgery VALUES(22,5,'4/7/2015',38);
+INSERT INTO patient_record_surgery VALUES(10,4,'11/8/2001',23);
+INSERT INTO patient_record_surgery VALUES(50,2,'5/25/2010',44);
+INSERT INTO patient_record_surgery VALUES(73,6,'6/26/2006',69);
+INSERT INTO patient_record_surgery VALUES(87,2,'8/16/2018',64);
+INSERT INTO patient_record_surgery VALUES(19,5,'12/30/2014',62);
+INSERT INTO patient_record_surgery VALUES(92,1,'8/24/2011',24);
+INSERT INTO patient_record_surgery VALUES(15,1,'7/28/2011',77);
+INSERT INTO patient_record_surgery VALUES(22,2,'7/22/2011',2);
+INSERT INTO patient_record_surgery VALUES(70,6,'7/29/2020',61);
+INSERT INTO patient_record_surgery VALUES(85,4,'9/24/2007',26);
+INSERT INTO patient_record_surgery VALUES(57,1,'9/27/2017',36);
+INSERT INTO patient_record_surgery VALUES(27,3,'2/6/2010',25);
+INSERT INTO patient_record_surgery VALUES(11,9,'7/4/2013',41);
+INSERT INTO patient_record_surgery VALUES(42,5,'2/18/2017',42);
+INSERT INTO patient_record_surgery VALUES(51,1,'8/29/2004',63);
+INSERT INTO patient_record_surgery VALUES(79,8,'10/7/2013',8);
+INSERT INTO patient_record_surgery VALUES(73,1,'5/21/2008',12);
+INSERT INTO patient_record_surgery VALUES(10,2,'3/13/2003',44);
+INSERT INTO patient_record_surgery VALUES(26,9,'6/14/2014',26);
+INSERT INTO patient_record_surgery VALUES(57,9,'8/26/2007',34);
+INSERT INTO patient_record_surgery VALUES(70,4,'5/10/2000',22);
+INSERT INTO patient_record_surgery VALUES(30,8,'7/13/2019',53);
+INSERT INTO patient_record_surgery VALUES(53,9,'9/28/2004',12);
+INSERT INTO patient_record_surgery VALUES(67,1,'12/25/2002',42);
+INSERT INTO patient_record_surgery VALUES(88,6,'3/1/2021',40);
+INSERT INTO patient_record_surgery VALUES(46,2,'5/20/2017',30);
+INSERT INTO patient_record_surgery VALUES(23,8,'12/21/2019',41);
+INSERT INTO patient_record_surgery VALUES(4,7,'11/23/2005',19);
+INSERT INTO patient_record_surgery VALUES(23,4,'12/21/1999',39);
+INSERT INTO patient_record_surgery VALUES(20,4,'7/8/2017',73);
+INSERT INTO patient_record_surgery VALUES(73,2,'3/1/2018',37);
+INSERT INTO patient_record_surgery VALUES(80,1,'10/18/2013',23);
+INSERT INTO patient_record_surgery VALUES(24,7,'11/15/2009',27);
+INSERT INTO patient_record_surgery VALUES(27,8,'10/8/2003',55);
+INSERT INTO patient_record_surgery VALUES(42,7,'6/7/1998',45);
+INSERT INTO patient_record_surgery VALUES(27,5,'7/31/2009',55);
+INSERT INTO patient_record_surgery VALUES(9,1,'6/4/2011',45);
+INSERT INTO patient_record_surgery VALUES(10,7,'5/8/2010',30);
+INSERT INTO patient_record_surgery VALUES(40,9,'10/11/2021',9);
+INSERT INTO patient_record_surgery VALUES(4,9,'8/6/2003',28);
+INSERT INTO patient_record_surgery VALUES(47,2,'9/28/2012',2);
+INSERT INTO patient_record_surgery VALUES(42,5,'3/24/2001',45);
+INSERT INTO patient_record_surgery VALUES(72,8,'4/2/2001',25);
+INSERT INTO patient_record_surgery VALUES(27,8,'6/14/2016',70);
+INSERT INTO patient_record_surgery VALUES(11,4,'2/28/1999',15);
+INSERT INTO patient_record_surgery VALUES(10,3,'2/19/2011',17);
+INSERT INTO patient_record_surgery VALUES(97,7,'2/12/2020',55);
+INSERT INTO patient_record_surgery VALUES(40,2,'2/13/2004',62);
+INSERT INTO patient_record_surgery VALUES(82,1,'4/17/2019',66);
+INSERT INTO patient_record_surgery VALUES(7,8,'12/22/2003',77);
+INSERT INTO patient_record_surgery VALUES(24,3,'4/28/2006',26);
+INSERT INTO patient_record_surgery VALUES(86,1,'12/3/2012',65);
+INSERT INTO patient_record_surgery VALUES(28,9,'7/10/2005',11);
+INSERT INTO patient_record_surgery VALUES(84,5,'7/23/1998',15);
+INSERT INTO patient_record_surgery VALUES(42,3,'7/5/2016',13);
+INSERT INTO patient_record_surgery VALUES(46,7,'9/14/2013',42);
+INSERT INTO patient_record_surgery VALUES(28,1,'5/27/1999',58);
+INSERT INTO patient_record_surgery VALUES(13,3,'2/22/2020',18);
+INSERT INTO patient_record_surgery VALUES(95,3,'7/3/2017',3);
+INSERT INTO patient_record_surgery VALUES(20,4,'10/7/2021',50);
+INSERT INTO patient_record_surgery VALUES(50,8,'1/7/2017',66);
+INSERT INTO patient_record_surgery VALUES(7,9,'7/19/2007',38);
+INSERT INTO patient_record_surgery VALUES(3,1,'2/17/1999',45);
+INSERT INTO patient_record_surgery VALUES(90,2,'12/28/2010',16);
+INSERT INTO patient_record_surgery VALUES(37,5,'4/25/2018',43);
+INSERT INTO patient_record_surgery VALUES(27,1,'2/13/2005',79);
+INSERT INTO patient_record_surgery VALUES(32,1,'2/15/2020',40);
+INSERT INTO patient_record_surgery VALUES(55,1,'7/24/2008',12);
+INSERT INTO patient_record_surgery VALUES(85,9,'10/11/2008',8);
+INSERT INTO patient_record_surgery VALUES(38,5,'11/21/2014',52);
+INSERT INTO patient_record_surgery VALUES(62,8,'2/15/2001',26);
+INSERT INTO patient_record_surgery VALUES(63,9,'12/30/2015',50);
+INSERT INTO patient_record_surgery VALUES(13,5,'5/15/2019',66);
+INSERT INTO patient_record_surgery VALUES(14,4,'8/24/1999',13);
+INSERT INTO patient_record_surgery VALUES(62,2,'9/25/2021',69);
+INSERT INTO patient_record_surgery VALUES(36,6,'10/26/2019',61);
+INSERT INTO patient_record_surgery VALUES(95,8,'7/15/2013',25);
+INSERT INTO patient_record_surgery VALUES(11,1,'12/5/2009',70);
+INSERT INTO patient_record_surgery VALUES(8,5,'4/26/2010',57);
+INSERT INTO patient_record_surgery VALUES(98,2,'12/20/2007',68);
+INSERT INTO patient_record_surgery VALUES(10,5,'10/12/2013',30);
+INSERT INTO patient_record_surgery VALUES(95,1,'6/20/2011',66);
+INSERT INTO patient_record_surgery VALUES(56,4,'9/7/2003',71);
+
+
+--llenando tabla payment_card--
+ALTER TABLE payment_card
+DROP COLUMN creation_date
+
+ALTER TABLE payment_card
+DROP COLUMN update_date
+
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Benoite Sives', '402-611-8962', '12/31/2017', 2, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Biddie Hindmoor', '486-862-0651', '12/20/2005', 2, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Deana Foxcroft', '430-923-6103', '7/24/2014', 10, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Rolf Sutor', '972-607-8089', '4/29/2001', 10, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Erin Boog', '302-573-6888', '7/30/2005', 1, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Mendel Nineham', '334-790-0531', '8/17/2005', 3, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Thane Bark', '510-703-1182', '11/11/2009', 9, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Ernestus Wheildon', '649-802-6732', '7/3/2002', 5, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Carma Salmoni', '117-355-6471', '3/3/2012', 9, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Owen Isson', '948-748-7724', '5/9/2001', 7, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Milzie Hargie', '785-756-0462', '8/14/2015', 4, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Ardath Lightollers', '951-256-3528', '4/16/2014', 5, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Sylvester Bollam', '250-647-6321', '5/8/2004', 8, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Fanchette Leacy', '978-599-3212', '2/15/2011', 6, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Toiboid Heindrick', '515-922-4998', '12/9/2017', 5, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Ernst Prebble', '221-380-8130', '7/8/2018', 8, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Kiah Ivanonko', '755-293-6219', '5/2/2002', 5, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Lusa McGuckin', '876-282-8328', '8/11/2016', 5, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Adi Shurman', '699-283-6555', '7/31/2021', 2, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Leoine Broadbent', '159-326-5782', '6/20/2001', 5, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Othelia Rivelon', '558-387-0019', '10/1/2002', 1, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Susie McDonough', '836-650-3689', '1/16/2020', 5, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Rudolfo Hullbrook', '266-347-9127', '6/8/2006', 5, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Bondie Drynan', '143-987-3951', '12/17/2017', 4, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Clarinda Maybey', '404-592-3638', '12/21/2004', 5, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Barbabas Chappell', '927-423-6010', '6/12/2000', 9, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Maiga Baythrop', '294-695-8717', '8/12/2005', 5, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Cherilyn Shacklady', '542-450-7091', '7/3/2020', 4, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Sissy Wickson', '149-748-7727', '6/21/2002', 9, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Terrell Aishford', '588-265-0974', '11/17/2006', 6, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Gunilla Klimp', '775-447-7687', '10/22/2008', 8, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Paco Acutt', '298-267-3734', '12/9/2004', 4, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Rolph Drane', '842-284-6699', '9/29/2016', 3, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Mohandas Stores', '622-813-2857', '2/4/2019', 8, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Nolly Lippitt', '761-958-7390', '2/7/2016', 6, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Golda Drakeford', '766-779-8543', '10/28/2006', 5, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Silvain Rubinlicht', '970-903-9508', '2/4/2000', 8, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Tish Tuite', '175-161-2002', '3/7/2009', 8, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Pattin Cejka', '482-335-2827', '8/19/2016', 2, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Sabra Pindar', '291-126-9442', '1/30/2006', 3, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Claybourne Norcop', '269-741-2437', '6/18/2007', 7, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Mar Keasey', '257-536-9915', '12/5/2016', 8, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Padriac Ewence', '316-645-5439', '7/26/2017', 7, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Joni Houdmont', '912-605-7352', '11/16/2012', 3, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Marlin Dysert', '777-183-0369', '11/16/2007', 6, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Sofia Nichol', '807-272-5395', '10/24/2005', 7, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Lottie Longworthy', '474-944-3526', '8/19/2015', 2, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Gilburt Kettlesing', '488-271-3076', '4/4/2019', 6, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Arluene Coster', '120-236-5537', '7/3/2017', 7, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Gwenni Charlson', '883-789-6122', '6/25/2014', 2, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Ivor Castanho', '859-968-5507', '11/16/2020', 4, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Iseabal Allmond', '123-341-1988', '9/9/2015', 6, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Rosemary Inglefield', '397-657-5562', '9/20/2010', 9, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Ivan Anyene', '380-990-0196', '6/1/2004', 2, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Flynn Fulks', '801-157-2800', '2/2/2001', 5, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Elisha McCullough', '530-717-9608', '5/12/2018', 5, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Alex Skinn', '292-868-0589', '5/4/2001', 8, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Lewiss Stygall', '280-504-8512', '1/31/2002', 6, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Tabor Kase', '837-524-4812', '10/24/2009', 7, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Antonietta Bille', '189-771-0300', '3/25/2006', 6, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Roger Jankovsky', '432-392-1880', '4/27/2020', 10, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Theo Aldwich', '851-427-1488', '12/28/2012', 8, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Coletta Bewshaw', '361-323-8705', '1/6/2010', 1, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Yves Grzelak', '360-192-0687', '3/16/2005', 5, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Wright Farrell', '807-158-6907', '3/24/2004', 6, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Jolie McEntagart', '636-242-8448', '3/15/2015', 1, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Titos Vanyukhin', '164-461-8005', '6/15/2013', 6, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Lonnie Thorneywork', '681-514-2504', '9/5/2012', 10, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Chantal Stent', '446-854-7410', '10/29/2016', 7, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Katleen Troyes', '914-269-5808', '8/17/2018', 7, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Bondie Surfleet', '933-332-3492', '3/29/2019', 4, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Jaymee Hebblethwaite', '208-112-4070', '11/4/2013', 7, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Dom Solleme', '286-377-8967', '7/20/2004', 1, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Yolanda Moraleda', '194-169-1477', '2/15/2006', 5, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Adamo Thayre', '922-759-5675', '9/21/2004', 10, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Aime Gitting', '880-696-4181', '9/30/2005', 4, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Quintana Cherrington', '841-369-8986', '2/18/2000', 1, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Ami Jackett', '675-419-0159', '5/19/2021', 9, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Raynor Duigenan', '439-558-2355', '12/21/2019', 2, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Haley Tourmell', '825-668-0669', '5/3/2018', 8, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Gabriele Debold', '246-704-3789', '6/18/2014', 6, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Alwin Gascar', '330-265-3686', '9/27/2001', 9, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Kalvin Axtonne', '938-498-6632', '5/19/2016', 5, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Marilee Duchan', '115-639-9805', '4/22/2017', 10, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Carla Eyes', '892-209-9692', '8/10/2012', 10, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Gavrielle Beining', '812-848-4842', '12/6/2020', 7, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Eveline Tift', '245-108-3254', '4/5/2005', 6, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Scotti McCroft', '888-594-4743', '11/23/2019', 3, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Salvador Tapsfield', '553-975-2527', '3/28/2010', 8, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Betta Learoyd', '728-850-4364', '12/12/2016', 8, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Annadiane Sallis', '395-780-0485', '11/13/2007', 7, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Farand Bhar', '600-301-5122', '3/2/2001', 3, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Gerhardine Bernardo', '311-900-5534', '3/4/2003', 1, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Ailsun Chant', '323-650-6110', '5/2/2003', 8, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Antonina Scocroft', '595-379-2902', '8/8/2003', 7, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Heloise Goodbur', '599-922-9036', '5/22/2017', 5, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Wylma Bilton', '936-869-0702', '6/26/2002', 9, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Orren Bockman', '853-547-7670', '10/23/2015', 4, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Allin Geldeard', '155-271-9993', '4/21/2012', 6, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Bear Hellen', '873-514-4917', '7/30/2006', 8, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Della Cockett', '925-691-7522', '4/15/2009', 5, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Burke Stefi', '207-453-6119', '6/30/2010', 9, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Suzanne Pealing', '946-774-8556', '8/14/2017', 7, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Padriac Steadman', '926-335-0154', '3/10/2005', 6, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Temp Brockley', '963-904-2779', '1/29/2000', 7, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Kathye Sevin', '832-919-5000', '10/30/2000', 5, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('May Crichmer', '808-364-7488', '1/1/2018', 7, 1);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Judi Kment', '759-290-2336', '7/18/2018', 1, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Helene MacAllaster', '388-624-8428', '12/13/2009', 4, 2);
+insert into payment_card (owner, number, expiration, id_bank, id_card_type) values ('Gustave Chiplen', '707-801-6285', '9/27/2000', 5, 1);
+
+
+
 
 --TABLA CONSULTING ROOM
 select * from consulting_room
