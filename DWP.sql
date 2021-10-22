@@ -1881,41 +1881,41 @@ DROP COLUMN creation_date
 ALTER TABLE schedule
 DROP COLUMN update_date
 
-INSERT INTO schedule VALUES(10,3);
-INSERT INTO schedule VALUES(8,3);
-INSERT INTO schedule VALUES(11,2);
-INSERT INTO schedule VALUES(6,1);
-INSERT INTO schedule VALUES(8,4);
-INSERT INTO schedule VALUES(8,4);
-INSERT INTO schedule VALUES(11,5);
-INSERT INTO schedule VALUES(10,3);
-INSERT INTO schedule VALUES(11,3);
-INSERT INTO schedule VALUES(8,5);
-INSERT INTO schedule VALUES(8,3);
-INSERT INTO schedule VALUES(7,7);
-INSERT INTO schedule VALUES(8,1);
-INSERT INTO schedule VALUES(10,4);
-INSERT INTO schedule VALUES(7,1);
-INSERT INTO schedule VALUES(8,6);
-INSERT INTO schedule VALUES(11,7);
-INSERT INTO schedule VALUES(10,4);
-INSERT INTO schedule VALUES(9,6);
-INSERT INTO schedule VALUES(9,5);
-INSERT INTO schedule VALUES(9,7);
-INSERT INTO schedule VALUES(6,1);
-INSERT INTO schedule VALUES(7,6);
-INSERT INTO schedule VALUES(10,4);
-INSERT INTO schedule VALUES(10,1);
-INSERT INTO schedule VALUES(10,2);
-INSERT INTO schedule VALUES(8,1);
-INSERT INTO schedule VALUES(8,3);
-INSERT INTO schedule VALUES(7,4);
-INSERT INTO schedule VALUES(11,6);
-INSERT INTO schedule VALUES(8,4);
-INSERT INTO schedule VALUES(10,3);
-INSERT INTO schedule VALUES(7,5);
-INSERT INTO schedule VALUES(10,7);
-INSERT INTO schedule VALUES(11,2);
+INSERT INTO schedule VALUES('10 am','3 pm');
+INSERT INTO schedule VALUES('8 am','3 pm');
+INSERT INTO schedule VALUES('11 am','2 pm');
+INSERT INTO schedule VALUES('6 am','1 pm');
+INSERT INTO schedule VALUES('8 pm', '4 am');
+INSERT INTO schedule VALUES('8 am','4 pm');
+INSERT INTO schedule VALUES('11 am','5 pm');
+INSERT INTO schedule VALUES('10 am','3 pm');
+INSERT INTO schedule VALUES('11 am','3 pm');
+INSERT INTO schedule VALUES('7 am','5 pm');
+INSERT INTO schedule VALUES('7:30 am','3:40 pm');
+INSERT INTO schedule VALUES('7:15 am','12:00 pm');
+INSERT INTO schedule VALUES('8:10 am','2:30 pm');
+INSERT INTO schedule VALUES('10:00 pm','4:00 am');
+INSERT INTO schedule VALUES('6:00 pm','6:00 am');
+INSERT INTO schedule VALUES('9:00 am','4:30 pm');
+INSERT INTO schedule VALUES('11:00','7:00 pm');
+INSERT INTO schedule VALUES('10:30 am','6:30 pm');
+INSERT INTO schedule VALUES('9:45 am','6:15 pm');
+INSERT INTO schedule VALUES('9:45 am','5:15 pm');
+INSERT INTO schedule VALUES('9:45 am','7:15 pm');
+INSERT INTO schedule VALUES('6:45 am','1:15 pm');
+INSERT INTO schedule VALUES('7:00 am','11:10 am');
+INSERT INTO schedule VALUES('5:30 am','12:00 pm');
+INSERT INTO schedule VALUES('10:25 am','1:35 pm');
+INSERT INTO schedule VALUES('10:25 am','2:35 pm');
+INSERT INTO schedule VALUES('8,:25 am','1:35 pm');
+INSERT INTO schedule VALUES('8:30 am','3:45 pm');
+INSERT INTO schedule VALUES('7:30 am','4:45 pm');
+INSERT INTO schedule VALUES('11:00 am','6:12 pm');
+INSERT INTO schedule VALUES('8:15 am','4:30 pm');
+INSERT INTO schedule VALUES('8:00 pm','6:00 am');
+INSERT INTO schedule VALUES('7:30 pm','5:15 am');
+INSERT INTO schedule VALUES('10:05 pm','7:05 am');
+INSERT INTO schedule VALUES('6:00 am','4:00 pm');
 
 --TABLA SCHEDULE_FREQ_TYPE
 select * from schedule_freq_type
