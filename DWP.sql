@@ -4357,3 +4357,114 @@ INSERT INTO pharmacy_medicine(quantity,date_admission,pharmacy_id,medicine_id) V
 INSERT INTO pharmacy_medicine(quantity,date_admission,pharmacy_id,medicine_id) VALUES(247,'2021-10-15 17:40:54',5,2);
 INSERT INTO pharmacy_medicine(quantity,date_admission,pharmacy_id,medicine_id) VALUES(346,'2021-10-13 12:44:17',1,4);
 
+
+--Llenado de tabla supplier--
+alter table supplier
+drop column creation_date
+
+alter table supplier
+drop column update_date
+
+
+INSERT INTO supplier VALUES('Comcast','Biolife Grup, Carlisle  Pass 1017, Amarillo, NZL 2522','4-763-703-7012','Logan_Oliver6121@deavo.com','Logan Oliver');
+INSERT INTO supplier VALUES('Carrefour','Zepter, Blackall   Hill 1157, Fort Lauderdale, JOR 5107','2-368-273-0507','David_Hunt7101@muall.tech','David Hunt');
+INSERT INTO supplier VALUES('Vodafone','Danone, Adams  Grove 1298, Madrid, CIV 1566','1-371-272-0331','Davina_Clark3172@vetan.org','Davina Clark');
+INSERT INTO supplier VALUES('It Smart Group','21st Century Fox, Caroline  Hill 8235, Madison, CCK 7305','6-864-350-2578','Eden_Graves285@iatim.tech','Eden Graves');
+INSERT INTO supplier VALUES('Carrefour','Coca-Cola Company, Garfield Street 1033, Rome, EST 5881','8-568-612-5168','Alexander_Evans7470@famism.biz','Alexander Evans');
+INSERT INTO supplier VALUES('Vodafone','21st Century Fox, Unwin  Route 5464, Rochester, MSR 5727','4-150-433-1588','Dorothy_Evans9546@joiniaa.com','Dorothy Evans');
+INSERT INTO supplier VALUES('Demaco','Team Guard SRL, Byland  Walk 4833, Lincoln, MAF 0325','5-641-032-7445','Lucas_Todd9614@vetan.org','Lucas Todd');
+INSERT INTO supplier VALUES('Comodo','Global Print, Oxford Tunnel 4055, Fort Lauderdale, MAR 5364','3-354-616-7317','Bree_Evans800@nanoff.biz','Bree Evans');
+INSERT INTO supplier VALUES('Areon Impex','Coca-Cola Company, Berry  Pass 8155, Lakewood, PSE 4720','1-407-638-8370','Erick_Hall6701@twace.org','Erick Hall');
+INSERT INTO supplier VALUES('Global Print','Global Print, Andrews  Tunnel 2051, Innsbruck, ARG 6558','6-471-641-5332','Miley_Allen8354@atink.com','Miley Allen');
+INSERT INTO supplier VALUES('Carrefour','Areon Impex, Addison  Hill 537, Pittsburgh, TCD 3130','7-822-103-2346','Nicholas_Middleton9845@sveldo.biz','Nicholas Middleton');
+INSERT INTO supplier VALUES('ExxonMobil','Areon Impex, Addison  Lane 4251, Wien, BTN 0730','8-874-823-3501','Cecilia_Baker1083@gompie.com','Cecilia Baker');
+INSERT INTO supplier VALUES('21st Century Fox','Erickson, Fawn Crossroad 5958, Venice, ETH 7304','5-641-470-4250','Denis_Rust8861@gompie.com','Denis Rust');
+INSERT INTO supplier VALUES('Telekom','Facebook, Aspen Street 7855, San Bernardino, DEU 1715','4-808-086-7508','Phillip_Middleton89@vetan.org','Phillip Middleton');
+INSERT INTO supplier VALUES('Danone','Team Guard SRL, St. Pauls  Way 9803, Lyon, NFK 2147','6-633-322-4426','Doug_Morgan2609@famism.biz','Doug Morgan');
+INSERT INTO supplier VALUES('ENEL','Zepter, Heritage Avenue 1724, Bellevue, SPM 1825','5-446-650-0026','Adeline_Jarvis1047@irrepsy.com','Adeline Jarvis');
+INSERT INTO supplier VALUES('Comodo','ENEL, Epworth  Avenue 3358, Huntsville, VAT 0510','5-511-306-5004','Nicole_Antcliff8787@liret.org','Nicole Antcliff');
+INSERT INTO supplier VALUES('Facebook','Zepter, Elizabeth  Rue 4142, Oakland, HKG 4667','2-534-145-3480','Callie_Reading6503@irrepsy.com','Callie Reading');
+INSERT INTO supplier VALUES('Carrefour','Demaco, Cavendish Crossroad 6493, Salt Lake City, TLS 3234','5-845-352-4864','Anabel_Addley8417@irrepsy.com','Anabel Addley');
+INSERT INTO supplier VALUES('Carrefour','Biolife Grup, Charnwood   Rue 137, Fullerton, KNA 8828','1-168-170-8482','Chloe_Eddison1875@tonsy.org','Chloe Eddison');
+INSERT INTO supplier VALUES('Telekom','Demaco, Vincent  Alley 9877, Paris, CHE 7786','4-554-616-1227','Parker_Ellison3818@guentu.biz','Parker Ellison');
+INSERT INTO supplier VALUES('ExxonMobil','Boeing, Calvin   Rue 5169, Portland, GUY 6351','8-877-021-4274','Vera_Hogg297@yahoo.com','Vera Hogg');
+INSERT INTO supplier VALUES('Team Guard SRL','DynCorp, Linden Crossroad 7285, Salt Lake City, JAM 5072','1-618-000-6143','Olivia_Asher3260@zorer.org','Olivia Asher');
+INSERT INTO supplier VALUES('Team Guard SRL','Global Print, Bel   Hill 6236, Chicago, GNQ 2717','3-771-720-8717','Domenic_Parsons4006@jiman.org','Domenic Parsons');
+INSERT INTO supplier VALUES('Erickson','Mars, Arlington  Boulevard 5005, San Bernardino, KOR 8252','5-667-082-5833','Teagan_Overson9217@acrit.org','Teagan Overson');
+INSERT INTO supplier VALUES('Metro Cash&Carry','Erickson, Monroe Lane 1559, Zurich, RWA 5467','2-527-810-3212','Mike_Poole2104@sheye.org','Mike Poole');
+INSERT INTO supplier VALUES('Metro Cash&Carry','CarMax, Arctic   Rue 4012, Richmond, DZA 1636','0-200-231-8055','Luke_Mcleod3979@cispeto.com','Luke Mcleod');
+INSERT INTO supplier VALUES('Amazon.com','Danone, English   Grove 6960, London, COG 2630','3-161-143-8120','Chuck_Bradshaw2631@bretoux.com','Chuck Bradshaw');
+INSERT INTO supplier VALUES('Zepter','ExxonMobil, Comet House  Rue 2879, New York, CHL 7818','0-627-382-6624','Rufus_Ballard9982@irrepsy.com','Rufus Ballard');
+INSERT INTO supplier VALUES('ExxonMobil','BuzzFeed, Oxford Alley 2008, Madrid, CAF 2416','6-407-185-3174','Ron_Price1786@corti.com','Ron Price');
+INSERT INTO supplier VALUES('Comcast','21st Century Fox, Arthur  Rue 7055, San Antonio, SLV 3070','6-508-321-4254','Quinn_Eaton2443@vetan.org','Quinn Eaton');
+INSERT INTO supplier VALUES('AECOM','Global Print, Parkfields Alley 8936, Reno, CMR 2013','0-886-738-8618','Marvin_Drew9056@nimogy.biz','Marvin Drew');
+INSERT INTO supplier VALUES('Amazon.com','Amazon.com, Wake  Pass 4455, Toledo, UMI 0076','1-076-817-1428','Rick_Dallas6366@ubusive.com','Rick Dallas');
+INSERT INTO supplier VALUES('It Smart Group','Biolife Grup, Queensberry  Walk 1698, Boston, BGD 8303','8-838-605-6873','Doug_Howard5844@bauros.biz','Doug Howard');
+INSERT INTO supplier VALUES('BuzzFeed','CarMax, Zealand Alley 1227, Salt Lake City, ARG 3380','5-848-376-7203','Lexi_Norton3222@bungar.biz','Lexi Norton');
+INSERT INTO supplier VALUES('Coca-Cola Company','Mars, Abourne   Vale 2033, Springfield, GLP 5808','2-760-460-0638','Kieth_Flack1968@bauros.biz','Kieth Flack');
+INSERT INTO supplier VALUES('Carrefour','AECOM, Cave   Pass 7416, Rochester, REU 1566','7-187-027-4840','Liam_Gaynor5578@bretoux.com','Liam Gaynor');
+INSERT INTO supplier VALUES('Coca-Cola Company','Danone, Becklow  Hill 9666, Orlando, SLB 8113','2-015-360-1774','Leslie_Bayliss2249@deavo.com','Leslie Bayliss');
+INSERT INTO supplier VALUES('Coca-Cola Company','Comodo, Cockspur  Tunnel 1599, Springfield, NRU 5072','7-328-678-5368','Willow_Vass4543@acrit.org','Willow Vass');
+INSERT INTO supplier VALUES('Comcast','ENEL, Chestnut Rise Alley 3270, Arlington, WSM 8847','1-704-454-2757','Erick_Bennett7609@vetan.org','Erick Bennett');
+INSERT INTO supplier VALUES('CarMax','Danone, Dunstans  Avenue 8213, San Antonio, GNQ 5177','8-452-028-6722','Sarah_Taylor6241@liret.org','Sarah Taylor');
+INSERT INTO supplier VALUES('Boeing','AECOM, Shepherds  Street 3043, Reno, CRI 6748','0-374-367-5612','Hayden_James295@yahoo.com','Hayden James');
+INSERT INTO supplier VALUES('CarMax','Mars, Battis   Grove 8691, Columbus, BRN 1045','4-148-442-8287','Noah_Uttridge2382@fuliss.net','Noah Uttridge');
+INSERT INTO supplier VALUES('Erickson','Leadertech Consulting, Virginia Alley 1754, Tallahassee, NCL 0800','1-406-371-2311','Rocco_Stewart3002@sveldo.biz','Rocco Stewart');
+INSERT INTO supplier VALUES('Amazon.com','It Smart Group, College  Vale 1923, Philadelphia, VEN 8533','3-124-034-1421','Lana_Huggins4991@ovock.tech','Lana Huggins');
+INSERT INTO supplier VALUES('Apple Inc.','Danone, Buttonwood Boulevard 8090, Fayetteville, VGB 8708','7-231-183-6015','Shay_Antcliff8991@nanoff.biz','Shay Antcliff');
+INSERT INTO supplier VALUES('ENEL','Zepter, Longman   Pass 6362, Jersey City, SYR 6771','5-352-584-5701','Sabrina_Rixon7390@hourpy.biz','Sabrina Rixon');
+INSERT INTO supplier VALUES('Metro Cash&Carry','Zepter, Cingworth  Boulevard 4040, Fremont, POL 1213','2-585-227-6237','Maggie_Everett9088@bretoux.com','Maggie Everett');
+INSERT INTO supplier VALUES('Demaco','Apple Inc., Castlereagh   Street 9, Hayward, COD 7085','6-884-045-1874','Hayden_Oakley6296@extex.org','Hayden Oakley');
+INSERT INTO supplier VALUES('Metro Cash&Carry','Demaco, Collent   Rue 4061, Toledo, ASM 7658','3-421-426-1638','Harriet_Emerson6131@deavo.com','Harriet Emerson');
+INSERT INTO supplier VALUES('ENEL','Carrefour, Andsell    Lane 5935, Lyon, BRN 8222','1-561-644-2666','Carter_Rosenbloom419@cispeto.com','Carter Rosenbloom');
+INSERT INTO supplier VALUES('Team Guard SRL','AECOM, Bethwin  Tunnel 919, Pittsburgh, BEL 7625','3-212-720-5402','Gwenyth_Thornton9466@acrit.org','Gwenyth Thornton');
+INSERT INTO supplier VALUES('Telekom','Zepter, Blean   Lane 8850, Ontario, HUN 1340','1-477-347-1843','Josh_Ramsey5038@corti.com','Josh Ramsey');
+INSERT INTO supplier VALUES('Danone','Areon Impex, Duthie   Grove 3040, Prague, MKD 0153','6-240-731-8052','Manuel_Walter5676@sheye.org','Manuel Walter');
+INSERT INTO supplier VALUES('UPC','Vodafone, Chancellor  Avenue 4176, Valetta, TGO 6100','6-367-671-0834','Clint_Flanders5522@mafthy.com','Clint Flanders');
+INSERT INTO supplier VALUES('Metro Cash&Carry','Boeing, Cavaye  Rue 8592, Rome, GTM 1720','8-317-772-3427','Harry_Power5737@grannar.com','Harry Power');
+INSERT INTO supplier VALUES('CarMax','Coca-Cola Company, Cliffords  Boulevard 9245, Portland, BOL 5703','1-205-836-1565','Andrea_Heaton1775@nanoff.biz','Andrea Heaton');
+INSERT INTO supplier VALUES('Comodo','Biolife Grup, Balfe   Road 801, Nashville, TUV 3110','1-135-073-1146','Noah_Oldfield3568@supunk.biz','Noah Oldfield');
+INSERT INTO supplier VALUES('Team Guard SRL','ENEL, Baynes  Drive 1400, Prague, BEL 8050','3-756-362-4020','Clint_Tyler3507@famism.biz','Clint Tyler');
+INSERT INTO supplier VALUES('Telekom','Erickson, Marina  Road 6720, Pittsburgh, MMR 4871','7-333-446-0246','Francesca_Redwood9218@hourpy.biz','Francesca Redwood');
+INSERT INTO supplier VALUES('Demaco','Danone, Littlebury  Hill 6424, Bakersfield, BFA 0535','3-541-745-4068','Jazmin_Quinton951@ubusive.com','Jazmin Quinton');
+INSERT INTO supplier VALUES('AECOM','Amazon.com, Falconberg   Hill 798, Detroit, MNG 7382','4-662-618-2363','Bethany_Jones5775@kideod.biz','Bethany Jones');
+INSERT INTO supplier VALUES('Telekom','Facebook, Bellenden  Crossroad 4927, Nashville, BRN 1167','4-426-772-0633','Rihanna_Denton1286@sheye.org','Rihanna Denton');
+INSERT INTO supplier VALUES('Coca-Cola Company','Danone, Maple Road 9598, Anaheim, TKL 6171','6-144-083-3700','Tiffany_Glynn5571@cispeto.com','Tiffany Glynn');
+INSERT INTO supplier VALUES('Apple Inc.','Vodafone, Fairfield  Street 7450, Cincinnati, DEU 2016','7-735-486-5717','Callie_Newton9166@nimogy.biz','Callie Newton');
+INSERT INTO supplier VALUES('Areon Impex','Areon Impex, Bolton  Lane 4609, Berna, BHS 7455','3-071-471-5533','George_Chapman3763@infotech44.tech','George Chapman');
+INSERT INTO supplier VALUES('Leadertech Consulting','AECOM, Durweston   Street 2993, Lincoln, BEL 3252','2-305-173-3588','Karla_Dillon728@ubusive.com','Karla Dillon');
+INSERT INTO supplier VALUES('Biolife Grup','AECOM, Charnwood   Crossroad 5368, Milano, PHL 2254','2-224-785-8156','Joyce_Button2374@yahoo.com','Joyce Button');
+INSERT INTO supplier VALUES('Zepter','Leadertech Consulting, Linden Grove 1356, Las Vegas, MNP 1786','6-756-343-1024','Kendra_Zaoui8477@nanoff.biz','Kendra Zaoui');
+INSERT INTO supplier VALUES('Leadertech Consulting','BuzzFeed, Birkbeck  Rue 6179, Atlanta, VEN 0601','2-231-581-7057','Jacob_Fowler2589@twace.org','Jacob Fowler');
+INSERT INTO supplier VALUES('Carrefour','Vodafone, Thorndike   Pass 5731, Fullerton, CMR 3262','0-265-823-0751','Noah_Patel2968@infotech44.tech','Noah Patel');
+INSERT INTO supplier VALUES('Demaco','Zepter, Parkfield  Grove 4374, Milano, FSM 0723','5-348-785-0538','Ema_Drummond4449@atink.com','Ema Drummond');
+INSERT INTO supplier VALUES('Apple Inc.','BuzzFeed, Bloomsbury  Tunnel 4102, Saint Paul, TUN 1662','7-566-667-6625','Darlene_Grady5380@eirey.tech','Darlene Grady');
+INSERT INTO supplier VALUES('Zepter','Biolife Grup, South Route 9829, Escondido, ERI 1140','8-042-215-7376','John_Tailor2414@brety.org','John Tailor');
+INSERT INTO supplier VALUES('Comodo','Zepter, Victorian  Boulevard 7017, Bellevue, IMN 1573','2-445-515-7628','Erin_Bryson3276@nimogy.biz','Erin Bryson');
+INSERT INTO supplier VALUES('ENEL','Coca-Cola Company, Cato   Pass 1500, Arlington, TUN 0341','3-763-547-3282','David_Lewis4739@acrit.org','David Lewis');
+INSERT INTO supplier VALUES('Team Guard SRL','Comodo, Coleman  Grove 9957, Quebec, BMU 7121','1-063-108-2088','Ada_Ballard3668@bungar.biz','Ada Ballard');
+INSERT INTO supplier VALUES('Boeing','Team Guard SRL, Cable    Street 2425, Baltimore, AFG 6000','1-348-133-5355','Leilani_Verdon1355@atink.com','Leilani Verdon');
+INSERT INTO supplier VALUES('Carrefour','21st Century Fox, Spruce Avenue 847, Wien, IRQ 4510','7-368-218-6858','Julius_Adams5059@naiker.biz','Julius Adams');
+INSERT INTO supplier VALUES('ExxonMobil','Vodafone, Berriman  Crossroad 942, Toledo, BGD 1335','8-168-302-4155','Nicholas_Archer614@supunk.biz','Nicholas Archer');
+INSERT INTO supplier VALUES('Facebook','It Smart Group, Hickory   Pass 9862, Garland, BGD 7242','8-785-485-0526','Kaylee_Atkinson6512@fuliss.net','Kaylee Atkinson');
+INSERT INTO supplier VALUES('Amazon.com','Danone, Monroe Street 8088, Oakland, LBR 7075','5-658-586-3620','Carissa_Stone 3607@famism.biz','Carissa Stone ');
+INSERT INTO supplier VALUES('Amazon.com','CarMax, Caroline  Lane 1062, Norfolk, TCD 5632','4-270-463-8283','Bart_Ross9631@bretoux.com','Bart Ross');
+INSERT INTO supplier VALUES('Apple Inc.','BuzzFeed, Kinglake  Hill 8273, Houston, FJI 8738','4-580-115-1071','Chris_Long9572@gmail.com','Chris Long');
+INSERT INTO supplier VALUES('Boeing','Demaco, Blackpool  Drive 9580, Baltimore, CAF 3667','4-637-116-8328','Chester_Wilcox9345@naiker.biz','Chester Wilcox');
+INSERT INTO supplier VALUES('ENEL','Danone, Anns  Hill 5908, Orlando, LBY 0383','8-685-243-1368','Janelle_Gray6978@yahoo.com','Janelle Gray');
+INSERT INTO supplier VALUES('Comcast','CarMax, Union  Alley 633, Laredo, SAU 1231','2-863-426-6246','Ruth_Stevens4786@deavo.com','Ruth Stevens');
+INSERT INTO supplier VALUES('AECOM','UPC, Arlington  Road 8590, San Diego, GUY 5087','3-716-382-0263','Jamie_Bayliss6954@bungar.biz','Jamie Bayliss');
+INSERT INTO supplier VALUES('AECOM','Zepter, Walnut Pass 6367, Minneapolis, HUN 0612','2-640-244-2816','Sebastian_Shaw3812@supunk.biz','Sebastian Shaw');
+INSERT INTO supplier VALUES('Facebook','Team Guard SRL, Rosewood Grove 3150, Huntsville, PHL 8862','1-000-825-0365','Aurelia_Asher1677@supunk.biz','Aurelia Asher');
+INSERT INTO supplier VALUES('Telekom','ExxonMobil, St. Pauls  Walk 3612, Innsbruck, VIR 1766','0-384-152-3280','Lily_Uddin9452@gmail.com','Lily Uddin');
+INSERT INTO supplier VALUES('Mars','Carrefour, Battersea   Road 2450, Charlotte, HMD 1147','7-817-125-5531','Leanne_Rixon6870@naiker.biz','Leanne Rixon');
+INSERT INTO supplier VALUES('Coca-Cola Company','Biolife Grup, Canon Hill 8543, Hollywood, MSR 0066','4-037-366-3400','Rocco_Young3087@bretoux.com','Rocco Young');
+INSERT INTO supplier VALUES('Biolife Grup','Demaco, Cockspur  Way 3445, Orlando, PAN 8418','0-760-745-1415','Denis_Benfield7273@jiman.org','Denis Benfield');
+INSERT INTO supplier VALUES('Comodo','Areon Impex, Tiptree   Avenue 2405, Tulsa, SEN 5431','3-824-217-6478','Alan_Penn9336@atink.com','Alan Penn');
+INSERT INTO supplier VALUES('Leadertech Consulting','Comodo, Clissold  Lane 8861, Ontario, ERI 6866','5-451-532-1126','Mackenzie_Groves9159@extex.org','Mackenzie Groves');
+INSERT INTO supplier VALUES('AECOM','Comodo, Paris   Route 5785, Toledo, KEN 6464','2-274-454-1285','Luke_Calderwood989@deavo.com','Luke Calderwood');
+INSERT INTO supplier VALUES('AECOM','DynCorp, Apollo  Road 9825, Honolulu, CHE 5623','0-568-578-0826','Daria_Adler1827@bauros.biz','Daria Adler');
+INSERT INTO supplier VALUES('DynCorp','Boeing, Fawn Crossroad 2906, Philadelphia, NOR 2866','4-381-712-3558','Charlotte_Rossi9229@deons.tech','Charlotte Rossi');
+INSERT INTO supplier VALUES('Telekom','DynCorp, Sheffield Vale 8704, Albuquerque, ERI 4603','0-244-070-3501','Cedrick_Nicolas4194@sheye.org','Cedrick Nicolas');
+
+
