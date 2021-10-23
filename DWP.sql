@@ -4770,3 +4770,243 @@ INSERT INTO check_payment VALUES('6867-1227-5736-8832',6);
 INSERT INTO check_payment VALUES('2681-3215-4041-2712',2);
 INSERT INTO check_payment VALUES('3546-4021-7646-3300',1);
 INSERT INTO check_payment VALUES('6733-3551-6266-2024',8);
+
+
+
+--Llenado de tabla voucher--
+alter table voucher
+drop column creation_date
+
+alter table voucher
+drop column update_date
+
+INSERT INTO voucher VALUES('1','2021-10-04 22:48:28','1');
+INSERT INTO voucher VALUES('2','2021-10-13 10:39:47','2');
+INSERT INTO voucher VALUES('3','2021-10-03 20:45:57','3');
+INSERT INTO voucher VALUES('4','2021-10-10 00:48:22','4');
+INSERT INTO voucher VALUES('5','2021-10-10 11:12:23','5');
+INSERT INTO voucher VALUES('6','2021-10-01 22:25:34','6');
+INSERT INTO voucher VALUES('7','2021-10-21 21:47:58','7');
+INSERT INTO voucher VALUES('8','2021-10-04 05:11:34','8');
+INSERT INTO voucher VALUES('9','2021-10-13 14:11:43','9');
+INSERT INTO voucher VALUES('10','2021-10-05 03:46:40','10');
+INSERT INTO voucher VALUES('11','2021-10-07 16:37:16','11');
+INSERT INTO voucher VALUES('12','2021-10-10 00:35:32','12');
+INSERT INTO voucher VALUES('13','2021-10-20 17:43:13','13');
+INSERT INTO voucher VALUES('14','2021-10-21 15:21:08','14');
+INSERT INTO voucher VALUES('15','2021-10-12 05:31:40','15');
+INSERT INTO voucher VALUES('16','2021-10-14 15:38:52','16');
+INSERT INTO voucher VALUES('17','2021-10-15 04:21:48','17');
+INSERT INTO voucher VALUES('18','2021-10-18 02:08:17','18');
+INSERT INTO voucher VALUES('19','2021-10-16 12:04:18','19');
+INSERT INTO voucher VALUES('20','2021-10-08 03:08:55','20');
+INSERT INTO voucher VALUES('21','2021-10-08 05:02:21','21');
+INSERT INTO voucher VALUES('22','2021-10-11 22:36:55','22');
+INSERT INTO voucher VALUES('23','2021-10-06 01:10:00','23');
+INSERT INTO voucher VALUES('24','2021-10-13 02:01:37','24');
+INSERT INTO voucher VALUES('25','2021-10-02 17:34:15','25');
+INSERT INTO voucher VALUES('26','2021-10-14 17:42:50','26');
+INSERT INTO voucher VALUES('27','2021-10-14 10:29:25','27');
+INSERT INTO voucher VALUES('28','2021-10-13 01:46:23','28');
+INSERT INTO voucher VALUES('29','2021-10-02 13:19:23','29');
+INSERT INTO voucher VALUES('30','2021-10-14 06:22:42','30');
+INSERT INTO voucher VALUES('31','2021-10-12 09:32:46','31');
+INSERT INTO voucher VALUES('32','2021-10-20 02:40:36','32');
+INSERT INTO voucher VALUES('33','2021-10-11 10:15:35','33');
+INSERT INTO voucher VALUES('34','2021-10-13 20:16:33','34');
+INSERT INTO voucher VALUES('35','2021-10-12 04:42:03','35');
+INSERT INTO voucher VALUES('36','2021-10-10 04:19:13','36');
+INSERT INTO voucher VALUES('37','2021-10-06 17:55:01','37');
+INSERT INTO voucher VALUES('38','2021-10-17 14:58:44','38');
+INSERT INTO voucher VALUES('39','2021-10-08 19:41:13','39');
+INSERT INTO voucher VALUES('40','2021-10-05 21:54:29','40');
+INSERT INTO voucher VALUES('41','2021-10-16 20:54:09','41');
+INSERT INTO voucher VALUES('42','2021-10-17 04:48:12','42');
+INSERT INTO voucher VALUES('43','2021-10-07 17:51:26','43');
+INSERT INTO voucher VALUES('44','2021-10-12 07:14:22','44');
+INSERT INTO voucher VALUES('45','2021-10-02 07:31:09','45');
+INSERT INTO voucher VALUES('46','2021-10-05 15:50:51','46');
+INSERT INTO voucher VALUES('47','2021-10-10 11:13:42','47');
+INSERT INTO voucher VALUES('48','2021-10-04 01:20:34','48');
+INSERT INTO voucher VALUES('49','2021-10-06 05:19:34','49');
+INSERT INTO voucher VALUES('50','2021-10-06 04:25:04','50');
+INSERT INTO voucher VALUES('51','2021-10-20 16:43:58','51');
+INSERT INTO voucher VALUES('52','2021-10-17 12:11:03','52');
+INSERT INTO voucher VALUES('53','2021-10-13 07:08:52','53');
+INSERT INTO voucher VALUES('54','2021-10-09 17:18:04','54');
+INSERT INTO voucher VALUES('55','2021-10-01 01:41:17','55');
+INSERT INTO voucher VALUES('56','2021-10-21 02:01:14','56');
+INSERT INTO voucher VALUES('57','2021-10-09 06:11:20','57');
+INSERT INTO voucher VALUES('58','2021-10-21 15:07:53','58');
+INSERT INTO voucher VALUES('59','2021-10-19 10:12:27','59');
+INSERT INTO voucher VALUES('60','2021-10-20 19:05:53','60');
+INSERT INTO voucher VALUES('61','2021-10-07 03:05:50','61');
+INSERT INTO voucher VALUES('62','2021-10-20 10:10:28','62');
+INSERT INTO voucher VALUES('63','2021-10-20 05:33:12','63');
+INSERT INTO voucher VALUES('64','2021-10-10 03:07:48','64');
+INSERT INTO voucher VALUES('65','2021-10-15 11:33:28','65');
+INSERT INTO voucher VALUES('66','2021-10-08 19:04:56','66');
+INSERT INTO voucher VALUES('67','2021-10-04 05:58:56','67');
+INSERT INTO voucher VALUES('68','2021-10-12 19:08:10','68');
+INSERT INTO voucher VALUES('69','2021-10-21 18:58:46','69');
+INSERT INTO voucher VALUES('70','2021-10-01 03:19:57','70');
+
+
+
+--Llenado de tabla voucher_card_payment--
+alter table voucher_card_payment
+drop column creation_date
+
+alter table voucher_card_payment
+drop column update_date
+
+INSERT INTO voucher_card_payment VALUES('1','1');
+INSERT INTO voucher_card_payment VALUES('2','2');
+INSERT INTO voucher_card_payment VALUES('3','3');
+INSERT INTO voucher_card_payment VALUES('4','4');
+INSERT INTO voucher_card_payment VALUES('5','5');
+INSERT INTO voucher_card_payment VALUES('6','6');
+INSERT INTO voucher_card_payment VALUES('7','7');
+INSERT INTO voucher_card_payment VALUES('8','8');
+INSERT INTO voucher_card_payment VALUES('9','9');
+INSERT INTO voucher_card_payment VALUES('10','10');
+INSERT INTO voucher_card_payment VALUES('11','11');
+INSERT INTO voucher_card_payment VALUES('12','12');
+INSERT INTO voucher_card_payment VALUES('13','13');
+INSERT INTO voucher_card_payment VALUES('14','14');
+INSERT INTO voucher_card_payment VALUES('15','15');
+INSERT INTO voucher_card_payment VALUES('16','16');
+INSERT INTO voucher_card_payment VALUES('17','17');
+INSERT INTO voucher_card_payment VALUES('18','18');
+INSERT INTO voucher_card_payment VALUES('19','19');
+INSERT INTO voucher_card_payment VALUES('20','20');
+INSERT INTO voucher_card_payment VALUES('21','21');
+INSERT INTO voucher_card_payment VALUES('22','22');
+INSERT INTO voucher_card_payment VALUES('23','23');
+INSERT INTO voucher_card_payment VALUES('24','24');
+INSERT INTO voucher_card_payment VALUES('25','25');
+INSERT INTO voucher_card_payment VALUES('26','26');
+INSERT INTO voucher_card_payment VALUES('27','27');
+INSERT INTO voucher_card_payment VALUES('28','28');
+INSERT INTO voucher_card_payment VALUES('29','29');
+INSERT INTO voucher_card_payment VALUES('30','30');
+INSERT INTO voucher_card_payment VALUES('31','31');
+INSERT INTO voucher_card_payment VALUES('32','32');
+INSERT INTO voucher_card_payment VALUES('33','33');
+INSERT INTO voucher_card_payment VALUES('34','34');
+INSERT INTO voucher_card_payment VALUES('35','35');
+INSERT INTO voucher_card_payment VALUES('36','36');
+INSERT INTO voucher_card_payment VALUES('37','37');
+INSERT INTO voucher_card_payment VALUES('38','38');
+INSERT INTO voucher_card_payment VALUES('39','39');
+INSERT INTO voucher_card_payment VALUES('40','40');
+INSERT INTO voucher_card_payment VALUES('41','41');
+INSERT INTO voucher_card_payment VALUES('42','42');
+INSERT INTO voucher_card_payment VALUES('43','43');
+INSERT INTO voucher_card_payment VALUES('44','44');
+INSERT INTO voucher_card_payment VALUES('45','45');
+INSERT INTO voucher_card_payment VALUES('46','46');
+INSERT INTO voucher_card_payment VALUES('47','47');
+INSERT INTO voucher_card_payment VALUES('48','48');
+INSERT INTO voucher_card_payment VALUES('49','49');
+INSERT INTO voucher_card_payment VALUES('50','50');
+INSERT INTO voucher_card_payment VALUES('51','51');
+INSERT INTO voucher_card_payment VALUES('52','52');
+INSERT INTO voucher_card_payment VALUES('53','53');
+INSERT INTO voucher_card_payment VALUES('54','54');
+INSERT INTO voucher_card_payment VALUES('55','55');
+INSERT INTO voucher_card_payment VALUES('56','56');
+INSERT INTO voucher_card_payment VALUES('57','57');
+INSERT INTO voucher_card_payment VALUES('58','58');
+INSERT INTO voucher_card_payment VALUES('59','59');
+INSERT INTO voucher_card_payment VALUES('60','60');
+INSERT INTO voucher_card_payment VALUES('61','61');
+INSERT INTO voucher_card_payment VALUES('62','62');
+INSERT INTO voucher_card_payment VALUES('63','63');
+INSERT INTO voucher_card_payment VALUES('64','64');
+INSERT INTO voucher_card_payment VALUES('65','65');
+INSERT INTO voucher_card_payment VALUES('66','66');
+INSERT INTO voucher_card_payment VALUES('67','67');
+INSERT INTO voucher_card_payment VALUES('68','68');
+INSERT INTO voucher_card_payment VALUES('69','69');
+INSERT INTO voucher_card_payment VALUES('70','70');
+
+--Llenado de tabla voucher_check_payment--
+alter table voucher_check_payment
+drop column creation_date
+
+alter table voucher_check_payment
+drop column update_date
+
+
+INSERT INTO voucher_check_payment VALUES('1','1');
+INSERT INTO voucher_check_payment VALUES('2','2');
+INSERT INTO voucher_check_payment VALUES('3','3');
+INSERT INTO voucher_check_payment VALUES('4','4');
+INSERT INTO voucher_check_payment VALUES('5','5');
+INSERT INTO voucher_check_payment VALUES('6','6');
+INSERT INTO voucher_check_payment VALUES('7','7');
+INSERT INTO voucher_check_payment VALUES('8','8');
+INSERT INTO voucher_check_payment VALUES('9','9');
+INSERT INTO voucher_check_payment VALUES('10','10');
+INSERT INTO voucher_check_payment VALUES('11','11');
+INSERT INTO voucher_check_payment VALUES('12','12');
+INSERT INTO voucher_check_payment VALUES('13','13');
+INSERT INTO voucher_check_payment VALUES('14','14');
+INSERT INTO voucher_check_payment VALUES('15','15');
+INSERT INTO voucher_check_payment VALUES('16','16');
+INSERT INTO voucher_check_payment VALUES('17','17');
+INSERT INTO voucher_check_payment VALUES('18','18');
+INSERT INTO voucher_check_payment VALUES('19','19');
+INSERT INTO voucher_check_payment VALUES('20','20');
+INSERT INTO voucher_check_payment VALUES('21','21');
+INSERT INTO voucher_check_payment VALUES('22','22');
+INSERT INTO voucher_check_payment VALUES('23','23');
+INSERT INTO voucher_check_payment VALUES('24','24');
+INSERT INTO voucher_check_payment VALUES('25','25');
+INSERT INTO voucher_check_payment VALUES('26','26');
+INSERT INTO voucher_check_payment VALUES('27','27');
+INSERT INTO voucher_check_payment VALUES('28','28');
+INSERT INTO voucher_check_payment VALUES('29','29');
+INSERT INTO voucher_check_payment VALUES('30','30');
+INSERT INTO voucher_check_payment VALUES('31','31');
+INSERT INTO voucher_check_payment VALUES('32','32');
+INSERT INTO voucher_check_payment VALUES('33','33');
+INSERT INTO voucher_check_payment VALUES('34','34');
+INSERT INTO voucher_check_payment VALUES('35','35');
+INSERT INTO voucher_check_payment VALUES('36','36');
+INSERT INTO voucher_check_payment VALUES('37','37');
+INSERT INTO voucher_check_payment VALUES('38','38');
+INSERT INTO voucher_check_payment VALUES('39','39');
+INSERT INTO voucher_check_payment VALUES('40','40');
+INSERT INTO voucher_check_payment VALUES('41','41');
+INSERT INTO voucher_check_payment VALUES('42','42');
+INSERT INTO voucher_check_payment VALUES('43','43');
+INSERT INTO voucher_check_payment VALUES('44','44');
+INSERT INTO voucher_check_payment VALUES('45','45');
+INSERT INTO voucher_check_payment VALUES('46','46');
+INSERT INTO voucher_check_payment VALUES('47','47');
+INSERT INTO voucher_check_payment VALUES('48','48');
+INSERT INTO voucher_check_payment VALUES('49','49');
+INSERT INTO voucher_check_payment VALUES('50','50');
+INSERT INTO voucher_check_payment VALUES('51','51');
+INSERT INTO voucher_check_payment VALUES('52','52');
+INSERT INTO voucher_check_payment VALUES('53','53');
+INSERT INTO voucher_check_payment VALUES('54','54');
+INSERT INTO voucher_check_payment VALUES('55','55');
+INSERT INTO voucher_check_payment VALUES('56','56');
+INSERT INTO voucher_check_payment VALUES('57','57');
+INSERT INTO voucher_check_payment VALUES('58','58');
+INSERT INTO voucher_check_payment VALUES('59','59');
+INSERT INTO voucher_check_payment VALUES('60','60');
+INSERT INTO voucher_check_payment VALUES('61','61');
+INSERT INTO voucher_check_payment VALUES('62','62');
+INSERT INTO voucher_check_payment VALUES('63','63');
+INSERT INTO voucher_check_payment VALUES('64','64');
+INSERT INTO voucher_check_payment VALUES('65','65');
+INSERT INTO voucher_check_payment VALUES('66','66');
+INSERT INTO voucher_check_payment VALUES('67','67');
+INSERT INTO voucher_check_payment VALUES('68','68');
+INSERT INTO voucher_check_payment VALUES('69','69');
+INSERT INTO voucher_check_payment VALUES('70','70');
+
