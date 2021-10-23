@@ -3559,6 +3559,10 @@ insert into bank values('PNC Financial Services');
 insert into bank values('M&T Bank');
 insert into bank values('Wells Fargo');
 insert into bank values('Goldman Sachs');
+insert into bank values('Banco Agricola');
+insert into bank values('Banco Azul');
+insert into bank values('Banco America');
+insert into bank values('European Bank');
 
 --llenando tabla card type--
 ALTER TABLE card_type
