@@ -4472,3 +4472,87 @@ INSERT INTO supplier VALUES('DynCorp','Boeing, Fawn Crossroad 2906, Philadelphia
 INSERT INTO supplier VALUES('Telekom','DynCorp, Sheffield Vale 8704, Albuquerque, ERI 4603','0-244-070-3501','Cedrick_Nicolas4194@sheye.org','Cedrick Nicolas');
 
 
+--Llenado de tabla Consultation--
+alter table consultation
+drop column creation_date
+
+alter table consultation
+drop column update_date
+
+INSERT INTO consultation VALUES('Consultorio Henderson',60.1816561502319,57);
+INSERT INTO consultation VALUES('Consultorio Tokyo',120.777429033433,10);
+INSERT INTO consultation VALUES('Consultorio Venice',940.994237774049,58);
+INSERT INTO consultation VALUES('Consultorio Honolulu',148.576929852169,92);
+INSERT INTO consultation VALUES('Consultorio Madrid',963.057378049501,2);
+INSERT INTO consultation VALUES('Consultorio Oakland',148.043941321338,34);
+INSERT INTO consultation VALUES('Consultorio Escondido',127.931433840623,44);
+INSERT INTO consultation VALUES('Consultorio Seattle',238.806496243834,77);
+INSERT INTO consultation VALUES('Consultorio Orlando',220.146340631948,64);
+INSERT INTO consultation VALUES('Consultorio Jersey City',956.844232727235,42);
+INSERT INTO consultation VALUES('Consultorio Dallas',286.548615043773,63);
+INSERT INTO consultation VALUES('Consultorio San Francisco',708.540485012131,77);
+INSERT INTO consultation VALUES('Consultorio Paris',969.862472329225,90);
+INSERT INTO consultation VALUES('Consultorio Omaha',967.444797865322,98);
+INSERT INTO consultation VALUES('Consultorio Lyon',842.290719270376,92);
+INSERT INTO consultation VALUES('Consultorio Rochester',334.721591638271,71);
+INSERT INTO consultation VALUES('Consultorio Fort Lauderdale',222.113903999382,67);
+INSERT INTO consultation VALUES('Consultorio Quebec',935.671333595492,43);
+INSERT INTO consultation VALUES('Consultorio Stockton',636.375682036567,42);
+INSERT INTO consultation VALUES('Consultorio Columbus',416.982848078004,57);
+INSERT INTO consultation VALUES('Consultorio Scottsdale',159.257944543035,40);
+INSERT INTO consultation VALUES('Consultorio London',904.20768984836,50);
+INSERT INTO consultation VALUES('Consultorio Jacksonville',165.62553709076,41);
+INSERT INTO consultation VALUES('Consultorio Irving',924.233350689632,31);
+INSERT INTO consultation VALUES('Consultorio Omaha',833.493713427565,14);
+INSERT INTO consultation VALUES('Consultorio Saint Paul',865.771638270827,25);
+INSERT INTO consultation VALUES('Consultorio Garland',435.782811565689,93);
+INSERT INTO consultation VALUES('Consultorio Saint Paul',25.3827457560146,60);
+INSERT INTO consultation VALUES('Consultorio San Bernardino',716.333746443192,3);
+INSERT INTO consultation VALUES('Consultorio Ontario',319.339479142492,23);
+INSERT INTO consultation VALUES('Consultorio Lyon',614.900481737638,83);
+INSERT INTO consultation VALUES('Consultorio Nashville',262.762638341059,20);
+INSERT INTO consultation VALUES('Consultorio Valetta',72.8562546697707,76);
+INSERT INTO consultation VALUES('Consultorio Charlotte',847.980396453282,72);
+INSERT INTO consultation VALUES('Consultorio Madrid',9.10536007588048,94);
+INSERT INTO consultation VALUES('Consultorio Henderson',278.907731614033,75);
+INSERT INTO consultation VALUES('Consultorio Colorado Springs',26.5500859229593,94);
+INSERT INTO consultation VALUES('Consultorio Saint Paul',204.228282603542,25);
+INSERT INTO consultation VALUES('Consultorio Milano',264.12159087794,97);
+INSERT INTO consultation VALUES('Consultorio Las Vegas',934.939626127453,4);
+INSERT INTO consultation VALUES('Consultorio Irving',588.527261038091,52);
+INSERT INTO consultation VALUES('Consultorio Laredo',617.677494668717,2);
+INSERT INTO consultation VALUES('Consultorio Los Angeles',613.643566649707,7);
+INSERT INTO consultation VALUES('Consultorio Boston',399.108435865076,73);
+INSERT INTO consultation VALUES('Consultorio Oakland',151.054746484875,29);
+INSERT INTO consultation VALUES('Consultorio Reno',814.603895526195,20);
+INSERT INTO consultation VALUES('Consultorio Detroit',611.271003035489,66);
+INSERT INTO consultation VALUES('Consultorio Cincinnati',2.75600190542452,45);
+INSERT INTO consultation VALUES('Consultorio Fayetteville',70.2690353646265,53);
+INSERT INTO consultation VALUES('Consultorio Moreno Valley',387.581818885441,17);
+INSERT INTO consultation VALUES('Consultorio Zurich',538.212706147792,97);
+INSERT INTO consultation VALUES('Consultorio San Diego',161.032100057244,10);
+INSERT INTO consultation VALUES('Consultorio Richmond',386.272673306182,81);
+INSERT INTO consultation VALUES('Consultorio El Paso',655.324151726591,85);
+INSERT INTO consultation VALUES('Consultorio Hollywood',328.677462755552,56);
+INSERT INTO consultation VALUES('Consultorio Zurich',19.285755745734,73);
+INSERT INTO consultation VALUES('Consultorio San Bernardino',192.99936602544,15);
+INSERT INTO consultation VALUES('Consultorio Henderson',575.984649767161,32);
+INSERT INTO consultation VALUES('Consultorio Omaha',890.936057398997,18);
+INSERT INTO consultation VALUES('Consultorio Columbus',626.639470319561,68);
+INSERT INTO consultation VALUES('Consultorio Worcester',176.503147775542,34);
+INSERT INTO consultation VALUES('Consultorio Cincinnati',941.571627971051,41);
+INSERT INTO consultation VALUES('Consultorio Prague',411.549294590274,42);
+INSERT INTO consultation VALUES('Consultorio Oakland',25.8178845363752,33);
+INSERT INTO consultation VALUES('Consultorio Memphis',478.120769027677,37);
+INSERT INTO consultation VALUES('Consultorio Bellevue',888.966130861997,58);
+INSERT INTO consultation VALUES('Consultorio San Jose',953.24594116269,98);
+INSERT INTO consultation VALUES('Consultorio Reno',151.25693480729,36);
+INSERT INTO consultation VALUES('Consultorio Pittsburgh',994.978619224848,17);
+INSERT INTO consultation VALUES('Consultorio Murfreesboro',945.00674845558,91);
+INSERT INTO consultation VALUES('Consultorio Anaheim',586.398368864971,72);
+INSERT INTO consultation VALUES('Consultorio Lisbon',562.609620450814,54);
+INSERT INTO consultation VALUES('Consultorio Fayetteville',607.920910517183,13);
+INSERT INTO consultation VALUES('Consultorio Oklahoma City',272.521657545828,69);
+INSERT INTO consultation VALUES('Consultorio Boston',922.938523062476,77);
+
+
