@@ -4556,3 +4556,111 @@ INSERT INTO consultation VALUES('Consultorio Oklahoma City',272.521657545828,69)
 INSERT INTO consultation VALUES('Consultorio Boston',922.938523062476,77);
 
 
+ALTER TABLE telephone_patient
+DROP COLUMN creation_date
+
+ALTER TABLE telephone_patient
+DROP COLUMN update_date
+
+INSERT INTO telephone_patient VALUES('7-567-371-4872',84,1);
+INSERT INTO telephone_patient VALUES('8-431-670-5162',60,1);
+INSERT INTO telephone_patient VALUES('6-580-276-5277',71,2);
+INSERT INTO telephone_patient VALUES('3-437-015-5000',17,2);
+INSERT INTO telephone_patient VALUES('3-766-742-3044',88,2);
+INSERT INTO telephone_patient VALUES('4-056-554-8351',29,2);
+INSERT INTO telephone_patient VALUES('0-836-577-5377',55,1);
+INSERT INTO telephone_patient VALUES('2-342-088-4640',28,1);
+INSERT INTO telephone_patient VALUES('4-678-253-1428',38,2);
+INSERT INTO telephone_patient VALUES('5-080-261-4203',12,1);
+INSERT INTO telephone_patient VALUES('2-212-424-1317',51,2);
+INSERT INTO telephone_patient VALUES('2-187-048-1385',64,1);
+INSERT INTO telephone_patient VALUES('2-081-537-7318',20,2);
+INSERT INTO telephone_patient VALUES('5-861-715-5305',51,2);
+INSERT INTO telephone_patient VALUES('8-127-246-1032',25,2);
+INSERT INTO telephone_patient VALUES('3-678-085-2783',15,1);
+INSERT INTO telephone_patient VALUES('3-057-025-5354',49,2);
+INSERT INTO telephone_patient VALUES('4-455-548-2677',51,1);
+INSERT INTO telephone_patient VALUES('6-861-176-1154',16,1);
+INSERT INTO telephone_patient VALUES('8-570-034-1405',18,1);
+INSERT INTO telephone_patient VALUES('8-176-173-0568',24,1);
+INSERT INTO telephone_patient VALUES('5-652-804-2433',74,2);
+INSERT INTO telephone_patient VALUES('4-072-708-7843',45,1);
+INSERT INTO telephone_patient VALUES('6-723-787-5664',14,1);
+INSERT INTO telephone_patient VALUES('4-613-738-3321',33,2);
+INSERT INTO telephone_patient VALUES('8-255-127-4368',15,2);
+INSERT INTO telephone_patient VALUES('4-816-320-5425',54,2);
+INSERT INTO telephone_patient VALUES('8-403-410-7840',10,2);
+INSERT INTO telephone_patient VALUES('2-251-812-2781',63,2);
+INSERT INTO telephone_patient VALUES('7-123-881-3234',8,1);
+INSERT INTO telephone_patient VALUES('7-064-315-7070',39,1);
+INSERT INTO telephone_patient VALUES('4-240-476-4275',53,2);
+INSERT INTO telephone_patient VALUES('0-808-810-6215',34,2);
+INSERT INTO telephone_patient VALUES('0-817-320-5478',26,2);
+INSERT INTO telephone_patient VALUES('5-365-200-7056',9,2);
+INSERT INTO telephone_patient VALUES('7-341-086-8763',46,1);
+INSERT INTO telephone_patient VALUES('3-485-116-0560',73,2);
+INSERT INTO telephone_patient VALUES('4-268-336-3360',25,2);
+INSERT INTO telephone_patient VALUES('0-476-531-6647',51,2);
+INSERT INTO telephone_patient VALUES('5-382-644-1332',91,1);
+INSERT INTO telephone_patient VALUES('8-608-783-3012',85,1);
+INSERT INTO telephone_patient VALUES('6-516-673-7734',17,1);
+INSERT INTO telephone_patient VALUES('5-656-057-2335',82,2);
+INSERT INTO telephone_patient VALUES('8-115-163-6778',64,2);
+INSERT INTO telephone_patient VALUES('3-451-356-6356',39,1);
+INSERT INTO telephone_patient VALUES('6-062-158-8825',25,1);
+INSERT INTO telephone_patient VALUES('7-637-760-3136',27,1);
+INSERT INTO telephone_patient VALUES('0-005-431-1038',48,2);
+INSERT INTO telephone_patient VALUES('3-664-188-2703',56,2);
+INSERT INTO telephone_patient VALUES('0-364-580-1488',33,2);
+INSERT INTO telephone_patient VALUES('2-087-332-1336',66,1);
+INSERT INTO telephone_patient VALUES('7-362-050-7373',49,2);
+INSERT INTO telephone_patient VALUES('8-447-761-3672',96,2);
+INSERT INTO telephone_patient VALUES('0-246-087-3153',29,2);
+INSERT INTO telephone_patient VALUES('3-287-243-5376',53,2);
+INSERT INTO telephone_patient VALUES('0-460-442-3572',62,2);
+INSERT INTO telephone_patient VALUES('4-526-704-8274',81,2);
+INSERT INTO telephone_patient VALUES('6-505-371-4836',12,1);
+INSERT INTO telephone_patient VALUES('8-847-452-3062',69,1);
+INSERT INTO telephone_patient VALUES('6-056-522-8663',99,1);
+INSERT INTO telephone_patient VALUES('4-335-255-5043',46,1);
+INSERT INTO telephone_patient VALUES('7-415-768-2017',17,2);
+INSERT INTO telephone_patient VALUES('3-711-217-0170',52,1);
+INSERT INTO telephone_patient VALUES('5-035-412-1467',14,2);
+INSERT INTO telephone_patient VALUES('5-013-143-4274',93,1);
+INSERT INTO telephone_patient VALUES('2-535-601-3177',52,2);
+INSERT INTO telephone_patient VALUES('5-758-030-4468',80,2);
+INSERT INTO telephone_patient VALUES('4-103-285-1767',82,1);
+INSERT INTO telephone_patient VALUES('6-034-227-4847',29,2);
+INSERT INTO telephone_patient VALUES('0-867-737-0583',72,2);
+INSERT INTO telephone_patient VALUES('8-746-161-0600',5,2);
+INSERT INTO telephone_patient VALUES('6-815-511-4764',7,2);
+INSERT INTO telephone_patient VALUES('3-800-006-5208',18,1);
+INSERT INTO telephone_patient VALUES('0-163-756-2688',100,1);
+INSERT INTO telephone_patient VALUES('1-501-006-2310',63,1);
+INSERT INTO telephone_patient VALUES('0-273-813-2087',45,2);
+INSERT INTO telephone_patient VALUES('7-245-010-5815',20,2);
+INSERT INTO telephone_patient VALUES('8-406-866-7543',40,1);
+INSERT INTO telephone_patient VALUES('6-510-516-1236',71,1);
+INSERT INTO telephone_patient VALUES('7-431-121-8281',38,2);
+INSERT INTO telephone_patient VALUES('1-601-702-0344',87,2);
+INSERT INTO telephone_patient VALUES('3-475-020-7724',49,1);
+INSERT INTO telephone_patient VALUES('1-103-585-6081',7,2);
+INSERT INTO telephone_patient VALUES('6-414-082-5851',66,2);
+INSERT INTO telephone_patient VALUES('7-303-356-4808',1,2);
+INSERT INTO telephone_patient VALUES('4-172-455-4556',35,1);
+INSERT INTO telephone_patient VALUES('5-161-586-7125',71,2);
+INSERT INTO telephone_patient VALUES('4-306-314-1407',62,1);
+INSERT INTO telephone_patient VALUES('4-022-638-1046',73,1);
+INSERT INTO telephone_patient VALUES('0-203-725-8014',90,1);
+INSERT INTO telephone_patient VALUES('4-800-185-3354',87,2);
+INSERT INTO telephone_patient VALUES('1-634-720-8110',10,1);
+INSERT INTO telephone_patient VALUES('4-013-773-5701',91,1);
+INSERT INTO telephone_patient VALUES('7-105-554-3085',57,1);
+INSERT INTO telephone_patient VALUES('1-822-600-8352',1,2);
+INSERT INTO telephone_patient VALUES('5-482-525-4478',60,2);
+INSERT INTO telephone_patient VALUES('3-573-047-5543',55,1);
+INSERT INTO telephone_patient VALUES('0-833-465-7883',77,1);
+INSERT INTO telephone_patient VALUES('3-876-036-0531',100,1);
+INSERT INTO telephone_patient VALUES('6-118-056-1161',9,1);
+
+
