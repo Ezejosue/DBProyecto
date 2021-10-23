@@ -5010,3 +5010,86 @@ INSERT INTO voucher_check_payment VALUES('68','68');
 INSERT INTO voucher_check_payment VALUES('69','69');
 INSERT INTO voucher_check_payment VALUES('70','70');
 
+--Llenando tabla mail--
+alter table mail
+drop column creation_date
+
+alter table mail
+drop column update_date
+
+INSERT INTO mail VALUES('Bethany_Page 8536@irrepsy.com',72);
+INSERT INTO mail VALUES('Barry_Mackenzie1079@twipet.com',56);
+INSERT INTO mail VALUES('John_Neal9943@kideod.biz',50);
+INSERT INTO mail VALUES('Manuel_Power9810@ubusive.com',32);
+INSERT INTO mail VALUES('Ilona_Uttley6239@gmail.com',48);
+INSERT INTO mail VALUES('Willow_Hewitt8169@liret.org',34);
+INSERT INTO mail VALUES('Caitlyn_Nurton3456@eirey.tech',39);
+INSERT INTO mail VALUES('Ronald_Alcroft4512@infotech44.tech',2);
+INSERT INTO mail VALUES('Noah_Pitt3737@zorer.org',1);
+INSERT INTO mail VALUES('Enoch_Morgan9438@womeona.net',82);
+INSERT INTO mail VALUES('Roger_Cavanagh4915@muall.tech',69);
+INSERT INTO mail VALUES('Daron_Brett2673@elnee.tech',79);
+INSERT INTO mail VALUES('Cynthia_Neal6759@ovock.tech',33);
+INSERT INTO mail VALUES('Kimberly_Groves876@gompie.com',46);
+INSERT INTO mail VALUES('Bernadette_Harris588@grannar.com',46);
+INSERT INTO mail VALUES('Rick_Blythe2139@brety.org',16);
+INSERT INTO mail VALUES('Bob_Jarvis2696@ovock.tech',66);
+INSERT INTO mail VALUES('Mike_Rixon4179@bulaffy.com',19);
+INSERT INTO mail VALUES('Naomi_Allwood2547@mafthy.com',67);
+INSERT INTO mail VALUES('Bob_Moreno3988@gembat.biz',56);
+INSERT INTO mail VALUES('Leanne_Gunn5835@cispeto.com',82);
+INSERT INTO mail VALUES('Lexi_Ward4496@atink.com',41);
+INSERT INTO mail VALUES('Roger_Tutton191@sveldo.biz',79);
+INSERT INTO mail VALUES('Manuel_Mcnally5327@nickia.com',95);
+INSERT INTO mail VALUES('Rufus_Utterson4370@dionrab.com',19);
+INSERT INTO mail VALUES('Tony_Hamilton7951@twipet.com',51);
+INSERT INTO mail VALUES('Nina_Walsh6471@bauros.biz',68);
+INSERT INTO mail VALUES('Adalie_Todd4049@twipet.com',51);
+INSERT INTO mail VALUES('Carl_Redden7167@joiniaa.com',36);
+INSERT INTO mail VALUES('Lana_Hall8060@bungar.biz',99);
+INSERT INTO mail VALUES('Alan_Dickson7695@typill.biz',2);
+INSERT INTO mail VALUES('Doris_Healy4070@sveldo.biz',73);
+INSERT INTO mail VALUES('Jennifer_Dwyer4896@bretoux.com',72);
+INSERT INTO mail VALUES('Alan_Durrant5077@nickia.com',93);
+INSERT INTO mail VALUES('Jolene_Oliver9683@supunk.biz',85);
+INSERT INTO mail VALUES('Barney_Parsons2772@qater.org',51);
+INSERT INTO mail VALUES('Nick_Rainford4294@bretoux.com',12);
+INSERT INTO mail VALUES('Denny_Cooper6790@gembat.biz',8);
+INSERT INTO mail VALUES('Piper_Seymour600@twipet.com',70);
+INSERT INTO mail VALUES('Mark_Abbey2358@extex.org',86);
+INSERT INTO mail VALUES('Kendra_Rehman9245@nickia.com',3);
+INSERT INTO mail VALUES('Megan_Giles6098@extex.org',84);
+INSERT INTO mail VALUES('Miley_Dixon979@sheye.org',32);
+INSERT INTO mail VALUES('Charlotte_Roscoe6428@brety.org',49);
+INSERT INTO mail VALUES('Mason_Rigg7434@corti.com',55);
+INSERT INTO mail VALUES('Brad_Edmonds2762@twace.org',20);
+INSERT INTO mail VALUES('Erick_Flynn9811@supunk.biz',96);
+INSERT INTO mail VALUES('Mary_Foxley2975@corti.com',22);
+INSERT INTO mail VALUES('Georgia_Addison2454@bretoux.com',90);
+INSERT INTO mail VALUES('Esmeralda_Warner2830@gembat.biz',2);
+INSERT INTO mail VALUES('Angelica_Warden9457@nickia.com',72);
+INSERT INTO mail VALUES('Adalind_Jarrett7309@bauros.biz',97);
+INSERT INTO mail VALUES('Tom_Knight7715@dionrab.com',10);
+INSERT INTO mail VALUES('Tyson_Poulton5801@infotech44.tech',81);
+INSERT INTO mail VALUES('Chanelle_Adams5651@twace.org',47);
+INSERT INTO mail VALUES('Gil_Rossi6645@bauros.biz',84);
+INSERT INTO mail VALUES('Goldie_Roth1994@bungar.biz',19);
+INSERT INTO mail VALUES('Bart_Morris5427@vetan.org',36);
+INSERT INTO mail VALUES('Tara_Bradley2930@deavo.com',78);
+INSERT INTO mail VALUES('Phillip_Cooper9313@bulaffy.com',97);
+INSERT INTO mail VALUES('Sienna_Lynch4758@bungar.biz',68);
+INSERT INTO mail VALUES('Ellen_Clifford8674@grannar.com',43);
+INSERT INTO mail VALUES('Melody_Morris9949@bretoux.com',92);
+INSERT INTO mail VALUES('Rowan_Drake6060@gmail.com',77);
+INSERT INTO mail VALUES('Rufus_Jenkin8208@hourpy.biz',10);
+INSERT INTO mail VALUES('Josephine_Clifton9916@elnee.tech',12);
+INSERT INTO mail VALUES('Kurt_Rogan2460@nanoff.biz',63);
+INSERT INTO mail VALUES('Aisha_Kidd1642@atink.com',35);
+INSERT INTO mail VALUES('Susan_Russel6602@famism.biz',43);
+INSERT INTO mail VALUES('Rylee_Ellwood3829@mafthy.com',42);
+INSERT INTO mail VALUES('Scarlett_Johnson978@vetan.org',27);
+INSERT INTO mail VALUES('Marvin_Kelly3855@infotech44.tech',52);
+INSERT INTO mail VALUES('Martin_Anderson4664@kideod.biz',5);
+INSERT INTO mail VALUES('Fred_Janes58@grannar.com',1);
+INSERT INTO mail VALUES('Harry_Farrant2952@sveldo.biz',29);
+
