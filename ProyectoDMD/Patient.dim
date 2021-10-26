@@ -1,0 +1,181 @@
+﻿<Dimension xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0" dwd:design-time-name="f4cb5097-532b-4564-91d0-7550292ef117" xmlns="http://schemas.microsoft.com/analysisservices/2003/engine">
+  <ID>Patient</ID>
+  <Name>Patient</Name>
+  <CreatedTimestamp>0001-01-01T00:00:00Z</CreatedTimestamp>
+  <LastSchemaUpdate>0001-01-01T00:00:00Z</LastSchemaUpdate>
+  <Annotations>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramLayout</Name>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowFriendlyNames</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ShowRelationshipNames</Name>
+      <Value>false</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:UseDiagramDefaultLayout</Name>
+      <Value>true</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramViewPortTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingLeft</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramBoundingTop</Name>
+      <Value>0</Value>
+    </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
+      <Value>100</Value>
+    </Annotation>
+  </Annotations>
+  <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
+  <State>Unprocessed</State>
+  <Source xsi:type="DataSourceViewBinding" dwd:design-time-name="b2e006fa-c7da-434d-bde6-088466e04811">
+    <DataSourceViewID>ProyectoDataSource</DataSourceViewID>
+  </Source>
+  <ErrorConfiguration dwd:design-time-name="b5b52145-0594-4e54-8ca6-8bf50e495ef6">
+    <KeyNotFound>ReportAndStop</KeyNotFound>
+    <KeyDuplicate>ReportAndStop</KeyDuplicate>
+    <NullKeyNotAllowed>ReportAndStop</NullKeyNotAllowed>
+  </ErrorConfiguration>
+  <CurrentStorageMode>Molap</CurrentStorageMode>
+  <Attributes>
+    <Attribute dwd:design-time-name="f418814d-8511-4ae0-bda1-049e5ff101da">
+      <ID>Id</ID>
+      <Name>Id</Name>
+      <Usage>Key</Usage>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="38f279f3-5335-444b-a482-bf82f753afb2">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="186aede8-e234-490f-8483-823ef39905d1">
+            <TableID>dbo_patient</TableID>
+            <ColumnID>id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <AttributeRelationships>
+        <AttributeRelationship dwd:design-time-name="be8e2386-ba2a-42b5-ae62-3850410f6891">
+          <AttributeID>Country Id</AttributeID>
+          <Name>Country Id</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="201c583d-4429-49be-82b6-2fa49b9f7f39">
+          <AttributeID>Profession Id</AttributeID>
+          <Name>Profession Id</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="ac7e33e8-b56e-4183-99dc-734f1dcdb538">
+          <AttributeID>Civil Status Id</AttributeID>
+          <Name>Civil Status Id</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="f7a4f630-f601-4ff1-9529-b8ed255abb86">
+          <AttributeID>Blood Type Id</AttributeID>
+          <Name>Blood Type Id</Name>
+        </AttributeRelationship>
+        <AttributeRelationship dwd:design-time-name="17f50dc0-aee7-4b96-9e1e-30e08cae2313">
+          <AttributeID>Hospital Id</AttributeID>
+          <Name>Hospital Id</Name>
+        </AttributeRelationship>
+      </AttributeRelationships>
+      <OrderBy>Key</OrderBy>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="de74c189-7d78-4d2b-b242-dd0832f16133">
+      <ID>Country Id</ID>
+      <Name>Country Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="015a5844-cfe8-414d-b7e5-dc0626e8446d">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="35c31364-18cb-4f39-8a62-6ffc0229cc3b">
+            <TableID>dbo_patient</TableID>
+            <ColumnID>country_id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="d4335cb3-e238-4f28-aa90-0384e7fdeb66">
+      <ID>Profession Id</ID>
+      <Name>Profession Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="f777e239-5c4c-4bef-92ed-58c05ef6d165">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="6f579f73-8b43-4d3c-8ec1-5c5d343fbacd">
+            <TableID>dbo_patient</TableID>
+            <ColumnID>profession_id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="8bcaba69-c247-4d77-aaf7-73b2cf1f8259">
+      <ID>Civil Status Id</ID>
+      <Name>Civil Status Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="2d1e005a-aacd-4040-acf8-f9f9a486ef17">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="a4315774-84f6-4db6-af27-8c61eeb165d1">
+            <TableID>dbo_patient</TableID>
+            <ColumnID>civil_status_id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="3bfe8406-c57e-4f2d-a1f5-6e03e330c9d8">
+      <ID>Blood Type Id</ID>
+      <Name>Blood Type Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="eb15d925-dad8-4562-9d0c-46b8a2a5fbea">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="242528e3-e151-45f4-8f7c-cc8c7f7d23a7">
+            <TableID>dbo_patient</TableID>
+            <ColumnID>blood_type_id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+    <Attribute dwd:design-time-name="37cbac09-e5d2-40f3-9cdf-2da59b1d2a42">
+      <ID>Hospital Id</ID>
+      <Name>Hospital Id</Name>
+      <KeyColumns>
+        <KeyColumn dwd:design-time-name="d7fff9df-ba63-425f-a55d-e53e1b6c41d4">
+          <DataType>Integer</DataType>
+          <Source xsi:type="ColumnBinding" dwd:design-time-name="677ca569-6982-4a72-a3f5-392c738a9e61">
+            <TableID>dbo_patient</TableID>
+            <ColumnID>hospital_id</ColumnID>
+          </Source>
+        </KeyColumn>
+      </KeyColumns>
+      <OrderBy>Key</OrderBy>
+      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
+      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
+      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
+    </Attribute>
+  </Attributes>
+  <ddl300:ProcessingState>Unprocessed</ddl300:ProcessingState>
+</Dimension>
