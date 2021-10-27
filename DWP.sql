@@ -14570,3 +14570,11 @@ GO
 ALTER TABLE [dbo].[voucher_check_payment]  WITH CHECK ADD FOREIGN KEY([id_voucher])
 REFERENCES [dbo].[voucher] ([id])
 GO
+
+SELECT * FROM country;
+select name from country where name='Argentina';	
+select * from hospital;
+select * from patient;
+
+
+SELECT c.name, COUNT(h.country_id) FROM country c, hospital h WHERE c.id = h.country_id GROUP BY c.name
