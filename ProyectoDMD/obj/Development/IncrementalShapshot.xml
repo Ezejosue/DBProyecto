@@ -1,0 +1,96 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>ProyectoDMD</Database>
+    <Server>localhost</Server>
+    <ConnectionString>Data Source=localhost;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>DoNotProcess</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>ivMeeuMIOoRf80zePZ0O5O0xt9s=10/25/2021 8:26:07 PM10/25/2021 8:26:07 PM</TimeStamp>
+        <ID>
+          <String>ProyectoDataSource</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>o+l8gym3vFcOWrmpVGpU6eZoD2E=10/25/2021 8:29:10 PM10/25/2021 8:29:09 PM</TimeStamp>
+        <ID>
+          <String>ProyectoDataSource</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>8wQabxXMAWqGfjDSqpuEFICkDIE=10/25/2021 8:29:28 PM10/25/2021 8:29:28 PM</TimeStamp>
+        <ID>
+          <String>Blood Type</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>nmTyaggTqtBjwnoqOSHK2j0YqwM=10/25/2021 8:50:51 PM10/25/2021 8:29:28 PM</TimeStamp>
+        <ID>
+          <String>Country</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>MzRPEC6nJ+74QWdlskJR58efUpA=10/25/2021 8:29:29 PM10/25/2021 8:29:28 PM</TimeStamp>
+        <ID>
+          <String>Civil Status</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>eahk65h4aEijaxnKs44xyfwLLE4=10/25/2021 8:51:41 PM10/25/2021 8:29:28 PM</TimeStamp>
+        <ID>
+          <String>Hospital</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>GxQ1887Q0SlNoUpDGKR8J03WK40=10/25/2021 8:29:29 PM10/25/2021 8:29:28 PM</TimeStamp>
+        <ID>
+          <String>Profession</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>ZzOOZO42aPKh48eRluqRwh5p9aQ=10/25/2021 8:29:29 PM10/25/2021 8:29:28 PM</TimeStamp>
+        <ID>
+          <String>Patient</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>p8uHTIIsEQvLrL8MzmQOya7JVXs=10/25/2021 8:51:41 PM10/25/2021 8:29:28 PMw65OmGeXhOMI2iiZzOC4cMsrglM=10/25/2021 8:29:28 PM10/25/2021 8:29:28 PM</TimeStamp>
+        <ID>
+          <String>ProyectoDataSource</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>hZ3Tzf/XNITAKREwqFWgIOYqxvk=10/25/2021 7:51:30 PM10/25/2021 7:51:30 PM</TimeStamp>
+      <ID>
+        <String>ProyectoDMD</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations />
+  <ProcessingComplete>true</ProcessingComplete>
+  <LastDeployed>2021-10-26T02:51:48.473333Z</LastDeployed>
+</DeploymentSnapshot>
