@@ -372,6 +372,27 @@
           <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
           <Value>100</Value>
         </Annotation>
+        <Annotation>
+          <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ARDiagramLayout</Name>
+          <Value>
+            <DiagramLayout ZoomPercent="100" ViewPortX="0" ViewPortY="0" xmlns="">
+              <Shapes NodeWidth="72">
+                <Shape Id="Id" Expanded="false">
+                  <Attributes>
+                    <Attribute Id="Id" />
+                  </Attributes>
+                  <Position x="20" y="20" />
+                </Shape>
+                <Shape Id="Name" Expanded="false">
+                  <Attributes>
+                    <Attribute Id="Name" />
+                  </Attributes>
+                  <Position x="115" y="20" />
+                </Shape>
+              </Shapes>
+            </DiagramLayout>
+          </Value>
+        </Annotation>
       </Annotations>
       <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
       <State>Unprocessed</State>
@@ -402,32 +423,11 @@
           </KeyColumns>
           <AttributeRelationships>
             <AttributeRelationship>
-              <AttributeID>Country Id</AttributeID>
-              <Name>Country Id</Name>
-            </AttributeRelationship>
-            <AttributeRelationship>
               <AttributeID>Name</AttributeID>
               <Name>Name_</Name>
             </AttributeRelationship>
           </AttributeRelationships>
           <OrderBy>Key</OrderBy>
-          <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
-          <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
-        </Attribute>
-        <Attribute>
-          <ID>Country Id</ID>
-          <Name>Country Id</Name>
-          <KeyColumns>
-            <KeyColumn>
-              <DataType>Integer</DataType>
-              <Source xsi:type="ColumnBinding">
-                <TableID>dbo_hospital</TableID>
-                <ColumnID>country_id</ColumnID>
-              </Source>
-            </KeyColumn>
-          </KeyColumns>
-          <OrderBy>Key</OrderBy>
-          <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
           <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
           <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
         </Attribute>
@@ -462,11 +462,6 @@
               <ID>Name</ID>
               <Name>Name</Name>
               <SourceAttributeID>Name</SourceAttributeID>
-            </Level>
-            <Level>
-              <ID>Country Id</ID>
-              <Name>Country Id</Name>
-              <SourceAttributeID>Country Id</SourceAttributeID>
             </Level>
           </Levels>
         </Hierarchy>
@@ -1019,9 +1014,6 @@
               <AttributeID>Id</AttributeID>
             </Attribute>
             <Attribute>
-              <AttributeID>Country Id</AttributeID>
-            </Attribute>
-            <Attribute>
               <AttributeID>Name</AttributeID>
             </Attribute>
           </Attributes>
@@ -1535,19 +1527,6 @@
                   <Type>Granularity</Type>
                 </Attribute>
               </Attributes>
-            </Dimension>
-            <Dimension xsi:type="ReferenceMeasureGroupDimension">
-              <CubeDimensionID>Hospital - Country</CubeDimensionID>
-              <Attributes>
-                <Attribute>
-                  <AttributeID>Id</AttributeID>
-                  <Type>Granularity</Type>
-                </Attribute>
-              </Attributes>
-              <IntermediateCubeDimensionID>Hospital</IntermediateCubeDimensionID>
-              <IntermediateGranularityAttributeID>Country Id</IntermediateGranularityAttributeID>
-              <Materialization>Regular</Materialization>
-              <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
             </Dimension>
           </Dimensions>
           <Partitions>

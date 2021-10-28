@@ -1258,6 +1258,9 @@ INSERT INTO Empleado VALUES('197','Bob Gallacher','Champion  Alley, 3190','5-848
 INSERT INTO Empleado VALUES('198','Kurt Eddison','Fawn Hill, 3376','6-310-745-8165','Kurt_Eddison130@joiniaa.com','404-67-0440','M','4/6/1998',127,3);
 INSERT INTO Empleado VALUES('199','Peter Plumb','Dyott   Drive, 3394','5-880-411-6043','Peter_Plumb101@mafthy.com','640-84-0766','M','3/15/1984',48,2);
 INSERT INTO Empleado VALUES('200','Ciara Duvall','Jackson Alley, 5069','4-675-233-4244','Ciara_Duvall166@bungar.biz','265-64-1575','F','2/22/1984',41,3);
-
-
 GO
+
+INSERT INTO TipoPago VALUES('1', 'Efectivo')
+INSERT INTO TipoPago VALUES('2', 'Tarjeta de crédito')
+INSERT INTO TipoPago VALUES('3', 'Tarjeta de Débito')
+INSERT INTO TipoPago VALUES('4', 'Cheque')

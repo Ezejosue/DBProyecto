@@ -65,6 +65,27 @@
       <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:DiagramZoom</Name>
       <Value>100</Value>
     </Annotation>
+    <Annotation>
+      <Name>http://schemas.microsoft.com/DataWarehouse/Designer/1.0:ARDiagramLayout</Name>
+      <Value>
+        <DiagramLayout ZoomPercent="100" ViewPortX="0" ViewPortY="0" xmlns="">
+          <Shapes NodeWidth="72">
+            <Shape Id="Id" Expanded="false">
+              <Attributes>
+                <Attribute Id="Id" />
+              </Attributes>
+              <Position x="20" y="20" />
+            </Shape>
+            <Shape Id="Name" Expanded="false">
+              <Attributes>
+                <Attribute Id="Name" />
+              </Attributes>
+              <Position x="115" y="20" />
+            </Shape>
+          </Shapes>
+        </DiagramLayout>
+      </Value>
+    </Annotation>
   </Annotations>
   <LastProcessed>0001-01-01T00:00:00Z</LastProcessed>
   <State>Unprocessed</State>
@@ -94,33 +115,12 @@
         </KeyColumn>
       </KeyColumns>
       <AttributeRelationships>
-        <AttributeRelationship dwd:design-time-name="ffc2bedd-b816-4956-b569-b1e5873a4aaa">
-          <AttributeID>Country Id</AttributeID>
-          <Name>Country Id</Name>
-        </AttributeRelationship>
         <AttributeRelationship dwd:design-time-name="68e11663-c2f3-43f2-a8b9-bcc66de99445">
           <AttributeID>Name</AttributeID>
           <Name>Name_</Name>
         </AttributeRelationship>
       </AttributeRelationships>
       <OrderBy>Key</OrderBy>
-      <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
-      <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
-    </Attribute>
-    <Attribute dwd:design-time-name="94a313a1-3584-4e0c-8097-2e2d686c7c23">
-      <ID>Country Id</ID>
-      <Name>Country Id</Name>
-      <KeyColumns>
-        <KeyColumn dwd:design-time-name="b79b77ab-b2a1-4e2c-8097-a9e60d2f39bc">
-          <DataType>Integer</DataType>
-          <Source xsi:type="ColumnBinding" dwd:design-time-name="b0dfe143-918b-4860-87d5-e7abe3de776d">
-            <TableID>dbo_hospital</TableID>
-            <ColumnID>country_id</ColumnID>
-          </Source>
-        </KeyColumn>
-      </KeyColumns>
-      <OrderBy>Key</OrderBy>
-      <AttributeHierarchyVisible>false</AttributeHierarchyVisible>
       <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
       <ddl300:AttributeHierarchyProcessingState>Unprocessed</ddl300:AttributeHierarchyProcessingState>
     </Attribute>
@@ -155,11 +155,6 @@
           <ID>Name</ID>
           <Name>Name</Name>
           <SourceAttributeID>Name</SourceAttributeID>
-        </Level>
-        <Level dwd:design-time-name="82d8b463-c058-4de2-b6c9-956ea54872e0">
-          <ID>Country Id</ID>
-          <Name>Country Id</Name>
-          <SourceAttributeID>Country Id</SourceAttributeID>
         </Level>
       </Levels>
     </Hierarchy>

@@ -284,9 +284,6 @@
         <Attribute dwd:design-time-name="ee989481-0bb8-4f31-afa1-0378025d8ad4">
           <AttributeID>Id</AttributeID>
         </Attribute>
-        <Attribute dwd:design-time-name="07ab6b58-0acc-4a16-874c-9245822b4c51">
-          <AttributeID>Country Id</AttributeID>
-        </Attribute>
         <Attribute dwd:design-time-name="5b40b384-d05e-45aa-91e0-01cb64e927ea">
           <AttributeID>Name</AttributeID>
         </Attribute>
@@ -737,19 +734,6 @@
               <Type>Granularity</Type>
             </Attribute>
           </Attributes>
-        </Dimension>
-        <Dimension xsi:type="ReferenceMeasureGroupDimension" dwd:design-time-name="4001a50c-205b-4e48-b87f-69cb71886590">
-          <CubeDimensionID>Hospital - Country</CubeDimensionID>
-          <Attributes>
-            <Attribute dwd:design-time-name="44263eef-ed29-4ab6-8c61-e06759e1c242">
-              <AttributeID>Id</AttributeID>
-              <Type>Granularity</Type>
-            </Attribute>
-          </Attributes>
-          <IntermediateCubeDimensionID>Hospital</IntermediateCubeDimensionID>
-          <IntermediateGranularityAttributeID>Country Id</IntermediateGranularityAttributeID>
-          <Materialization>Regular</Materialization>
-          <ddl200:ProcessingState>Unprocessed</ddl200:ProcessingState>
         </Dimension>
       </Dimensions>
       <Partitions />

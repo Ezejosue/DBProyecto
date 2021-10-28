@@ -54,7 +54,7 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Dimension</Type>
-        <TimeStamp>eahk65h4aEijaxnKs44xyfwLLE4=10/25/2021 8:51:41 PM10/25/2021 8:29:28 PM</TimeStamp>
+        <TimeStamp>AE8/vbdbHhvby9yxYjLr1YvBUpY=10/25/2021 9:22:51 PM10/25/2021 8:29:28 PM</TimeStamp>
         <ID>
           <String>Hospital</String>
         </ID>
@@ -75,7 +75,7 @@
       </ObjectSnapshot>
       <ObjectSnapshot>
         <Type>Microsoft.AnalysisServices.Cube</Type>
-        <TimeStamp>p8uHTIIsEQvLrL8MzmQOya7JVXs=10/25/2021 8:51:41 PM10/25/2021 8:29:28 PMw65OmGeXhOMI2iiZzOC4cMsrglM=10/25/2021 8:29:28 PM10/25/2021 8:29:28 PM</TimeStamp>
+        <TimeStamp>cFnlnqQt86Z4hmtZJUaK1CBJW+0=10/25/2021 9:22:51 PM10/25/2021 8:29:28 PMw65OmGeXhOMI2iiZzOC4cMsrglM=10/25/2021 8:29:28 PM10/25/2021 8:29:28 PM</TimeStamp>
         <ID>
           <String>ProyectoDataSource</String>
         </ID>
@@ -92,5 +92,5 @@
   </Snapshot>
   <AssemblyLocations />
   <ProcessingComplete>true</ProcessingComplete>
-  <LastDeployed>2021-10-26T02:51:48.473333Z</LastDeployed>
+  <LastDeployed>2021-10-26T03:23:04.883333Z</LastDeployed>
 </DeploymentSnapshot>
