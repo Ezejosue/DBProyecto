@@ -1058,6 +1058,7 @@ Los Angeles, CA 90064', '(310) 268-9190', 'IdeasaleLA@Ideasale.com', 199),
     (3, 'Ideasale España', ' C/ Eduard Maristany, 19708912 Badalona (Barcelona)', '936247963', 'IdeasaleES@Ideasale.com', 48);
 GO
 
+
 INSERT INTO Empleado VALUES('1','Chester Carson','Union  Way, 9851','8-865-777-2533','Chester_Carson143@typill.biz','352-87-4818','M','6/29/1980',89,2);
 INSERT INTO Empleado VALUES('2','Ada Ellwood','King Drive, 5227','4-042-014-8503','Ada_Ellwood114@brety.org','341-08-6702','F','3/30/1980',172,3);
 INSERT INTO Empleado VALUES('3','Anthony Griffiths','Mariner   Walk, 674','2-343-750-8813','Anthony_Griffiths143@famism.biz','832-43-0413','M','11/6/1990',180,2);
