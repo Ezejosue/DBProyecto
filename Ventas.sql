@@ -99,7 +99,7 @@ CREATE TABLE TipoPago
 CREATE TABLE EstadoVentas
 (
     id INT NOT NULL PRIMARY KEY,
-    Estado INT NOT NULL
+    Estado VARCHAR(50) NOT NULL
 
 )
 
@@ -1264,3 +1264,10 @@ INSERT INTO TipoPago VALUES('1', 'Efectivo')
 INSERT INTO TipoPago VALUES('2', 'Tarjeta de crédito')
 INSERT INTO TipoPago VALUES('3', 'Tarjeta de Débito')
 INSERT INTO TipoPago VALUES('4', 'Cheque')
+GO
+
+INSERT INTO EstadoVentas VALUES('1', 'Finalizado')
+INSERT INTO EstadoVentas VALUES('2', 'Pendiente')
+INSERT INTO EstadoVentas VALUES('3', 'En proceso')
+INSERT INTO EstadoVentas VALUES('4', 'Cancelado')
+GO
