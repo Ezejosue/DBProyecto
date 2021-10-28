@@ -83,11 +83,11 @@ CREATE TABLE Stock
 (
     id INT NOT NULL PRIMARY KEY,
     sucursal INT NOT NULL FOREIGN KEY REFERENCES Sucursal(id),
-    proveedor INT NOT NULL FOREIGN KEY REFERENCES Proveedor(id),
+    producto INT NOT NULL FOREIGN KEY REFERENCES Productos(id),
     cantidad INT NOT NULL,
     fechaEntrada DATETIME,
-
 )
+
 
 CREATE TABLE TipoPago
 (
@@ -1293,7 +1293,7 @@ INSERT INTO Productos VALUES ('18', 'Alize Red Passion', 4.42, 1, 20);
 INSERT INTO Productos VALUES ('19', 'Wine - Sauvignon Blanc Oyster', 2.84, 1, 2);
 INSERT INTO Productos VALUES ('20', 'Pepper - Jalapeno', 2.16, 1, 18);
 INSERT INTO Productos VALUES ('21', 'Soup - Campbells Bean Medley', 1.45, 1, 26);
-INSERT INTO Productos VALUES '22', 'Bread - Calabrese Baguette', 1.74, 1, 25);
+INSERT INTO Productos VALUES ('22', 'Bread - Calabrese Baguette', 1.74, 1, 25);
 INSERT INTO Productos VALUES ('23', 'Wine - Shiraz Wolf Blass Premium', 8.85, 1, 22);
 INSERT INTO Productos VALUES ('24', 'Nut - Chestnuts, Whole', 8.71, 1, 3);
 INSERT INTO Productos VALUES ('25', 'Icecream - Dstk Strw Chseck', 7.32, 1, 28);
