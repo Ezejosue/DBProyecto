@@ -1271,3 +1271,56 @@ INSERT INTO EstadoVentas VALUES('2', 'Pendiente')
 INSERT INTO EstadoVentas VALUES('3', 'En proceso')
 INSERT INTO EstadoVentas VALUES('4', 'Cancelado')
 GO
+
+INSERT INTO Productos VALUES ('1', 'Marsala - Sperone, Fine, D.o.c.', 2.18, 1, 5);
+INSERT INTO Productos VALUES ('2', 'Southern Comfort', 1.63, 1, 19);
+INSERT INTO Productos VALUES ('3', 'Poppy Seed', 5.88, 1, 10);
+INSERT INTO Productos VALUES ('4', 'Chevril', 2.19, 1, 1);
+INSERT INTO Productos VALUES ('5', 'Kellogs All Bran Bars', 9.79, 1, 6);
+INSERT INTO Productos VALUES ('6', 'Snapple - Iced Tea Peach', 4.8, 1, 11);
+INSERT INTO Productos VALUES ('7', 'Crackers - Soda / Saltins', 9.0, 1, 19);
+INSERT INTO Productos VALUES ('8', 'Veal - Nuckle', 6.85, 1, 21);
+INSERT INTO Productos VALUES ('9', 'Yogurt - Banana, 175 Gr', 1.95, 1, 3);
+INSERT INTO Productos VALUES ('10', 'Country Roll', 8.13, 1, 10);
+INSERT INTO Productos VALUES ('11', 'Bag Clear 10 Lb', 9.89, 1, 24);
+INSERT INTO Productos VALUES ('12', 'Sauce - Mint', 2.3, 1, 16);
+INSERT INTO Productos VALUES ('13', 'Cake - French Pear Tart', 8.85, 1, 1);
+INSERT INTO Productos VALUES ('14', 'Ice Cream Bar - Rolo Cone', 4.4, 1, 6);
+INSERT INTO Productos VALUES ('15', 'Milk - Homo', 1.82, 1, 30);
+INSERT INTO Productos VALUES ('16', 'Cornflakes', 7.31, 1, 8);
+INSERT INTO Productos VALUES ('17', 'Pepper - Green, Chili', 9.8, 1, 5);
+INSERT INTO Productos VALUES ('18', 'Alize Red Passion', 4.42, 1, 20);
+INSERT INTO Productos VALUES ('19', 'Wine - Sauvignon Blanc Oyster', 2.84, 1, 2);
+INSERT INTO Productos VALUES ('20', 'Pepper - Jalapeno', 2.16, 1, 18);
+INSERT INTO Productos VALUES ('21', 'Soup - Campbells Bean Medley', 1.45, 1, 26);
+INSERT INTO Productos VALUES '22', 'Bread - Calabrese Baguette', 1.74, 1, 25);
+INSERT INTO Productos VALUES ('23', 'Wine - Shiraz Wolf Blass Premium', 8.85, 1, 22);
+INSERT INTO Productos VALUES ('24', 'Nut - Chestnuts, Whole', 8.71, 1, 3);
+INSERT INTO Productos VALUES ('25', 'Icecream - Dstk Strw Chseck', 7.32, 1, 28);
+INSERT INTO Productos VALUES ('26', 'Cinnamon - Stick', 8.2, 1, 14);
+INSERT INTO Productos VALUES ('27', 'Quail - Eggs, Fresh', 5.41, 1, 9);
+INSERT INTO Productos VALUES ('28', 'Wine - Red, Marechal Foch', 9.87, 1, 13);
+INSERT INTO Productos VALUES ('29', 'Grouper - Fresh', 7.31, 1, 28);
+INSERT INTO Productos VALUES ('30', 'Sorrel - Fresh', 9.87, 1, 11);
+INSERT INTO Productos VALUES ('31', 'Chicken - Ground', 2.96, 1, 16);
+INSERT INTO Productos VALUES ('32', 'Beef - Prime Rib Aaa', 6.1, 1, 11);
+INSERT INTO Productos VALUES ('33', 'Shiratamako - Rice Flour', 1.25, 1, 19);
+INSERT INTO Productos VALUES ('34', 'Danishes - Mini Raspberry', 9.82, 1, 2);
+INSERT INTO Productos VALUES ('35', 'Tomatoes - Hot House', 1.32, 1, 29);
+INSERT INTO Productos VALUES ('36', 'The Pop Shoppe Pinapple', 5.5, 1, 25);
+INSERT INTO Productos VALUES ('37', 'Quiche Assorted', 6.65, 1, 22);
+INSERT INTO Productos VALUES ('38', 'Capon - Breast, Double, Wing On', 4.8, 1, 4);
+INSERT INTO Productos VALUES ('39', 'Capon - Breast, Double, Wing On', 5.16, 1, 5);
+INSERT INTO Productos VALUES ('40', 'Cleaner - Comet', 8.88, 1, 25);
+INSERT INTO Productos VALUES ('41', 'Numi - Assorted Teas', 5.87, 1, 1);
+INSERT INTO Productos VALUES ('42', 'Scallops - U - 10', 6.4, 1, 20);
+INSERT INTO Productos VALUES ('43', 'Energy - Boo - Koo', 5.08, 1, 12);
+INSERT INTO Productos VALUES ('44', 'Pepper - Pablano', 3.79, 1, 8);
+INSERT INTO Productos VALUES ('45', 'Capon - Whole', 5.14, 1, 22);
+INSERT INTO Productos VALUES ('46', 'Cake - Cheese Cake 9 Inch', 3.33, 1, 24);
+INSERT INTO Productos VALUES ('47', 'Ranchero - Primerba, Paste', 5.24, 1, 1);
+INSERT INTO Productos VALUES ('48', 'Pork - Hock And Feet Attached', 3.61, 1, 3);
+INSERT INTO Productos VALUES ('49', 'Jack Daniels', 6.13, 1, 9);
+INSERT INTO Productos VALUES ('50', 'Cheese - Havarti, Roasted Garlic', 9.77, 1, 21);
+
+GO
