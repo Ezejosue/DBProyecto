@@ -104,17 +104,8 @@ CREATE TABLE EstadoVentas
 )
 
 
-CREATE TABLE DetalleVenta
-(
-    id INT NOT NULL PRIMARY KEY,
-    producto INT NOT NULL FOREIGN KEY REFERENCES Productos(id),
-    Cantidad INT NOT NULL
-
-)
-
 CREATE TABLE Venta
-(
-    producto INT NOT NULL FOREIGN KEY REFERENCES Productos(id),
+(   
     id INT NOT NULL PRIMARY KEY,
     empleado INT NOT NULL FOREIGN KEY REFERENCES Empleado(id),
     tipoPago INT NOT NULL FOREIGN KEY REFERENCES TipoPago(id),
@@ -122,6 +113,15 @@ CREATE TABLE Venta
     Fecha DATETIME,
 
 )
+
+CREATE TABLE DetalleVenta
+(
+    id INT NOT NULL PRIMARY KEY,
+    producto INT NOT NULL FOREIGN KEY REFERENCES Productos(id),
+    Cantidad INT NOT NULL,
+	idVenta INT NOT NULL FOREIGN KEY REFERENCES Venta(id)
+)
+
 
 GO
 
