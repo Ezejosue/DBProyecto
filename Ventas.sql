@@ -1908,3 +1908,15 @@ INSERT INTO DetalleVenta VALUES ('148', 65, 2,15);
 INSERT INTO DetalleVenta VALUES ('149', 106, 2,16);
 INSERT INTO DetalleVenta VALUES ('150', 63, 2,17);
 GO
+
+
+--Tabla productos vendidos por categoria
+IF OBJECT_ID('ProductosVendidos') is NOT NULL drop TABLE ProductosVendidos
+
+
+SELECT c.nombreCategoria, COUNT(d.producto) AS N_Ventas
+into ProductosVendidos
+from Venta d
+    FULL OUTER JOIN Categorias c
+    on d.id = c.id INNER JOIN Productos p ON p.nombreCategoria = c.id
+GROUP BY c.nombreCategoria;
