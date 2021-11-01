@@ -122,8 +122,6 @@ CREATE TABLE DetalleVenta
     Cantidad INT NOT NULL,
 	idVenta INT NOT NULL FOREIGN KEY REFERENCES Venta(id)
 )
-
-
 GO
 
 INSERT INTO Tipo_Membresias
@@ -1632,7 +1630,7 @@ INSERT INTO Venta VALUES ('25', 142, 2, 4, '3/14/2021',1);
 INSERT INTO Venta VALUES ('26', 121, 3, 4, '5/15/2021',1);
 INSERT INTO Venta VALUES ('27', 192, 1, 4, '10/29/2019',2);
 INSERT INTO Venta VALUES ('28', 102, 4, 3, '12/8/2020',2);
-INSERT INTO Venta VALUES ('29', 98, 4, 4, '11/1/2020'3);
+INSERT INTO Venta VALUES ('29', 98, 4, 4, '11/1/2020',3);
 INSERT INTO Venta VALUES ('30', 82, 3, 1, '6/30/2021',2);
 INSERT INTO Venta VALUES ('31', 71, 1, 3, '8/2/2020',2);
 INSERT INTO Venta VALUES ('32', 112, 2, 1, '1/10/2021',2);
@@ -1661,7 +1659,7 @@ INSERT INTO Venta VALUES ('54', 26, 2, 1, '7/23/2021',3);
 INSERT INTO Venta VALUES ('55', 161, 3, 2, '5/26/2021',2);
 INSERT INTO Venta VALUES ('56', 156, 3, 3, '4/2/2021',2);
 INSERT INTO Venta VALUES ('57', 167, 3, 2, '2/25/2020',1);
-INSERT INTO Venta VALUES ('58', 167, 2, 1, '7/16/2020'1);
+INSERT INTO Venta VALUES ('58', 167, 2, 1, '7/16/2020',1);
 INSERT INTO Venta VALUES ('59', 131, 3, 4, '3/1/2021',2);
 INSERT INTO Venta VALUES ('60', 35, 3, 3, '10/12/2021',3);
 INSERT INTO Venta VALUES ('61', 190, 4, 4, '3/28/2021',3);
@@ -1756,8 +1754,7 @@ INSERT INTO Venta VALUES ('149', 121, 3, 4, '4/7/2021',2);
 INSERT INTO Venta VALUES ('150', 84, 4, 3, '5/4/2021',1);
 GO
 
-
-INSERT INTO DetalleVenta VALUES ('1', 100, 1,1);
+INSERT INTO DetalleVenta VALUES ('1', 100, 1,2);
 INSERT INTO DetalleVenta VALUES ('2', 82, 1,1);
 INSERT INTO DetalleVenta VALUES ('3', 53, 3,1);
 INSERT INTO DetalleVenta VALUES ('4', 5, 2,2);
@@ -1911,12 +1908,38 @@ GO
 
 
 --Tabla productos vendidos por categoria
-IF OBJECT_ID('ProductosVendidos') is NOT NULL drop TABLE ProductosVendidos
+IF OBJECT_ID('ProductosVendidos') IS NOT NULL DROP TABLE ProductosVendidos
 
 
 SELECT c.nombreCategoria, COUNT(d.producto) AS N_Ventas
-into ProductosVendidos
-from Venta d
+INTO ProductosVendidos
+FROM Venta d
     FULL OUTER JOIN Categorias c
-    on d.id = c.id INNER JOIN Productos p ON p.nombreCategoria = c.id
+    ON d.id = c.id INNER JOIN Productos p ON p.nombreCategoria = c.id
 GROUP BY c.nombreCategoria;
+GO
+--Tabla ventas por sucursal
+IF OBJECT_ID('SucursalVenta') IS NOT NULL DROP TABLE SucursalVenta
+
+SELECT s.nombreSucursal, COUNT(v.id) AS N_ventas
+INTO SucursalVenta
+FROM  Venta v
+INNER JOIN Empleado e ON V.empleado = e.id INNER JOIN Sucursal s ON s.id = e.sucursal GROUP BY s.nombreSucursal
+GO
+
+--Empleados con más ventas
+IF OBJECT_ID('EmpleadoVenta') IS NOT NULL DROP TABLE EmpleadoVenta
+
+SELECT TOP 10
+    e.nombreEmpleado, COUNT(v.id) AS Ventas 
+INTO EmpleadoVenta
+FROM Empleado e
+INNER JOIN Venta V ON e.id = v.empleado GROUP BY e.nombreEmpleado ORDER by Ventas DESC;
+
+GO
+
+
+SELECT p.nombreProducto, COUNT(v.producto) AS Ventas  FROM Productos p INNER JOIN Venta v ON p.id = v.producto GROUP BY p.nombreProducto ORDER BY Ventas DESC 
+
+SELECT p.nombreProducto, v.Fecha,  SUM(p.precioUnitario) FROM DetalleVenta d INNER JOIN Venta v ON v.id = d.idVenta INNER JOIN Productos p ON P.id=d.producto GROUP BY v.Fecha
+
