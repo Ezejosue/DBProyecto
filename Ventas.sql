@@ -1906,18 +1906,19 @@ INSERT INTO DetalleVenta VALUES ('149', 106, 2,16);
 INSERT INTO DetalleVenta VALUES ('150', 63, 2,17);
 GO
 
-
+select * from Venta
 --Tabla productos vendidos por categoria
 IF OBJECT_ID('ProductosVendidos') IS NOT NULL DROP TABLE ProductosVendidos
 
-
 SELECT c.nombreCategoria, COUNT(d.producto) AS N_Ventas
 INTO ProductosVendidos
-FROM Venta d
-    FULL OUTER JOIN Categorias c
+FROM DetalleVenta d
+     INNER JOIN Categorias c
     ON d.id = c.id INNER JOIN Productos p ON p.nombreCategoria = c.id
 GROUP BY c.nombreCategoria;
 GO
+
+SELECT * FROM ProductosVendidos
 --Tabla ventas por sucursal
 IF OBJECT_ID('SucursalVenta') IS NOT NULL DROP TABLE SucursalVenta
 
@@ -1926,6 +1927,8 @@ INTO SucursalVenta
 FROM  Venta v
 INNER JOIN Empleado e ON V.empleado = e.id INNER JOIN Sucursal s ON s.id = e.sucursal GROUP BY s.nombreSucursal
 GO
+
+SELECT * FROM SucursalVenta
 
 --Empleados con más ventas
 IF OBJECT_ID('EmpleadoVenta') IS NOT NULL DROP TABLE EmpleadoVenta
@@ -1938,8 +1941,21 @@ INNER JOIN Venta V ON e.id = v.empleado GROUP BY e.nombreEmpleado ORDER by Venta
 
 GO
 
+SELECT * FROM EmpleadoVenta
 
-SELECT p.nombreProducto, COUNT(v.producto) AS Ventas  FROM Productos p INNER JOIN Venta v ON p.id = v.producto GROUP BY p.nombreProducto ORDER BY Ventas DESC 
 
-SELECT p.nombreProducto, v.Fecha,  SUM(p.precioUnitario) FROM DetalleVenta d INNER JOIN Venta v ON v.id = d.idVenta INNER JOIN Productos p ON P.id=d.producto GROUP BY v.Fecha
+--Productos mas vendidos
+IF OBJECT_ID('ProductosVenta') IS NOT NULL DROP TABLE ProductosVenta
+
+SELECT TOP 10 p.nombreProducto, COUNT(v.producto) AS Ventas 
+INTO ProductosVenta
+FROM Productos p
+INNER JOIN DetalleVenta v ON p.id = v.producto GROUP BY p.nombreProducto ORDER BY Ventas DESC 
+
+GO
+
+SELECT * FROM ProductosVenta
+
+
+
 
