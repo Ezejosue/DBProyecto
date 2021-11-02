@@ -1957,5 +1957,12 @@ GO
 SELECT * FROM ProductosVenta
 
 
+--Canitdad de miebros por membresia
 
+IF OBJECT_ID('MiembrosTipo') IS NOT NULL DROP TABLE MiembrosTipo
+SELECT membresia as [Membresias], COUNT(t.id) as [Total]
+INTO MiembrosTipo
+FROM Tipo_Membresias t INNER JOIN Miembros m ON t.id = m.Tipo
+GROUP BY (membresia)
 
+SELECT * FROM MiembrosTipo
