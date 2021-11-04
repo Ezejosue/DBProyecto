@@ -1919,6 +1919,7 @@ GROUP BY c.nombreCategoria;
 GO
 
 SELECT * FROM ProductosVendidos
+
 --Tabla ventas por sucursal
 IF OBJECT_ID('SucursalVenta') IS NOT NULL DROP TABLE SucursalVenta
 
